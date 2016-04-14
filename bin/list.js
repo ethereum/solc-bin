@@ -76,3 +76,20 @@ var soljsonSources = [
   'soljson-v0.1.2-2015-09-14-d0d36e3.js',
   'soljson-v0.1.1-2015-08-04-6ff4cd6.js',
 ];
+var soljsonReleases = {};
+(function() {
+  var version = '';
+  for (var i = soljsonSources.length - 1; i >= 0; --i) {
+    var thisVersion = soljsonSources[i].match(/soljson-v([0-9.]*)-.*.js/)[1];
+    if (thisVersion === version)
+      continue;
+    version = thisVersion;
+    soljsonReleases[version] = soljsonSources[i];
+  }
+})();
+
+if (typeof(module) !== 'undefined')
+  module.exports = {
+    'allVersions': soljsonSources,
+    'releases': soljsonReleases
+  };

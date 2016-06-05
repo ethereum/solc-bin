@@ -1,4 +1,5 @@
 var soljsonSources = [
+  'soljson-v0.3.4-2016-06-04-602bcd3.js',
   'soljson-v0.3.4-2016-05-31-7dab890.js',
   'soljson-v0.3.3-2016-05-31-7dab890.js',
   'soljson-v0.3.3-2016-05-30-4be92c0.js',

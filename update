@@ -1,61 +1,62 @@
 #!/usr/bin/env node
 
-'use strict';
+'use strict'
 
-const fs = require('fs')
+const fs = require('fs');
+const path = require('path');
 
 // This script updates the index files list.js and list.txt in the bin directory,
 // as well as the soljson-latest.js files.
 
-const OUTPUT_DIR = __dirname + '/bin';
+const OUTPUT_DIR = path.join(__dirname, '/bin');
 
-fs.readdir(OUTPUT_DIR, function(err, files) {
-	if (err) return err;
+fs.readdir(OUTPUT_DIR, function (err, files) {
+  if (err) return err
 
-	const parsedList = files
-		.map(function(file) {return file.match(/^soljson-v([0-9.]*)-.*.js$/)})
-    	.filter(function(version) { return version})
-		.map(function(pars) {return {path: pars[0], version: pars[1]}})
+  const allVersions = files
+    .map(function (file) { return file.match(/^soljson-v([0-9.]*)-.*.js$/) })
+    .filter(function (version) { return version })
+    .map(function (pars) { return { path: pars[0], version: pars[1] } });
 
-    const parsedObject = parsedList
-    	.reduce(function(prev, next) {
-    		prev[next.version] = next.path;
-    		return prev;
-    	}, {})
+  const releases = allVersions
+    .reduce(function (prev, next) {
+      prev[next.version] = next.path
+      return prev
+    }, {});
 
-    const pathList = parsedList
-        .map(function(ver) {return ver.path})
-        .reduce(function(prev, next) { return prev+'\n'+next});
+  const pathList = allVersions
+    .map(function (ver) { return ver.path })
+    .reverse()
+    .reduce(function (prev, next) { return prev + '\n' + next });
 
-    const latest = parsedList[parsedList.length-1].path;
+  const latest = allVersions[allVersions.length - 1].path;
 
-    // Write bin/list.txt
-    fs.writeFile(OUTPUT_DIR+'/list.txt', pathList, function(err) {
-        if (err) throw err;
-        console.log('Updated bin/list.txt')
-    })
+  // Write bin/list.txt
+  fs.writeFile(OUTPUT_DIR + '/list.txt', pathList, function (err) {
+    if (err) throw err
+    console.log('Updated bin/list.txt')
+  });
 
-    // Write bin/list.json
-    fs.writeFile(OUTPUT_DIR+'/list.json', JSON.stringify(parsedObject), function(err) {
-    	if (err) throw err;
-    	console.log('Updated bin/list.json')
-    })
+  // Write bin/list.json
+  fs.writeFile(OUTPUT_DIR + '/list.json', JSON.stringify({'releases': releases, 'allVersions': allVersions}), function (err) {
+    if (err) throw err
+    console.log('Updated bin/list.json')
+  });
 
-    // Read latest version
-    fs.readFile(OUTPUT_DIR+'/'+latest, function(err, data) {
-    	if (err) throw err;
+  // Read latest version
+  fs.readFile(OUTPUT_DIR + '/' + latest, function (err, data) {
+    if (err) throw err
 
-        // Copy to bin/soljson-latest.js
-	    fs.writeFile(OUTPUT_DIR+'/soljson-latest.js', data, function(err) {
-	    	if (err) throw err;
-	    	console.log('Updated bin/soljson-latest.js')
-	    })
+    // Copy to bin/soljson-latest.js
+    fs.writeFile(OUTPUT_DIR + '/soljson-latest.js', data, function (err) {
+      if (err) throw err
+      console.log('Updated bin/soljson-latest.js')
+    });
 
-        // Copy to soljson.js
-	    fs.writeFile('soljson.js', data, function(err) {
-	    	if (err) throw err;
-	    	console.log('Updated soljson.js')
-	    })
-    })
-
-})
+    // Copy to soljson.js
+    fs.writeFile('soljson.js', data, function (err) {
+      if (err) throw err
+      console.log('Updated soljson.js')
+    });
+  });
+});

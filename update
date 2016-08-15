@@ -24,8 +24,8 @@ fs.readdir(OUTPUT_DIR, function (err, files) {
     }, {})
 
   const pathList = parsedList
-    .map(function (ver) {return ver.path})
-    .reduce(function (prev, next) { return prev + '\n' + next})
+    .map(function (ver) { return ver.path })
+    .reduce(function (prev, next) { return prev + '\n' + next })
 
   const latest = parsedList[parsedList.length - 1].path
 
@@ -39,6 +39,11 @@ fs.readdir(OUTPUT_DIR, function (err, files) {
   fs.writeFile(OUTPUT_DIR + '/list.json', JSON.stringify(parsedObject), function (err) {
     if (err) throw err
     console.log('Updated bin/list.json')
+  })
+
+  fs.writeFile(OUTPUT_DIR + '/list.js', generateLegacyListJS(parsedList), function (err) {
+    if (err) throw err
+    console.log('Updated bin/list.js')
   })
 
   // Read latest version
@@ -58,3 +63,33 @@ fs.readdir(OUTPUT_DIR, function (err, files) {
     })
   })
 })
+
+function generateLegacyListJS (parsedList) {
+  const __pre = `var soljsonSources = [`
+
+  const __post = `];
+var soljsonReleases = {};
+(function() {
+  var version = '';
+  for (var i = soljsonSources.length - 1; i >= 0; --i) {
+    var thisVersion = soljsonSources[i].match(/soljson-v([0-9.]*)-.*.js/)[1];
+    if (thisVersion === version)
+      continue;
+    version = thisVersion;
+    soljsonReleases[version] = soljsonSources[i];
+  }
+})();
+
+if (typeof(module) !== 'undefined')
+  module.exports = {
+    'allVersions': soljsonSources,
+    'releases': soljsonReleases
+  };
+`
+
+  const pathList = parsedList
+    .reverse()
+    .map(function (ver) { return `'${ver.path}'` })
+
+  return __pre + pathList.join() + __post
+}

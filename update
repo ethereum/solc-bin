@@ -25,6 +25,7 @@ fs.readdir(OUTPUT_DIR, function (err, files) {
 
   const pathList = parsedList
     .map(function (ver) { return ver.path })
+    .reverse()
     .reduce(function (prev, next) { return prev + '\n' + next })
 
   const latest = parsedList[parsedList.length - 1].path

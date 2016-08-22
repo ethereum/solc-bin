@@ -16,15 +16,17 @@ fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
     .filter(function (version) { return version })
     .map(function (pars) { return { path: pars[0], version: pars[1], build: pars[2] } })
 
-  const parsedObject = parsedList
+  const releases = parsedList
     .reduce(function (prev, next) {
       prev[next.version] = next.path
       return prev
     }, {})
 
-  const pathList = parsedList
+  const builds = parsedList
     .map(function (ver) { return ver.path })
     .reverse()
+
+  const pathList = builds
     .reduce(function (prev, next) { return prev + '\n' + next })
 
   const latest = parsedList[parsedList.length - 1].path
@@ -36,7 +38,7 @@ fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
   })
 
   // Write bin/list.json
-  fs.writeFile(path.join(__dirname, '/bin/list.json'), JSON.stringify(parsedObject), function (err) {
+  fs.writeFile(path.join(__dirname, '/bin/list.json'), JSON.stringify(releases), function (err) {
     if (err) throw err
     console.log('Updated bin/list.json')
   })

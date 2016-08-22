@@ -12,9 +12,9 @@ fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
   if (err) return err
 
   const parsedList = files
-    .map(function (file) { return file.match(/^soljson-v([0-9.]*)-.*.js$/) })
+    .map(function (file) { return file.match(/^soljson-v([0-9.]*)-(.*).js$/) })
     .filter(function (version) { return version })
-    .map(function (pars) { return { path: pars[0], version: pars[1] } })
+    .map(function (pars) { return { path: pars[0], version: pars[1], build: pars[2] } })
 
   const parsedObject = parsedList
     .reduce(function (prev, next) {

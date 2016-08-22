@@ -43,7 +43,7 @@ fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
     console.log('Updated bin/list.json')
   })
 
-  fs.writeFile(path.join(__dirname, '/bin/list.js'), generateLegacyListJS(parsedList), function (err) {
+  fs.writeFile(path.join(__dirname, '/bin/list.js'), generateLegacyListJS(builds, releases), function (err) {
     if (err) throw err
     console.log('Updated bin/list.js')
   })
@@ -66,21 +66,10 @@ fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
   })
 })
 
-function generateLegacyListJS (parsedList) {
-  const __pre = `var soljsonSources = [`
-
-  const __post = `];
-var soljsonReleases = {};
-(function() {
-  var version = '';
-  for (var i = soljsonSources.length - 1; i >= 0; --i) {
-    var thisVersion = soljsonSources[i].match(/soljson-v([0-9.]*)-.*.js/)[1];
-    if (thisVersion === version)
-      continue;
-    version = thisVersion;
-    soljsonReleases[version] = soljsonSources[i];
-  }
-})();
+function generateLegacyListJS (builds, releases) {
+  return `
+var soljsonSources = ${JSON.stringify(builds)};
+var soljsonReleases = ${JSON.stringify(releases)};
 
 if (typeof(module) !== 'undefined')
   module.exports = {
@@ -88,10 +77,4 @@ if (typeof(module) !== 'undefined')
     'releases': soljsonReleases
   };
 `
-
-  const pathList = parsedList
-    .reverse()
-    .map(function (ver) { return `'${ver.path}'` })
-
-  return __pre + pathList.join() + __post
 }

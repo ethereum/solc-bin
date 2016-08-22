@@ -17,6 +17,7 @@ fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
     .map(function (pars) { return { path: pars[0], version: pars[1], build: pars[2] } })
 
   const releases = parsedList
+    .reverse()
     .reduce(function (prev, next) {
       prev[next.version] = next.path
       return prev
@@ -27,9 +28,10 @@ fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
     .reverse()
 
   const pathList = builds
+    .reverse()
     .reduce(function (prev, next) { return prev + '\n' + next })
 
-  const latest = parsedList[parsedList.length - 1].path
+  const latest = parsedList.reverse()[parsedList.length - 1].path
 
   // Write bin/list.txt
   fs.writeFile(path.join(__dirname, '/bin/list.txt'), pathList, function (err) {

@@ -40,7 +40,7 @@ fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
   })
 
   // Write bin/list.json
-  fs.writeFile(path.join(__dirname, '/bin/list.json'), JSON.stringify(releases), function (err) {
+  fs.writeFile(path.join(__dirname, '/bin/list.json'), JSON.stringify({ builds: parsedList, releases: releases }), function (err) {
     if (err) throw err
     console.log('Updated bin/list.json')
   })

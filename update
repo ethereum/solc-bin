@@ -40,7 +40,7 @@ fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
   })
 
   // Write bin/list.json
-  fs.writeFile(path.join(__dirname, '/bin/list.json'), JSON.stringify({ builds: parsedList, releases: releases }), function (err) {
+  fs.writeFile(path.join(__dirname, '/bin/list.json'), JSON.stringify({ builds: parsedList, releases: releases }, null, 2), function (err) {
     if (err) throw err
     console.log('Updated bin/list.json')
   })
@@ -70,8 +70,8 @@ fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
 
 function generateLegacyListJS (builds, releases) {
   return `
-var soljsonSources = ${JSON.stringify(builds)};
-var soljsonReleases = ${JSON.stringify(releases)};
+var soljsonSources = ${JSON.stringify(builds, null, 2)};
+var soljsonReleases = ${JSON.stringify(releases, null, 2)};
 
 if (typeof(module) !== 'undefined')
   module.exports = {

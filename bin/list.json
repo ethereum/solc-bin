@@ -759,6 +759,11 @@
       "path": "soljson-v0.3.6-2016-09-06-114502f.js",
       "version": "0.3.6",
       "prerelease": "2016-09-06-114502f"
+    },
+    {
+      "path": "soljson-v0.3.6-2016-09-07-24524d6.js",
+      "version": "0.3.6",
+      "prerelease": "2016-09-07-24524d6"
     }
   ],
   "releases": {

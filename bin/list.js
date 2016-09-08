@@ -1,5 +1,6 @@
 
 var soljsonSources = [
+  "soljson-v0.4.0-2016-09-08-acd334c.js",
   "soljson-v0.3.6-2016-09-08-f5a513a.js",
   "soljson-v0.3.6-2016-09-07-24524d6.js",
   "soljson-v0.3.6-2016-09-06-114502f.js",
@@ -156,6 +157,7 @@ var soljsonSources = [
   "soljson-v0.1.1-2015-08-04-6ff4cd6.js"
 ];
 var soljsonReleases = {
+  "0.4.0": "soljson-v0.4.0-2016-09-08-acd334c.js",
   "0.3.6": "soljson-v0.3.6-2016-08-10-3fc68da.js",
   "0.3.5": "soljson-v0.3.5-2016-06-10-5f97274.js",
   "0.3.4": "soljson-v0.3.4-2016-05-31-7dab890.js",

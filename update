@@ -9,7 +9,9 @@ const path = require('path')
 // as well as the soljson-latest.js files.
 
 fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
-  if (err) return err
+  if (err) {
+    throw err
+  }
 
   const parsedList = files
     .map(function (file) { return file.match(/^soljson-v([0-9.]*)(-([^+]*))?(\+(.*))?.js$/) })
@@ -19,8 +21,9 @@ fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
   const releases = parsedList
     .reverse()
     .reduce(function (prev, next) {
-      if (next.prerelease === undefined)
+      if (next.prerelease === undefined) {
         prev[next.version] = next.path
+      }
       return prev
     }, {})
 
@@ -36,34 +39,46 @@ fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
 
   // Write bin/list.txt
   fs.writeFile(path.join(__dirname, '/bin/list.txt'), pathList, function (err) {
-    if (err) throw err
+    if (err) {
+      throw err
+    }
     console.log('Updated bin/list.txt')
   })
 
   // Write bin/list.json
   fs.writeFile(path.join(__dirname, '/bin/list.json'), JSON.stringify({ builds: parsedList, releases: releases }, null, 2), function (err) {
-    if (err) throw err
+    if (err) {
+      throw err
+    }
     console.log('Updated bin/list.json')
   })
 
   fs.writeFile(path.join(__dirname, '/bin/list.js'), generateLegacyListJS(builds, releases), function (err) {
-    if (err) throw err
+    if (err) {
+      throw err
+    }
     console.log('Updated bin/list.js')
   })
 
   // Read latest version
   fs.readFile(path.join(__dirname, '/bin/', latest), function (err, data) {
-    if (err) throw err
+    if (err) {
+      throw err
+    }
 
     // Copy to bin/soljson-latest.js
     fs.writeFile(path.join(__dirname, '/bin/soljson-latest.js'), data, function (err) {
-      if (err) throw err
+      if (err) {
+        throw err
+      }
       console.log('Updated bin/soljson-latest.js')
     })
 
     // Copy to soljson.js
     fs.writeFile(path.join(__dirname, '/soljson.js'), data, function (err) {
-      if (err) throw err
+      if (err) {
+        throw err
+      }
       console.log('Updated soljson.js')
     })
   })

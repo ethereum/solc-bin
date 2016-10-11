@@ -33,6 +33,17 @@ fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
     .slice().reverse()
     .map(function (ver) { return ver.path })
 
+  const latestRelease = parsedList
+    .slice().reverse()
+    .filter(function (version) {
+      if (version.prerelease === undefined) {
+        return version
+      }
+    })
+    .map(function (version) {
+      return version.version
+    })[0]
+
   // latest build
   const latestBuildFile = buildNames[0]
 
@@ -47,7 +58,7 @@ fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
 
   // Write bin/list.json
   // Ascending list of builds and descending map of releases.
-  fs.writeFile(path.join(__dirname, '/bin/list.json'), JSON.stringify({ builds: parsedList, releases: releases }, null, 2), function (err) {
+  fs.writeFile(path.join(__dirname, '/bin/list.json'), JSON.stringify({ builds: parsedList, releases: releases, latestRelease: latestRelease }, null, 2), function (err) {
     if (err) {
       throw err
     }

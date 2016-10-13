@@ -46,6 +46,7 @@ fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
   })
 
   // Write bin/list.json
+  // Ascending list of builds and descending map of releases.
   fs.writeFile(path.join(__dirname, '/bin/list.json'), JSON.stringify({ builds: parsedList, releases: releases }, null, 2), function (err) {
     if (err) {
       throw err
@@ -53,6 +54,8 @@ fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
     console.log('Updated bin/list.json')
   })
 
+  // Write bin/list.js
+  // Descending list of build filenames and descending map of releases.
   fs.writeFile(path.join(__dirname, '/bin/list.js'), generateLegacyListJS(buildNames, releases), function (err) {
     if (err) {
       throw err

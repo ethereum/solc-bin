@@ -18,8 +18,9 @@ fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
     .filter(function (version) { return version })
     .map(function (pars) { return { path: pars[0], version: pars[1], prerelease: pars[3], build: pars[5] } })
 
+  // descending list
   const releases = parsedList
-    .reverse()
+    .slice().reverse()
     .reduce(function (prev, next) {
       if (next.prerelease === undefined) {
         prev[next.version] = next.path
@@ -27,15 +28,17 @@ fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
       return prev
     }, {})
 
+  // descending list
   const builds = parsedList
+    .slice().reverse()
     .map(function (ver) { return ver.path })
-    .reverse()
 
-  const latest = parsedList.reverse()[parsedList.length - 1].path
+  // latest build
+  const latest = parsedList[parsedList.length - 1].path
 
   // Write bin/list.txt
   // A descending list of file names.
-  fs.writeFile(path.join(__dirname, '/bin/list.txt'), builds.reverse().join('\n'), function (err) {
+  fs.writeFile(path.join(__dirname, '/bin/list.txt'), builds.join('\n'), function (err) {
     if (err) {
       throw err
     }

@@ -31,14 +31,11 @@ fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
     .map(function (ver) { return ver.path })
     .reverse()
 
-  const pathList = builds
-    .reverse()
-    .reduce(function (prev, next) { return prev + '\n' + next })
-
   const latest = parsedList.reverse()[parsedList.length - 1].path
 
   // Write bin/list.txt
-  fs.writeFile(path.join(__dirname, '/bin/list.txt'), pathList, function (err) {
+  // A descending list of file names.
+  fs.writeFile(path.join(__dirname, '/bin/list.txt'), builds.reverse().join('\n'), function (err) {
     if (err) {
       throw err
     }

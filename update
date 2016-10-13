@@ -29,16 +29,16 @@ fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
     }, {})
 
   // descending list
-  const builds = parsedList
+  const buildNames = parsedList
     .slice().reverse()
     .map(function (ver) { return ver.path })
 
   // latest build
-  const latestBuildFile = builds[0]
+  const latestBuildFile = buildNames[0]
 
   // Write bin/list.txt
   // A descending list of file names.
-  fs.writeFile(path.join(__dirname, '/bin/list.txt'), builds.join('\n'), function (err) {
+  fs.writeFile(path.join(__dirname, '/bin/list.txt'), buildNames.join('\n'), function (err) {
     if (err) {
       throw err
     }
@@ -53,7 +53,7 @@ fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
     console.log('Updated bin/list.json')
   })
 
-  fs.writeFile(path.join(__dirname, '/bin/list.js'), generateLegacyListJS(builds, releases), function (err) {
+  fs.writeFile(path.join(__dirname, '/bin/list.js'), generateLegacyListJS(buildNames, releases), function (err) {
     if (err) {
       throw err
     }

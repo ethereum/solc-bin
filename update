@@ -34,7 +34,7 @@ fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
     .map(function (ver) { return ver.path })
 
   // latest build
-  const latest = parsedList[parsedList.length - 1].path
+  const latestBuildFile = builds[0]
 
   // Write bin/list.txt
   // A descending list of file names.
@@ -60,8 +60,8 @@ fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
     console.log('Updated bin/list.js')
   })
 
-  // Read latest version
-  fs.readFile(path.join(__dirname, '/bin/', latest), function (err, data) {
+  // Read latest build file
+  fs.readFile(path.join(__dirname, '/bin/', latestBuildFile), function (err, data) {
     if (err) {
       throw err
     }

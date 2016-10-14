@@ -18,8 +18,9 @@ fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
     .filter(function (version) { return version })
     .map(function (pars) { return { path: pars[0], version: pars[1], prerelease: pars[3], build: pars[5] } })
 
+  // descending list
   const releases = parsedList
-    .reverse()
+    .slice().reverse()
     .reduce(function (prev, next) {
       if (next.prerelease === undefined) {
         prev[next.version] = next.path
@@ -27,18 +28,17 @@ fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
       return prev
     }, {})
 
-  const builds = parsedList
+  // descending list
+  const buildNames = parsedList
+    .slice().reverse()
     .map(function (ver) { return ver.path })
-    .reverse()
 
-  const pathList = builds
-    .reverse()
-    .reduce(function (prev, next) { return prev + '\n' + next })
-
-  const latest = parsedList.reverse()[parsedList.length - 1].path
+  // latest build
+  const latestBuildFile = buildNames[0]
 
   // Write bin/list.txt
-  fs.writeFile(path.join(__dirname, '/bin/list.txt'), pathList, function (err) {
+  // A descending list of file names.
+  fs.writeFile(path.join(__dirname, '/bin/list.txt'), buildNames.join('\n'), function (err) {
     if (err) {
       throw err
     }
@@ -46,6 +46,7 @@ fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
   })
 
   // Write bin/list.json
+  // Ascending list of builds and descending map of releases.
   fs.writeFile(path.join(__dirname, '/bin/list.json'), JSON.stringify({ builds: parsedList, releases: releases }, null, 2), function (err) {
     if (err) {
       throw err
@@ -53,15 +54,17 @@ fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
     console.log('Updated bin/list.json')
   })
 
-  fs.writeFile(path.join(__dirname, '/bin/list.js'), generateLegacyListJS(builds, releases), function (err) {
+  // Write bin/list.js
+  // Descending list of build filenames and descending map of releases.
+  fs.writeFile(path.join(__dirname, '/bin/list.js'), generateLegacyListJS(buildNames, releases), function (err) {
     if (err) {
       throw err
     }
     console.log('Updated bin/list.js')
   })
 
-  // Read latest version
-  fs.readFile(path.join(__dirname, '/bin/', latest), function (err, data) {
+  // Read latest build file
+  fs.readFile(path.join(__dirname, '/bin/', latestBuildFile), function (err, data) {
     if (err) {
       throw err
     }

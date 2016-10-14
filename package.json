@@ -6,8 +6,11 @@
   "dependencies": {
     "semver": "^5.3.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "standard": "^8.4.0"
+  },
   "scripts": {
+    "lint": "standard update",
     "update": "./update",
     "test": "git checkout -f && npm run update && git diff"
   },

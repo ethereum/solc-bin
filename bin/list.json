@@ -1046,5 +1046,6 @@
     "0.1.3": "soljson-v0.1.3+commit.28f561.js",
     "0.1.2": "soljson-v0.1.2+commit.d0d36e3.js",
     "0.1.1": "soljson-v0.1.1+commit.6ff4cd6.js"
-  }
+  },
+  "latestRelease": "0.4.2"
 }

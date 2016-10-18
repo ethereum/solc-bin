@@ -1031,6 +1031,12 @@
       "build": "commit.7d32937"
     },
     {
+      "path": "soljson-v0.4.3-nightly.2016.10.18+commit.a9eb645.js",
+      "version": "0.4.3",
+      "prerelease": "nightly.2016.10.18",
+      "build": "commit.a9eb645"
+    },
+    {
       "path": "soljson-v0.4.3-nightly.2016.9.30+commit.d5cfb17b.js",
       "version": "0.4.3",
       "prerelease": "nightly.2016.9.30",

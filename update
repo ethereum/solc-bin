@@ -4,6 +4,7 @@
 
 const fs = require('fs')
 const path = require('path')
+const semver = require('semver')
 
 // This script updates the index files list.js and list.txt in the bin directory,
 // as well as the soljson-latest.js files.
@@ -13,10 +14,26 @@ fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
     throw err
   }
 
+  function buildVersion (build) {
+    var version = build.version
+    if (build.prerelease && build.prerelease.length > 0) {
+      version += '-' + build.prerelease
+    }
+    if (build.build && build.build.length > 0) {
+      version += '+' + build.build
+    }
+    return version
+  }
+
+  // ascending list (oldest version first)
   const parsedList = files
     .map(function (file) { return file.match(/^soljson-v([0-9.]*)(-([^+]*))?(\+(.*))?.js$/) })
     .filter(function (version) { return version })
     .map(function (pars) { return { path: pars[0], version: pars[1], prerelease: pars[3], build: pars[5] } })
+    .sort(function (a, b) {
+      // NOTE: a vs. b (the order is important), because we want oldest first in the list
+      return semver.compare(buildVersion(a), buildVersion(b))
+    })
 
   // descending list
   const releases = parsedList

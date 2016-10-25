@@ -1071,9 +1071,15 @@
       "version": "0.4.3",
       "prerelease": "nightly.2016.10.25",
       "build": "commit.d190f016"
+    },
+    {
+      "path": "soljson-v0.4.3+commit.2353da71.js",
+      "version": "0.4.3",
+      "build": "commit.2353da71"
     }
   ],
   "releases": {
+    "0.4.3": "soljson-v0.4.3+commit.2353da71.js",
     "0.4.2": "soljson-v0.4.2+commit.af6afb04.js",
     "0.4.1": "soljson-v0.4.1+commit.4fc6fc2c.js",
     "0.4.0": "soljson-v0.4.0+commit.acd334c9.js",
@@ -1095,5 +1101,5 @@
     "0.1.2": "soljson-v0.1.2+commit.d0d36e3.js",
     "0.1.1": "soljson-v0.1.1+commit.6ff4cd6.js"
   },
-  "latestRelease": "0.4.2"
+  "latestRelease": "0.4.3"
 }

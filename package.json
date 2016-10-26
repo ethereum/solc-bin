@@ -12,7 +12,7 @@
   "scripts": {
     "lint": "standard update",
     "update": "./update",
-    "test": "git checkout -f && npm run update && git diff"
+    "test": "git checkout -f && npm run update && git diff --exit-code"
   },
   "repository": {
     "type": "git",

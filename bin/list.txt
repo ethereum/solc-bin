@@ -1,3 +1,4 @@
+soljson-v0.4.5-nightly.2016.11.1+commit.9cb1d30e.js
 soljson-v0.4.4+commit.4633f3de.js
 soljson-v0.4.4-nightly.2016.10.31+commit.1d3460c4.js
 soljson-v0.4.4-nightly.2016.10.28+commit.e85390cc.js
@@ -83,8 +84,8 @@ soljson-v0.3.5-nightly.2016.6.20+commit.9da08ac.js
 soljson-v0.3.5-nightly.2016.6.19+commit.5917c8e.js
 soljson-v0.3.5-nightly.2016.6.14+commit.371690f.js
 soljson-v0.3.4+commit.7dab890.js
-soljson-v0.3.4-nightly.2016.6.8+commit.d593166.js
 soljson-v0.3.4-nightly.2016.6.8+commit.ccddd6f.js
+soljson-v0.3.4-nightly.2016.6.8+commit.d593166.js
 soljson-v0.3.4-nightly.2016.6.8+commit.93790d.js
 soljson-v0.3.4-nightly.2016.6.6+commit.e97ac4f.js
 soljson-v0.3.4-nightly.2016.6.5+commit.a0fc04.js

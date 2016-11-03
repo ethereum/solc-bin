@@ -1102,13 +1102,6 @@
       "longVersion": "0.4.2-nightly.2016.9.13+commit.2bee7e9"
     },
     {
-      "path": "soljson-v0.4.2-nightly.2016.9.15+commit.6a80511.js",
-      "version": "0.4.2",
-      "prerelease": "nightly.2016.9.15",
-      "build": "commit.6a80511",
-      "longVersion": "0.4.2-nightly.2016.9.15+commit.6a80511"
-    },
-    {
       "path": "soljson-v0.4.2-nightly.2016.9.15+commit.8a4f8c2.js",
       "version": "0.4.2",
       "prerelease": "nightly.2016.9.15",
@@ -1116,11 +1109,11 @@
       "longVersion": "0.4.2-nightly.2016.9.15+commit.8a4f8c2"
     },
     {
-      "path": "soljson-v0.4.2-nightly.2016.9.17+commit.212e0160.js",
+      "path": "soljson-v0.4.2-nightly.2016.9.15+commit.6a80511.js",
       "version": "0.4.2",
-      "prerelease": "nightly.2016.9.17",
-      "build": "commit.212e0160",
-      "longVersion": "0.4.2-nightly.2016.9.17+commit.212e0160"
+      "prerelease": "nightly.2016.9.15",
+      "build": "commit.6a80511",
+      "longVersion": "0.4.2-nightly.2016.9.15+commit.6a80511"
     },
     {
       "path": "soljson-v0.4.2-nightly.2016.9.17+commit.60f432e8.js",
@@ -1149,6 +1142,13 @@
       "prerelease": "nightly.2016.9.17",
       "build": "commit.bc8476a",
       "longVersion": "0.4.2-nightly.2016.9.17+commit.bc8476a"
+    },
+    {
+      "path": "soljson-v0.4.2-nightly.2016.9.17+commit.212e0160.js",
+      "version": "0.4.2",
+      "prerelease": "nightly.2016.9.17",
+      "build": "commit.212e0160",
+      "longVersion": "0.4.2-nightly.2016.9.17+commit.212e0160"
     },
     {
       "path": "soljson-v0.4.2+commit.af6afb04.js",
@@ -1307,6 +1307,13 @@
       "prerelease": "nightly.2016.11.1",
       "build": "commit.9cb1d30e",
       "longVersion": "0.4.5-nightly.2016.11.1+commit.9cb1d30e"
+    },
+    {
+      "path": "soljson-v0.4.5-nightly.2016.11.3+commit.90a4acc3.js",
+      "version": "0.4.5",
+      "prerelease": "nightly.2016.11.3",
+      "build": "commit.90a4acc3",
+      "longVersion": "0.4.5-nightly.2016.11.3+commit.90a4acc3"
     }
   ],
   "releases": {

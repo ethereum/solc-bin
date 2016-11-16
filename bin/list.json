@@ -895,18 +895,18 @@
       "longVersion": "0.3.6-nightly.2016.8.10+commit.5a37403"
     },
     {
-      "path": "soljson-v0.3.6-nightly.2016.8.10+commit.e2a46b6.js",
-      "version": "0.3.6",
-      "prerelease": "nightly.2016.8.10",
-      "build": "commit.e2a46b6",
-      "longVersion": "0.3.6-nightly.2016.8.10+commit.e2a46b6"
-    },
-    {
       "path": "soljson-v0.3.6-nightly.2016.8.10+commit.b7c26f4.js",
       "version": "0.3.6",
       "prerelease": "nightly.2016.8.10",
       "build": "commit.b7c26f4",
       "longVersion": "0.3.6-nightly.2016.8.10+commit.b7c26f4"
+    },
+    {
+      "path": "soljson-v0.3.6-nightly.2016.8.10+commit.e2a46b6.js",
+      "version": "0.3.6",
+      "prerelease": "nightly.2016.8.10",
+      "build": "commit.e2a46b6",
+      "longVersion": "0.3.6-nightly.2016.8.10+commit.e2a46b6"
     },
     {
       "path": "soljson-v0.3.6-nightly.2016.8.11+commit.7c15fa6.js",
@@ -1102,18 +1102,18 @@
       "longVersion": "0.4.2-nightly.2016.9.13+commit.2bee7e9"
     },
     {
-      "path": "soljson-v0.4.2-nightly.2016.9.15+commit.8a4f8c2.js",
-      "version": "0.4.2",
-      "prerelease": "nightly.2016.9.15",
-      "build": "commit.8a4f8c2",
-      "longVersion": "0.4.2-nightly.2016.9.15+commit.8a4f8c2"
-    },
-    {
       "path": "soljson-v0.4.2-nightly.2016.9.15+commit.6a80511.js",
       "version": "0.4.2",
       "prerelease": "nightly.2016.9.15",
       "build": "commit.6a80511",
       "longVersion": "0.4.2-nightly.2016.9.15+commit.6a80511"
+    },
+    {
+      "path": "soljson-v0.4.2-nightly.2016.9.15+commit.8a4f8c2.js",
+      "version": "0.4.2",
+      "prerelease": "nightly.2016.9.15",
+      "build": "commit.8a4f8c2",
+      "longVersion": "0.4.2-nightly.2016.9.15+commit.8a4f8c2"
     },
     {
       "path": "soljson-v0.4.2-nightly.2016.9.17+commit.60f432e8.js",
@@ -1130,11 +1130,11 @@
       "longVersion": "0.4.2-nightly.2016.9.17+commit.62f13ad8"
     },
     {
-      "path": "soljson-v0.4.2-nightly.2016.9.17+commit.a78e7794.js",
+      "path": "soljson-v0.4.2-nightly.2016.9.17+commit.212e0160.js",
       "version": "0.4.2",
       "prerelease": "nightly.2016.9.17",
-      "build": "commit.a78e7794",
-      "longVersion": "0.4.2-nightly.2016.9.17+commit.a78e7794"
+      "build": "commit.212e0160",
+      "longVersion": "0.4.2-nightly.2016.9.17+commit.212e0160"
     },
     {
       "path": "soljson-v0.4.2-nightly.2016.9.17+commit.bc8476a.js",
@@ -1144,11 +1144,11 @@
       "longVersion": "0.4.2-nightly.2016.9.17+commit.bc8476a"
     },
     {
-      "path": "soljson-v0.4.2-nightly.2016.9.17+commit.212e0160.js",
+      "path": "soljson-v0.4.2-nightly.2016.9.17+commit.a78e7794.js",
       "version": "0.4.2",
       "prerelease": "nightly.2016.9.17",
-      "build": "commit.212e0160",
-      "longVersion": "0.4.2-nightly.2016.9.17+commit.212e0160"
+      "build": "commit.a78e7794",
+      "longVersion": "0.4.2-nightly.2016.9.17+commit.a78e7794"
     },
     {
       "path": "soljson-v0.4.2+commit.af6afb04.js",
@@ -1363,6 +1363,13 @@
       "prerelease": "nightly.2016.11.15",
       "build": "commit.c1b1efaf",
       "longVersion": "0.4.5-nightly.2016.11.15+commit.c1b1efaf"
+    },
+    {
+      "path": "soljson-v0.4.5-nightly.2016.11.16+commit.c8116918.js",
+      "version": "0.4.5",
+      "prerelease": "nightly.2016.11.16",
+      "build": "commit.c8116918",
+      "longVersion": "0.4.5-nightly.2016.11.16+commit.c8116918"
     }
   ],
   "releases": {

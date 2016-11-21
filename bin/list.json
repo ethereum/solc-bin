@@ -1390,6 +1390,13 @@
       "version": "0.4.5",
       "build": "commit.b318366e",
       "longVersion": "0.4.5+commit.b318366e"
+    },
+    {
+      "path": "soljson-v0.4.6-nightly.2016.11.21+commit.aa48008c.js",
+      "version": "0.4.6",
+      "prerelease": "nightly.2016.11.21",
+      "build": "commit.aa48008c",
+      "longVersion": "0.4.6-nightly.2016.11.21+commit.aa48008c"
     }
   ],
   "releases": {

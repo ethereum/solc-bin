@@ -1377,6 +1377,13 @@
       "prerelease": "nightly.2016.11.17",
       "build": "commit.b46a14f4",
       "longVersion": "0.4.5-nightly.2016.11.17+commit.b46a14f4"
+    },
+    {
+      "path": "soljson-v0.4.5-nightly.2016.11.21+commit.afda210a.js",
+      "version": "0.4.5",
+      "prerelease": "nightly.2016.11.21",
+      "build": "commit.afda210a",
+      "longVersion": "0.4.5-nightly.2016.11.21+commit.afda210a"
     }
   ],
   "releases": {

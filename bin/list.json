@@ -1473,6 +1473,13 @@
       "prerelease": "nightly.2016.12.1",
       "build": "commit.67f274f6",
       "longVersion": "0.4.7-nightly.2016.12.1+commit.67f274f6"
+    },
+    {
+      "path": "soljson-v0.4.7-nightly.2016.12.2+commit.3a01a87a.js",
+      "version": "0.4.7",
+      "prerelease": "nightly.2016.12.2",
+      "build": "commit.3a01a87a",
+      "longVersion": "0.4.7-nightly.2016.12.2+commit.3a01a87a"
     }
   ],
   "releases": {

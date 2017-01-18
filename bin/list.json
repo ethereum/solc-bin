@@ -1893,6 +1893,14 @@
       "build": "commit.6ecb4aa3",
       "longVersion": "0.4.9-nightly.2017.1.17+commit.6ecb4aa3",
       "keccak256": "0x8b836be8975cce726a3c03eb586c3bb30e5e76a81bb95659c595c07a1a5def1c"
+    },
+    {
+      "path": "soljson-v0.4.9-nightly.2017.1.18+commit.5e1908.js",
+      "version": "0.4.9",
+      "prerelease": "nightly.2017.1.18",
+      "build": "commit.5e1908",
+      "longVersion": "0.4.9-nightly.2017.1.18+commit.5e1908",
+      "keccak256": "0x3698650dd8a7cfe95f067f5049c888d6cf926562e04afc84aeaa5faba94749a6"
     }
   ],
   "releases": {

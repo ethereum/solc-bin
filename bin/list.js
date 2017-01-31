@@ -1,5 +1,6 @@
 
 var soljsonSources = [
+  "soljson-v0.4.9+commit.364da425.js",
   "soljson-v0.4.9-nightly.2017.1.31+commit.f9af2de0.js",
   "soljson-v0.4.9-nightly.2017.1.30+commit.edd3696d.js",
   "soljson-v0.4.9-nightly.2017.1.27+commit.1774e087.js",
@@ -82,11 +83,11 @@ var soljsonSources = [
   "soljson-v0.4.3-nightly.2016.10.10+commit.119bd4ad.js",
   "soljson-v0.4.3-nightly.2016.9.30+commit.d5cfb17b.js",
   "soljson-v0.4.2+commit.af6afb04.js",
+  "soljson-v0.4.2-nightly.2016.9.17+commit.62f13ad8.js",
+  "soljson-v0.4.2-nightly.2016.9.17+commit.bc8476a.js",
   "soljson-v0.4.2-nightly.2016.9.17+commit.60f432e8.js",
   "soljson-v0.4.2-nightly.2016.9.17+commit.212e0160.js",
-  "soljson-v0.4.2-nightly.2016.9.17+commit.bc8476a.js",
   "soljson-v0.4.2-nightly.2016.9.17+commit.a78e7794.js",
-  "soljson-v0.4.2-nightly.2016.9.17+commit.62f13ad8.js",
   "soljson-v0.4.2-nightly.2016.9.15+commit.6a80511.js",
   "soljson-v0.4.2-nightly.2016.9.15+commit.8a4f8c2.js",
   "soljson-v0.4.2-nightly.2016.9.13+commit.2bee7e9.js",
@@ -122,8 +123,8 @@ var soljsonSources = [
   "soljson-v0.3.6-nightly.2016.8.10+commit.e2a46b6.js",
   "soljson-v0.3.6-nightly.2016.8.10+commit.55858de.js",
   "soljson-v0.3.5+commit.5f97274.js",
-  "soljson-v0.3.5-nightly.2016.8.10+commit.cacc3b6.js",
   "soljson-v0.3.5-nightly.2016.8.10+commit.e6a031d.js",
+  "soljson-v0.3.5-nightly.2016.8.10+commit.cacc3b6.js",
   "soljson-v0.3.5-nightly.2016.8.10+commit.fc60839.js",
   "soljson-v0.3.5-nightly.2016.8.8+commit.539afbe.js",
   "soljson-v0.3.5-nightly.2016.8.8+commit.b13e581.js",
@@ -251,6 +252,7 @@ var soljsonSources = [
   "soljson-v0.1.1+commit.6ff4cd6.js"
 ];
 var soljsonReleases = {
+  "0.4.9": "soljson-v0.4.9+commit.364da425.js",
   "0.4.8": "soljson-v0.4.8+commit.60cc1668.js",
   "0.4.7": "soljson-v0.4.7+commit.822622cf.js",
   "0.4.6": "soljson-v0.4.6+commit.2dabbdf0.js",

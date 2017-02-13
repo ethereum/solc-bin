@@ -1294,12 +1294,12 @@
       "keccak256": "0xd1bb55279a6297283df0065f0c735602dd3e71a4397b75783b1e22af3c797d19"
     },
     {
-      "path": "soljson-v0.4.2-nightly.2016.9.17+commit.212e0160.js",
+      "path": "soljson-v0.4.2-nightly.2016.9.17+commit.62f13ad8.js",
       "version": "0.4.2",
       "prerelease": "nightly.2016.9.17",
-      "build": "commit.212e0160",
-      "longVersion": "0.4.2-nightly.2016.9.17+commit.212e0160",
-      "keccak256": "0x8431790f172fde38b9e3b8e632f5f5dbb9c49d3e254d24252c20ef0d903bd160"
+      "build": "commit.62f13ad8",
+      "longVersion": "0.4.2-nightly.2016.9.17+commit.62f13ad8",
+      "keccak256": "0x853dd52bc89a2bfef3a2ce38c09d56b822822f5145c30e0753a6520a08816dce"
     },
     {
       "path": "soljson-v0.4.2-nightly.2016.9.17+commit.60f432e8.js",
@@ -1310,12 +1310,12 @@
       "keccak256": "0x0bcb25fd69cbb24655466c203c866e3cc4d92d9551bab4c53f420ab025eac337"
     },
     {
-      "path": "soljson-v0.4.2-nightly.2016.9.17+commit.62f13ad8.js",
+      "path": "soljson-v0.4.2-nightly.2016.9.17+commit.212e0160.js",
       "version": "0.4.2",
       "prerelease": "nightly.2016.9.17",
-      "build": "commit.62f13ad8",
-      "longVersion": "0.4.2-nightly.2016.9.17+commit.62f13ad8",
-      "keccak256": "0x853dd52bc89a2bfef3a2ce38c09d56b822822f5145c30e0753a6520a08816dce"
+      "build": "commit.212e0160",
+      "longVersion": "0.4.2-nightly.2016.9.17+commit.212e0160",
+      "keccak256": "0x8431790f172fde38b9e3b8e632f5f5dbb9c49d3e254d24252c20ef0d903bd160"
     },
     {
       "path": "soljson-v0.4.2+commit.af6afb04.js",
@@ -2004,6 +2004,14 @@
       "build": "commit.5ce79609",
       "longVersion": "0.4.10-nightly.2017.2.3+commit.5ce79609",
       "keccak256": "0x57d402a63f93b96e9ad82018f2b738338e6c0214d85d543fa4bc896fc584f614"
+    },
+    {
+      "path": "soljson-v0.4.10-nightly.2017.2.13+commit.8357bdad.js",
+      "version": "0.4.10",
+      "prerelease": "nightly.2017.2.13",
+      "build": "commit.8357bdad",
+      "longVersion": "0.4.10-nightly.2017.2.13+commit.8357bdad",
+      "keccak256": "0xc3be8bee3c65b911bb16c7d06770cc0ba01fc282250cedfcb5b1035f09c391bc"
     }
   ],
   "releases": {

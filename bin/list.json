@@ -1764,14 +1764,14 @@
       ]
     },
     {
-      "path": "soljson-v0.4.2-nightly.2016.9.17+commit.212e0160.js",
+      "path": "soljson-v0.4.2-nightly.2016.9.17+commit.62f13ad8.js",
       "version": "0.4.2",
       "prerelease": "nightly.2016.9.17",
-      "build": "commit.212e0160",
-      "longVersion": "0.4.2-nightly.2016.9.17+commit.212e0160",
-      "keccak256": "0x8431790f172fde38b9e3b8e632f5f5dbb9c49d3e254d24252c20ef0d903bd160",
+      "build": "commit.62f13ad8",
+      "longVersion": "0.4.2-nightly.2016.9.17+commit.62f13ad8",
+      "keccak256": "0x853dd52bc89a2bfef3a2ce38c09d56b822822f5145c30e0753a6520a08816dce",
       "urls": [
-        "bzzr://8e7cbde5a72e500c6c0185b7d580e7270e337fda18007f84ef0760cec639c063"
+        "bzzr://efa398a84d2cbe23036ba95ee12afa2f31721ea7124e4c40a391cbde2bb4f4c4"
       ]
     },
     {
@@ -1797,14 +1797,14 @@
       ]
     },
     {
-      "path": "soljson-v0.4.2-nightly.2016.9.17+commit.62f13ad8.js",
+      "path": "soljson-v0.4.2-nightly.2016.9.17+commit.212e0160.js",
       "version": "0.4.2",
       "prerelease": "nightly.2016.9.17",
-      "build": "commit.62f13ad8",
-      "longVersion": "0.4.2-nightly.2016.9.17+commit.62f13ad8",
-      "keccak256": "0x853dd52bc89a2bfef3a2ce38c09d56b822822f5145c30e0753a6520a08816dce",
+      "build": "commit.212e0160",
+      "longVersion": "0.4.2-nightly.2016.9.17+commit.212e0160",
+      "keccak256": "0x8431790f172fde38b9e3b8e632f5f5dbb9c49d3e254d24252c20ef0d903bd160",
       "urls": [
-        "bzzr://efa398a84d2cbe23036ba95ee12afa2f31721ea7124e4c40a391cbde2bb4f4c4"
+        "bzzr://8e7cbde5a72e500c6c0185b7d580e7270e337fda18007f84ef0760cec639c063"
       ]
     },
     {
@@ -3302,6 +3302,17 @@
       "keccak256": "0x7aab62a6e91206df254b6df9e2660f6933e5d4dfcf254f601dc858552c1aa2aa",
       "urls": [
         "bzzr://e2c63519284680e984471b6d7140cd719f25d64a8486d805007e0f27277a62c2"
+      ]
+    },
+    {
+      "path": "soljson-v0.4.12-nightly.2017.5.18+commit.6f9428e9.js",
+      "version": "0.4.12",
+      "prerelease": "nightly.2017.5.18",
+      "build": "commit.6f9428e9",
+      "longVersion": "0.4.12-nightly.2017.5.18+commit.6f9428e9",
+      "keccak256": "0xbfe270fe6dd2ac7fb1d7264e7d044e98fe45aa656404d25253f33d27ba514c85",
+      "urls": [
+        "bzzr://5d49b77818e83ca3abaa7679524d94237dd50eb0584e250ce0c01566614efb34"
       ]
     }
   ],

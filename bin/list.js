@@ -1,5 +1,6 @@
 
 var soljsonSources = [
+  "soljson-v0.4.12+commit.76d3b7c5.js",
   "soljson-v0.4.12-nightly.2017.7.3+commit.c7530a8.js",
   "soljson-v0.4.12-nightly.2017.7.1+commit.6f8949f.js",
   "soljson-v0.4.12-nightly.2017.6.30+commit.568e7520.js",
@@ -166,11 +167,11 @@ var soljsonSources = [
   "soljson-v0.4.3-nightly.2016.10.10+commit.119bd4ad.js",
   "soljson-v0.4.3-nightly.2016.9.30+commit.d5cfb17b.js",
   "soljson-v0.4.2+commit.af6afb04.js",
-  "soljson-v0.4.2-nightly.2016.9.17+commit.60f432e8.js",
   "soljson-v0.4.2-nightly.2016.9.17+commit.62f13ad8.js",
-  "soljson-v0.4.2-nightly.2016.9.17+commit.a78e7794.js",
-  "soljson-v0.4.2-nightly.2016.9.17+commit.bc8476a.js",
   "soljson-v0.4.2-nightly.2016.9.17+commit.212e0160.js",
+  "soljson-v0.4.2-nightly.2016.9.17+commit.60f432e8.js",
+  "soljson-v0.4.2-nightly.2016.9.17+commit.bc8476a.js",
+  "soljson-v0.4.2-nightly.2016.9.17+commit.a78e7794.js",
   "soljson-v0.4.2-nightly.2016.9.15+commit.8a4f8c2.js",
   "soljson-v0.4.2-nightly.2016.9.15+commit.6a80511.js",
   "soljson-v0.4.2-nightly.2016.9.13+commit.2bee7e9.js",
@@ -201,10 +202,10 @@ var soljsonSources = [
   "soljson-v0.3.6-nightly.2016.8.15+commit.868a167.js",
   "soljson-v0.3.6-nightly.2016.8.12+commit.9e03bda.js",
   "soljson-v0.3.6-nightly.2016.8.11+commit.7c15fa6.js",
-  "soljson-v0.3.6-nightly.2016.8.10+commit.b7c26f4.js",
-  "soljson-v0.3.6-nightly.2016.8.10+commit.5a37403.js",
   "soljson-v0.3.6-nightly.2016.8.10+commit.e2a46b6.js",
   "soljson-v0.3.6-nightly.2016.8.10+commit.55858de.js",
+  "soljson-v0.3.6-nightly.2016.8.10+commit.b7c26f4.js",
+  "soljson-v0.3.6-nightly.2016.8.10+commit.5a37403.js",
   "soljson-v0.3.5+commit.5f97274.js",
   "soljson-v0.3.5-nightly.2016.8.10+commit.cacc3b6.js",
   "soljson-v0.3.5-nightly.2016.8.10+commit.e6a031d.js",
@@ -335,6 +336,7 @@ var soljsonSources = [
   "soljson-v0.1.1+commit.6ff4cd6.js"
 ];
 var soljsonReleases = {
+  "0.4.12": "soljson-v0.4.12+commit.76d3b7c5.js",
   "0.4.11": "soljson-v0.4.11+commit.68ef5810.js",
   "0.4.10": "soljson-v0.4.10+commit.f0d539ae.js",
   "0.4.9": "soljson-v0.4.9+commit.364da425.js",

@@ -1,5 +1,6 @@
 
 var soljsonSources = [
+  "soljson-v0.4.13-nightly.2017.7.4+commit.331b0b1c.js",
   "soljson-v0.4.13-nightly.2017.7.3+commit.6e4e627b.js",
   "soljson-v0.4.12+commit.194ff033.js",
   "soljson-v0.4.12-nightly.2017.7.3+commit.c7530a8.js",
@@ -169,8 +170,8 @@ var soljsonSources = [
   "soljson-v0.4.3-nightly.2016.9.30+commit.d5cfb17b.js",
   "soljson-v0.4.2+commit.af6afb04.js",
   "soljson-v0.4.2-nightly.2016.9.17+commit.62f13ad8.js",
-  "soljson-v0.4.2-nightly.2016.9.17+commit.212e0160.js",
   "soljson-v0.4.2-nightly.2016.9.17+commit.60f432e8.js",
+  "soljson-v0.4.2-nightly.2016.9.17+commit.212e0160.js",
   "soljson-v0.4.2-nightly.2016.9.17+commit.bc8476a.js",
   "soljson-v0.4.2-nightly.2016.9.17+commit.a78e7794.js",
   "soljson-v0.4.2-nightly.2016.9.15+commit.8a4f8c2.js",

@@ -3719,6 +3719,17 @@
       "urls": [
         "bzzr://d4b962455e1249c270148dd565dbba79413c345fbcadb9f52f76bb7531789186"
       ]
+    },
+    {
+      "path": "soljson-v0.4.14-nightly.2017.7.9+commit.aafcc360.js",
+      "version": "0.4.14",
+      "prerelease": "nightly.2017.7.9",
+      "build": "commit.aafcc360",
+      "longVersion": "0.4.14-nightly.2017.7.9+commit.aafcc360",
+      "keccak256": "0xbf8b3763e4acf72edc3e194528c9e0072886d77d80dd4705719c8c182a5a83fa",
+      "urls": [
+        "bzzr://3a3e0f7c2d6945b6e8105811c5e9b8772b6aaa55d694fb9a1c3f56783f8333e6"
+      ]
     }
   ],
   "releases": {

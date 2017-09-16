@@ -4222,6 +4222,17 @@
       "urls": [
         "bzzr://881b9042097ea90799eab7b5540eef4b12ae20929968be443c7ce3d91cfde0b5"
       ]
+    },
+    {
+      "path": "soljson-v0.4.17-nightly.2017.9.16+commit.a0d17172.js",
+      "version": "0.4.17",
+      "prerelease": "nightly.2017.9.16",
+      "build": "commit.a0d17172",
+      "longVersion": "0.4.17-nightly.2017.9.16+commit.a0d17172",
+      "keccak256": "0x6f3924a1532246595b64df68c1501c4fa00372d17cd56cc7ed2fcc64d32801e8",
+      "urls": [
+        "bzzr://2dfa95b68c259328201f89cf6a1dfa04b9302ca39252ff5c56fda932f3272391"
+      ]
     }
   ],
   "releases": {

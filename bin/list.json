@@ -4901,6 +4901,17 @@
       "urls": [
         "bzzr://28be1f82df0d1e405bdc1b4a16c99aef785aaf91f0dba24f567e0706230ba200"
       ]
+    },
+    {
+      "path": "soljson-v0.4.20-nightly.2018.1.15+commit.14fcbd65.js",
+      "version": "0.4.20",
+      "prerelease": "nightly.2018.1.15",
+      "build": "commit.14fcbd65",
+      "longVersion": "0.4.20-nightly.2018.1.15+commit.14fcbd65",
+      "keccak256": "0x400b7161fb03b5158df60813b6d25eb0efc7a05928560352f71d01a204759fea",
+      "urls": [
+        "bzzr://48e7eaaed53cbbdf2629ebed16aa4b3994633d2dc3e712fb82e17c8ecffb978a"
+      ]
     }
   ],
   "releases": {

@@ -4989,6 +4989,17 @@
       "urls": [
         "bzzr://8ae74219f0ff969f09e37c41a62d1de01818ade8c79d2d54a6bff878d17fe39e"
       ]
+    },
+    {
+      "path": "soljson-v0.4.20-nightly.2018.1.26+commit.bbad48bb.js",
+      "version": "0.4.20",
+      "prerelease": "nightly.2018.1.26",
+      "build": "commit.bbad48bb",
+      "longVersion": "0.4.20-nightly.2018.1.26+commit.bbad48bb",
+      "keccak256": "0x505b1fc02f8d242e88fc301469ba9734540e7a12f7bf96d1dbc2e318a9036e2d",
+      "urls": [
+        "bzzr://b40f645b3c411dd0b64a57585345045ad9cc2f91a14b4d95ca5ecc835fa7dd7a"
+      ]
     }
   ],
   "releases": {

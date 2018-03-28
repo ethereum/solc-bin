@@ -39,8 +39,13 @@ fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
     .map(function (pars) {
       const fileContent = readFile(pars.path)
       pars.longVersion = buildVersion(pars)
+      pars.sha256 = '0x' + ethUtil.sha256(fileContent).toString('hex')
       pars.keccak256 = '0x' + ethUtil.sha3(fileContent).toString('hex')
-      pars.urls = [ 'bzzr://' + swarmhash(fileContent).toString('hex') ]
+      pars.urls = [
+        'bzzr://' + swarmhash(fileContent).toString('hex'),
+        'https://ethereum.github.io/solc-bin/bin/' + pars.path,
+        'http://ethereum.github.io/solc-bin/bin' + pars.path
+      ]
       return pars
     })
     .sort(function (a, b) {

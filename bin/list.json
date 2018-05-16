@@ -5722,9 +5722,20 @@
       "urls": [
         "bzzr://cfa47b4d8d75df10651343eb3ef3609d6b1176a35a0c97faee45abeb7b033cf3"
       ]
+    },
+    {
+      "path": "soljson-v0.4.24+commit.e67f0147.js",
+      "version": "0.4.24",
+      "build": "commit.e67f0147",
+      "longVersion": "0.4.24+commit.e67f0147",
+      "keccak256": "0xee322e8f3117fcd7c196e88407d938846c096a3c62a51debd8a646f3aa228fcb",
+      "urls": [
+        "bzzr://bbcf75b3549aaa4b68bdd805e5c5b8a0b0be6a964e068b7ef36c48431f44e8e1"
+      ]
     }
   ],
   "releases": {
+    "0.4.24": "soljson-v0.4.24+commit.e67f0147.js",
     "0.4.23": "soljson-v0.4.23+commit.124ca40d.js",
     "0.4.22": "soljson-v0.4.22+commit.4cb486ee.js",
     "0.4.21": "soljson-v0.4.21+commit.dfe3193c.js",
@@ -5767,5 +5778,5 @@
     "0.1.2": "soljson-v0.1.2+commit.d0d36e3.js",
     "0.1.1": "soljson-v0.1.1+commit.6ff4cd6.js"
   },
-  "latestRelease": "0.4.23"
+  "latestRelease": "0.4.24"
 }

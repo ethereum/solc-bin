@@ -5864,6 +5864,17 @@
       "urls": [
         "bzzr://f631082277241bdbe1fcd92783f4864d60c7dd16bb96ff78a84e73cfbd7acce8"
       ]
+    },
+    {
+      "path": "soljson-v0.4.25-nightly.2018.6.7+commit.ddd256a6.js",
+      "version": "0.4.25",
+      "prerelease": "nightly.2018.6.7",
+      "build": "commit.ddd256a6",
+      "longVersion": "0.4.25-nightly.2018.6.7+commit.ddd256a6",
+      "keccak256": "0x164b5cbbab21103155cce12b2e6e819d7f6e748cdcf2ece5194ab4e9e2129ca3",
+      "urls": [
+        "bzzr://3f305063ff8f7c7fb04fb7071120b3adae90a741e7ccbacc07d3535724f973f5"
+      ]
     }
   ],
   "releases": {

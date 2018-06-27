@@ -7,6 +7,7 @@ const path = require('path')
 const semver = require('semver')
 const ethUtil = require('ethereumjs-util')
 const swarmhash = require('swarmhash')
+const solc = require('solc/wrapper')
 
 // This script updates the index files list.js and list.txt in the bin directory,
 // as well as the soljson-latest.js files.
@@ -33,6 +34,10 @@ dirs.forEach(function (dir) {
       return fs.readFileSync(path.join(__dirname, dir, file))
     }
 
+    function readBuiltinVersion (file) {
+      return solc(require(path.join(__dirname, '/bin', file))).version()
+    }
+
     // ascending list (oldest version first)
     const parsedList = files
       .map(function (file) { return file.match(/^soljson-v([0-9.]*)(-([^+]*))?(\+(.*))?.js$/) })
@@ -41,6 +46,7 @@ dirs.forEach(function (dir) {
       .map(function (pars) {
         console.log('Processing ' + pars.path)
         const fileContent = readFile(pars.path)
+        pars.reportedVersion = readBuiltinVersion(pars.path)
         pars.longVersion = buildVersion(pars)
         pars.keccak256 = '0x' + ethUtil.sha3(fileContent).toString('hex')
         pars.urls = [ 'bzzr://' + swarmhash(fileContent).toString('hex') ]

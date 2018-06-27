@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "ethereumjs-util": "^5.0.1",
+    "solc": "^0.4.24",
     "standard": "^8.4.0",
     "swarmhash": "^0.1.0"
   },

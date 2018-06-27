@@ -7,7 +7,7 @@ const path = require('path')
 const semver = require('semver')
 const ethUtil = require('ethereumjs-util')
 const swarmhash = require('swarmhash')
-const solc = require('solc/wrapper')
+const cp = require('child_process')
 
 // This script updates the index files list.js and list.txt in the bin directory,
 // as well as the soljson-latest.js files.
@@ -35,7 +35,10 @@ dirs.forEach(function (dir) {
     }
 
     function readBuiltinVersion (file) {
-      return solc(require(path.join(__dirname, '/bin', file))).version()
+      // NOTE: should be using this, but it leaks memory
+      // return solc(require(path.join(__dirname, '/bin', file))).version()
+      const filename = path.join(__dirname, '/bin', file)
+      return cp.execSync(`/usr/bin/env node -e "console.log(require('${filename}').cwrap('version', 'string', [])())"`).toString().trim()
     }
 
     // ascending list (oldest version first)

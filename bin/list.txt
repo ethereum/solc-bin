@@ -1,3 +1,4 @@
+soljson-v0.5.2-nightly.2018.12.19+commit.88750920.js
 soljson-v0.5.2-nightly.2018.12.18+commit.4b43aeca.js
 soljson-v0.5.2-nightly.2018.12.17+commit.12874029.js
 soljson-v0.5.2-nightly.2018.12.13+commit.b3e2ba15.js

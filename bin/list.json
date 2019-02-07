@@ -7586,6 +7586,17 @@
       "urls": [
         "bzzr://c82cdba4be56cc3566c031076b298d93b438c3a97f597b9c2622a3fe8a8a598d"
       ]
+    },
+    {
+      "path": "soljson-v0.5.4-nightly.2019.2.7+commit.caecdfab.js",
+      "version": "0.5.4",
+      "prerelease": "nightly.2019.2.7",
+      "build": "commit.caecdfab",
+      "longVersion": "0.5.4-nightly.2019.2.7+commit.caecdfab",
+      "keccak256": "0xef109f15163e774e094fa2b885ef8fd7e0a5e018f23907ca975622a8c9a33336",
+      "urls": [
+        "bzzr://2ab765f94a6286b1f57d4b2e776914f9bb27aaf95a48096af30ba8886c154ad1"
+      ]
     }
   ],
   "releases": {

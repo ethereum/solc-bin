@@ -8571,6 +8571,17 @@
       ]
     },
     {
+      "path": "soljson-v0.5.10-nightly.2019.6.18+commit.b6695071.js",
+      "version": "0.5.10",
+      "prerelease": "nightly.2019.6.18",
+      "build": "commit.b6695071",
+      "longVersion": "0.5.10-nightly.2019.6.18+commit.b6695071",
+      "keccak256": "0x61ade2d2a02398554a937c59ac32242b34112ef7ca012cca32f991b513a1287c",
+      "urls": [
+        "bzzr://3af9079c064715ec12c332a0486f5651418c1edd937da3c101dd71993405ae84"
+      ]
+    },
+    {
       "path": "soljson-v0.6.0-nightly.2019.3.5+commit.4740dc62.js",
       "version": "0.6.0",
       "prerelease": "nightly.2019.3.5",

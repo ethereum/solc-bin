@@ -8911,47 +8911,14 @@
       ]
     },
     {
-      "path": "soljson-v0.6.0-nightly.2019.3.5+commit.4740dc62.js",
-      "version": "0.6.0",
-      "prerelease": "nightly.2019.3.5",
-      "build": "commit.4740dc62",
-      "longVersion": "0.6.0-nightly.2019.3.5+commit.4740dc62",
-      "keccak256": "0x1903bbaed3bc9ddc05e9c4622f660aa3f47ab2f952b71bd08f76d412a938d7df",
+      "path": "soljson-v0.5.11-nightly.2019.8.7+commit.6166dc8e.js",
+      "version": "0.5.11",
+      "prerelease": "nightly.2019.8.7",
+      "build": "commit.6166dc8e",
+      "longVersion": "0.5.11-nightly.2019.8.7+commit.6166dc8e",
+      "keccak256": "0x77bd95e75a0e80d33b83dd38b9eeea3129c4745e2ad1d5ca9a97159608e35681",
       "urls": [
-        "bzzr://3ebf1aed09d6ce514d5f646e4999627ac7a074c7a484a1860b72fcfd2976eabc"
-      ]
-    },
-    {
-      "path": "soljson-v0.6.0-nightly.2019.3.6+commit.ee4beafd.js",
-      "version": "0.6.0",
-      "prerelease": "nightly.2019.3.6",
-      "build": "commit.ee4beafd",
-      "longVersion": "0.6.0-nightly.2019.3.6+commit.ee4beafd",
-      "keccak256": "0xff057ebbf8eb094e587875ef6de0ca784b5cf2cf491465aca3a255de25ad5053",
-      "urls": [
-        "bzzr://1f2feb57b7df3717e772b425cedab59ae24d4870ac0476e83ca043517801ff02"
-      ]
-    },
-    {
-      "path": "soljson-v0.6.0-nightly.2019.3.7+commit.7241aa75.js",
-      "version": "0.6.0",
-      "prerelease": "nightly.2019.3.7",
-      "build": "commit.7241aa75",
-      "longVersion": "0.6.0-nightly.2019.3.7+commit.7241aa75",
-      "keccak256": "0xab69312405d7c315f8f6cfca1710201cfaae5e6675b91cd6568cf62e8c714ccc",
-      "urls": [
-        "bzzr://0c5acc22af4e5ec2d4980c5da95eae30a2a71c8adc8645e29a4e2d9e0247df5c"
-      ]
-    },
-    {
-      "path": "soljson-v0.6.0-nightly.2019.3.11+commit.4704ef84.js",
-      "version": "0.6.0",
-      "prerelease": "nightly.2019.3.11",
-      "build": "commit.4704ef84",
-      "longVersion": "0.6.0-nightly.2019.3.11+commit.4704ef84",
-      "keccak256": "0x1fe312dbc0209817433a73f5825ab11a155aca0078181ae5dd6a39ad3d1214db",
-      "urls": [
-        "bzzr://afcceb6f74c1fb6cc0560da6b4907d0ae527acb90f3842f330e5f130ad24550c"
+        "bzzr://46420da22cd5db60e7eae0d620cbfa59cdc3714bcc14fffe26b9293688ddb7db"
       ]
     }
   ],

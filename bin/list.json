@@ -1764,6 +1764,17 @@
       ]
     },
     {
+      "path": "soljson-v0.4.2-nightly.2016.9.17+commit.bc8476a.js",
+      "version": "0.4.2",
+      "prerelease": "nightly.2016.9.17",
+      "build": "commit.bc8476a",
+      "longVersion": "0.4.2-nightly.2016.9.17+commit.bc8476a",
+      "keccak256": "0xa21d556c01a5b92f0a3ec60c60ee5bb5d5ad62ec2bab23c9bd2ed3c3a5935105",
+      "urls": [
+        "bzzr://6364260c647e9c68773bb02dadd1d78caa37e4e29b2da6474c9c15a458428c20"
+      ]
+    },
+    {
       "path": "soljson-v0.4.2-nightly.2016.9.17+commit.212e0160.js",
       "version": "0.4.2",
       "prerelease": "nightly.2016.9.17",
@@ -1783,17 +1794,6 @@
       "keccak256": "0x0bcb25fd69cbb24655466c203c866e3cc4d92d9551bab4c53f420ab025eac337",
       "urls": [
         "bzzr://2efa3a6cb5c030bb53bc03c4cf78e2dd48a5d4872bd0f4a3c337ec19b2dc933f"
-      ]
-    },
-    {
-      "path": "soljson-v0.4.2-nightly.2016.9.17+commit.bc8476a.js",
-      "version": "0.4.2",
-      "prerelease": "nightly.2016.9.17",
-      "build": "commit.bc8476a",
-      "longVersion": "0.4.2-nightly.2016.9.17+commit.bc8476a",
-      "keccak256": "0xa21d556c01a5b92f0a3ec60c60ee5bb5d5ad62ec2bab23c9bd2ed3c3a5935105",
-      "urls": [
-        "bzzr://6364260c647e9c68773bb02dadd1d78caa37e4e29b2da6474c9c15a458428c20"
       ]
     },
     {
@@ -9754,6 +9754,16 @@
       ]
     },
     {
+      "path": "soljson-v0.5.15+commit.6a57276f.js",
+      "version": "0.5.15",
+      "build": "commit.6a57276f",
+      "longVersion": "0.5.15+commit.6a57276f",
+      "keccak256": "0x09bad5cab9326f921c8f6a4d57fde317fb0cf5a66568defc48aeb682d37b0e68",
+      "urls": [
+        "bzzr://668f46bbfabb58cabac9bce5c5b9003206222130b1783d602ea8709581ddda87"
+      ]
+    },
+    {
       "path": "soljson-v0.6.0-nightly.2019.12.10+commit.7244aa01.js",
       "version": "0.6.0",
       "prerelease": "nightly.2019.12.10",
@@ -9832,6 +9842,7 @@
     }
   ],
   "releases": {
+    "0.5.15": "soljson-v0.5.15+commit.6a57276f.js",
     "0.5.14": "soljson-v0.5.14+commit.1f1aaa4.js",
     "0.5.13": "soljson-v0.5.13+commit.5b0b510c.js",
     "0.5.12": "soljson-v0.5.12+commit.7709ece9.js",
@@ -9892,5 +9903,5 @@
     "0.1.2": "soljson-v0.1.2+commit.d0d36e3.js",
     "0.1.1": "soljson-v0.1.1+commit.6ff4cd6.js"
   },
-  "latestRelease": "0.5.14"
+  "latestRelease": "0.5.15"
 }

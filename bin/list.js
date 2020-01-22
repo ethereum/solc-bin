@@ -1,5 +1,6 @@
 
 var soljsonSources = [
+  "soljson-v0.6.2-nightly.2020.1.22+commit.641bb815.js",
   "soljson-v0.6.2-nightly.2020.1.20+commit.470c19eb.js",
   "soljson-v0.6.2-nightly.2020.1.17+commit.92908f52.js",
   "soljson-v0.6.2-nightly.2020.1.16+commit.3d4a2219.js",
@@ -815,9 +816,9 @@ var soljsonSources = [
   "soljson-v0.3.5-nightly.2016.6.19+commit.5917c8e.js",
   "soljson-v0.3.5-nightly.2016.6.14+commit.371690f.js",
   "soljson-v0.3.4+commit.7dab890.js",
-  "soljson-v0.3.4-nightly.2016.6.8+commit.ccddd6f.js",
-  "soljson-v0.3.4-nightly.2016.6.8+commit.d593166.js",
   "soljson-v0.3.4-nightly.2016.6.8+commit.93790d.js",
+  "soljson-v0.3.4-nightly.2016.6.8+commit.d593166.js",
+  "soljson-v0.3.4-nightly.2016.6.8+commit.ccddd6f.js",
   "soljson-v0.3.4-nightly.2016.6.6+commit.e97ac4f.js",
   "soljson-v0.3.4-nightly.2016.6.5+commit.a0fc04.js",
   "soljson-v0.3.4-nightly.2016.6.4+commit.602bcd3.js",
@@ -834,8 +835,8 @@ var soljsonSources = [
   "soljson-v0.3.2-nightly.2016.5.18+commit.cb865fb.js",
   "soljson-v0.3.2-nightly.2016.5.17+commit.a37072.js",
   "soljson-v0.3.2-nightly.2016.5.13+commit.4b445b8.js",
-  "soljson-v0.3.2-nightly.2016.5.12+commit.73ede5b.js",
   "soljson-v0.3.2-nightly.2016.5.12+commit.c06051d.js",
+  "soljson-v0.3.2-nightly.2016.5.12+commit.73ede5b.js",
   "soljson-v0.3.2-nightly.2016.5.6+commit.9e36bdd.js",
   "soljson-v0.3.2-nightly.2016.5.5+commit.1b7e2d3.js",
   "soljson-v0.3.2-nightly.2016.5.3+commit.aa4dcbb.js",

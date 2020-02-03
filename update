@@ -11,137 +11,142 @@ const swarmhash = require('swarmhash')
 // This script updates the index files list.js and list.txt in the bin directory,
 // as well as the soljson-latest.js files.
 
-fs.readdir(path.join(__dirname, '/bin'), function (err, files) {
-  if (err) {
-    throw err
-  }
-
-  function buildVersion (build) {
-    var version = build.version
-    if (build.prerelease && build.prerelease.length > 0) {
-      version += '-' + build.prerelease
+var dirs = ['/bin', '/wasm']
+dirs.forEach(function (dir) {
+  fs.readdir(path.join(__dirname, dir), function (err, files) {
+    if (err) {
+      throw err
     }
-    if (build.build && build.build.length > 0) {
-      version += '+' + build.build
-    }
-    return version
-  }
 
-  function readFile (file) {
-    return fs.readFileSync(path.join(__dirname, '/bin', file))
-  }
-
-  // ascending list (oldest version first)
-  const parsedList = files
-    .map(function (file) { return file.match(/^soljson-v([0-9.]*)(-([^+]*))?(\+(.*))?.js$/) })
-    .filter(function (version) { return version })
-    .map(function (pars) { return { path: pars[0], version: pars[1], prerelease: pars[3], build: pars[5] } })
-    .map(function (pars) {
-      const fileContent = readFile(pars.path)
-      pars.longVersion = buildVersion(pars)
-      pars.keccak256 = '0x' + ethUtil.sha3(fileContent).toString('hex')
-      pars.urls = [ 'bzzr://' + swarmhash(fileContent).toString('hex') ]
-      return pars
-    })
-    .sort(function (a, b) {
-      // NOTE: a vs. b (the order is important), because we want oldest first in the list
-      return semver.compare(a.longVersion, b.longVersion)
-    })
-
-  // descending list
-  const releases = parsedList
-    .slice().reverse()
-    .reduce(function (prev, next) {
-      if (next.prerelease === undefined) {
-        prev[next.version] = next.path
+    function buildVersion (build) {
+      var version = build.version
+      if (build.prerelease && build.prerelease.length > 0) {
+        version += '-' + build.prerelease
       }
-      return prev
-    }, {})
-
-  // descending list
-  const buildNames = parsedList
-    .slice().reverse()
-    .map(function (ver) { return ver.path })
-
-  const latestRelease = parsedList
-    .slice().reverse()
-    .filter(function (version) {
-      if (version.prerelease === undefined) {
-        return version
+      if (build.build && build.build.length > 0) {
+        version += '+' + build.build
       }
-    })
-    .map(function (version) {
-      return version.version
-    })[0]
-
-  // latest build (nightly)
-  const latestBuildFile = buildNames[0]
-
-  // latest release
-  const latestReleaseFile = releases[latestRelease]
-
-  // Write bin/list.txt
-  // A descending list of file names.
-  fs.writeFile(path.join(__dirname, '/bin/list.txt'), buildNames.join('\n'), function (err) {
-    if (err) {
-      throw err
-    }
-    console.log('Updated bin/list.txt')
-  })
-
-  // Write bin/list.json
-  // Ascending list of builds and descending map of releases.
-  fs.writeFile(path.join(__dirname, '/bin/list.json'), JSON.stringify({ builds: parsedList, releases: releases, latestRelease: latestRelease }, null, 2), function (err) {
-    if (err) {
-      throw err
-    }
-    console.log('Updated bin/list.json')
-  })
-
-  // Write bin/list.js
-  // Descending list of build filenames and descending map of releases.
-  fs.writeFile(path.join(__dirname, '/bin/list.js'), generateLegacyListJS(buildNames, releases), function (err) {
-    if (err) {
-      throw err
-    }
-    console.log('Updated bin/list.js')
-  })
-
-  // Read latest release file
-  fs.readFile(path.join(__dirname, '/bin/', latestReleaseFile), function (err, data) {
-    if (err) {
-      throw err
+      return version
     }
 
-    // Copy to bin/soljson-latest.js
-    fs.writeFile(path.join(__dirname, '/bin/soljson-latest.js'), data, function (err) {
+    function readFile (file) {
+      return fs.readFileSync(path.join(__dirname, dir, file))
+    }
+
+    // ascending list (oldest version first)
+    const parsedList = files
+      .map(function (file) { return file.match(/^soljson-v([0-9.]*)(-([^+]*))?(\+(.*))?.js$/) })
+      .filter(function (version) { return version })
+      .map(function (pars) { return { path: pars[0], version: pars[1], prerelease: pars[3], build: pars[5] } })
+      .map(function (pars) {
+        const fileContent = readFile(pars.path)
+        pars.longVersion = buildVersion(pars)
+        pars.keccak256 = '0x' + ethUtil.sha3(fileContent).toString('hex')
+        pars.urls = [ 'bzzr://' + swarmhash(fileContent).toString('hex') ]
+        return pars
+      })
+      .sort(function (a, b) {
+        // NOTE: a vs. b (the order is important), because we want oldest first in the list
+        return semver.compare(a.longVersion, b.longVersion)
+      })
+
+    // descending list
+    const releases = parsedList
+      .slice().reverse()
+      .reduce(function (prev, next) {
+        if (next.prerelease === undefined) {
+          prev[next.version] = next.path
+        }
+        return prev
+      }, {})
+
+    // descending list
+    const buildNames = parsedList
+      .slice().reverse()
+      .map(function (ver) { return ver.path })
+
+    const latestRelease = parsedList
+      .slice().reverse()
+      .filter(function (version) {
+        if (version.prerelease === undefined) {
+          return version
+        }
+      })
+      .map(function (version) {
+        return version.version
+      })[0]
+
+    // latest build (nightly)
+    const latestBuildFile = buildNames[0]
+
+    // latest release
+    const latestReleaseFile = releases[latestRelease]
+
+    // Write list.txt
+    // A descending list of file names.
+    fs.writeFile(path.join(__dirname, dir, '/list.txt'), buildNames.join('\n'), function (err) {
       if (err) {
         throw err
       }
-      console.log('Updated bin/soljson-latest.js')
+      console.log('Updated ' + dir + '/list.txt')
     })
 
-    // Copy to soljson.js
-    fs.writeFile(path.join(__dirname, '/soljson.js'), data, function (err) {
+    // Write bin/list.json
+    // Ascending list of builds and descending map of releases.
+    fs.writeFile(path.join(__dirname, dir, '/list.json'), JSON.stringify({ builds: parsedList, releases: releases, latestRelease: latestRelease }, null, 2), function (err) {
       if (err) {
         throw err
       }
-      console.log('Updated soljson.js')
+      console.log('Updated ' + dir + '/list.json')
     })
-  })
 
-  // Read latest build file
-  fs.readFile(path.join(__dirname, '/bin/', latestBuildFile), function (err, data) {
-    if (err) {
-      throw err
-    }
-
-    // Copy to bin/soljson-nightly.js
-    fs.writeFile(path.join(__dirname, '/bin/soljson-nightly.js'), data, function (err) {
+    // Write bin/list.js
+    // Descending list of build filenames and descending map of releases.
+    fs.writeFile(path.join(__dirname, dir, '/list.js'), generateLegacyListJS(buildNames, releases), function (err) {
       if (err) {
         throw err
       }
-      console.log('Updated bin/soljson-nightly.js')
+      console.log('Updated ' + dir + '/list.js')
+    })
+
+    // Read latest release file
+    fs.readFile(path.join(__dirname, dir, latestReleaseFile), function (err, data) {
+      if (err) {
+        throw err
+      }
+
+      // Copy to bin/soljson-latest.js
+      fs.writeFile(path.join(__dirname, dir, '/soljson-latest.js'), data, function (err) {
+        if (err) {
+          throw err
+        }
+        console.log('Updated ' + dir + '/soljson-latest.js')
+      })
+
+      if (dir === '/bin') {
+        // Copy to soljson.js
+        fs.writeFile(path.join(__dirname, '/soljson.js'), data, function (err) {
+          if (err) {
+            throw err
+          }
+          console.log('Updated soljson.js')
+        })
+      }
+    })
+
+    // Read latest build file
+    fs.readFile(path.join(__dirname, dir, latestBuildFile), function (err, data) {
+      if (err) {
+        throw err
+      }
+
+      // Copy to bin/soljson-nightly.js
+      fs.writeFile(path.join(__dirname, dir, '/soljson-nightly.js'), data, function (err) {
+        if (err) {
+          throw err
+        }
+        console.log('Updated ' + dir + '/soljson-nightly.js')
+      })
     })
   })
 })

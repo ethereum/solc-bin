@@ -1,3 +1,4 @@
+soljson-v0.6.7-nightly.2020.4.9+commit.f8aaa83e.js
 soljson-v0.6.6+commit.6c089d02.js
 soljson-v0.6.6-nightly.2020.4.9+commit.605e176f.js
 soljson-v0.6.6-nightly.2020.4.8+commit.9fab9df1.js

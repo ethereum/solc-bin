@@ -1764,25 +1764,14 @@
       ]
     },
     {
-      "path": "soljson-v0.4.2-nightly.2016.9.17+commit.bc8476a.js",
+      "path": "soljson-v0.4.2-nightly.2016.9.17+commit.60f432e8.js",
       "version": "0.4.2",
       "prerelease": "nightly.2016.9.17",
-      "build": "commit.bc8476a",
-      "longVersion": "0.4.2-nightly.2016.9.17+commit.bc8476a",
-      "keccak256": "0xa21d556c01a5b92f0a3ec60c60ee5bb5d5ad62ec2bab23c9bd2ed3c3a5935105",
+      "build": "commit.60f432e8",
+      "longVersion": "0.4.2-nightly.2016.9.17+commit.60f432e8",
+      "keccak256": "0x0bcb25fd69cbb24655466c203c866e3cc4d92d9551bab4c53f420ab025eac337",
       "urls": [
-        "bzzr://6364260c647e9c68773bb02dadd1d78caa37e4e29b2da6474c9c15a458428c20"
-      ]
-    },
-    {
-      "path": "soljson-v0.4.2-nightly.2016.9.17+commit.212e0160.js",
-      "version": "0.4.2",
-      "prerelease": "nightly.2016.9.17",
-      "build": "commit.212e0160",
-      "longVersion": "0.4.2-nightly.2016.9.17+commit.212e0160",
-      "keccak256": "0x8431790f172fde38b9e3b8e632f5f5dbb9c49d3e254d24252c20ef0d903bd160",
-      "urls": [
-        "bzzr://8e7cbde5a72e500c6c0185b7d580e7270e337fda18007f84ef0760cec639c063"
+        "bzzr://2efa3a6cb5c030bb53bc03c4cf78e2dd48a5d4872bd0f4a3c337ec19b2dc933f"
       ]
     },
     {
@@ -1808,14 +1797,25 @@
       ]
     },
     {
-      "path": "soljson-v0.4.2-nightly.2016.9.17+commit.60f432e8.js",
+      "path": "soljson-v0.4.2-nightly.2016.9.17+commit.bc8476a.js",
       "version": "0.4.2",
       "prerelease": "nightly.2016.9.17",
-      "build": "commit.60f432e8",
-      "longVersion": "0.4.2-nightly.2016.9.17+commit.60f432e8",
-      "keccak256": "0x0bcb25fd69cbb24655466c203c866e3cc4d92d9551bab4c53f420ab025eac337",
+      "build": "commit.bc8476a",
+      "longVersion": "0.4.2-nightly.2016.9.17+commit.bc8476a",
+      "keccak256": "0xa21d556c01a5b92f0a3ec60c60ee5bb5d5ad62ec2bab23c9bd2ed3c3a5935105",
       "urls": [
-        "bzzr://2efa3a6cb5c030bb53bc03c4cf78e2dd48a5d4872bd0f4a3c337ec19b2dc933f"
+        "bzzr://6364260c647e9c68773bb02dadd1d78caa37e4e29b2da6474c9c15a458428c20"
+      ]
+    },
+    {
+      "path": "soljson-v0.4.2-nightly.2016.9.17+commit.212e0160.js",
+      "version": "0.4.2",
+      "prerelease": "nightly.2016.9.17",
+      "build": "commit.212e0160",
+      "longVersion": "0.4.2-nightly.2016.9.17+commit.212e0160",
+      "keccak256": "0x8431790f172fde38b9e3b8e632f5f5dbb9c49d3e254d24252c20ef0d903bd160",
+      "urls": [
+        "bzzr://8e7cbde5a72e500c6c0185b7d580e7270e337fda18007f84ef0760cec639c063"
       ]
     },
     {
@@ -10830,6 +10830,17 @@
       "keccak256": "0x9d7f6c44a99f1a4807c81b1c75e672e9d8d1563d1975dc7b8a7165a56b2b0e4f",
       "urls": [
         "bzzr://a42b252283c0275a162f2190db1d4ef0105a8a784d42500d6147a6239b94a8d2"
+      ]
+    },
+    {
+      "path": "soljson-v0.6.7-nightly.2020.4.28+commit.75a25d53.js",
+      "version": "0.6.7",
+      "prerelease": "nightly.2020.4.28",
+      "build": "commit.75a25d53",
+      "longVersion": "0.6.7-nightly.2020.4.28+commit.75a25d53",
+      "keccak256": "0x857d67de4e34496949017f2b30c506ca890160dfd44ce0b25b0b32ee2a805d69",
+      "urls": [
+        "bzzr://331ace49774b9a67eb4f4cf19fd966b86584d7c562fa0ff115182d3e5f937369"
       ]
     }
   ],

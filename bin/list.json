@@ -10962,6 +10962,17 @@
       "urls": [
         "bzzr://7bb9fd69bbf0c27793d5d9c2b48b4a3d028bb7df30fcaa63e015154b562f21c5"
       ]
+    },
+    {
+      "path": "soljson-v0.6.8-nightly.2020.5.13+commit.aca70049.js",
+      "version": "0.6.8",
+      "prerelease": "nightly.2020.5.13",
+      "build": "commit.aca70049",
+      "longVersion": "0.6.8-nightly.2020.5.13+commit.aca70049",
+      "keccak256": "0x891a2cfb76256a3d06f10f42d4e5eef7481092425ee8c91c6a55129d5986ecb2",
+      "urls": [
+        "bzzr://dda1b5759181aeb7b1afbbee4d8f4192d3dce322b67ec717699ce8faef989ade"
+      ]
     }
   ],
   "releases": {

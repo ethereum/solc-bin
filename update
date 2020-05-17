@@ -36,8 +36,8 @@ dirs.forEach(function (dir) {
 
     function readBuiltinVersion (file) {
       // NOTE: should be using this, but it leaks memory
-      // return solc(require(path.join(__dirname, '/bin', file))).version()
-      const filename = path.join(__dirname, '/bin', file)
+      // return solc(require(path.join(__dirname, dir, file))).version()
+      const filename = path.join(__dirname, dir, file)
       return cp.execSync(`/usr/bin/env node -e "console.log(require('${filename}').cwrap('version', 'string', [])())"`).toString().trim()
     }
 

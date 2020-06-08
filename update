@@ -35,7 +35,7 @@ dirs.forEach(function (dir) {
 
     // ascending list (oldest version first)
     const parsedList = files
-      .filter(function (file) { return !file.isSymbolicLink() })
+      .filter(function (file) { return dir === '/wasm' || !file.isSymbolicLink() })
       .map(function (file) { return file.name })
       .map(function (file) { return file.match(/^soljson-v([0-9.]*)(-([^+]*))?(\+(.*))?.js$/) })
       .filter(function (version) { return version })

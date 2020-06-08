@@ -1,0 +1,1 @@
+soljson-v0.4.12-nightly.2017.6.13+commit.0c8c2091.js

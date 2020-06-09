@@ -11114,6 +11114,17 @@
       "urls": [
         "bzzr://d616f978e8bb4d31b012ecc8c9a5657baaa5330594c81683f83f4a6ae1f8c76b"
       ]
+    },
+    {
+      "path": "soljson-v0.6.10-nightly.2020.6.9+commit.1e8e0ebd.js",
+      "version": "0.6.10",
+      "prerelease": "nightly.2020.6.9",
+      "build": "commit.1e8e0ebd",
+      "longVersion": "0.6.10-nightly.2020.6.9+commit.1e8e0ebd",
+      "keccak256": "0x8a713ace2dc546b57fb40af4623df5afa47b91298cb679de3cb22f9741be167e",
+      "urls": [
+        "bzzr://1ff0c522ca11ffccc62d1936e9b205fc8556db2334cf6dc30ef9f224baeade76"
+      ]
     }
   ],
   "releases": {

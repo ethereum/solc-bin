@@ -1,1 +1,0 @@
-soljson-v0.3.2-nightly.2016.5.25+commit.3c2056c6.js

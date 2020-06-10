@@ -1,1 +1,0 @@
-soljson-v0.3.5-nightly.2016.7.19+commit.427deb43.js

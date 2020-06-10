@@ -13,7 +13,7 @@ const swarmhash = require('swarmhash')
 
 var dirs = ['/bin', '/wasm']
 dirs.forEach(function (dir) {
-  fs.readdir(path.join(__dirname, dir), function (err, files) {
+  fs.readdir(path.join(__dirname, dir), { withFileTypes: true }, function (err, files) {
     if (err) {
       throw err
     }
@@ -35,6 +35,8 @@ dirs.forEach(function (dir) {
 
     // ascending list (oldest version first)
     const parsedList = files
+      .filter(function (file) { return dir === '/wasm' || !file.isSymbolicLink() })
+      .map(function (file) { return file.name })
       .map(function (file) { return file.match(/^soljson-v([0-9.]*)(-([^+]*))?(\+(.*))?.js$/) })
       .filter(function (version) { return version })
       .map(function (pars) { return { path: pars[0], version: pars[1], prerelease: pars[3], build: pars[5] } })

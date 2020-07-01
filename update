@@ -7,6 +7,7 @@ const path = require('path')
 const semver = require('semver')
 const ethUtil = require('ethereumjs-util')
 const swarmhash = require('swarmhash')
+const cp = require('child_process')
 
 // This script updates the index files list.js and list.txt in the bin directory,
 // as well as the soljson-latest.js files.
@@ -33,6 +34,13 @@ dirs.forEach(function (dir) {
       return fs.readFileSync(path.join(__dirname, dir, file))
     }
 
+    function readBuiltinVersion (file) {
+      // NOTE: should be using this, but it leaks memory
+      // return solc(require(path.join(__dirname, dir, file))).version()
+      const filename = path.join(__dirname, dir, file)
+      return cp.execSync(`/usr/bin/env node -e "var solc = require('${filename}'); console.log(solc.cwrap(('_solidity_version' in solc) ? 'solidity_version' : 'version', 'string', [])())"`).toString().trim()
+    }
+
     // ascending list (oldest version first)
     const parsedList = files
       .filter(function (file) { return dir === '/wasm' || !file.isSymbolicLink() })
@@ -41,7 +49,9 @@ dirs.forEach(function (dir) {
       .filter(function (version) { return version })
       .map(function (pars) { return { path: pars[0], version: pars[1], prerelease: pars[3], build: pars[5] } })
       .map(function (pars) {
+        console.log('Processing ' + pars.path)
         const fileContent = readFile(pars.path)
+        pars.reportedVersion = readBuiltinVersion(pars.path)
         pars.longVersion = buildVersion(pars)
         pars.keccak256 = '0x' + ethUtil.sha3(fileContent).toString('hex')
         pars.urls = [ 'bzzr://' + swarmhash(fileContent).toString('hex') ]

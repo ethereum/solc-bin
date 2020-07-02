@@ -1,0 +1,120 @@
+name: Pull in latest soljson build from CircleCI
+
+on:
+  schedule:
+    # Run once a day, at midnight
+    - cron: '0 0 * * *'
+
+jobs:
+  pull-soljson:
+    runs-on: ubuntu-latest
+
+    env:
+      JOB_NAME: b_ems
+      GIT_NAME: pull-soljson action
+      # TODO: Set a proper e-mail address
+      GIT_EMAIL: solidity@example.com
+      TARGET_BRANCH: master
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - name: Clone the repository without checking out a working copy
+        run: |
+          repository_url="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git clone --no-checkout "$repository_url" "$GITHUB_WORKSPACE" --branch "$TARGET_BRANCH"
+          git config --local user.name "$GIT_NAME"
+          git config --local user.email "$GIT_EMAIL"
+
+      - name: Unstage all files from local index
+        run: |
+          # For some reason git stages all files for deletion when you use --no-checkout
+          git reset HEAD --quiet
+
+      - name: Check out only the files we're going to actually use
+        run: |
+          git checkout -- update package.json
+          git checkout -- bin/list.json
+          git checkout -- bin/list.js
+          git checkout -- bin/list.txt
+          git checkout -- wasm/list.json
+          git checkout -- wasm/list.js
+          git checkout -- wasm/list.txt
+
+          # FIXME: The update script crashes if there isn't at least one release already stored.
+          git checkout -- update bin/soljson-latest.js
+          git checkout -- update wasm/soljson-latest.js
+          git checkout -- update bin/soljson-v0.3.6+commit.3fc68da5.js
+          git checkout -- update wasm/soljson-v0.3.6+commit.3fc68da5.js
+
+      - name: Get job info using CircleCI API
+        run: |
+          job_info_endpoint="https://circleci.com/api/v1.1/project/github/ethereum/solidity?filter=successful&limit=100"
+          job_info=$(
+            curl --silent --show-error "$job_info_endpoint" |
+            jq '[ .[] | select (.workflows.job_name == "'${JOB_NAME}'") ] | sort_by(.build_num) | last'
+          )
+
+          build_num=$(echo "$job_info" | jq ".build_num")
+
+          commit_hash=$(echo "$job_info" | jq --raw-output ".vcs_revision" | head --bytes 8)
+          # FIXME: CircleCI API provides a tag name only if it's directly on the current commit.
+          solidity_version="[version-placeholder]"
+          nightly_version="${solidity_version}+commit.${commit_hash}"
+          version_already_exists="$(test -f "bin/soljson-$nightly_version.js" && echo true || true)"
+
+          echo "::set-env name=NIGHTLY_VERSION::${nightly_version}"
+          echo "::set-env name=VERSION_ALREADY_EXISTS::${version_already_exists}"
+          echo "::set-env name=BUILD_NUM::${build_num}"
+
+      - name: Get artifact URL using CircleCI API
+        if: "!env.VERSION_ALREADY_EXISTS"
+        run: |
+          artifacts_endpoint="https://circleci.com/api/v1.1/project/github/ethereum/solidity/${BUILD_NUM}/artifacts"
+          artifact_url=$(
+            curl --silent --show-error "$artifacts_endpoint" |
+            jq --raw-output '.[].url'
+          )
+
+          echo "::set-env name=ARTIFACT_URL::${artifact_url}"
+
+      - name: Download the binary from CircleCI
+        if: "!env.VERSION_ALREADY_EXISTS"
+        run: |
+          # TMP:
+          #curl --silent --show-error --location --create-dirs --output "$NIGHTLY_PATH" "$ARTIFACT_URL"
+          curl --silent --show-error --location --remote-name "$ARTIFACT_URL"
+          test -f soljson.js
+
+          cp soljson.js "bin/soljson-$NIGHTLY_VERSION.js"
+          mv soljson.js bin/soljson-nightly.js
+
+          # TODO: Add a symlink under wasm/ if it's a tagged commit
+          # [ "$TRAVIS_BRANCH" = release ] && ln -sf ../bin/"$NEWFILE" ./wasm/"$NEWFILE"
+
+      - name: Install dependencies of the update script using npm
+        if: "!env.VERSION_ALREADY_EXISTS"
+        run: |
+          npm install
+
+      - name: Run the script that updates the file lists
+        if: "!env.VERSION_ALREADY_EXISTS"
+        run: |
+          # FIXME: Since we do no check out old binaries, the script will clear the lists.
+          # Modify it to just append the new nightly instead.
+          npm run update
+
+      - name: Commit the nightly binary and updated lists
+        if: "!env.VERSION_ALREADY_EXISTS"
+        run: |
+          # TODO: Commit any wasm and release changes too
+          git add "bin/soljson-$NIGHTLY_VERSION.js"
+          git add bin/soljson-nightly.js
+          git add bin/list.json
+          git add bin/list.js
+          git add bin/list.txt
+          git commit -m "Nightly build ${NIGHTLY_VERSION}"
+
+      - name: Push the commit
+        if: "!env.VERSION_ALREADY_EXISTS"
+        run: |
+          git push origin "$TARGET_BRANCH"

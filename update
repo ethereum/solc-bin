@@ -111,45 +111,37 @@ dirs.forEach(function (dir) {
       console.log('Updated ' + dir + '/list.js')
     })
 
-    // Read latest release file
-    fs.readFile(path.join(__dirname, dir, latestReleaseFile), function (err, data) {
-      if (err) {
-        throw err
-      }
-
-      // Copy to bin/soljson-latest.js
-      fs.writeFile(path.join(__dirname, dir, '/soljson-latest.js'), data, function (err) {
+    if (dir === '/bin') {
+      // Read latest release file
+      fs.readFile(path.join(__dirname, dir, latestReleaseFile), function (err, data) {
         if (err) {
           throw err
         }
-        console.log('Updated ' + dir + '/soljson-latest.js')
-      })
 
-      if (dir === '/bin') {
-        // Copy to soljson.js
-        fs.writeFile(path.join(__dirname, '/soljson.js'), data, function (err) {
+        // Copy to bin/soljson-latest.js
+        fs.writeFile(path.join(__dirname, dir, '/soljson-latest.js'), data, function (err) {
           if (err) {
             throw err
           }
-          console.log('Updated soljson.js')
+          console.log('Updated ' + dir + '/soljson-latest.js')
         })
-      }
-    })
+      })
 
-    // Read latest build file
-    fs.readFile(path.join(__dirname, dir, latestBuildFile), function (err, data) {
-      if (err) {
-        throw err
-      }
-
-      // Copy to bin/soljson-nightly.js
-      fs.writeFile(path.join(__dirname, dir, '/soljson-nightly.js'), data, function (err) {
+      // Read latest build file
+      fs.readFile(path.join(__dirname, dir, latestBuildFile), function (err, data) {
         if (err) {
           throw err
         }
-        console.log('Updated ' + dir + '/soljson-nightly.js')
+
+        // Copy to bin/soljson-nightly.js
+        fs.writeFile(path.join(__dirname, dir, '/soljson-nightly.js'), data, function (err) {
+          if (err) {
+            throw err
+          }
+          console.log('Updated ' + dir + '/soljson-nightly.js')
+        })
       })
-    })
+    }
   })
 })
 

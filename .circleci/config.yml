@@ -1,0 +1,8 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: alpine
+    steps:
+      - run: echo "This is an empty config just to keep CircleCI quiet."

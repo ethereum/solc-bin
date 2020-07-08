@@ -43,8 +43,8 @@ dirs.forEach(function (dir) {
       .map(function (pars) {
         const fileContent = readFile(pars.path)
         pars.longVersion = buildVersion(pars)
-        pars.keccak256 = '0x' + ethUtil.sha3(fileContent).toString('hex')
-        pars.urls = [ 'bzzr://' + swarmhash(fileContent).toString('hex') ]
+        pars.keccak256 = '0x' + ethUtil.keccak(fileContent).toString('hex')
+        pars.urls = ['bzzr://' + swarmhash(fileContent).toString('hex')]
         return pars
       })
       .sort(function (a, b) {

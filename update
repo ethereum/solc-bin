@@ -48,8 +48,14 @@ dirs.forEach(function (dir) {
         return pars
       })
       .sort(function (a, b) {
-        // NOTE: a vs. b (the order is important), because we want oldest first in the list
-        return semver.compare(a.longVersion, b.longVersion)
+        if (a.longVersion === b.longVersion) {
+          return 0
+        }
+
+        // NOTE: a vs. b (the order is important), because we want oldest first on parsedList.
+        // NOTE: If semver considers two versions equal we don't have enough info to say which came earlier
+        // so we don't care about their relative order as long as it's deterministic.
+        return semver.compare(a.longVersion, b.longVersion) || (a.longVersion > b.longVersion ? -1 : 1)
       })
 
     // descending list

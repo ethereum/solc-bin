@@ -3,3 +3,6 @@ exclude:
   # GH pages. Serve only the pre-existing bin/ and wasm/ to keep old links to GH pages working.
   - emscripten-asmjs
   - emscripten-wasm32
+  - linux-amd64
+  - macosx-amd64
+  - windows-amd64

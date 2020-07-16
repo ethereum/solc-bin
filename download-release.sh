@@ -3,7 +3,7 @@
 set -e
 set -o pipefail
 
-default_source=github
+default_source=circleci
 default_solidity_version=latest
 
 if [[ $1 == --help ]]; then
@@ -17,11 +17,11 @@ if [[ $1 == --help ]]; then
     echo "    ./$(basename "$0") --help"
     echo "    ./$(basename "$0") [source] [solidity_version] [solc_bin_dir]"
     echo
-    echo "    source           The source to get binaries from. Must be 'github'."
-    echo "                     Other sources may be added in the future."
+    echo "    source           The source to get binaries from. Can be 'circleci' or 'github'."
     echo "                     Default: '${default_source}'."
     echo "    solidity_version Version tag representing the release to download, including"
     echo "                     the leading 'v'. Use 'latest' to get the most recent release."
+    echo "                     In case of CircleCI 'latest' is the only supported value."
     echo "                     Default: '${default_solidity_version}'."
     echo "    solc_bin_dir     Location of the solc-bin checkout."
     echo "                     Default: current working directory."
@@ -29,7 +29,7 @@ if [[ $1 == --help ]]; then
     echo
     echo "Examples:"
     echo "    ./$(basename "$0") --help"
-    echo "    ./$(basename "$0") github latest"
+    echo "    ./$(basename "$0") circleci latest"
     echo "    ./$(basename "$0") github v0.6.9"
     echo "    ./$(basename "$0") github latest ~/solc-bin/"
     exit 0
@@ -66,10 +66,38 @@ expect_single_line() {
 }
 
 
+# JOB INFO FROM CIRCLECI API
+
+filter_jobs_by_name() {
+    local job_name="$1"
+    jq '[ .[] | select (.workflows.job_name == "'"$job_name"'") ]'
+}
+
+select_latest_job_info() {
+    # ASSUMPTION: Newer jobs always have higher build_num
+    jq 'sort_by(.build_num) | last'
+}
+
+
+# ARTIFACT INFO FROM CIRCLECI API
+
+filter_artifacts_by_name()  {
+    local artifact_name="$1"
+
+    jq '[ .[] | select (.path == "'"$artifact_name"'") ]'
+}
+
+
 # TAG INFO FROM GITHUB API
 
 filter_only_version_tags()  {
     jq '.[] | select (.name | startswith("v"))'
+}
+
+filter_tags_by_commit()  {
+    local commit_hash="$1"
+
+    jq '[ . | select (.commit.sha == "'"$commit_hash"'") ]'
 }
 
 filter_tags_by_name()  {
@@ -89,6 +117,29 @@ filter_assets_by_name() {
 
 
 # REPOSITORY STRUCTURE
+
+target_to_job_name() {
+    local target="$1"
+
+    case "$target" in
+        # FIXME: We don't have Windows or static Linux builds set up on CircleCI
+        macosx-amd64) echo b_osx ;;
+        emscripten)   echo b_ems ;;
+        *) die "Invalid target: %s" "$target" ;;
+    esac
+}
+
+target_to_circleci_artifact_name() {
+    local target="$1"
+
+    case "$target" in
+        # FIXME: What would that be in case of Windows? A zip file or an executable?
+        linux-amd64)  echo solc ;;
+        macosx-amd64) echo solc ;;
+        emscripten)   echo soljson.js ;;
+        *) die "Invalid target: %s" "$target" ;;
+    esac
+}
 
 target_to_github_artifact_regex() {
     local target="$1"
@@ -138,6 +189,22 @@ format_binary_path() {
 
 # MAIN LOGIC
 
+query_circleci_artifact_url() {
+    local target="$1"
+    local build_num="$2"
+
+    local artifact_endpoint="https://circleci.com/api/v1.1/project/github/ethereum/solidity/${build_num}/artifacts"
+    local artifact_name; artifact_name="$(target_to_circleci_artifact_name "$target")"
+    local artifact_url; artifact_url="$(
+        query_api "$artifact_endpoint" |
+        filter_artifacts_by_name "$artifact_name" |
+        jq --raw-output '.[].url'
+    )"
+    expect_single_line "$artifact_url"
+
+    echo "$artifact_url"
+}
+
 query_github_tag_info() {
     local endpoint="https://api.github.com/repos/ethereum/solidity/tags?per_page=100"
 
@@ -161,6 +228,49 @@ download_binary() {
 
     echo "Downloading release binary from ${download_url} into ${target_path}"
     curl "$download_url" --output "${target_path}" --location --no-progress-meter --create-dirs
+}
+
+download_binary_from_circleci() {
+    local target="$1"
+    local successful_jobs="$2"
+    local tag_info="$3"
+    local solc_bin_dir="$4"
+
+    local job_name; job_name="$(target_to_job_name "$target")"
+    local job_info; job_info="$(
+        echo "$successful_jobs" |
+        filter_jobs_by_name "$job_name" |
+        select_latest_job_info
+    )"
+    echo "$job_info" | jq '{
+        job_name: .workflows.job_name,
+        build_url,
+        stop_time,
+        status,
+        subject,
+        vcs_revision,
+        branch,
+        author_date
+    }'
+
+    local build_num; build_num="$(echo "$job_info" | jq --raw-output '.build_num')"
+    local commit_hash; commit_hash="$(echo "$job_info" | jq --raw-output '.vcs_revision')"
+
+    local solidity_version; solidity_version="$(
+        echo "$tag_info" |
+        filter_tags_by_commit "$commit_hash" |
+        jq --raw-output '.[].name'
+    )"
+    expect_single_line "$solidity_version"
+
+    local artifact_url; artifact_url="$(query_circleci_artifact_url "$target" "$build_num")"
+    local binary_path; binary_path="$(format_binary_path "$target" "$solidity_version" "$commit_hash")"
+    download_binary "${solc_bin_dir}/${binary_path}" "$artifact_url"
+    ! is_executable "$target" || chmod +x "${solc_bin_dir}/${binary_path}"
+
+    if [[ $target == emscripten ]]; then
+        disambiguate_emscripten_binary "$binary_path" "$solidity_version" "$commit_hash" "$solc_bin_dir"
+    fi
 }
 
 download_binary_from_github() {
@@ -236,6 +346,27 @@ download_release() {
     local tag_info; tag_info="$(query_github_tag_info | filter_only_version_tags)"
 
     case "$source" in
+        circleci)
+            local release_targets=(
+                # FIXME: We don't have Windows or static Linux builds set up on CircleCI
+                #linux-amd64
+                #windows-amd64
+                macosx-amd64
+                emscripten
+            )
+
+            [[ $solidity_version == latest ]] || die "Only getting the latest release is supported for CircleCI"
+
+            local job_endpoint="https://circleci.com/api/v1.1/project/github/ethereum/solidity/tree/release"
+            local filter="filter=successful&limit=100"
+            local successful_jobs; successful_jobs="$(query_api "${job_endpoint}?${filter}")"
+            echo "Got $(echo "$successful_jobs" | jq '. | length') recent successful job records from CircleCI"
+
+            for target in ${release_targets[@]}; do
+                download_binary_from_circleci "$target" "$successful_jobs" "$tag_info" "$solc_bin_dir"
+            done
+            ;;
+
         github)
             local release_targets=(
                 linux-amd64
@@ -270,7 +401,7 @@ download_release() {
             done
             ;;
 
-        *) die "Invalid source: '${source}'. The only currently supported value is 'github'." ;;
+        *) die "Invalid source: '${source}'. Must be either 'circleci' or 'github'." ;;
     esac
 }
 

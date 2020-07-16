@@ -1,0 +1,40 @@
+{
+  "builds": [
+    {
+      "path": "solc-macosx-amd64-v0.6.9+commit.3e3065ac",
+      "version": "0.6.9",
+      "build": "commit.3e3065ac",
+      "longVersion": "0.6.9+commit.3e3065ac",
+      "keccak256": "0x6a34879f5ebf3e6405d18c1812aa540fe9903ad889cebc3dc0246d5a49cdf3cf",
+      "urls": [
+        "bzzr://4ffbd77aa5bdb73bec29e4d4e236a9dd907caff79296a3d94646760d8e5af78b"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.6.10+commit.00c0fcaf",
+      "version": "0.6.10",
+      "build": "commit.00c0fcaf",
+      "longVersion": "0.6.10+commit.00c0fcaf",
+      "keccak256": "0xc833a7ce648e47524699bfcff94bf0a5143f2f0ccca7b75703dc825fdd038c1d",
+      "urls": [
+        "bzzr://181a5c54edcc14ce2c5d5155c4efd56a204a49834409772ed85ad932857a9750"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.6.11+commit.5ef660b1",
+      "version": "0.6.11",
+      "build": "commit.5ef660b1",
+      "longVersion": "0.6.11+commit.5ef660b1",
+      "keccak256": "0xd289b8db3cd371f4a5df8e57b5382b361fcb8d5112536797ec2dd90dda1a079d",
+      "urls": [
+        "bzzr://9fd78b77716ce520e78aca45af8709101d0a9eb07ed8ddc07a166f6964a9df60"
+      ]
+    }
+  ],
+  "releases": {
+    "0.6.11": "solc-macosx-amd64-v0.6.11+commit.5ef660b1",
+    "0.6.10": "solc-macosx-amd64-v0.6.10+commit.00c0fcaf",
+    "0.6.9": "solc-macosx-amd64-v0.6.9+commit.3e3065ac"
+  },
+  "latestRelease": "0.6.11"
+}

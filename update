@@ -31,8 +31,7 @@ function updateSymlink (linkPathRelativeToRoot, targetRelativeToLink) {
   })
 }
 
-var dirs = ['/bin', '/wasm']
-dirs.forEach(function (dir) {
+function processDir (dir, listCallback) {
   fs.readdir(path.join(__dirname, dir), { withFileTypes: true }, function (err, files) {
     if (err) {
       throw err
@@ -53,6 +52,8 @@ dirs.forEach(function (dir) {
       return fs.readFileSync(path.join(__dirname, dir, file))
     }
 
+    const binaryPrefix = (dir === '/bin' || dir === '/wasm' ? 'soljson' : 'solc-' + dir.slice(1))
+
     // ascending list (oldest version first)
     const parsedList = files
       .filter(function (file) {
@@ -63,7 +64,9 @@ dirs.forEach(function (dir) {
           file.name.match(/^.+\+commit\.[0-9a-f]{8,}\.js$/)
       })
       .map(function (file) { return file.name })
-      .map(function (file) { return file.match(/^soljson-v([0-9.]*)(-([^+]*))?(\+(.*))?.js$/) })
+      .map(function (file) {
+        return file.match(new RegExp('^' + binaryPrefix + '-v([0-9.]*)(-([^+]*))?(\\+(.*))?\\.js$'))
+      })
       .filter(function (version) { return version })
       .map(function (pars) { return { path: pars[0], version: pars[1], prerelease: pars[3], build: pars[5] } })
       .map(function (pars) {
@@ -83,6 +86,11 @@ dirs.forEach(function (dir) {
         // so we don't care about their relative order as long as it's deterministic.
         return semver.compare(a.longVersion, b.longVersion) || (a.longVersion > b.longVersion ? -1 : 1)
       })
+
+    // When the list is ready, let the callback process it
+    if (listCallback !== undefined) {
+      listCallback(parsedList)
+    }
 
     // descending list
     const releases = parsedList
@@ -143,12 +151,44 @@ dirs.forEach(function (dir) {
       console.log('Updated ' + dir + '/list.js')
     })
 
-    // Update symlinks
+    // Update 'latest' symlink (except for wasm/ where the link is hard-coded to point at the one in bin/)
+    if (dir !== '/wasm') {
+      updateSymlink(path.join(dir, binaryPrefix + '-latest.js'), latestReleaseFile)
+    }
+
+    // Update 'nightly' symlink in bin/ (we don't have nightlies for other platforms)
     if (dir === '/bin') {
-      updateSymlink(path.join(dir, 'soljson-latest.js'), latestReleaseFile)
-      updateSymlink(path.join(dir, 'soljson-nightly.js'), latestBuildFile)
+      updateSymlink(path.join(dir, binaryPrefix + '-nightly.js'), latestBuildFile)
     }
   })
+}
+
+const DIRS = [
+  '/bin',
+  '/wasm',
+  '/emscripten-asmjs'
+]
+
+DIRS.forEach(function (dir) {
+  if (dir !== '/wasm') {
+    processDir(dir)
+  } else {
+    processDir(dir, function (parsedList) {
+      // Any new releases added to wasm/ need to be linked in emscripten-wasm32/ first.
+      // Only then can we start processing emscripten-wasm32/.
+      // We don't need to do this for emscripten-asmjs/ because we don't build asm.js releases any more.
+      parsedList.forEach(function (release) {
+        if (release.prerelease === undefined) {
+          updateSymlink(
+            path.join('/emscripten-wasm32', 'solc-emscripten-wasm32-v' + release.longVersion + '.js'),
+            path.join('..', 'wasm', release.path)
+          )
+        }
+      })
+
+      processDir('/emscripten-wasm32')
+    })
+  }
 })
 
 function generateLegacyListJS (builds, releases) {

@@ -55,7 +55,13 @@ dirs.forEach(function (dir) {
 
     // ascending list (oldest version first)
     const parsedList = files
-      .filter(function (file) { return dir === '/wasm' || !file.isSymbolicLink() })
+      .filter(function (file) {
+        // Skip symbolic links with less then 8 characters in the commit hash.
+        // They exist only for backwards-compatibilty and should not be on the list.
+        return dir !== '/bin' ||
+          !file.isSymbolicLink() ||
+          file.name.match(/^.+\+commit\.[0-9a-f]{8,}\.js$/)
+      })
       .map(function (file) { return file.name })
       .map(function (file) { return file.match(/^soljson-v([0-9.]*)(-([^+]*))?(\+(.*))?.js$/) })
       .filter(function (version) { return version })

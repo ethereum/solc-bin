@@ -8,8 +8,28 @@ const semver = require('semver')
 const ethUtil = require('ethereumjs-util')
 const swarmhash = require('swarmhash')
 
-// This script updates the index files list.js and list.txt in the bin directory,
-// as well as the soljson-latest.js files.
+// This script updates the index files list.js and list.txt in the directories containing binaries,
+// as well as the 'latest' and 'nightly' symlinks.
+
+function updateSymlink (linkPathRelativeToRoot, targetRelativeToLink) {
+  const absoluteLinkPath = path.join(__dirname, linkPathRelativeToRoot)
+
+  fs.readlink(absoluteLinkPath, (err, linkString) => {
+    if (err && err.code !== 'ENOENT') {
+      throw err
+    }
+
+    if (!err && targetRelativeToLink !== linkString) {
+      fs.unlinkSync(absoluteLinkPath)
+      console.log('Removed link ' + linkPathRelativeToRoot + ' -> ' + linkString)
+    }
+
+    if (err || targetRelativeToLink !== linkString) {
+      fs.symlinkSync(targetRelativeToLink, absoluteLinkPath, 'file')
+      console.log('Created link ' + linkPathRelativeToRoot + ' -> ' + targetRelativeToLink)
+    }
+  })
+}
 
 var dirs = ['/bin', '/wasm']
 dirs.forEach(function (dir) {
@@ -117,36 +137,10 @@ dirs.forEach(function (dir) {
       console.log('Updated ' + dir + '/list.js')
     })
 
+    // Update symlinks
     if (dir === '/bin') {
-      // Read latest release file
-      fs.readFile(path.join(__dirname, dir, latestReleaseFile), function (err, data) {
-        if (err) {
-          throw err
-        }
-
-        // Copy to bin/soljson-latest.js
-        fs.writeFile(path.join(__dirname, dir, '/soljson-latest.js'), data, function (err) {
-          if (err) {
-            throw err
-          }
-          console.log('Updated ' + dir + '/soljson-latest.js')
-        })
-      })
-
-      // Read latest build file
-      fs.readFile(path.join(__dirname, dir, latestBuildFile), function (err, data) {
-        if (err) {
-          throw err
-        }
-
-        // Copy to bin/soljson-nightly.js
-        fs.writeFile(path.join(__dirname, dir, '/soljson-nightly.js'), data, function (err) {
-          if (err) {
-            throw err
-          }
-          console.log('Updated ' + dir + '/soljson-nightly.js')
-        })
-      })
+      updateSymlink(path.join(dir, 'soljson-latest.js'), latestReleaseFile)
+      updateSymlink(path.join(dir, 'soljson-nightly.js'), latestBuildFile)
     }
   })
 })

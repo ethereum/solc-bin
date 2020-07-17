@@ -31,6 +31,33 @@ function updateSymlink (linkPathRelativeToRoot, targetRelativeToLink) {
   })
 }
 
+function updateCopy (srcRelativeToRoot, destRelativeToRoot) {
+  fs.readFile(path.join(__dirname, srcRelativeToRoot), function (err, data) {
+    if (err) {
+      throw err
+    }
+
+    const absoluteDest = path.join(__dirname, destRelativeToRoot)
+    fs.stat(absoluteDest, function (err, stats) {
+      if (err && err.code !== 'ENOENT') {
+        throw err
+      }
+
+      // If the target is a symlink, we want to replace it with a copy rather than overwrite the file it links to
+      if (!err && stats.isSymbolicLink()) {
+        fs.unlinkSync(absoluteDest)
+      }
+
+      fs.writeFile(absoluteDest, data, function (err) {
+        if (err) {
+          throw err
+        }
+        console.log('Updated ' + destRelativeToRoot)
+      })
+    })
+  })
+}
+
 function processDir (dir, listCallback) {
   fs.readdir(path.join(__dirname, dir), { withFileTypes: true }, function (err, files) {
     if (err) {

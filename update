@@ -53,6 +53,13 @@ function processDir (dir, listCallback) {
     }
 
     const binaryPrefix = (dir === '/bin' || dir === '/wasm' ? 'soljson' : 'solc-' + dir.slice(1))
+    const binaryExtension = {
+      '/bin': '.js',
+      '/wasm': '.js',
+      '/emscripten-asmjs': '.js',
+      '/emscripten-wasm32': '.js',
+      '/windows-amd64': '.zip'
+    }[dir] || ''
 
     // ascending list (oldest version first)
     const parsedList = files
@@ -65,7 +72,8 @@ function processDir (dir, listCallback) {
       })
       .map(function (file) { return file.name })
       .map(function (file) {
-        return file.match(new RegExp('^' + binaryPrefix + '-v([0-9.]*)(-([^+]*))?(\\+(.*))?\\.js$'))
+        const escapedExtension = binaryExtension.replace('.', '\\.')
+        return file.match(new RegExp('^' + binaryPrefix + '-v([0-9.]*)(-([^+]*))?(\\+(.*))?' + escapedExtension + '$'))
       })
       .filter(function (version) { return version })
       .map(function (pars) { return { path: pars[0], version: pars[1], prerelease: pars[3], build: pars[5] } })
@@ -153,12 +161,12 @@ function processDir (dir, listCallback) {
 
     // Update 'latest' symlink (except for wasm/ where the link is hard-coded to point at the one in bin/)
     if (dir !== '/wasm') {
-      updateSymlink(path.join(dir, binaryPrefix + '-latest.js'), latestReleaseFile)
+      updateSymlink(path.join(dir, binaryPrefix + '-latest' + binaryExtension), latestReleaseFile)
     }
 
     // Update 'nightly' symlink in bin/ (we don't have nightlies for other platforms)
     if (dir === '/bin') {
-      updateSymlink(path.join(dir, binaryPrefix + '-nightly.js'), latestBuildFile)
+      updateSymlink(path.join(dir, binaryPrefix + '-nightly' + binaryExtension), latestBuildFile)
     }
   })
 }
@@ -166,7 +174,10 @@ function processDir (dir, listCallback) {
 const DIRS = [
   '/bin',
   '/wasm',
-  '/emscripten-asmjs'
+  '/emscripten-asmjs',
+  '/linux-amd64',
+  '/macosx-amd64',
+  '/windows-amd64'
 ]
 
 DIRS.forEach(function (dir) {

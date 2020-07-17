@@ -9,7 +9,7 @@ const ethUtil = require('ethereumjs-util')
 const swarmhash = require('swarmhash')
 
 // This script updates the index files list.js and list.txt in the directories containing binaries,
-// as well as the 'latest' and 'nightly' symlinks.
+// as well as the 'latest' and 'nightly' symlinks/files.
 
 function updateSymlink (linkPathRelativeToRoot, targetRelativeToLink) {
   const absoluteLinkPath = path.join(__dirname, linkPathRelativeToRoot)
@@ -28,6 +28,33 @@ function updateSymlink (linkPathRelativeToRoot, targetRelativeToLink) {
       fs.symlinkSync(targetRelativeToLink, absoluteLinkPath, 'file')
       console.log('Created link ' + linkPathRelativeToRoot + ' -> ' + targetRelativeToLink)
     }
+  })
+}
+
+function updateCopy (srcRelativeToRoot, destRelativeToRoot) {
+  fs.readFile(path.join(__dirname, srcRelativeToRoot), function (err, data) {
+    if (err) {
+      throw err
+    }
+
+    const absoluteDest = path.join(__dirname, destRelativeToRoot)
+    fs.stat(absoluteDest, function (err, stats) {
+      if (err && err.code !== 'ENOENT') {
+        throw err
+      }
+
+      // If the target is a symlink, we want to replace it with a copy rather than overwrite the file it links to
+      if (!err && stats.isSymbolicLink()) {
+        fs.unlinkSync(absoluteDest)
+      }
+
+      fs.writeFile(absoluteDest, data, function (err) {
+        if (err) {
+          throw err
+        }
+        console.log('Updated ' + destRelativeToRoot)
+      })
+    })
   })
 }
 
@@ -159,8 +186,12 @@ function processDir (dir, listCallback) {
       console.log('Updated ' + dir + '/list.js')
     })
 
-    // Update 'latest' symlink (except for wasm/ where the link is hard-coded to point at the one in bin/)
-    if (dir !== '/wasm') {
+    // Update 'latest' symlink (except for wasm/ where the link is hard-coded to point at the one in bin/).
+    // bin/ is a special case because we need to keep a copy rather than a symlink. The reason is that
+    // some tools (in particular solc-js) have hard-coded github download URLs to it and can't handle symlinks.
+    if (dir === '/bin') {
+      updateCopy(path.join(dir, latestReleaseFile), path.join(dir, binaryPrefix + '-latest' + binaryExtension))
+    } else if (dir !== '/wasm') {
       updateSymlink(path.join(dir, binaryPrefix + '-latest' + binaryExtension), latestReleaseFile)
     }
 

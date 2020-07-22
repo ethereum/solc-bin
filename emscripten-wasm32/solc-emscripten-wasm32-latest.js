@@ -1,1 +1,1 @@
-solc-emscripten-wasm32-v0.6.11+commit.5ef660b1.js
+solc-emscripten-wasm32-v0.6.12+commit.27d51765.js

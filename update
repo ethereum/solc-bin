@@ -207,7 +207,6 @@ function processDir (dir, listCallback) {
 
 const DIRS = [
   '/bin',
-  '/emscripten-asmjs',
   '/linux-amd64',
   '/macosx-amd64',
   '/windows-amd64'
@@ -227,10 +226,16 @@ DIRS.forEach(function (dir) {
               path.join('/wasm', release.path),
               path.join('..', 'bin', release.path)
             )
+          } else {
+            updateSymlinkSync(
+              path.join('/emscripten-asmjs', 'solc-emscripten-asmjs-v' + release.longVersion + '.js'),
+              path.join('..', 'bin', release.path)
+            )
           }
         }
       })
 
+      processDir('/emscripten-asmjs')
       processDir('/wasm', function (parsedList) {
         // Any new releases added to wasm/ need to be linked in emscripten-wasm32/ first.
         parsedList.forEach(function (release) {

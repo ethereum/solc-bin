@@ -569,9 +569,20 @@
       "urls": [
         "bzzr://9f9244a3605543a67f5ff35f21e3d6d3331a6e1361f09b271c37f396b5b89bd5"
       ]
+    },
+    {
+      "path": "solc-emscripten-wasm32-v0.6.12+commit.27d51765.js",
+      "version": "0.6.12",
+      "build": "commit.27d51765",
+      "longVersion": "0.6.12+commit.27d51765",
+      "keccak256": "0xe1412d909a0dae79b13c0066b9bf08831c522daec00b273bbc19a799af213d6a",
+      "urls": [
+        "bzzr://b69ab6704a1e42fddb326e91f331e35fdf071b158e8754e2c887c0e607aee7b0"
+      ]
     }
   ],
   "releases": {
+    "0.6.12": "solc-emscripten-wasm32-v0.6.12+commit.27d51765.js",
     "0.6.11": "solc-emscripten-wasm32-v0.6.11+commit.5ef660b1.js",
     "0.6.10": "solc-emscripten-wasm32-v0.6.10+commit.00c0fcaf.js",
     "0.6.9": "solc-emscripten-wasm32-v0.6.9+commit.3e3065ac.js",
@@ -630,5 +641,5 @@
     "0.4.0": "solc-emscripten-wasm32-v0.4.0+commit.acd334c9.js",
     "0.3.6": "solc-emscripten-wasm32-v0.3.6+commit.3fc68da5.js"
   },
-  "latestRelease": "0.6.11"
+  "latestRelease": "0.6.12"
 }

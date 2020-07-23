@@ -1,0 +1,41 @@
+name: Mirror repository content to an S3 bucket
+
+on:
+  push:
+    branches:
+      - gh-pages
+
+  schedule:
+    # Pushes to `gh-pages` done from other actions cannot trigger this action so we also want it to run
+    # on a schedule. Let's give the nightly job a 1h head-start and run every day at 1:00.
+    - cron: '0 1 * * *'
+
+env:
+  S3_BUCKET: solc-bin
+  S3_REGION: eu-central-1
+
+jobs:
+  push-to-s3:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Wait for other instances of this workflow to finish
+        # It's not safe to run two S3 sync operations concurrently with different files
+        uses: softprops/turnstyle@v1
+        with:
+          same-branch-only: no
+
+      - name: Configure the S3 client
+        run: |
+          aws configure set default.region "$S3_REGION"
+          aws configure set aws_access_key_id '${{ secrets.AWS_ACCESS_KEY_ID }}'
+          aws configure set aws_secret_access_key '${{ secrets.AWS_SECRET_ACCESS_KEY }}'
+
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Sync the S3 bucket
+        run: |
+          ./sync-s3.sh "$S3_BUCKET"

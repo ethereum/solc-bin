@@ -1,0 +1,127 @@
+name: Emscripten nightly build + push to solc-bin
+
+on:
+  schedule:
+    # Run once a day, at midnight
+    - cron: '0 0 * * *'
+
+env:
+  TARGET_BRANCH: gh-pages
+  COMMITTER_NAME: emscripten nightly action
+  COMMITTER_EMAIL: builds@ethereum.org
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  build-emscripten-nightly:
+    runs-on: ubuntu-latest
+    outputs:
+      solidity-version: ${{ env.SOLIDITY_VERSION }}
+      nightly-version: ${{ env.NIGHTLY_VERSION }}
+      matching-nightlies-in-the-repo: ${{ env.MATCHING_NIGHTLIES_IN_THE_REPO }}
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: 'ethereum/solidity'
+          ref: 'develop'
+          path: 'solidity/'
+
+      - name: Clone solc-bin repository without checking out a working copy
+        run: |
+          git clone --no-checkout --branch "$TARGET_BRANCH" "https://github.com/${GITHUB_REPOSITORY}.git" solc-bin/
+
+          # For some reason git stages all files for deletion when you use --no-checkout
+          cd solc-bin/
+          git reset HEAD --quiet
+
+      - name: Check if there's already a nightly with the same date or commit ID
+        run: |
+          cd solidity/
+          solidity_version=$("scripts/get_version.sh")
+          last_commit_timestamp=$(git log -1 --date=iso --format=%ad HEAD)
+          last_commit_date=$(date --date="$last_commit_timestamp" --utc +%Y.%-m.%-d)
+          last_commit_hash=$(git rev-parse --short=8 HEAD)
+
+          cd ../solc-bin/
+          matching_nightlies_in_the_repo="$(
+            git ls-files "bin/soljson-v${solidity_version}-nightly.${last_commit_date}+commit.*.js";
+            git ls-files "bin/soljson-v${solidity_version}-nightly.*+commit.${last_commit_hash}.js"
+          )"
+          nightly_version="v${solidity_version}-nightly.${last_commit_date}+commit.${last_commit_hash}"
+
+          echo "::set-env name=SOLIDITY_VERSION::${solidity_version}"
+          echo "::set-env name=NIGHTLY_VERSION::${nightly_version}"
+
+          # There's no way to just stop a job without failing and that would spam everyone with
+          # spurious e-mail notifications about the failure. Instead we have to make do with `if`s.
+          echo "::set-env name=MATCHING_NIGHTLIES_IN_THE_REPO::${matching_nightlies_in_the_repo}"
+
+      - name: Build soljson.js
+        if: "!env.MATCHING_NIGHTLIES_IN_THE_REPO"
+        run: |
+          cd solidity/
+          # Note that this script will spawn and build inside a docker image (which works just fine in github actions).
+          scripts/build_emscripten.sh
+
+      - name: Upload soljson.js as an artifact
+        if: "!env.MATCHING_NIGHTLIES_IN_THE_REPO"
+        uses: actions/upload-artifact@v2
+        with:
+          name: soljson.js
+          path: solidity/upload/soljson.js
+
+
+  test-emscripten-nightly:
+    runs-on: ubuntu-latest
+    needs: build-emscripten-nightly
+
+    env:
+      SOLIDITY_VERSION: ${{ needs.build-emscripten-nightly.outputs.solidity-version }}
+
+    if: "!needs.build-emscripten-nightly.outputs.matching-nightlies-in-the-repo"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: 'ethereum/solidity'
+
+      - name: Download soljson.js artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: soljson.js
+
+      - name: Run solc-js tests
+        run: |
+          test/externalTests/solc-js/solc-js.sh "${PWD}/soljson.js" "$SOLIDITY_VERSION"
+
+
+  add-nightly-and-push:
+    runs-on: ubuntu-latest
+    needs:
+      - build-emscripten-nightly
+      - test-emscripten-nightly
+
+    env:
+      NIGHTLY_VERSION: ${{ needs.build-emscripten-nightly.outputs.nightly-version }}
+
+    if: "!needs.build-emscripten-nightly.outputs.matching-nightlies-in-the-repo"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ env.TARGET_BRANCH }}
+          path: 'solc-bin'
+
+      - name: Download soljson.js artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: soljson.js
+
+      - name: Set committer name and e-mail
+        run: |
+          cd solc-bin/
+          git config --local user.name "$COMMITTER_NAME"
+          git config --local user.email "$COMMITTER_EMAIL"
+
+      - name: Run add-nightly-and-push.sh
+        run: |
+          cd solc-bin/
+          ./add-nightly-and-push.sh ../soljson.js "$NIGHTLY_VERSION"

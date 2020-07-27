@@ -11,24 +11,27 @@ const swarmhash = require('swarmhash')
 // This script updates the index files list.js and list.txt in the directories containing binaries,
 // as well as the 'latest' and 'nightly' symlinks/files.
 
-function updateSymlink (linkPathRelativeToRoot, targetRelativeToLink) {
+function updateSymlinkSync (linkPathRelativeToRoot, targetRelativeToLink) {
   const absoluteLinkPath = path.join(__dirname, linkPathRelativeToRoot)
+  let linkString
 
-  fs.readlink(absoluteLinkPath, (err, linkString) => {
-    if (err && err.code !== 'ENOENT') {
-      throw err
-    }
+  try {
+    linkString = fs.readlinkSync(absoluteLinkPath)
 
-    if (!err && targetRelativeToLink !== linkString) {
+    if (targetRelativeToLink !== linkString) {
       fs.unlinkSync(absoluteLinkPath)
       console.log('Removed link ' + linkPathRelativeToRoot + ' -> ' + linkString)
     }
-
-    if (err || targetRelativeToLink !== linkString) {
-      fs.symlinkSync(targetRelativeToLink, absoluteLinkPath, 'file')
-      console.log('Created link ' + linkPathRelativeToRoot + ' -> ' + targetRelativeToLink)
+  } catch (err) {
+    if (err.code !== 'ENOENT') {
+      throw err
     }
-  })
+  }
+
+  if (targetRelativeToLink !== linkString) {
+    fs.symlinkSync(targetRelativeToLink, absoluteLinkPath, 'file')
+    console.log('Created link ' + linkPathRelativeToRoot + ' -> ' + targetRelativeToLink)
+  }
 }
 
 function updateCopy (srcRelativeToRoot, destRelativeToRoot) {
@@ -192,12 +195,12 @@ function processDir (dir, listCallback) {
     if (dir === '/bin') {
       updateCopy(path.join(dir, latestReleaseFile), path.join(dir, binaryPrefix + '-latest' + binaryExtension))
     } else if (dir !== '/wasm') {
-      updateSymlink(path.join(dir, binaryPrefix + '-latest' + binaryExtension), latestReleaseFile)
+      updateSymlinkSync(path.join(dir, binaryPrefix + '-latest' + binaryExtension), latestReleaseFile)
     }
 
     // Update 'nightly' symlink in bin/ (we don't have nightlies for other platforms)
     if (dir === '/bin') {
-      updateSymlink(path.join(dir, binaryPrefix + '-nightly' + binaryExtension), latestBuildFile)
+      updateSymlinkSync(path.join(dir, binaryPrefix + '-nightly' + binaryExtension), latestBuildFile)
     }
   })
 }
@@ -221,7 +224,7 @@ DIRS.forEach(function (dir) {
       // We don't need to do this for emscripten-asmjs/ because we don't build asm.js releases any more.
       parsedList.forEach(function (release) {
         if (release.prerelease === undefined) {
-          updateSymlink(
+          updateSymlinkSync(
             path.join('/emscripten-wasm32', 'solc-emscripten-wasm32-v' + release.longVersion + '.js'),
             path.join('..', 'wasm', release.path)
           )

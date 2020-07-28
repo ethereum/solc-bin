@@ -11,6 +11,19 @@ const swarmhash = require('swarmhash')
 // This script updates the index files list.js and list.txt in the directories containing binaries,
 // as well as the 'latest' and 'nightly' symlinks/files.
 
+function generateLegacyListJS (builds, releases) {
+  return `
+var soljsonSources = ${JSON.stringify(builds, null, 2)};
+var soljsonReleases = ${JSON.stringify(releases, null, 2)};
+
+if (typeof(module) !== 'undefined')
+  module.exports = {
+    'allVersions': soljsonSources,
+    'releases': soljsonReleases
+  };
+`
+}
+
 function updateSymlinkSync (linkPathRelativeToRoot, targetRelativeToLink) {
   const absoluteLinkPath = path.join(__dirname, linkPathRelativeToRoot)
   let linkString
@@ -61,25 +74,41 @@ function updateCopy (srcRelativeToRoot, destRelativeToRoot) {
   })
 }
 
+function readFile (dir, file) {
+  return fs.readFileSync(path.join(__dirname, dir, file))
+}
+
+function buildVersion (build) {
+  let version = build.version
+  if (build.prerelease && build.prerelease.length > 0) {
+    version += '-' + build.prerelease
+  }
+  if (build.build && build.build.length > 0) {
+    version += '+' + build.build
+  }
+  return version
+}
+
+function makeEntry (dir, parsedFileName) {
+  const build = {
+    path: parsedFileName[0],
+    version: parsedFileName[1],
+    prerelease: parsedFileName[3],
+    build: parsedFileName[5]
+  }
+  build.longVersion = buildVersion(build)
+
+  const fileContent = readFile(dir, parsedFileName.path)
+  parsedFileName.longVersion = buildVersion(parsedFileName)
+  parsedFileName.keccak256 = '0x' + ethUtil.keccak(fileContent).toString('hex')
+  parsedFileName.urls = ['bzzr://' + swarmhash(fileContent).toString('hex')]
+  return parsedFileName
+}
+
 function processDir (dir, listCallback) {
   fs.readdir(path.join(__dirname, dir), { withFileTypes: true }, function (err, files) {
     if (err) {
       throw err
-    }
-
-    function buildVersion (build) {
-      var version = build.version
-      if (build.prerelease && build.prerelease.length > 0) {
-        version += '-' + build.prerelease
-      }
-      if (build.build && build.build.length > 0) {
-        version += '+' + build.build
-      }
-      return version
-    }
-
-    function readFile (file) {
-      return fs.readFileSync(path.join(__dirname, dir, file))
     }
 
     const binaryPrefix = (dir === '/bin' || dir === '/wasm' ? 'soljson' : 'solc-' + dir.slice(1))
@@ -106,14 +135,7 @@ function processDir (dir, listCallback) {
         return file.match(new RegExp('^' + binaryPrefix + '-v([0-9.]*)(-([^+]*))?(\\+(.*))?' + escapedExtension + '$'))
       })
       .filter(function (version) { return version })
-      .map(function (pars) { return { path: pars[0], version: pars[1], prerelease: pars[3], build: pars[5] } })
-      .map(function (pars) {
-        const fileContent = readFile(pars.path)
-        pars.longVersion = buildVersion(pars)
-        pars.keccak256 = '0x' + ethUtil.keccak(fileContent).toString('hex')
-        pars.urls = ['bzzr://' + swarmhash(fileContent).toString('hex')]
-        return pars
-      })
+      .map(function (pars) { return makeEntry(dir, pars) })
       .sort(function (a, b) {
         if (a.longVersion === b.longVersion) {
           return 0
@@ -252,16 +274,3 @@ DIRS.forEach(function (dir) {
     })
   }
 })
-
-function generateLegacyListJS (builds, releases) {
-  return `
-var soljsonSources = ${JSON.stringify(builds, null, 2)};
-var soljsonReleases = ${JSON.stringify(releases, null, 2)};
-
-if (typeof(module) !== 'undefined')
-  module.exports = {
-    'allVersions': soljsonSources,
-    'releases': soljsonReleases
-  };
-`
-}

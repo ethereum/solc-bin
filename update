@@ -11,6 +11,19 @@ const swarmhash = require('swarmhash')
 // This script updates the index files list.js and list.txt in the directories containing binaries,
 // as well as the 'latest' and 'nightly' symlinks/files.
 
+function generateLegacyListJS (builds, releases) {
+  return `
+var soljsonSources = ${JSON.stringify(builds, null, 2)};
+var soljsonReleases = ${JSON.stringify(releases, null, 2)};
+
+if (typeof(module) !== 'undefined')
+  module.exports = {
+    'allVersions': soljsonSources,
+    'releases': soljsonReleases
+  };
+`
+}
+
 function updateSymlinkSync (linkPathRelativeToRoot, targetRelativeToLink) {
   const absoluteLinkPath = path.join(__dirname, linkPathRelativeToRoot)
   let linkString
@@ -61,25 +74,66 @@ function updateCopy (srcRelativeToRoot, destRelativeToRoot) {
   })
 }
 
-function processDir (dir, listCallback) {
+function buildVersion (build) {
+  let version = build.version
+  if (build.prerelease && build.prerelease.length > 0) {
+    version += '-' + build.prerelease
+  }
+  if (build.build && build.build.length > 0) {
+    version += '+' + build.build
+  }
+  return version
+}
+
+function makeEntry (dir, parsedFileName, oldList) {
+  const pathRelativeToRoot = path.join(dir, parsedFileName[0])
+  const absolutePath = path.join(__dirname, pathRelativeToRoot)
+
+  const build = {
+    path: parsedFileName[0],
+    version: parsedFileName[1],
+    prerelease: parsedFileName[3],
+    build: parsedFileName[5]
+  }
+  build.longVersion = buildVersion(build)
+
+  if (oldList) {
+    const entries = oldList.builds.filter(entry => (entry.path === parsedFileName[0]))
+    if (entries) {
+      if (entries.length >= 2) {
+        throw Error("Found multiple list.json entries for binary '" + pathRelativeToRoot + "'")
+      } else if (entries.length === 1) {
+        build.keccak256 = entries[0].keccak256
+        build.urls = entries[0].urls
+      }
+    }
+  }
+
+  if (!build.keccak256 || !build.urls) {
+    const fileContent = fs.readFileSync(absolutePath)
+    build.keccak256 = '0x' + ethUtil.keccak(fileContent).toString('hex')
+    build.urls = ['bzzr://' + swarmhash(fileContent).toString('hex')]
+
+    console.log("Hashing '" + pathRelativeToRoot + "'")
+  }
+
+  return build
+}
+
+function processDir (dir, options, listCallback) {
   fs.readdir(path.join(__dirname, dir), { withFileTypes: true }, function (err, files) {
     if (err) {
       throw err
     }
 
-    function buildVersion (build) {
-      var version = build.version
-      if (build.prerelease && build.prerelease.length > 0) {
-        version += '-' + build.prerelease
+    let oldList
+    if (options.reuseHashes) {
+      try {
+        oldList = JSON.parse(fs.readFileSync(path.join(__dirname, dir, '/list.json')))
+      } catch (err) {
+        // Not being able to read the existing list is not a critical error.
+        // We'll just recreate it from scratch.
       }
-      if (build.build && build.build.length > 0) {
-        version += '+' + build.build
-      }
-      return version
-    }
-
-    function readFile (file) {
-      return fs.readFileSync(path.join(__dirname, dir, file))
     }
 
     const binaryPrefix = (dir === '/bin' || dir === '/wasm' ? 'soljson' : 'solc-' + dir.slice(1))
@@ -106,14 +160,7 @@ function processDir (dir, listCallback) {
         return file.match(new RegExp('^' + binaryPrefix + '-v([0-9.]*)(-([^+]*))?(\\+(.*))?' + escapedExtension + '$'))
       })
       .filter(function (version) { return version })
-      .map(function (pars) { return { path: pars[0], version: pars[1], prerelease: pars[3], build: pars[5] } })
-      .map(function (pars) {
-        const fileContent = readFile(pars.path)
-        pars.longVersion = buildVersion(pars)
-        pars.keccak256 = '0x' + ethUtil.keccak(fileContent).toString('hex')
-        pars.urls = ['bzzr://' + swarmhash(fileContent).toString('hex')]
-        return pars
-      })
+      .map(function (pars) { return makeEntry(dir, pars, oldList) })
       .sort(function (a, b) {
         if (a.longVersion === b.longVersion) {
           return 0
@@ -205,6 +252,22 @@ function processDir (dir, listCallback) {
   })
 }
 
+function parseCommandLine () {
+  if (process.argv.length > 3) {
+    console.error('Expected at most one argument, got ' + (process.argv.length - 2))
+    process.exit(1)
+  }
+
+  if (process.argv.length === 3 && process.argv[2] !== '--reuse-hashes') {
+    console.error('Invalid argument: ' + process.argv[2])
+    process.exit(1)
+  }
+
+  return {
+    reuseHashes: process.argv.length === 3 && process.argv[2] === '--reuse-hashes'
+  }
+}
+
 const DIRS = [
   '/bin',
   '/linux-amd64',
@@ -212,11 +275,13 @@ const DIRS = [
   '/windows-amd64'
 ]
 
+const options = parseCommandLine()
+
 DIRS.forEach(function (dir) {
   if (dir !== '/bin') {
-    processDir(dir)
+    processDir(dir, options)
   } else {
-    processDir(dir, function (parsedList) {
+    processDir(dir, options, function (parsedList) {
       // Any new releases added to bin/ need to be linked in other directories before we can start processing them.
       parsedList.forEach(function (release) {
         if (release.prerelease === undefined) {
@@ -235,8 +300,8 @@ DIRS.forEach(function (dir) {
         }
       })
 
-      processDir('/emscripten-asmjs')
-      processDir('/wasm', function (parsedList) {
+      processDir('/emscripten-asmjs', options)
+      processDir('/wasm', options, function (parsedList) {
         // Any new releases added to wasm/ need to be linked in emscripten-wasm32/ first.
         parsedList.forEach(function (release) {
           if (release.prerelease === undefined) {
@@ -247,21 +312,8 @@ DIRS.forEach(function (dir) {
           }
         })
 
-        processDir('/emscripten-wasm32')
+        processDir('/emscripten-wasm32', options)
       })
     })
   }
 })
-
-function generateLegacyListJS (builds, releases) {
-  return `
-var soljsonSources = ${JSON.stringify(builds, null, 2)};
-var soljsonReleases = ${JSON.stringify(releases, null, 2)};
-
-if (typeof(module) !== 'undefined')
-  module.exports = {
-    'allVersions': soljsonSources,
-    'releases': soljsonReleases
-  };
-`
-}

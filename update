@@ -207,31 +207,48 @@ function processDir (dir, listCallback) {
 
 const DIRS = [
   '/bin',
-  '/wasm',
-  '/emscripten-asmjs',
   '/linux-amd64',
   '/macosx-amd64',
   '/windows-amd64'
 ]
 
 DIRS.forEach(function (dir) {
-  if (dir !== '/wasm') {
+  if (dir !== '/bin') {
     processDir(dir)
   } else {
     processDir(dir, function (parsedList) {
-      // Any new releases added to wasm/ need to be linked in emscripten-wasm32/ first.
-      // Only then can we start processing emscripten-wasm32/.
-      // We don't need to do this for emscripten-asmjs/ because we don't build asm.js releases any more.
+      // Any new releases added to bin/ need to be linked in other directories before we can start processing them.
       parsedList.forEach(function (release) {
         if (release.prerelease === undefined) {
-          updateSymlinkSync(
-            path.join('/emscripten-wasm32', 'solc-emscripten-wasm32-v' + release.longVersion + '.js'),
-            path.join('..', 'wasm', release.path)
-          )
+          // Starting with 0.6.2 we no longer build asm.js releases and the new builds added to bin/ are all wasm.
+          if (semver.gt(release.version, '0.6.1')) {
+            updateSymlinkSync(
+              path.join('/wasm', release.path),
+              path.join('..', 'bin', release.path)
+            )
+          } else {
+            updateSymlinkSync(
+              path.join('/emscripten-asmjs', 'solc-emscripten-asmjs-v' + release.longVersion + '.js'),
+              path.join('..', 'bin', release.path)
+            )
+          }
         }
       })
 
-      processDir('/emscripten-wasm32')
+      processDir('/emscripten-asmjs')
+      processDir('/wasm', function (parsedList) {
+        // Any new releases added to wasm/ need to be linked in emscripten-wasm32/ first.
+        parsedList.forEach(function (release) {
+          if (release.prerelease === undefined) {
+            updateSymlinkSync(
+              path.join('/emscripten-wasm32', 'solc-emscripten-wasm32-v' + release.longVersion + '.js'),
+              path.join('..', 'wasm', release.path)
+            )
+          }
+        })
+
+        processDir('/emscripten-wasm32')
+      })
     })
   }
 })

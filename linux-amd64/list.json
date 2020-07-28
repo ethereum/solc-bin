@@ -479,9 +479,20 @@
       "urls": [
         "bzzr://9c92be120b892904eb7fb993724e9afcefe1acb49c8b53a71e6e154bf0df8fd8"
       ]
+    },
+    {
+      "path": "solc-linux-amd64-v0.7.0+commit.9e61f92b",
+      "version": "0.7.0",
+      "build": "commit.9e61f92b",
+      "longVersion": "0.7.0+commit.9e61f92b",
+      "keccak256": "0x2835bcea8a4bd76205a1734604747c3418039a78395034be4e25323689c34921",
+      "urls": [
+        "bzzr://4c426ab9c8545eee06aeb8288430e6653c1325b858b0e9cba99e26753b1b80bf"
+      ]
     }
   ],
   "releases": {
+    "0.7.0": "solc-linux-amd64-v0.7.0+commit.9e61f92b",
     "0.6.12": "solc-linux-amd64-v0.6.12+commit.27d51765",
     "0.6.11": "solc-linux-amd64-v0.6.11+commit.5ef660b1",
     "0.6.10": "solc-linux-amd64-v0.6.10+commit.00c0fcaf",
@@ -531,5 +542,5 @@
     "0.4.11": "solc-linux-amd64-v0.4.11+commit.68ef5810",
     "0.4.10": "solc-linux-amd64-v0.4.10+commit.f0d539ae"
   },
-  "latestRelease": "0.6.12"
+  "latestRelease": "0.7.0"
 }

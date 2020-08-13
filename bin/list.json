@@ -9746,6 +9746,17 @@
       "urls": [
         "bzzr://f869d6fba77ea34d61988aafb3d5364e1f2a5b548b43445404103f0bc43b2b04"
       ]
+    },
+    {
+      "path": "soljson-v0.7.1-nightly.2020.8.12+commit.acdaff63.js",
+      "version": "0.7.1",
+      "prerelease": "nightly.2020.8.12",
+      "build": "commit.acdaff63",
+      "longVersion": "0.7.1-nightly.2020.8.12+commit.acdaff63",
+      "keccak256": "0x7d4e9a984384852b1b2dabf91db7140d20bce7a316f8ba2320ee3391be1af38d",
+      "urls": [
+        "bzzr://0620427034eec8faee39814f1701502d8f0d3c4e560824eeb0f41e9fedc6beb0"
+      ]
     }
   ],
   "releases": {

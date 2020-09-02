@@ -559,9 +559,20 @@
       "urls": [
         "bzzr://ed59474df948998ca73abc8ebdbd7c9620309efdc26728bb7d74c0d44b6ac9e1"
       ]
+    },
+    {
+      "path": "solc-windows-amd64-v0.7.1+commit.f4a555be.zip",
+      "version": "0.7.1",
+      "build": "commit.f4a555be",
+      "longVersion": "0.7.1+commit.f4a555be",
+      "keccak256": "0xe869643a8ff108344f83c69617f79d7f8f49b37ed65f7189a8c5a7648026a52d",
+      "urls": [
+        "bzzr://007ec9302ae0fe96670a539bdec21d56ee7851713e4ca02068c18adb329edcf3"
+      ]
     }
   ],
   "releases": {
+    "0.7.1": "solc-windows-amd64-v0.7.1+commit.f4a555be.zip",
     "0.7.0": "solc-windows-amd64-v0.7.0+commit.9e61f92b.zip",
     "0.6.12": "solc-windows-amd64-v0.6.12+commit.27d51765.zip",
     "0.6.11": "solc-windows-amd64-v0.6.11+commit.5ef660b1.zip",
@@ -619,5 +630,5 @@
     "0.4.2": "solc-windows-amd64-v0.4.2+commit.af6afb04.zip",
     "0.4.1": "solc-windows-amd64-v0.4.1+commit.4fc6fc2c.zip"
   },
-  "latestRelease": "0.7.0"
+  "latestRelease": "0.7.1"
 }

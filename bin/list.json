@@ -10020,6 +10020,17 @@
       "urls": [
         "bzzr://13fbfe4a3eaf45c4852234cda1ada87988a2234c8e435d91032d2549e8707757"
       ]
+    },
+    {
+      "path": "soljson-v0.7.2-nightly.2020.9.16+commit.90506528.js",
+      "version": "0.7.2",
+      "prerelease": "nightly.2020.9.16",
+      "build": "commit.90506528",
+      "longVersion": "0.7.2-nightly.2020.9.16+commit.90506528",
+      "keccak256": "0x83f2c1dca5fa1246568140732e17c547333212b9ba3ae51ff34f74a7ea1ab533",
+      "urls": [
+        "bzzr://0793a205a2f46d14e2fc2fd8320f2c5dfb769ac8fb30d083c1768b223ca0ff52"
+      ]
     }
   ],
   "releases": {

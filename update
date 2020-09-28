@@ -74,6 +74,21 @@ function updateCopy (srcRelativeToRoot, destRelativeToRoot) {
   })
 }
 
+function deleteIfExists (filePathRelativeToRoot) {
+  const absoluteFilePath = path.join(__dirname, filePathRelativeToRoot)
+
+  fs.lstat(absoluteFilePath, function (err, stats) {
+    if (err && err.code !== 'ENOENT') {
+      throw err
+    }
+
+    if (!err) {
+      console.log('Deleted ' + filePathRelativeToRoot)
+      fs.unlinkSync(absoluteFilePath)
+    }
+  })
+}
+
 function buildVersion (build) {
   let version = build.version
   if (build.prerelease && build.prerelease.length > 0) {
@@ -137,12 +152,14 @@ function processDir (dir, options, listCallback) {
     }
 
     const binaryPrefix = (dir === '/bin' || dir === '/wasm' ? 'soljson' : 'solc-' + dir.slice(1))
-    const binaryExtension = {
-      '/bin': '.js',
-      '/wasm': '.js',
-      '/emscripten-asmjs': '.js',
-      '/emscripten-wasm32': '.js',
-      '/windows-amd64': '.zip'
+    const binaryExtensions = {
+      '/bin': ['.js'],
+      '/wasm': ['.js'],
+      '/emscripten-asmjs': ['.js'],
+      '/emscripten-wasm32': ['.js'],
+      '/windows-amd64': ['.zip', '.exe'],
+      '/linux-amd64': [''],
+      '/macosx-amd64': ['']
     }[dir] || ''
 
     // ascending list (oldest version first)
@@ -156,8 +173,8 @@ function processDir (dir, options, listCallback) {
       })
       .map(function (file) { return file.name })
       .map(function (file) {
-        const escapedExtension = binaryExtension.replace('.', '\\.')
-        return file.match(new RegExp('^' + binaryPrefix + '-v([0-9.]*)(-([^+]*))?(\\+(.*))?' + escapedExtension + '$'))
+        const escapedExtensions = binaryExtensions.map(function (binaryExtension) { return binaryExtension.replace('.', '\\.') })
+        return file.match(new RegExp('^' + binaryPrefix + '-v([0-9.]*)(-([^+]*))?(\\+(.*))?(' + escapedExtensions.join('|') + ')$'))
       })
       .filter(function (version) { return version })
       .map(function (pars) { return makeEntry(dir, pars, oldList) })
@@ -239,15 +256,33 @@ function processDir (dir, options, listCallback) {
     // Update 'latest' symlink (except for wasm/ where the link is hard-coded to point at the one in bin/).
     // bin/ is a special case because we need to keep a copy rather than a symlink. The reason is that
     // some tools (in particular solc-js) have hard-coded github download URLs to it and can't handle symlinks.
-    if (dir === '/bin') {
-      updateCopy(path.join(dir, latestReleaseFile), path.join(dir, binaryPrefix + '-latest' + binaryExtension))
-    } else if (dir !== '/wasm') {
-      updateSymlinkSync(path.join(dir, binaryPrefix + '-latest' + binaryExtension), latestReleaseFile)
+    if (dir !== '/wasm') {
+      const releaseExtension = binaryExtensions.find(function (extension) { return latestReleaseFile.endsWith(extension) })
+
+      binaryExtensions.forEach(function (extension) {
+        if (extension !== releaseExtension) {
+          deleteIfExists(path.join(dir, binaryPrefix + '-latest' + extension))
+        }
+      })
+
+      if (dir === '/bin') {
+        updateCopy(path.join(dir, latestReleaseFile), path.join(dir, binaryPrefix + '-latest' + releaseExtension))
+      } else {
+        updateSymlinkSync(path.join(dir, binaryPrefix + '-latest' + releaseExtension), latestReleaseFile)
+      }
     }
 
     // Update 'nightly' symlink in bin/ (we don't have nightlies for other platforms)
     if (dir === '/bin') {
-      updateSymlinkSync(path.join(dir, binaryPrefix + '-nightly' + binaryExtension), latestBuildFile)
+      const nightlyExtension = binaryExtensions.find(function (extension) { return latestBuildFile.endsWith(extension) })
+
+      binaryExtensions.forEach(function (extension) {
+        if (extension !== nightlyExtension) {
+          deleteIfExists(path.join(dir, binaryPrefix + '-latest' + extension))
+        }
+      })
+
+      updateSymlinkSync(path.join(dir, binaryPrefix + '-nightly' + nightlyExtension), latestBuildFile)
     }
   })
 }

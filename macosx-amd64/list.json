@@ -59,9 +59,20 @@
       "urls": [
         "bzzr://3f6fdb64f1fd58f16285737aa4c46f5cf955aff0accc36a93a0012c84e1ac153"
       ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.7.2+commit.51b20bc0",
+      "version": "0.7.2",
+      "build": "commit.51b20bc0",
+      "longVersion": "0.7.2+commit.51b20bc0",
+      "keccak256": "0x1fcec1bb8e66af87b944f82ccf8ff7690931f7872093f4b14647dce62174a3eb",
+      "urls": [
+        "bzzr://1c226f35bf118d903ccc943516761564497d8b0cfc79eba1206c924254af0240"
+      ]
     }
   ],
   "releases": {
+    "0.7.2": "solc-macosx-amd64-v0.7.2+commit.51b20bc0",
     "0.7.1": "solc-macosx-amd64-v0.7.1+commit.f4a555be",
     "0.7.0": "solc-macosx-amd64-v0.7.0+commit.9e61f92b",
     "0.6.12": "solc-macosx-amd64-v0.6.12+commit.27d51765",
@@ -69,5 +80,5 @@
     "0.6.10": "solc-macosx-amd64-v0.6.10+commit.00c0fcaf",
     "0.6.9": "solc-macosx-amd64-v0.6.9+commit.3e3065ac"
   },
-  "latestRelease": "0.7.1"
+  "latestRelease": "0.7.2"
 }

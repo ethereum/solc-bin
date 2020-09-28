@@ -1,0 +1,322 @@
+name: MacOS build of a random missing solc version
+
+on:
+  push:
+    # Action disabled. The filter excludes all the possible branch names.
+    branches: ["!*"]
+
+env:
+  MIN_SUPPORTED_SOLIDITY_VERSION: 0.3.6
+  TARGET_BRANCH: macosx-static-binaries
+  COMMITTER_NAME: macosx build action
+  COMMITTER_EMAIL: builds@ethereum.org
+
+jobs:
+  select-solc-version:
+    runs-on: ubuntu-latest
+    outputs:
+      solidity-version: ${{ env.SOLIDITY_VERSION }}
+
+    steps:
+      - name: Install semver utility
+        run: |
+          npm install semver
+
+      - name: Select version to build
+        run: |
+          github_tag_response=$(curl "https://api.github.com/repos/ethereum/solidity/git/refs/tags/")
+          github_macosx_files_response=$(curl "https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/macosx-amd64?ref=${TARGET_BRANCH}")
+
+          available_tags=$(
+            echo "$github_tag_response" |
+            jq --raw-output '.[].ref' |
+            sed -n 's|^refs/tags/v\([0-9.]\+\)$|\1|p'
+          )
+          eligible_tags=$(
+            npx semver --range ">= ${MIN_SUPPORTED_SOLIDITY_VERSION}" $available_tags |
+            sort
+          )
+          available_binaries=$(
+            echo "$github_macosx_files_response" |
+            jq --raw-output '.[].name' |
+            sed -n 's/^solc-macosx-amd64-v\([0-9.]*\)+commit.[0-9a-f]\+$/\1/p' |
+            sort
+          )
+          missing_versions="$(comm -23 <(echo "$eligible_tags") <(echo "$available_binaries"))"
+          selected_version=$(echo "$missing_versions" | sort --random-sort | head --lines 1)
+
+          echo "Missing Solidity versions:"
+          echo "${missing_versions}"
+          echo "Selected version: ${selected_version}"
+
+          echo "SOLIDITY_VERSION=${selected_version}" >> $GITHUB_ENV
+
+  build:
+    runs-on: macos-10.15
+    needs:
+      - select-solc-version
+    env:
+      SOLIDITY_VERSION: ${{ needs.select-solc-version.outputs.solidity-version }}
+    outputs:
+      full-build-version: ${{ env.FULL_BUILD_VERSION }}
+
+    if: "needs.select-solc-version.outputs.solidity-version"
+    steps:
+      - name: Check out Solidity source
+        uses: actions/checkout@v2
+        with:
+          repository: 'ethereum/solidity'
+          ref: v${{ env.SOLIDITY_VERSION }}
+          path: solidity/
+          fetch-depth: 0
+
+      - name: Install semver utility
+        run: |
+          npm install --global semver
+
+      - name: Install dependencies
+        run: |
+          cd solidity/
+
+          if semver --range '>= 0.5.13' "$SOLIDITY_VERSION"; then
+            test -f .circleci/osx_install_dependencies.sh
+
+            # On 0.5.13 and higher we can just use the script for installing dependencies for CI
+            .circleci/osx_install_dependencies.sh
+          else
+            test ! -e .circleci/osx_install_dependencies.sh
+
+            brew unlink python
+            brew install coreutils
+
+            # Not all boost versions work with all solc versions. Through trial and error I found
+            # out that boost 1.65.0 works correctly with every solc version since 0.4.0 and possibly
+            # with earlier ones too.
+            # NOTE: Currently homebrew provides only boost 1.73.0 and the easiest way to build 1.65.0 is to
+            # check out and older formula directly from their repo.
+            curl --remote-name https://raw.githubusercontent.com/Homebrew/homebrew-core/710e281d25b5f9b583f0e51ef33cca797c27c909/Formula/boost.rb
+            brew install ./boost.rb
+
+            # NOTE: As long as the build does not fail, the compiler should work with any Z3 version.
+            # The prover might find slightly different answers but they should not be wrong.
+            # SMT tests are tied to a specific Z3 version and might fail due to that but here
+            # we're only running them when building versions later than 0.5.13 so it's not an issue.
+            z3_version="4.8.5"
+            z3_release="z3-${z3_version}-x64-osx-10.14.2"
+            curl -O -L "https://github.com/Z3Prover/z3/releases/download/Z3-${z3_version}/${z3_release}.zip"
+            unzip "${z3_release}.zip"
+            rm "${z3_release}.zip"
+            mv "${z3_release}/bin/libz3.a" /usr/local/lib
+            mv "${z3_release}/bin/z3"      /usr/local/bin
+            mv "${z3_release}/include/"*   /usr/local/include
+            rm -r "${z3_release}"
+
+            # Since 0.5.11 evmone can be used as an altenative to IPC tests
+            if semver --range '>= 0.5.11' "$SOLIDITY_VERSION"; then
+              test -f test/EVMHost.h
+
+              evmone_version="0.1.0"
+              evmone_package="evmone-0.1.0-darwin-x86_64"
+              curl -O -L "https://github.com/ethereum/evmone/releases/download/v${evmone_version}/${evmone_package}.tar.gz"
+              tar xzpf "${evmone_package}.tar.gz" -C /usr/local
+              rm "${evmone_package}.tar.gz"
+            else
+              test ! -e test/EVMHost.h
+            fi
+          fi
+
+      - name: Determine full build version
+        run: |
+          cd solidity/
+
+          # Can't run get_version.sh because MacOS grep does not have the -P flag.
+          test "$SOLIDITY_VERSION" = "$(sed -n 's/^set(PROJECT_VERSION "\([0-9.]*\)")$/\1/p' CMakeLists.txt)"
+
+          last_commit_hash=$(git rev-parse --short=8 HEAD)
+          full_build_version="v${SOLIDITY_VERSION}+commit.${last_commit_hash}"
+
+          echo "FULL_BUILD_VERSION=${full_build_version}" >> $GITHUB_ENV
+
+      - name: Build
+        run: |
+          cd solidity/
+
+          # In 0.3.6 boostTest.cpp has its own main() function which leads to "duplicate symbol '_main'" linker error
+          # despite BOOST_TEST_NO_MAIN being defined. 0.4.0 does not have this problem so here we just backport that change.
+          if semver --range '= 0.3.6' "$SOLIDITY_VERSION"; then
+            # NOTE: Only the first commit should be necessary but one of its changes seems to
+            # have been mistakenly included in the other and it won't compile on its own.
+            git cherry-pick 1bc0320811ef2b213bda0629b702bffae5e2f925 # [PR #837] Cleanup of test suite init.
+            git cherry-pick 53f68a155f071194fd779352d5997c03a6c387ed # [PR #837] Exponential sleep increase on mining failure.
+          fi
+
+          # Static linking with jsoncpp was introduced in 0.4.5
+          if semver --range '>= 0.4.2 <= 0.4.4' "$SOLIDITY_VERSION"; then
+            # The change can be backported from 0.4.5 and applies cleanly between 0.4.2 and 0.4.4.
+            git cherry-pick 4bde0a2d36297c4b3fa17c7dac2bb1681e1e7f75 # [#1252] Build jsoncpp from source using jsoncpp.cmake script
+          elif semver --range '>= 0.3.6 <= 0.4.1' "$SOLIDITY_VERSION"; then
+            # The commit won't apply cleanly before 0.4.2 due to conflicting changes in install_deps.sh and .travis.yml.
+            # Those files don't affect our build so just reset the unmerged files.
+            # NOTE: core.editor setting needs to be overridden for prevent git from asking us to edit the commit message.
+            git cherry-pick 4bde0a2d36297c4b3fa17c7dac2bb1681e1e7f75 || true # [PR #1252] Build jsoncpp from source using jsoncpp.cmake script
+            git reset -- scripts/install_deps.sh .travis.yml
+            git checkout scripts/install_deps.sh .travis.yml
+            git -c core.editor=/usr/bin/true cherry-pick --continue
+          fi
+
+          # Between 0.3.6 and 0.4.16 deps/ was a submodule and contained parts of the cmake configuration
+          if semver --range '>= 0.3.6 <= 0.4.16' "$SOLIDITY_VERSION"; then
+            git submodule init
+            git submodule update
+          fi
+
+          # Remove the -Werror flag. Unfortunately versions older than 0.6.1 do not compile without warnings
+          # when using a recent clang version on MacOS 10.15.
+          if semver --range '>= 0.3.6 <= 0.6.0' "$SOLIDITY_VERSION"; then
+            sed -i.bak '/^[[:blank:]]*add_compile_options(-Werror)[[:blank:]]*$/d' cmake/EthCompilerSettings.cmake
+          fi
+
+          # Pre-0.5.0 versions were using wrong boost test header, resulting in the 'duplicate symbol' linker error in static builds.
+          # See https://github.com/ethereum/solidity/pull/4572
+          if semver --range '< 0.5.0' "$SOLIDITY_VERSION"; then
+            sed -i.bak 's|^[[:blank:]]*#include <boost/test/included/unit_test\.hpp>[[:blank:]]*$|#include <boost/test/unit_test.hpp>|g' test/boostTest.cpp
+          fi
+
+          # Starting with 0.4.16 there's no STATIC_LINKING option but there's SOLC_LINK_STATIC instead.
+          if semver --range '>= 0.4.16' "$SOLIDITY_VERSION"; then
+            static_linking_option="-DSOLC_LINK_STATIC=1"
+          else
+            static_linking_option="-DSTATIC_LINKING=1"
+          fi
+
+          mkdir -p build/
+          echo -n > prerelease.txt
+          cd build/
+          cmake .. "${static_linking_option}" -DCMAKE_BUILD_TYPE=Release -G "Unix Makefiles"
+          make -j 2 solc soltest
+
+          # solfuzzer was added to the command-line tests in 0.4.10
+          if semver --range '>= 0.4.10' "$SOLIDITY_VERSION"; then
+            make -j 2 solfuzzer
+          fi
+
+      - name: Upload solc as an artifact
+        uses: actions/upload-artifact@v2
+        with:
+          # NOTE: The name is used for the .zip archive but the file inside is still called solc
+          name: solc-macosx-amd64-${{ env.FULL_BUILD_VERSION }}
+          path: solidity/build/solc/solc
+
+      - name: List dynamic libraries used by the binary
+        run: |
+          cd solidity/build/solc/
+          dynamic_libraries=$(otool -L solc)
+          echo "${dynamic_libraries}"
+
+          # The MacOS binaries are not completely static but there should be nothing dynamic
+          # beyond the stuff we expect to be there.
+          extra_dynamic_libraries=$(
+            echo "${dynamic_libraries}" |
+            sed '/^solc:$/d' |
+            sed '/^[[:blank:]]*\/usr\/lib\/libSystem.B.dylib (.*)[[:blank:]]*$/d' |
+            sed '/^[[:blank:]]*\/usr\/lib\/libc++.1.dylib (.*)[[:blank:]]*$/d'
+          )
+          test -z "$extra_dynamic_libraries"
+
+      - name: Run tests
+        run: |
+          cd solidity/
+
+          if semver --range '>= 0.4.24 <= 0.5.9' "$SOLIDITY_VERSION"; then
+            # Between 0.4.24 and 0.5.9 tests.sh disables IPC tests on MacOS when it's running on CircleCI
+            export CIRCLECI=1
+          elif semver --range '= 0.5.10' "$SOLIDITY_VERSION"; then
+            # In 0.5.10 IPC tests would no longer get disabled but were not actually removed until 0.5.11.
+            # We need to patch the script to disable them or the it will will try to run a linux
+            # version of aleth and hang.
+            sed -i.bak 's|^IPC_ENABLED=true$|IPC_ENABLED=false|g' scripts/tests.sh
+            sed -i.bak 's|\$IPC_FLAGS|--no-ipc|g' scripts/tests.sh
+          fi
+
+          if semver --range '= 0.5.0' "$SOLIDITY_VERSION"; then
+            # Command-line tests were broken on MacOS in 0.5.0 (fixed in 0.5.1: #5419).
+            # Part of the message about missing pragma was not being stripped correctly.
+            sed -i.bak 's|s/ \\?Consider adding|s/ Consider adding|g' test/cmdlineTests.sh
+          fi
+
+          # Set $TERM to silence the errors from tput (tput: No value for $TERM and no -T specified)
+          export TERM=dumb
+
+          if semver --range '>= 0.4.24' "$SOLIDITY_VERSION"; then
+            scripts/tests.sh
+          elif semver --range '>= 0.4.11 < 0.4.24' "$SOLIDITY_VERSION"; then
+            # In these versions tests.sh is hard-coded to run IPC tests but we can manually pass --no-ipc flag to soltest
+            test/cmdlineTests.sh
+
+            for optimize in "" "--optimize"; do
+              if semver --range '< 0.4.21' "$SOLIDITY_VERSION"; then
+                # --evm-version option has been introduced in 0.4.21
+                build/test/soltest -- --testpath test/ "$optimize" --no-ipc
+              else
+                build/test/soltest -- --testpath test/ "$optimize" --evm-version homestead --no-ipc
+                build/test/soltest -- --testpath test/ "$optimize" --evm-version byzantium --no-ipc
+              fi
+
+              if semver --range '>= 0.4.22 < 0.4.24' "$SOLIDITY_VERSION"; then
+                # 0.4.22 started running tests against constantinople
+                build/test/soltest -- --testpath test/ "$optimize" --evm-version constantinople --no-ipc
+              fi
+            done
+          elif semver --range '>= 0.4.9 < 0.4.11' "$SOLIDITY_VERSION"; then
+            # Before that IPC tests are hard-coded so we can only run commandline tests
+            test/cmdlineTests.sh
+          else
+            # On older versions all we can do is a simple smoke test
+            echo "contract C {}" > test.sol
+            build/solc/solc test.sol
+          fi
+
+  push-to-repo:
+    runs-on: ubuntu-latest
+    needs:
+      - select-solc-version
+      - build
+    env:
+      SOLIDITY_VERSION: ${{ needs.select-solc-version.outputs.solidity-version }}
+      FULL_BUILD_VERSION: ${{ needs.build.outputs.full-build-version }}
+
+    if: "needs.select-solc-version.outputs.solidity-version"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ env.TARGET_BRANCH }}
+          path: 'solc-bin'
+
+      - name: Fetch latest commits
+        run: |
+          cd solc-bin/
+          # Repo is so large that often another run manages to push a commit while we're cloning.
+          git pull origin "$TARGET_BRANCH"
+
+      - name: Fail if the file is already in the repo
+        run: |
+          test ! -e "solc-bin/macosx-amd64/solc-macosx-amd64-${{ env.FULL_BUILD_VERSION }}"
+
+      - name: Download MacOS artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: solc-macosx-amd64-${{ env.FULL_BUILD_VERSION }}
+
+      - name: Set committer name and e-mail
+        run: |
+          cd solc-bin/
+          git config --local user.name "$COMMITTER_NAME"
+          git config --local user.email "$COMMITTER_EMAIL"
+
+      - name: Commit and push the binary
+        run: |
+          cd solc-bin/
+          mv ../solc "macosx-amd64/solc-macosx-amd64-${{ env.FULL_BUILD_VERSION }}"
+          git add --verbose "macosx-amd64/solc-macosx-amd64-${{ env.FULL_BUILD_VERSION }}"
+          git commit --message "Solidity MacOS build ${{ env.FULL_BUILD_VERSION }}"
+          git push origin HEAD

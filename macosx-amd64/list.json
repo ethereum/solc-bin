@@ -1,6 +1,556 @@
 {
   "builds": [
     {
+      "path": "solc-macosx-amd64-v0.3.6+commit.988fe5e5",
+      "version": "0.3.6",
+      "build": "commit.988fe5e5",
+      "longVersion": "0.3.6+commit.988fe5e5",
+      "keccak256": "0x82cc2f0f2a27c800b53873d83ca7e0af9a6eb109b9c52318a523f5657e35c1da",
+      "urls": [
+        "bzzr://31ce87aa8709d619a825aa1916dd0c8dda8381e2c01dcbbc05c2ad0239101fd5"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.4.0+commit.acd334c9",
+      "version": "0.4.0",
+      "build": "commit.acd334c9",
+      "longVersion": "0.4.0+commit.acd334c9",
+      "keccak256": "0xdd2b6c9cc32a4572787ee5234f7ec4d8d6b17603696bf630dd56a4db34b9ebd5",
+      "urls": [
+        "bzzr://581b55b2841842c899a02192b274be4ee1a2635060bf0554a68d65e9419dd94f"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.4.1+commit.4fc6fc2c",
+      "version": "0.4.1",
+      "build": "commit.4fc6fc2c",
+      "longVersion": "0.4.1+commit.4fc6fc2c",
+      "keccak256": "0x34f2c3632c979c5195f1c21fb57daa626323462e5b5d93987044ba213e41251e",
+      "urls": [
+        "bzzr://a1d475d534c111288de9425ec12110e9ea67f6d00b78c0fbca1eed2df09423a3"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.4.2+commit.af6afb04",
+      "version": "0.4.2",
+      "build": "commit.af6afb04",
+      "longVersion": "0.4.2+commit.af6afb04",
+      "keccak256": "0x533798595f0028f67ae6f9da0f391899d631c26b381f528e3b5dd40f6fa18009",
+      "urls": [
+        "bzzr://3ca41000bd2505225911dc041f459d4dc3fcba2dbf4f403cbb64ac106579ed4a"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.4.3+commit.2353da71",
+      "version": "0.4.3",
+      "build": "commit.2353da71",
+      "longVersion": "0.4.3+commit.2353da71",
+      "keccak256": "0x233c964527fe03f7596d817cb2d7dc0024d1379e6f8fa899a3ba0c5cb580a5ae",
+      "urls": [
+        "bzzr://a48180e11d43783876edd50048fd5bee406a0c1e918c3be41f898ab58d424db2"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.4.4+commit.4633f3de",
+      "version": "0.4.4",
+      "build": "commit.4633f3de",
+      "longVersion": "0.4.4+commit.4633f3de",
+      "keccak256": "0x800343e9f299ac057a91c023e226507210431d2ecd4e8d1936a7cb36d0d0fe6b",
+      "urls": [
+        "bzzr://a874ea445b6c6aff1cd13ad65464d3646ecf2f38054cdbb7d8c72ee303eb7057"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.4.5+commit.b318366e",
+      "version": "0.4.5",
+      "build": "commit.b318366e",
+      "longVersion": "0.4.5+commit.b318366e",
+      "keccak256": "0xa9acaef409dd1247b2748d0914a565bbeed4ead7011cadea1bfd865992243cac",
+      "urls": [
+        "bzzr://9f1470f980d94c601d5d5f245f4d456f8e608afc4ade15c37a376374052aec38"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.4.6+commit.2dabbdf0",
+      "version": "0.4.6",
+      "build": "commit.2dabbdf0",
+      "longVersion": "0.4.6+commit.2dabbdf0",
+      "keccak256": "0x4b8153df9648fc5d37a11ed7bdbc898dadade86a58bf9d4f9eeb41a92e0e7ab2",
+      "urls": [
+        "bzzr://7f5cb9e787a039faebb9c5ca18772f17b7b6a154ab2a1b54e6b5ea52fa8232f7"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.4.7+commit.822622cf",
+      "version": "0.4.7",
+      "build": "commit.822622cf",
+      "longVersion": "0.4.7+commit.822622cf",
+      "keccak256": "0x43e0d27ed974f416ba04bdab40af98c4d0a638dedbd5ade7bbbe816b4b69a427",
+      "urls": [
+        "bzzr://70e7f7be1443fac12f1dd71c9bed965b13d9a23906cb0419ea9a7258ad211c8f"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.4.8+commit.60cc1668",
+      "version": "0.4.8",
+      "build": "commit.60cc1668",
+      "longVersion": "0.4.8+commit.60cc1668",
+      "keccak256": "0xaa3abc193485e9dee7fcffb4e34ad9f6aa4c81b5081993bed7b9580705809798",
+      "urls": [
+        "bzzr://26ab8e9c128ad3d30bfaa807b430e6cf46f5102018022b8fa2101799260f288e"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.4.9+commit.364da425",
+      "version": "0.4.9",
+      "build": "commit.364da425",
+      "longVersion": "0.4.9+commit.364da425",
+      "keccak256": "0x43bd1a2872b59b7d47e93016f539462d80b79857086096ea9fd79f7453f0a4a6",
+      "urls": [
+        "bzzr://882ce0ea92a9791861dba3fa4db5978cb700e138e00f912ebe7a40b683a8de1a"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.4.10+commit.f0d539ae",
+      "version": "0.4.10",
+      "build": "commit.f0d539ae",
+      "longVersion": "0.4.10+commit.f0d539ae",
+      "keccak256": "0x2d3437f929de1c5e5d70e191705df67f5d0044afe025e09cf114c45be3251060",
+      "urls": [
+        "bzzr://754c919bf1a5c964b61c1be104b230adbdc6b1f6e92d27f7a2c1861377465bc1"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.4.11+commit.68ef5810",
+      "version": "0.4.11",
+      "build": "commit.68ef5810",
+      "longVersion": "0.4.11+commit.68ef5810",
+      "keccak256": "0x9ffad421de9f68d2f37d94cc88b123113b4ffc6a673e08cd0836e6f09107a643",
+      "urls": [
+        "bzzr://a7e7f09db20a02d4284f623e37fe0d3d08b9adf2fbed817935daa67e506aa57c"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.4.12+commit.194ff033",
+      "version": "0.4.12",
+      "build": "commit.194ff033",
+      "longVersion": "0.4.12+commit.194ff033",
+      "keccak256": "0x1768c7edd050314b7c6abeccecaa9d70369c8b2462710a2274022030de593d8d",
+      "urls": [
+        "bzzr://a51f372e3dcb519c5c43366c222ea21b28911bd1eaa2c2f58f3585d2de5f5b53"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.4.13+commit.0fb4cb1a",
+      "version": "0.4.13",
+      "build": "commit.0fb4cb1a",
+      "longVersion": "0.4.13+commit.0fb4cb1a",
+      "keccak256": "0x566dd72dbbb2a8eb87d6ceb84f684b7daba1af06282a753414ac7c44f5c53b86",
+      "urls": [
+        "bzzr://4ece29fc6b7e88c3fcc9f5be0042f0eeeaa7d14bcc3f3f2683d9c6e254f223e2"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.4.14+commit.c2215d46",
+      "version": "0.4.14",
+      "build": "commit.c2215d46",
+      "longVersion": "0.4.14+commit.c2215d46",
+      "keccak256": "0x8ae692bdeb27480e4deb4f3f2c944a19cbdb9b30ce8ceec3cfcf3fd13a003c71",
+      "urls": [
+        "bzzr://a08367e64bef6737430cafa08d123a37357b58de40c67036d5df67e1d87a905c"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.4.15+commit.8b45bddb",
+      "version": "0.4.15",
+      "build": "commit.8b45bddb",
+      "longVersion": "0.4.15+commit.8b45bddb",
+      "keccak256": "0x9794ae31fdfec812f3f285473599d4d572b6cc8981150c2353bbec109656baf6",
+      "urls": [
+        "bzzr://3da5cb51b0d43342e6de224abe70d638c93d1dd106bc6b355847c2ed68b87d7f"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.4.16+commit.d7661dd9",
+      "version": "0.4.16",
+      "build": "commit.d7661dd9",
+      "longVersion": "0.4.16+commit.d7661dd9",
+      "keccak256": "0x95ca3dfd2403649b73be8a0b5586f3b113b7e80dab62e78a67d53d10a627a05f",
+      "urls": [
+        "bzzr://6be0e5fd024bc5dc48e44370efa84ecf5eefee28c3bde9cd0cd14b40f2fa292f"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.4.17+commit.bdeb9e52",
+      "version": "0.4.17",
+      "build": "commit.bdeb9e52",
+      "longVersion": "0.4.17+commit.bdeb9e52",
+      "keccak256": "0xa44e9556ca1987301876ac596476514eebf591cac5d918d045c0e782782035c7",
+      "urls": [
+        "bzzr://ebd4ec4691f2d354c8a16bd57112da50bbbfd829f80a94d7b17c193fcba9f6e0"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.4.18+commit.9cf6e910",
+      "version": "0.4.18",
+      "build": "commit.9cf6e910",
+      "longVersion": "0.4.18+commit.9cf6e910",
+      "keccak256": "0x7612fee333d4f62b3eb9b245bde26927cb627ed878274da65b37dd4e111f7b62",
+      "urls": [
+        "bzzr://3b7aeb0bbbf5e066a3337fbb01b84d8007ce36ce8d4fee2fc6224b5a8673ac71"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.4.19+commit.c4cbbb05",
+      "version": "0.4.19",
+      "build": "commit.c4cbbb05",
+      "longVersion": "0.4.19+commit.c4cbbb05",
+      "keccak256": "0x056532469efe5b1bf17f5db57409a2d64f611a88de4371e16f1807969ecc9bae",
+      "urls": [
+        "bzzr://638247a65faf86106601890895a21848c6c16356dbeab9f987f7ab7e85093b51"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.4.20+commit.3155dd80",
+      "version": "0.4.20",
+      "build": "commit.3155dd80",
+      "longVersion": "0.4.20+commit.3155dd80",
+      "keccak256": "0x9f83beb544f5418c71ee75861c378144f3d37591d876ebf2b7cb6cdfe57e07cc",
+      "urls": [
+        "bzzr://ff69bc5434db133bd0b3b0efe4389ceb3f6098c5ef2cf4fb8728fb42c283012d"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.4.21+commit.dfe3193c",
+      "version": "0.4.21",
+      "build": "commit.dfe3193c",
+      "longVersion": "0.4.21+commit.dfe3193c",
+      "keccak256": "0x438609d560ac4ef7faa73a14a768d21525052ed73ffb45ac17189af1163a022f",
+      "urls": [
+        "bzzr://0ffca1352d09b1ce1c4d075f376fe8140d955c4b0c9c3cd41cab3902612d2c73"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.4.22+commit.4cb486ee",
+      "version": "0.4.22",
+      "build": "commit.4cb486ee",
+      "longVersion": "0.4.22+commit.4cb486ee",
+      "keccak256": "0x992cffa319e04f7d1ae4913c17fa1f4e6b5d94d821244582f7ac1eeaf92a5267",
+      "urls": [
+        "bzzr://796113d58e42e9d78a7f54211d2dbeb9e651a6eee7a540f80ef384b728c646e5"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.4.23+commit.124ca40d",
+      "version": "0.4.23",
+      "build": "commit.124ca40d",
+      "longVersion": "0.4.23+commit.124ca40d",
+      "keccak256": "0x5feafe59973028728f32976e4a9b9088dd87a8c1390fab68602f84dfeba958ff",
+      "urls": [
+        "bzzr://d0a6987cd6d2ab7b6435a85f031f077eb220e52e9ec62750be099cb28d539903"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.4.24+commit.e67f0147",
+      "version": "0.4.24",
+      "build": "commit.e67f0147",
+      "longVersion": "0.4.24+commit.e67f0147",
+      "keccak256": "0xc2f282d23a7214183fea94a9ae78a7af260ed3d2d86567c9fafe3a8b4cff5b81",
+      "urls": [
+        "bzzr://3eb2d9bd1937ff48b35619aec74dd4e2787f27b020187b5348e24067d2e8f2ae"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.4.25+commit.59dbf8f1",
+      "version": "0.4.25",
+      "build": "commit.59dbf8f1",
+      "longVersion": "0.4.25+commit.59dbf8f1",
+      "keccak256": "0x2c78315e86bfea1b615e6d7bb345c190857b397a18e5ec640320106604665b26",
+      "urls": [
+        "bzzr://46bf7606e2cdea7386d3affcc66d63befdf54b234226d563e00137211c004a8b"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.4.26+commit.4563c3fc",
+      "version": "0.4.26",
+      "build": "commit.4563c3fc",
+      "longVersion": "0.4.26+commit.4563c3fc",
+      "keccak256": "0xa1023199ee994ada32b1483903b106b87f84d16a835b45353ecf4d7d03b26ec2",
+      "urls": [
+        "bzzr://0efbc4848aab21ee67414d103d58839c2a00029149f0672af76c74bee1879df3"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.5.0+commit.1d4f565a",
+      "version": "0.5.0",
+      "build": "commit.1d4f565a",
+      "longVersion": "0.5.0+commit.1d4f565a",
+      "keccak256": "0x3398d052ddb040f815293e68d70072b3fc0b7dc14841634be6f4cdd861024ec5",
+      "urls": [
+        "bzzr://34ea2834804d741389f616f1fdd40ac3d51db90e50eecd6f0d2242574bd9c677"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.5.1+commit.c8a2cb62",
+      "version": "0.5.1",
+      "build": "commit.c8a2cb62",
+      "longVersion": "0.5.1+commit.c8a2cb62",
+      "keccak256": "0x80d3600d80ac443e749ef215dd4c61af5e586c2b009c57554a37d09e149ada91",
+      "urls": [
+        "bzzr://fa78e685b229b2fb79b423c754e6dd30a4547bfa5301462986e6df611e61aebb"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.5.2+commit.1df8f40c",
+      "version": "0.5.2",
+      "build": "commit.1df8f40c",
+      "longVersion": "0.5.2+commit.1df8f40c",
+      "keccak256": "0x0e206c9a10687d411b6a360ecf49a25299a43c0aac2580c4fb78ea6f17118f25",
+      "urls": [
+        "bzzr://bbb2f091d02794d964e3a13cd4a2b03a6787e549d3092e3eeb5be2a989531cc7"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.5.3+commit.10d17f24",
+      "version": "0.5.3",
+      "build": "commit.10d17f24",
+      "longVersion": "0.5.3+commit.10d17f24",
+      "keccak256": "0xf233a0f22f87080f58833a45a8340a6d199e077b88a2e1c93b8ace0268a7cf96",
+      "urls": [
+        "bzzr://b572e8e1377d6a24e8bde0dffc14089f64b4532bc2667698b1eac28ae9d73599"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.5.4+commit.9549d8ff",
+      "version": "0.5.4",
+      "build": "commit.9549d8ff",
+      "longVersion": "0.5.4+commit.9549d8ff",
+      "keccak256": "0x059cbd8238e17616e94bcbe8bffe927e66d5e439bc1e3cfac098ba1c4e68b82e",
+      "urls": [
+        "bzzr://ab098def204c5e6993859c91957665418e7967deaa7c110691fc0065f2173879"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.5.5+commit.47a71e8f",
+      "version": "0.5.5",
+      "build": "commit.47a71e8f",
+      "longVersion": "0.5.5+commit.47a71e8f",
+      "keccak256": "0xd7a64120d9c0c8513e39e3deffea5aca2e08cd85f5720de3d24c30adf932124e",
+      "urls": [
+        "bzzr://88ad76b950c3cf6ddfac4f2f89c27c6525aea91d583f0a75e384b0678dd32f07"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.5.6+commit.b259423e",
+      "version": "0.5.6",
+      "build": "commit.b259423e",
+      "longVersion": "0.5.6+commit.b259423e",
+      "keccak256": "0x2e61f883211fd778f196ef43e961a39b164ee88af3efd2ed8b32580a714c4ff0",
+      "urls": [
+        "bzzr://15c5609ecaa1e68bf3eeeb882959dbb411db2a5a2083735437bbce33e61fd196"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.5.7+commit.6da8b019",
+      "version": "0.5.7",
+      "build": "commit.6da8b019",
+      "longVersion": "0.5.7+commit.6da8b019",
+      "keccak256": "0x38299fab346ce5c8501aa4cb2c6cb7fa51894e94c8efb7622b5b238b874ed8e4",
+      "urls": [
+        "bzzr://181b289c9cebe7e16a2aefa097a250b8895a6de9f6caccfb6b20566760eb47a8"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.5.8+commit.23d335f2",
+      "version": "0.5.8",
+      "build": "commit.23d335f2",
+      "longVersion": "0.5.8+commit.23d335f2",
+      "keccak256": "0xacaef28d8758dbaa505d35f1208053b3bd276b20021b0046f86c3ce6cdf6e5fb",
+      "urls": [
+        "bzzr://1f91d936cfa7dfcf739512c4788fcb5fb48d5b340fc968cf8343952c4c8e149f"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.5.9+commit.c68bc34e",
+      "version": "0.5.9",
+      "build": "commit.c68bc34e",
+      "longVersion": "0.5.9+commit.c68bc34e",
+      "keccak256": "0x32ab4fb9db905c7b803daf44b85082814b79a54a47ead055b0b2f85686ba7466",
+      "urls": [
+        "bzzr://1c9acc235856e326d1402b8ac2c3a173f6c3c6015a56951fb1f4e2ef86a0d36d"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.5.10+commit.5a6ea5b1",
+      "version": "0.5.10",
+      "build": "commit.5a6ea5b1",
+      "longVersion": "0.5.10+commit.5a6ea5b1",
+      "keccak256": "0x51ac2e87755e7fb56e02b8c16c0c57b869e869747f7a8b1c5269dff46308e666",
+      "urls": [
+        "bzzr://3758d875ea5c471d1257194403c65776ceca19e9c9ff624d40fc6435e1b4002d"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.5.11+commit.22be8592",
+      "version": "0.5.11",
+      "build": "commit.22be8592",
+      "longVersion": "0.5.11+commit.22be8592",
+      "keccak256": "0xa9493e493fb495e64ef28b4d51ec3c18a8f480b5b7a7fc8120fe6ce11b0668f5",
+      "urls": [
+        "bzzr://fba29778cd15e6a82177ca936cf4849ff68b6c1b420c35a77a63bf1f964d2d29"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.5.12+commit.7709ece9",
+      "version": "0.5.12",
+      "build": "commit.7709ece9",
+      "longVersion": "0.5.12+commit.7709ece9",
+      "keccak256": "0x5b97cafaf43c81de61e22353d5c17edd470961198878cc5fffbe5aa9996d1b30",
+      "urls": [
+        "bzzr://b53f8ec45cccd925929a644c9e20ae7e09049bc4abe56efe4ee5202465fb9175"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.5.13+commit.5b0b510c",
+      "version": "0.5.13",
+      "build": "commit.5b0b510c",
+      "longVersion": "0.5.13+commit.5b0b510c",
+      "keccak256": "0x61ed50e74344d6adb0ac36f93d2ddf7fb53fe27d1adcdbdf093395454f45950c",
+      "urls": [
+        "bzzr://7a47a3d5507c6169bd1c54bf94e2c427d7862fe3929fae5a880291aea5dea82b"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.5.14+commit.01f1aaa4",
+      "version": "0.5.14",
+      "build": "commit.01f1aaa4",
+      "longVersion": "0.5.14+commit.01f1aaa4",
+      "keccak256": "0xf8374badabcb1998265d9af0a3b4d3963952cc8ed66d082e348a575f5d4d429c",
+      "urls": [
+        "bzzr://fbc80dae699dc2cf46c2f9ea935124255064ab029e6d6a29862b6f199c389f9f"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.5.15+commit.6a57276f",
+      "version": "0.5.15",
+      "build": "commit.6a57276f",
+      "longVersion": "0.5.15+commit.6a57276f",
+      "keccak256": "0xf7cf4eeeab8f46705f5097ff0bb79940ad70018251d67d28b249d7f80d18df5a",
+      "urls": [
+        "bzzr://a2a7e2d211a447cd86bfeffaa8b7bc37ee93ded9565da6d471a431290fb7881a"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.5.16+commit.9c3226ce",
+      "version": "0.5.16",
+      "build": "commit.9c3226ce",
+      "longVersion": "0.5.16+commit.9c3226ce",
+      "keccak256": "0xbb4910ccdeae52e7fe79615bd3c33b568212dd6ac241681dd39631effd76423b",
+      "urls": [
+        "bzzr://a0a7e1e74981e80baee238eaa4fc266f224048f0de938fee9787126dce292061"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.5.17+commit.d19bba13",
+      "version": "0.5.17",
+      "build": "commit.d19bba13",
+      "longVersion": "0.5.17+commit.d19bba13",
+      "keccak256": "0xf49d2861749ecc3597e48db3280c01a70df1a31ffb4d4246596ddbabcc6c4b8d",
+      "urls": [
+        "bzzr://05b9c8df8654a5d85ee4b467032331aaf6223442bcfa4576d1de9adcf8fe759b"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.6.0+commit.26b70077",
+      "version": "0.6.0",
+      "build": "commit.26b70077",
+      "longVersion": "0.6.0+commit.26b70077",
+      "keccak256": "0xa1c2c1ae3efa97ca81af19494ca0b310bd11e2a3430b1d9974c9bfa6269431ff",
+      "urls": [
+        "bzzr://2570e584ca95ac2cd82c51ba4fe060a07712e473f04ee711b21789e3d50eb9e6"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.6.1+commit.e6f7d5a4",
+      "version": "0.6.1",
+      "build": "commit.e6f7d5a4",
+      "longVersion": "0.6.1+commit.e6f7d5a4",
+      "keccak256": "0xa60603c327514c2acedd1bc917e769b74739e711ee341cc08bdad6d065c3fa14",
+      "urls": [
+        "bzzr://8932ec9fc8a9fe70346f4fdc2f92820cb620c596149ab63047b4e25c982a1953"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.6.2+commit.bacdbe57",
+      "version": "0.6.2",
+      "build": "commit.bacdbe57",
+      "longVersion": "0.6.2+commit.bacdbe57",
+      "keccak256": "0x441fc0107c407d4bc18ab301c208cc8f3793f6d811627798283994d5cd74c985",
+      "urls": [
+        "bzzr://d27138690388eafc0478a642bcfe12071f7478dac8ed4f270d53f064cb94f777"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.6.3+commit.8dda9521",
+      "version": "0.6.3",
+      "build": "commit.8dda9521",
+      "longVersion": "0.6.3+commit.8dda9521",
+      "keccak256": "0x48221990f9d74d82a093722f20706a2a43d79772552a6bef718752427259a792",
+      "urls": [
+        "bzzr://c7ed1cfaf43061ae8e6760a949f4c1e43a2d961c9f4c867bed61eb3cd7390660"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.6.4+commit.1dca32f3",
+      "version": "0.6.4",
+      "build": "commit.1dca32f3",
+      "longVersion": "0.6.4+commit.1dca32f3",
+      "keccak256": "0xae0015245fb38b3b333339930ab635958ec00b4bb062ca1a5f346d6f51d88602",
+      "urls": [
+        "bzzr://e3aa6e6ccaade31d61c1c24df8cf03a5fd32a95a3c7fbf652ef2fdc8368d044b"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.6.5+commit.f956cc89",
+      "version": "0.6.5",
+      "build": "commit.f956cc89",
+      "longVersion": "0.6.5+commit.f956cc89",
+      "keccak256": "0x7c96df0411896e573a12852f40beb45c9c6d4006b0eb4e304665b83692064f1b",
+      "urls": [
+        "bzzr://743e1144947432ad10792fcd4213ee95cb6ce49ef0029bba0c1daa8313ae400f"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.6.6+commit.6c089d02",
+      "version": "0.6.6",
+      "build": "commit.6c089d02",
+      "longVersion": "0.6.6+commit.6c089d02",
+      "keccak256": "0xe7810e0e9d8bdb79087d4a8ae84ea88d33422a37906fad7114531675790fd0f8",
+      "urls": [
+        "bzzr://08164ef3f682e8963d150b40478c8321a1ea93f5db6e00f7b325896edea813ba"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.6.7+commit.b8d736ae",
+      "version": "0.6.7",
+      "build": "commit.b8d736ae",
+      "longVersion": "0.6.7+commit.b8d736ae",
+      "keccak256": "0x0f348362eb3dbc20c7a6989a8d09adccb40e3f6ee731803d59992624fdf33992",
+      "urls": [
+        "bzzr://3563864610d0b3402aed2f264298bf8efd5278337af9ddbf34800c58cf19fc11"
+      ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.6.8+commit.0bbfe453",
+      "version": "0.6.8",
+      "build": "commit.0bbfe453",
+      "longVersion": "0.6.8+commit.0bbfe453",
+      "keccak256": "0x9bdbe9621aaa58357dc8695d5d13370fa9a89b3dd71a3f1702ae4ae50457b378",
+      "urls": [
+        "bzzr://8830f7671dd8b5e9def1397dd1b262a083598f38c931e8dc9e3aff855752acdc"
+      ]
+    },
+    {
       "path": "solc-macosx-amd64-v0.6.9+commit.3e3065ac",
       "version": "0.6.9",
       "build": "commit.3e3065ac",
@@ -78,7 +628,62 @@
     "0.6.12": "solc-macosx-amd64-v0.6.12+commit.27d51765",
     "0.6.11": "solc-macosx-amd64-v0.6.11+commit.5ef660b1",
     "0.6.10": "solc-macosx-amd64-v0.6.10+commit.00c0fcaf",
-    "0.6.9": "solc-macosx-amd64-v0.6.9+commit.3e3065ac"
+    "0.6.9": "solc-macosx-amd64-v0.6.9+commit.3e3065ac",
+    "0.6.8": "solc-macosx-amd64-v0.6.8+commit.0bbfe453",
+    "0.6.7": "solc-macosx-amd64-v0.6.7+commit.b8d736ae",
+    "0.6.6": "solc-macosx-amd64-v0.6.6+commit.6c089d02",
+    "0.6.5": "solc-macosx-amd64-v0.6.5+commit.f956cc89",
+    "0.6.4": "solc-macosx-amd64-v0.6.4+commit.1dca32f3",
+    "0.6.3": "solc-macosx-amd64-v0.6.3+commit.8dda9521",
+    "0.6.2": "solc-macosx-amd64-v0.6.2+commit.bacdbe57",
+    "0.6.1": "solc-macosx-amd64-v0.6.1+commit.e6f7d5a4",
+    "0.6.0": "solc-macosx-amd64-v0.6.0+commit.26b70077",
+    "0.5.17": "solc-macosx-amd64-v0.5.17+commit.d19bba13",
+    "0.5.16": "solc-macosx-amd64-v0.5.16+commit.9c3226ce",
+    "0.5.15": "solc-macosx-amd64-v0.5.15+commit.6a57276f",
+    "0.5.14": "solc-macosx-amd64-v0.5.14+commit.01f1aaa4",
+    "0.5.13": "solc-macosx-amd64-v0.5.13+commit.5b0b510c",
+    "0.5.12": "solc-macosx-amd64-v0.5.12+commit.7709ece9",
+    "0.5.11": "solc-macosx-amd64-v0.5.11+commit.22be8592",
+    "0.5.10": "solc-macosx-amd64-v0.5.10+commit.5a6ea5b1",
+    "0.5.9": "solc-macosx-amd64-v0.5.9+commit.c68bc34e",
+    "0.5.8": "solc-macosx-amd64-v0.5.8+commit.23d335f2",
+    "0.5.7": "solc-macosx-amd64-v0.5.7+commit.6da8b019",
+    "0.5.6": "solc-macosx-amd64-v0.5.6+commit.b259423e",
+    "0.5.5": "solc-macosx-amd64-v0.5.5+commit.47a71e8f",
+    "0.5.4": "solc-macosx-amd64-v0.5.4+commit.9549d8ff",
+    "0.5.3": "solc-macosx-amd64-v0.5.3+commit.10d17f24",
+    "0.5.2": "solc-macosx-amd64-v0.5.2+commit.1df8f40c",
+    "0.5.1": "solc-macosx-amd64-v0.5.1+commit.c8a2cb62",
+    "0.5.0": "solc-macosx-amd64-v0.5.0+commit.1d4f565a",
+    "0.4.26": "solc-macosx-amd64-v0.4.26+commit.4563c3fc",
+    "0.4.25": "solc-macosx-amd64-v0.4.25+commit.59dbf8f1",
+    "0.4.24": "solc-macosx-amd64-v0.4.24+commit.e67f0147",
+    "0.4.23": "solc-macosx-amd64-v0.4.23+commit.124ca40d",
+    "0.4.22": "solc-macosx-amd64-v0.4.22+commit.4cb486ee",
+    "0.4.21": "solc-macosx-amd64-v0.4.21+commit.dfe3193c",
+    "0.4.20": "solc-macosx-amd64-v0.4.20+commit.3155dd80",
+    "0.4.19": "solc-macosx-amd64-v0.4.19+commit.c4cbbb05",
+    "0.4.18": "solc-macosx-amd64-v0.4.18+commit.9cf6e910",
+    "0.4.17": "solc-macosx-amd64-v0.4.17+commit.bdeb9e52",
+    "0.4.16": "solc-macosx-amd64-v0.4.16+commit.d7661dd9",
+    "0.4.15": "solc-macosx-amd64-v0.4.15+commit.8b45bddb",
+    "0.4.14": "solc-macosx-amd64-v0.4.14+commit.c2215d46",
+    "0.4.13": "solc-macosx-amd64-v0.4.13+commit.0fb4cb1a",
+    "0.4.12": "solc-macosx-amd64-v0.4.12+commit.194ff033",
+    "0.4.11": "solc-macosx-amd64-v0.4.11+commit.68ef5810",
+    "0.4.10": "solc-macosx-amd64-v0.4.10+commit.f0d539ae",
+    "0.4.9": "solc-macosx-amd64-v0.4.9+commit.364da425",
+    "0.4.8": "solc-macosx-amd64-v0.4.8+commit.60cc1668",
+    "0.4.7": "solc-macosx-amd64-v0.4.7+commit.822622cf",
+    "0.4.6": "solc-macosx-amd64-v0.4.6+commit.2dabbdf0",
+    "0.4.5": "solc-macosx-amd64-v0.4.5+commit.b318366e",
+    "0.4.4": "solc-macosx-amd64-v0.4.4+commit.4633f3de",
+    "0.4.3": "solc-macosx-amd64-v0.4.3+commit.2353da71",
+    "0.4.2": "solc-macosx-amd64-v0.4.2+commit.af6afb04",
+    "0.4.1": "solc-macosx-amd64-v0.4.1+commit.4fc6fc2c",
+    "0.4.0": "solc-macosx-amd64-v0.4.0+commit.acd334c9",
+    "0.3.6": "solc-macosx-amd64-v0.3.6+commit.988fe5e5"
   },
   "latestRelease": "0.7.2"
 }

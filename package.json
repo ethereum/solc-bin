@@ -9,7 +9,10 @@
   "devDependencies": {
     "ethereumjs-util": "^7.0.2",
     "standard": "^14.3.4",
-    "swarmhash": "^0.1.1"
+    "swarmhash": "^0.1.1",
+    "ipfs-unixfs-importer": "^3.0.4",
+    "ipld-in-memory": "^6.0.0",
+    "ipld": "^0.27.1"
   },
   "scripts": {
     "lint": "standard update",

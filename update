@@ -6,10 +6,19 @@ const fs = require('fs')
 const path = require('path')
 const semver = require('semver')
 const ethUtil = require('ethereumjs-util')
+const ipfsImporter = require('ipfs-unixfs-importer')
+const IPLD = require('ipld')
+const inMemory = require('ipld-in-memory')
 const swarmhash = require('swarmhash')
 
 // This script updates the index files list.js and list.txt in the directories containing binaries,
 // as well as the 'latest' and 'nightly' symlinks/files.
+
+const ipfsHash = async (content) => {
+  for await (const { cid } of ipfsImporter([{ content }], await inMemory(IPLD), { onlyHash: true })) {
+    return cid.toString()
+  }
+}
 
 function generateLegacyListJS (builds, releases) {
   return `
@@ -100,7 +109,7 @@ function buildVersion (build) {
   return version
 }
 
-function makeEntry (dir, parsedFileName, oldList) {
+async function makeEntry (dir, parsedFileName, oldList) {
   const pathRelativeToRoot = path.join(dir, parsedFileName[0])
   const absolutePath = path.join(__dirname, pathRelativeToRoot)
 
@@ -124,19 +133,21 @@ function makeEntry (dir, parsedFileName, oldList) {
     }
   }
 
-  if (!build.keccak256 || !build.urls) {
+  if (!build.keccak256 || !build.urls || build.urls.length !== 2) {
     const fileContent = fs.readFileSync(absolutePath)
     build.keccak256 = '0x' + ethUtil.keccak(fileContent).toString('hex')
-    build.urls = ['bzzr://' + swarmhash(fileContent).toString('hex')]
-
-    console.log("Hashing '" + pathRelativeToRoot + "'")
+    console.log("Computing hashes of '" + pathRelativeToRoot + "'")
+    build.urls = [
+      'bzzr://' + swarmhash(fileContent).toString('hex'),
+      'dweb:/ipfs/' + await ipfsHash(fileContent)
+    ]
   }
 
   return build
 }
 
 function processDir (dir, options, listCallback) {
-  fs.readdir(path.join(__dirname, dir), { withFileTypes: true }, function (err, files) {
+  fs.readdir(path.join(__dirname, dir), { withFileTypes: true }, async function (err, files) {
     if (err) {
       throw err
     }
@@ -163,7 +174,7 @@ function processDir (dir, options, listCallback) {
     }[dir] || ''
 
     // ascending list (oldest version first)
-    const parsedList = files
+    const parsedList = (await Promise.all(files
       .filter(function (file) {
         // Skip symbolic links with less then 8 characters in the commit hash.
         // They exist only for backwards-compatibilty and should not be on the list.
@@ -177,7 +188,8 @@ function processDir (dir, options, listCallback) {
         return file.match(new RegExp('^' + binaryPrefix + '-v([0-9.]*)(-([^+]*))?(\\+(.*))?(' + escapedExtensions.join('|') + ')$'))
       })
       .filter(function (version) { return version })
-      .map(function (pars) { return makeEntry(dir, pars, oldList) })
+      .map(async function (pars) { return await makeEntry(dir, pars, oldList) })
+    ))
       .sort(function (a, b) {
         if (a.longVersion === b.longVersion) {
           return 0

@@ -11066,7 +11066,8 @@
       "longVersion": "0.7.3-nightly.2020.9.30+commit.3af21c92",
       "keccak256": "0x3b72d54b6af0fb49ecaff56e465f0421f2a4c648c58920d8a75bfd7fee748225",
       "urls": [
-        "bzzr://6712bc949619d81962c074c26e3a63ae2864602f03b78c624498c50c67a515e3"
+        "bzzr://6712bc949619d81962c074c26e3a63ae2864602f03b78c624498c50c67a515e3",
+        "dweb:/ipfs/QmXjsuAATrJSNbFwVHsiPTHg3qxrUYJRVaMn1RaMAHfMuE"
       ]
     }
   ],

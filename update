@@ -3,6 +3,7 @@
 'use strict'
 
 const fs = require('fs')
+const util = require('util')
 const path = require('path')
 const semver = require('semver')
 const ethUtil = require('ethereumjs-util')
@@ -134,7 +135,8 @@ async function makeEntry (dir, parsedFileName, oldList) {
   }
 
   if (!build.keccak256 || !build.urls || build.urls.length !== 2) {
-    const fileContent = fs.readFileSync(absolutePath)
+    const readFile = util.promisify(fs.readFile)
+    const fileContent = await readFile(absolutePath)
     build.keccak256 = '0x' + ethUtil.keccak(fileContent).toString('hex')
     console.log("Computing hashes of '" + pathRelativeToRoot + "'")
     build.urls = [

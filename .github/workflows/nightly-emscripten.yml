@@ -49,12 +49,12 @@ jobs:
           )"
           nightly_version="v${solidity_version}-nightly.${last_commit_date}+commit.${last_commit_hash}"
 
-          echo "::set-env name=SOLIDITY_VERSION::${solidity_version}"
-          echo "::set-env name=NIGHTLY_VERSION::${nightly_version}"
+          echo "SOLIDITY_VERSION=${solidity_version}" >> $GITHUB_ENV
+          echo "NIGHTLY_VERSION=${nightly_version}" >> $GITHUB_ENV
 
           # There's no way to just stop a job without failing and that would spam everyone with
           # spurious e-mail notifications about the failure. Instead we have to make do with `if`s.
-          echo "::set-env name=MATCHING_NIGHTLIES_IN_THE_REPO::${matching_nightlies_in_the_repo}"
+          echo "MATCHING_NIGHTLIES_IN_THE_REPO=${matching_nightlies_in_the_repo}" >> $GITHUB_ENV
 
       - name: Build soljson.js
         if: "!env.MATCHING_NIGHTLIES_IN_THE_REPO"

@@ -11081,6 +11081,18 @@
         "bzzr://896597bb44d18eae4afc3f3d3a4138764bf1407bbef5d5b947cd900524bbb54a",
         "dweb:/ipfs/QmS2sjEJXmV8F4zZGfw9JdNJ8VHy4L2qHrFQWuLTJdDvBD"
       ]
+    },
+    {
+      "path": "soljson-v0.7.3-nightly.2020.10.6+commit.25d40805.js",
+      "version": "0.7.3",
+      "prerelease": "nightly.2020.10.6",
+      "build": "commit.25d40805",
+      "longVersion": "0.7.3-nightly.2020.10.6+commit.25d40805",
+      "keccak256": "0xa17c811c3fc9b4b58f6484c0341442608bc87510b37331b47b1690e3cbb84025",
+      "urls": [
+        "bzzr://9f03cb0819b570f4cb6678922fcb5ff97a1640159385a09170f5e064954fe6fc",
+        "dweb:/ipfs/QmRXnVcnHLGRcMZHJQ2o437o8V6FHkXezW8mm9fBPHu5Yk"
+      ]
     }
   ],
   "releases": {

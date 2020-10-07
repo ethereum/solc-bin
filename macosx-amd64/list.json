@@ -681,9 +681,21 @@
         "bzzr://1c226f35bf118d903ccc943516761564497d8b0cfc79eba1206c924254af0240",
         "dweb:/ipfs/QmcpwuWTL3ZgcSX1WUs4L3WVZtctRSzm8eHhGXosn7cz3L"
       ]
+    },
+    {
+      "path": "solc-macosx-amd64-v0.7.3+commit.9bfce1f6",
+      "version": "0.7.3",
+      "build": "commit.9bfce1f6",
+      "longVersion": "0.7.3+commit.9bfce1f6",
+      "keccak256": "0x2bbcfb7135c6ae1a23be3ff24d00f423a5772b8c96afdeb29366243d9b9b586a",
+      "urls": [
+        "bzzr://576d33181f5dc0c42bf0c1cdcd5fae565d0278b035c907fd5410b212ad9ffa05",
+        "dweb:/ipfs/QmNUC4SV1jEWHv2VDck4WYToHgZrZZ4BDLvXJnj9DM6G9p"
+      ]
     }
   ],
   "releases": {
+    "0.7.3": "solc-macosx-amd64-v0.7.3+commit.9bfce1f6",
     "0.7.2": "solc-macosx-amd64-v0.7.2+commit.51b20bc0",
     "0.7.1": "solc-macosx-amd64-v0.7.1+commit.f4a555be",
     "0.7.0": "solc-macosx-amd64-v0.7.0+commit.9e61f92b",
@@ -747,5 +759,5 @@
     "0.4.0": "solc-macosx-amd64-v0.4.0+commit.acd334c9",
     "0.3.6": "solc-macosx-amd64-v0.3.6+commit.988fe5e5"
   },
-  "latestRelease": "0.7.2"
+  "latestRelease": "0.7.3"
 }

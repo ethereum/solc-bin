@@ -1,0 +1,1 @@
+../bin/soljson-v0.5.11+commit.22be8592.js

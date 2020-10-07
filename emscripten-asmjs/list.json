@@ -364,6 +364,17 @@
       ]
     },
     {
+      "path": "solc-emscripten-asmjs-v0.4.15+commit.8b45bddb.js",
+      "version": "0.4.15",
+      "build": "commit.8b45bddb",
+      "longVersion": "0.4.15+commit.8b45bddb",
+      "keccak256": "0xcf2f44568e9cbb0e2b9d2a23abc949bf9db5c6cf3e9d45408eb0fb0df28cf316",
+      "urls": [
+        "bzzr://9ef5e813839ffe0eda504e58a02476735b8467fde4e9768ecd87efe8ea84eb9c",
+        "dweb:/ipfs/QmPV73GNxrjLQbhhK8mjW38BEn288WhLe3JyE9JEsYazkV"
+      ]
+    },
+    {
       "path": "solc-emscripten-asmjs-v0.4.16+commit.d7661dd9.js",
       "version": "0.4.16",
       "build": "commit.d7661dd9",
@@ -595,6 +606,17 @@
       ]
     },
     {
+      "path": "solc-emscripten-asmjs-v0.5.9+commit.c68bc34e.js",
+      "version": "0.5.9",
+      "build": "commit.c68bc34e",
+      "longVersion": "0.5.9+commit.c68bc34e",
+      "keccak256": "0x435c60eb61083f14782d1cc071f9c745b8761413ff00fce2678772690d418fb4",
+      "urls": [
+        "bzzr://7f8f74b93df99ba6bb527c5597614075838eeb84ef84c90d9a5a81ec2c60cb12",
+        "dweb:/ipfs/QmcyGFNgw86sMFNfjdYeXtQADFMUc55JPMrJStnFPLoH8n"
+      ]
+    },
+    {
       "path": "solc-emscripten-asmjs-v0.5.10+commit.5a6ea5b1.js",
       "version": "0.5.10",
       "build": "commit.5a6ea5b1",
@@ -614,6 +636,17 @@
       "urls": [
         "bzzr://f7136a4e9d4771a12407ff4dd8a5932840a79d77cafed760caacaa63d7a60d81",
         "dweb:/ipfs/QmNr26EpsCrNuPHBHbZvDAV4PFDG1XWShpmxZhtr4QsUcN"
+      ]
+    },
+    {
+      "path": "solc-emscripten-asmjs-v0.5.11+commit.22be8592.js",
+      "version": "0.5.11",
+      "build": "commit.22be8592",
+      "longVersion": "0.5.11+commit.22be8592",
+      "keccak256": "0x1e158d4219caaefca3e9d0fa5cebb19cee56b1452a99d50a72f8795f62dce536",
+      "urls": [
+        "bzzr://584397ffedeece5b3766443eba34de03f38a5589176aacffe568e079b8de94c3",
+        "dweb:/ipfs/QmVUDz1LMQSfknu7ZXC3YNZrNkbP81gKezfeXeqELvz4LU"
       ]
     },
     {

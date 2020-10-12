@@ -17,7 +17,7 @@ jobs:
     outputs:
       solidity-version: ${{ env.SOLIDITY_VERSION }}
       nightly-version: ${{ env.NIGHTLY_VERSION }}
-      matching-nightlies-in-the-repo: ${{ env.MATCHING_NIGHTLIES_IN_THE_REPO }}
+      nightly-already-exists: ${{ env.NIGHTLY_ALREADY_EXISTS }}
 
     steps:
       - uses: actions/checkout@v2
@@ -47,6 +47,7 @@ jobs:
             git ls-files "bin/soljson-v${solidity_version}-nightly.${last_commit_date}+commit.*.js";
             git ls-files "bin/soljson-v${solidity_version}-nightly.*+commit.${last_commit_hash}.js"
           )"
+          nightly_already_exists="$(test -n "$matching_nightlies_in_the_repo" && echo true || echo false)"
           nightly_version="v${solidity_version}-nightly.${last_commit_date}+commit.${last_commit_hash}"
 
           echo "SOLIDITY_VERSION=${solidity_version}" >> $GITHUB_ENV
@@ -54,17 +55,17 @@ jobs:
 
           # There's no way to just stop a job without failing and that would spam everyone with
           # spurious e-mail notifications about the failure. Instead we have to make do with `if`s.
-          echo "MATCHING_NIGHTLIES_IN_THE_REPO=${matching_nightlies_in_the_repo}" >> $GITHUB_ENV
+          echo "NIGHTLY_ALREADY_EXISTS=${nightly_already_exists}" >> $GITHUB_ENV
 
       - name: Build soljson.js
-        if: "!env.MATCHING_NIGHTLIES_IN_THE_REPO"
+        if: "env.NIGHTLY_ALREADY_EXISTS == 'false'"
         run: |
           cd solidity/
           # Note that this script will spawn and build inside a docker image (which works just fine in github actions).
           scripts/build_emscripten.sh
 
       - name: Upload soljson.js as an artifact
-        if: "!env.MATCHING_NIGHTLIES_IN_THE_REPO"
+        if: "env.NIGHTLY_ALREADY_EXISTS == 'false'"
         uses: actions/upload-artifact@v2
         with:
           name: soljson.js
@@ -78,7 +79,7 @@ jobs:
     env:
       SOLIDITY_VERSION: ${{ needs.build-emscripten-nightly.outputs.solidity-version }}
 
-    if: "!needs.build-emscripten-nightly.outputs.matching-nightlies-in-the-repo"
+    if: "needs.build-emscripten-nightly.outputs.nightly-already-exists == 'false'"
     steps:
       - uses: actions/checkout@v2
         with:
@@ -103,7 +104,7 @@ jobs:
     env:
       NIGHTLY_VERSION: ${{ needs.build-emscripten-nightly.outputs.nightly-version }}
 
-    if: "!needs.build-emscripten-nightly.outputs.matching-nightlies-in-the-repo"
+    if: "needs.build-emscripten-nightly.outputs.nightly-already-exists == 'false'"
     steps:
       - uses: actions/checkout@v2
         with:

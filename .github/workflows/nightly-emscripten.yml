@@ -42,6 +42,7 @@ jobs:
           last_commit_hash=$(git rev-parse --short=8 HEAD)
           solidity_version=$("scripts/get_version.sh")
           nightly_version="v${solidity_version}-nightly.${last_commit_date}+commit.${last_commit_hash}"
+          echo "nightly.${last_commit_date}" > prerelease.txt
 
           echo "LAST_COMMIT_DATE=${last_commit_date}" >> $GITHUB_ENV
           echo "LAST_COMMIT_HASH=${last_commit_hash}" >> $GITHUB_ENV

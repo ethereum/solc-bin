@@ -1,0 +1,19 @@
+name: npm linter
+
+on:
+  pull_request
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install JS dependencies
+        run: |
+          npm install
+
+      - name: Run linter
+        run: |
+          npm run lint

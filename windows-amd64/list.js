@@ -1,5 +1,6 @@
 
 var soljsonSources = [
+  "solc-windows-amd64-v0.7.6+commit.7338295f.exe",
   "solc-windows-amd64-v0.7.5+commit.eb77ed08.exe",
   "solc-windows-amd64-v0.7.4+commit.3f05b770.exe",
   "solc-windows-amd64-v0.7.3+commit.9bfce1f6.exe",
@@ -63,6 +64,7 @@ var soljsonSources = [
   "solc-windows-amd64-v0.4.1+commit.4fc6fc2c.zip"
 ];
 var soljsonReleases = {
+  "0.7.6": "solc-windows-amd64-v0.7.6+commit.7338295f.exe",
   "0.7.5": "solc-windows-amd64-v0.7.5+commit.eb77ed08.exe",
   "0.7.4": "solc-windows-amd64-v0.7.4+commit.3f05b770.exe",
   "0.7.3": "solc-windows-amd64-v0.7.3+commit.9bfce1f6.exe",

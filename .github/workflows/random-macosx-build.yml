@@ -316,6 +316,7 @@ jobs:
       - name: Commit and push the binary
         run: |
           cd solc-bin/
+          chmod 0755 ../solc
           mv ../solc "macosx-amd64/solc-macosx-amd64-${{ env.FULL_BUILD_VERSION }}"
           git add --verbose "macosx-amd64/solc-macosx-amd64-${{ env.FULL_BUILD_VERSION }}"
           git commit --message "Solidity MacOS build ${{ env.FULL_BUILD_VERSION }}"

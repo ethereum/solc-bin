@@ -219,6 +219,13 @@ jobs:
             sed -i.bak 's|^[[:blank:]]*#include <boost/test/included/unit_test\.hpp>[[:blank:]]*$|#include <boost/test/unit_test.hpp>|g' test/boostTest.cpp
           fi
 
+          # Uncommitted changes result in .mod (or -mod in 0.4.0) being included in version string which affects
+          # bytecode produced by the compiler. Committing them would change the commit hash so that's not
+          # an option. We have to disable this if we want the output to match a release build.
+          if semver --range '>= 0.4.0 <= 0.6.0' "$SOLIDITY_VERSION"; then
+            sed -i.bak '/^[[:blank:]]*set(SOL_COMMIT_HASH \"\${SOL_COMMIT_HASH}[-.]mod\")[[:blank:]]*$/d' cmake/scripts/buildinfo.cmake
+          fi
+
           # Starting with 0.4.16 there's no STATIC_LINKING option but there's SOLC_LINK_STATIC instead.
           if semver --range '>= 0.4.16' "$SOLIDITY_VERSION"; then
             static_linking_option="-DSOLC_LINK_STATIC=1"
@@ -243,6 +250,13 @@ jobs:
           if semver --range '>= 0.4.10' "$SOLIDITY_VERSION"; then
             make -j 3 solfuzzer
           fi
+
+      - name: Verify version reported by the binary
+        run: |
+          cd solidity/build/
+
+          echo $(solc/solc --version)
+          ! [[ $(solc/solc --version) =~ [-.]mod ]] || { echo "ERROR: Not a release build!"; exit 1; }
 
       - name: Upload solc as an artifact
         uses: actions/upload-artifact@v2

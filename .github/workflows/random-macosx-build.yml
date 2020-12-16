@@ -90,12 +90,44 @@ jobs:
             brew install coreutils
 
             # Not all boost versions work with all solc versions. Through trial and error I found
-            # out that boost 1.65.0 works correctly with every solc version since 0.4.0 and possibly
+            # out that boost 1.66.0 works correctly with every solc version since 0.4.0 and possibly
             # with earlier ones too.
-            # NOTE: Currently homebrew provides only boost 1.73.0 and the easiest way to build 1.65.0 is to
-            # check out and older formula directly from their repo.
-            curl --remote-name https://raw.githubusercontent.com/Homebrew/homebrew-core/710e281d25b5f9b583f0e51ef33cca797c27c909/Formula/boost.rb
-            brew install ./boost.rb
+            # NOTE: Homebrew currently provides only boost 1.74.0 so this needs to be built from source.
+            boost_install_dir="${PWD}/boost/boost-1.66.0-install"
+            echo "LOCAL_BOOST_INSTALL_DIR=${boost_install_dir}" >> $GITHUB_ENV
+            mkdir -p ../boost/
+            (
+              cd ../boost/
+
+              curl --location --remote-name https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.bz2
+              tar xf boost_1_66_0.tar.bz2
+              cd boost_1_66_0/
+
+              # Options and workarounds based on boost.rb formula for Boost 1.65.0 from Homebrew
+              ./bootstrap.sh \
+                --prefix="${boost_install_dir}" \
+                --libdir="${boost_install_dir}/lib" \
+                --without-icu \
+                --without-libraries=python,mpi \
+                || { cat bootstrap.log; exit 1; }
+
+              echo "using darwin : : clang++ ;" > user-config.jam
+              ./b2 headers
+              ./b2 install \
+                --user-config=user-config.jam \
+                --prefix="${boost_install_dir}" \
+                --libdir="${boost_install_dir}/lib" \
+                -d2 \
+                -j3 \
+                --layout=tagged \
+                -sNO_LZMA=1 \
+                link=shared,static \
+                threading=multi \
+                cxxflags=-std=c++11 \
+                cxxflags=-stdlib=libc++ \
+                linkflags=-stdlib=libc++
+            )
+            export DYLD_LIBRARY_PATH="${boost_install_dir}/lib:$DYLD_LIBRARY_PATH"
 
             # NOTE: As long as the build does not fail, the compiler should work with any Z3 version.
             # The prover might find slightly different answers but they should not be wrong.
@@ -192,7 +224,14 @@ jobs:
           mkdir -p build/
           echo -n > prerelease.txt
           cd build/
-          cmake .. "${static_linking_option}" -DCMAKE_BUILD_TYPE=Release -G "Unix Makefiles"
+
+          if [[ $LOCAL_BOOST_INSTALL_DIR != "" ]]; then
+            boost_options=(-DBOOST_ROOT:PATHNAME="$LOCAL_BOOST_INSTALL_DIR" -DBoost_NO_BOOST_CMAKE=TRUE -DBoost_NO_SYSTEM_PATHS=TRUE)
+          else
+            boost_options=()
+          fi
+
+          cmake .. "${static_linking_option}" -DCMAKE_BUILD_TYPE=Release -G "Unix Makefiles" "${boost_options[@]}"
           make -j 3 solc soltest
 
           # solfuzzer was added to the command-line tests in 0.4.10

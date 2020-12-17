@@ -193,11 +193,11 @@ jobs:
           echo -n > prerelease.txt
           cd build/
           cmake .. "${static_linking_option}" -DCMAKE_BUILD_TYPE=Release -G "Unix Makefiles"
-          make -j 2 solc soltest
+          make -j 3 solc soltest
 
           # solfuzzer was added to the command-line tests in 0.4.10
           if semver --range '>= 0.4.10' "$SOLIDITY_VERSION"; then
-            make -j 2 solfuzzer
+            make -j 3 solfuzzer
           fi
 
       - name: Upload solc as an artifact

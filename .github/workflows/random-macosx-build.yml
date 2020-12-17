@@ -103,6 +103,11 @@ jobs:
               tar xf boost_1_66_0.tar.bz2
               cd boost_1_66_0/
 
+              # Boost won't build on clang 11.4+ because of a bug in compiler version detection.
+              # that results in unsupported flags being added. See https://github.com/boostorg/build/pull/560
+              sed -i.bak 's|^[[:blank:]]*\(flags darwin\.compile\.c++ OPTIONS \$(condition) :\) -fcoalesce-templates ;[[:blank:]]*$|\1 ;|g' tools/build/src/tools/darwin.jam
+              sed -i.bak 's|^[[:blank:]]*\(flags darwin\.compile OPTIONS \$(condition) :\) -Wno-long-double ;[[:blank:]]*$|\1 ;|g' tools/build/src/tools/darwin.jam
+
               # Options and workarounds based on boost.rb formula for Boost 1.65.0 from Homebrew
               ./bootstrap.sh \
                 --prefix="${boost_install_dir}" \

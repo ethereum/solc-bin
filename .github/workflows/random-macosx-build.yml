@@ -172,6 +172,7 @@ jobs:
           last_commit_hash=$(git rev-parse --short=8 HEAD)
           full_build_version="v${SOLIDITY_VERSION}+commit.${last_commit_hash}"
 
+          echo "LAST_COMMIT_HASH=${last_commit_hash}" >> $GITHUB_ENV
           echo "FULL_BUILD_VERSION=${full_build_version}" >> $GITHUB_ENV
 
       - name: Build
@@ -185,12 +186,20 @@ jobs:
             # have been mistakenly included in the other and it won't compile on its own.
             git cherry-pick 1bc0320811ef2b213bda0629b702bffae5e2f925 # [PR #837] Cleanup of test suite init.
             git cherry-pick 53f68a155f071194fd779352d5997c03a6c387ed # [PR #837] Exponential sleep increase on mining failure.
+
+            # The cherry picked commits only affect tests. Force the compiler to still identify itself
+            # using the release commit so that it produces the same bytecode as the original release.
+            echo "$LAST_COMMIT_HASH" > commit_hash.txt
           fi
 
           # Static linking with jsoncpp was introduced in 0.4.5
           if semver --range '>= 0.4.2 <= 0.4.4' "$SOLIDITY_VERSION"; then
             # The change can be backported from 0.4.5 and applies cleanly between 0.4.2 and 0.4.4.
             git cherry-pick 4bde0a2d36297c4b3fa17c7dac2bb1681e1e7f75 # [#1252] Build jsoncpp from source using jsoncpp.cmake script
+
+            # The cherry picked commits only affect the build system. Force the compiler to still identify itself
+            # using the release commit so that it produces the same bytecode as the original release.
+            echo "$LAST_COMMIT_HASH" > commit_hash.txt
           elif semver --range '>= 0.3.6 <= 0.4.1' "$SOLIDITY_VERSION"; then
             # The commit won't apply cleanly before 0.4.2 due to conflicting changes in install_deps.sh and .travis.yml.
             # Those files don't affect our build so just reset the unmerged files.
@@ -199,6 +208,10 @@ jobs:
             git reset -- scripts/install_deps.sh .travis.yml
             git checkout scripts/install_deps.sh .travis.yml
             git -c core.editor=/usr/bin/true cherry-pick --continue
+
+            # The cherry picked commits only affect the build system. Force the compiler to still identify itself
+            # using the release commit so that it produces the same bytecode as the original release.
+            echo "$LAST_COMMIT_HASH" > commit_hash.txt
           fi
 
           # Between 0.3.6 and 0.4.16 deps/ was a submodule and contained parts of the cmake configuration

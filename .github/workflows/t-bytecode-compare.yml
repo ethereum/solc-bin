@@ -1,0 +1,90 @@
+name: Release bytecode
+
+on: pull_request
+
+jobs:
+   generate:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        include:
+          - platform: emscripten-wasm32
+            os: ubuntu-latest
+
+          - platform: emscripten-asmjs
+            os: ubuntu-latest
+
+          - platform: linux-amd64
+            os: ubuntu-latest
+
+          - platform: macosx-amd64
+            os: macos-latest
+
+          # TODO: Run checks on Windows binaries too
+
+    env:
+      PLATFORM: ${{ matrix.platform }}
+
+    steps:
+      - uses: actions/setup-python@v2
+        with:
+          # Use the latest minor release of Python 3. prepare_report.py requires Python >= 3.7
+          python-version: '3.x'
+
+      - uses: actions/checkout@v2
+        with:
+          repository: 'ethereum/solidity'
+          path: 'solidity/'
+          # bytecode_reports_for_modified_binaries.sh requires access to a working copy with full history
+          fetch-depth: 0
+
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ env.GITHUB_REF }}
+          path: 'solc-bin/'
+          # We need more than just a single revision to be able to use diff
+          fetch-depth: 0
+
+      - name: Generate reports from matching release binaries
+        run: |
+          base_dir="$PWD"
+
+          mkdir reports/
+          cd reports/
+
+          "${base_dir}/solidity/scripts/solc-bin/bytecode_reports_for_modified_binaries.sh" \
+            "$PLATFORM" \
+            "origin/${{ github.base_ref }}" \
+            "${GITHUB_REF}" \
+            "$base_dir/solc-bin" \
+            "$base_dir/solidity"
+
+      - name: Upload reports
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ matrix.platform }}
+          path: reports/*
+
+   compare:
+    runs-on: ubuntu-latest
+    needs: generate
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: 'ethereum/solidity'
+          path: 'solidity/'
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v2
+        with:
+          path: reports/
+
+      - name: Compare
+        run: |
+          # This can happen if the PR does not touch any release binaries.
+          [[ -d reports/ ]] || { echo "No reports found."; exit 0; }
+
+          cd reports/
+          ../solidity/scripts/solc-bin/compare_bytecode_reports.sh

@@ -6,6 +6,7 @@
       "build": "commit.3fc68da5",
       "longVersion": "0.3.6+commit.3fc68da5",
       "keccak256": "0x4a1c2a6a4896edefd3a4178a6c3ed8f1de625bd7c00dd7cc5781a9f36236e7db",
+      "sha256": "0xee7ba01680ed3a1c1cda236189a51c1e6ff99f6dca602a580e5b16441772b50b",
       "urls": [
         "bzzr://83e99aa35ae67e71bf77040e5b4686aeb3558919f172b6c28213a4dcd8d79e91",
         "dweb:/ipfs/Qme9brfZS3XhbiRbbNDKhBpgFknyD92omMmYa7XSf56bJP"
@@ -17,6 +18,7 @@
       "build": "commit.acd334c9",
       "longVersion": "0.4.0+commit.acd334c9",
       "keccak256": "0x07994ad8c59c498bf44ca8e84914e27b79be964d98a9556226db377819d67387",
+      "sha256": "0xb83d2025e0bbc7f7f0dc9e47f5aa22eacb548b42c55add8f5f6822c105163500",
       "urls": [
         "bzzr://414fc715062f91971c8e0d9fbdf470dd24a8a35f4f96df0ba79980cdb0ae7eaa",
         "dweb:/ipfs/QmcBZ6Q2iHmrf9omvD7Jyy8kgrqyPmZFwvKWqvVDaxo1Ta"
@@ -28,6 +30,7 @@
       "build": "commit.4fc6fc2c",
       "longVersion": "0.4.1+commit.4fc6fc2c",
       "keccak256": "0x4c358c2e90447ad9e7c1816b5be8edde1172f67dedf16755a6c7373ede46b245",
+      "sha256": "0x9825565e1f199dbed6de01d27e10f83a9180300acab80f8469bf427e3cf92e96",
       "urls": [
         "bzzr://6ecbe30c4c8530b82d55ed6bec12e63efbab1cb16868b020d65399a8793599a6",
         "dweb:/ipfs/QmcEK5gvWNeHUtjsF3B6j5AXb9uNoG3aHbPrCMJDx7C8TM"
@@ -39,6 +42,7 @@
       "build": "commit.af6afb04",
       "longVersion": "0.4.2+commit.af6afb04",
       "keccak256": "0xb67df5c37e8255e0de7918b6d3261f0f29e277d121bf5f414b66157a5b1070cd",
+      "sha256": "0x67f8a94b60278cfb80d505c47a1a5e67ec2caf20167ef85f2bdf2a80a692bd1b",
       "urls": [
         "bzzr://7ba69a10a4585d0a36e5843603476061e8b02878331fa580d5c2509ef01ddaa6",
         "dweb:/ipfs/QmVumPvgQVFLZvDvQddcDGcdxjbVWTTzxoQvJAECBBZ6Ju"
@@ -50,6 +54,7 @@
       "build": "commit.2353da71",
       "longVersion": "0.4.3+commit.2353da71",
       "keccak256": "0x62a65d0a951617f022524fc844ca11d90266f64e693343a2f41107183bf364c1",
+      "sha256": "0x66da311056ec26c9c3fb501350ee22187c30e79c41bf2713eeff7d84479948c5",
       "urls": [
         "bzzr://ccf4f1e05d942946bcca929e9263c541b2749bf1faf6dc6c211b4bf700344d71",
         "dweb:/ipfs/QmXf2cKYJ26tXAU6A6tmUk2dn4tuX3CWNaXJVnGLuoe15y"
@@ -61,6 +66,7 @@
       "build": "commit.4633f3de",
       "longVersion": "0.4.4+commit.4633f3de",
       "keccak256": "0x06afcb6dc23efb1482545b63c5e3983dded0c383ecc46c3ae319f7b868201e47",
+      "sha256": "0x9e386edb2ee759ad65792f7d62c10ae7edf65c5b874a5451f1e695e586b69eea",
       "urls": [
         "bzzr://e93e97b9989cd59673bb1fd64a0f940e8729c3c40b819593b8590480cba24bea",
         "dweb:/ipfs/QmSJFaZhpXQ2EPF2koyiTNAiiuJRykv1Q8yubhkmBhvYyu"
@@ -72,6 +78,7 @@
       "build": "commit.b318366e",
       "longVersion": "0.4.5+commit.b318366e",
       "keccak256": "0xcdf7c4d4c6b9331b755170fa927692019c94088f87f100d2c3c920bcc3740d0b",
+      "sha256": "0x7184dae0b761485a5dce66b50075e17857c5b55fe3fa71fe22d4d5acc0839741",
       "urls": [
         "bzzr://e21d2bd58112fb165fa2c253504bf49ceca661ac1009d270a31cb996560cfa34",
         "dweb:/ipfs/QmYJuZgMbeMiotHAFNWEXdxjTa5yi7GaV4UkgBYABomFpj"
@@ -83,6 +90,7 @@
       "build": "commit.2dabbdf0",
       "longVersion": "0.4.6+commit.2dabbdf0",
       "keccak256": "0x52ca702b8ed4b1e6d43d8a006b3d27f6dba611bac118c523711bfd209fb1cc9d",
+      "sha256": "0x8db9466df3b91c52e3412cebd13176ea9fe16d3239d000828a081c34ce899337",
       "urls": [
         "bzzr://24dc5536a4771b2336fa304f3cd38d5203b6ab49c78a3057ec578991f3fcf265",
         "dweb:/ipfs/QmZZ9hNntBxJw3G7LGW3e8nXtnGxLnaSMM44K4BbLrkELs"
@@ -94,6 +102,7 @@
       "build": "commit.822622cf",
       "longVersion": "0.4.7+commit.822622cf",
       "keccak256": "0xcd8a6a8b2626de75ef6ff73fb724f3ad5693a8902f86e88290f048b56182e7cc",
+      "sha256": "0xd28a58fbc3ce56ff650d4daf3a1d8092e25cadf2a5b2769fd333b321dfc6a22d",
       "urls": [
         "bzzr://6a5d22e366c35f184d5203f3e062131018d8a4d09cf770a0720cfaf4d7b49705",
         "dweb:/ipfs/QmfHjv4nYKuv3yFpWZqBYyiYEYmkQGydQmFT5b6mJkFpWp"
@@ -105,6 +114,7 @@
       "build": "commit.60cc1668",
       "longVersion": "0.4.8+commit.60cc1668",
       "keccak256": "0x43c96fc79cf288cecda12b23a17f30b1cf0427a19dc7c1c094bb461eabefe0df",
+      "sha256": "0x9af176f42b63eaec838999a07e80484f92f41a0fc497adefa65baf88d8fbecaf",
       "urls": [
         "bzzr://fc0e644a61e43592754b66f8d911c91312538debb89da29ffda3d3fd81ff70d9",
         "dweb:/ipfs/Qmf7WYJJ8y6oHr4RQ7HC4tXgFPGvsnp3Qf6TrMBdK52Y5Z"
@@ -116,6 +126,7 @@
       "build": "commit.364da425",
       "longVersion": "0.4.9+commit.364da425",
       "keccak256": "0xbe94ff397be2a951cbeb6c9c1a60ddf531d0ce76f45d51755386b6fa42cc2e2c",
+      "sha256": "0x6ff1683eb76dc58c31043fea474be6da8535ec625d1cd8331a3daead84fd5564",
       "urls": [
         "bzzr://6e134aa89a00a18d930924fc2fad2aa434f80b6a71085ff2ab379e3672c812e7",
         "dweb:/ipfs/QmeBWFbK1aAxnB6muXWStZJWndrFvMJt4xfAzEJD7AqaY3"
@@ -127,6 +138,7 @@
       "build": "commit.f0d539ae",
       "longVersion": "0.4.10+commit.f0d539ae",
       "keccak256": "0x178e51ad0c6a350ec4ed6fd07675dfd4d2581ee07b14b4954dd0b0f6d8633ca5",
+      "sha256": "0xd70ca2f656a88a9be7a3f7d602f03b30149b3bda0d1057cfa3a3c5e3d6e07453",
       "urls": [
         "bzzr://6e43013ff973198d7fcc4a43910041f2f07d0099f4252737a2a2545443b11105",
         "dweb:/ipfs/QmarthW41sfbrdkMmCK6jicXFZDGgvALzdgzygtUqEauae"
@@ -138,6 +150,7 @@
       "build": "commit.68ef5810",
       "longVersion": "0.4.11+commit.68ef5810",
       "keccak256": "0xb8c3f5654b323cea016c0cc1a4584069714cdf796489efe2496a13f8f83a0e63",
+      "sha256": "0xdeb3c274f8b840d657e2f9b1dba602e89f58b1bf3fd7178c48c9033310a1f006",
       "urls": [
         "bzzr://084452a20ae520bba965ba0b863f3d6de0516d1f92ddb512a138fb787d841c55",
         "dweb:/ipfs/QmNUf8dTW9xANAvJmV1ho279AyWSCCvDp6bXet1QTcS2z5"
@@ -149,6 +162,7 @@
       "build": "commit.194ff033",
       "longVersion": "0.4.12+commit.194ff033",
       "keccak256": "0x598af6fec02a6783d6a438a6bb0f7d3012716d003f7bf6c9ac5a4d2bc911941b",
+      "sha256": "0xd522b307a014a32ed5815b05045c4396abc047e70c8a53c1e3ef92e14daa61c6",
       "urls": [
         "bzzr://cef259b97217a7526819155f6dd513768be5f8718324ec3a63c315071e2f7c70",
         "dweb:/ipfs/QmWGK9FbQiNWNeqysvCNCBw3q7cR1dzpnD1EKtNija2zyK"
@@ -160,6 +174,7 @@
       "build": "commit.0fb4cb1a",
       "longVersion": "0.4.13+commit.0fb4cb1a",
       "keccak256": "0x93f7046d6e0ea2492ec5229936821b3b020dbe9eb2e1193953389293d64a190b",
+      "sha256": "0x68ace74ca809ff47b09449d4054c77907d9412f14f6003d5475b60f4fec13709",
       "urls": [
         "bzzr://8943b9e6d4ec52bda1b8fbd65509168ba3388651a30cb495d5280cfbf35614d7",
         "dweb:/ipfs/Qmco9fGHM6mdaPVYqeDQ11GB3BrCbwRcEzM5XzHpAdAVWc"
@@ -171,6 +186,7 @@
       "build": "commit.c2215d46",
       "longVersion": "0.4.14+commit.c2215d46",
       "keccak256": "0x7def3c264883cbe6ffbfc54894e48f9a0d2984ddbd1145eb898758d2a41d1559",
+      "sha256": "0x54f3dc64f2ff5a5350410f6157a537d96fb4aeec90476e90a951ddfbd1fe4bca",
       "urls": [
         "bzzr://3428015c422bb223c3fe8c3a85615081981c47ead375564c16701b261948f0f1",
         "dweb:/ipfs/QmXyyuEWhexuez2rzAeFjunpiAhncD1AfcXitGNHxpRWha"
@@ -182,6 +198,7 @@
       "build": "commit.bbb8e64f",
       "longVersion": "0.4.15+commit.bbb8e64f",
       "keccak256": "0x9ffa9ee890ec483580c0b4ed72270b16e92eb0b7a8a97fb00c257f8809aa4023",
+      "sha256": "0x3e64525797e0b2d9abaeb022688cc02d63fc5820327e382fc6574a7de650dc97",
       "urls": [
         "bzzr://395f2d903c162ddc9b6ebd76db450ca6cb9cf8bb276c3d705aa462ae560d23ab",
         "dweb:/ipfs/QmW2rPbEtiVAbWJxtizzDqTjwpRpXCxkpSR696g9GxAYKT"
@@ -193,6 +210,7 @@
       "build": "commit.d7661dd9",
       "longVersion": "0.4.16+commit.d7661dd9",
       "keccak256": "0xf0a6c32af3eaa2f8c6d9e6c8b90f3bac5e775c7f1c90a61c1e72b593fbb1528d",
+      "sha256": "0x0e6d842e941cd8b76280c59f28f6d020af1afdea8e4be9d9da677ac5dbe860c6",
       "urls": [
         "bzzr://f44b067fda20d169321fd3616f68633fd7a4277b6340f42f74203f33dad4a472",
         "dweb:/ipfs/QmSwumWbYwYe4xLcqpi38VNtw7xCgbNaUkRhiZro9EnqLt"
@@ -204,6 +222,7 @@
       "build": "commit.bdeb9e52",
       "longVersion": "0.4.17+commit.bdeb9e52",
       "keccak256": "0xeb8c3c474b5fa792f9b1b2ac6be945c32f835ccdc059deb562da4e99a031eab9",
+      "sha256": "0x7fe677e8214d0486fa7164f797862fae0a0fefb7b72cf6ad8e728faa54f12b60",
       "urls": [
         "bzzr://37026d0ee2865c52fff8f6311b67b94f96dbb52ce8af3f84c3a9aeb47b12bf47",
         "dweb:/ipfs/QmbgEAtdmSoxH4cfRJXj7mVpKv9rT5Cq2YmXmAnjgsyqBC"
@@ -215,6 +234,7 @@
       "build": "commit.9cf6e910",
       "longVersion": "0.4.18+commit.9cf6e910",
       "keccak256": "0xf824e695e8e66079b4b6063622c7dd80ed056d29969c8c3babac4fb572f3dfec",
+      "sha256": "0x5bb50839ba5116bf31669f3de8dad72eaec298ba32a643be7d0dc2d1392c54d6",
       "urls": [
         "bzzr://d847bc8f5d43cd348346c5bb253269de36f00810c2e189ca64a4becdb9e9312f",
         "dweb:/ipfs/Qmf5RrLbWeMykvWJbCyyThCLQ9YVmU8uWagMdSp9nNzZMc"
@@ -226,6 +246,7 @@
       "build": "commit.c4cbbb05",
       "longVersion": "0.4.19+commit.c4cbbb05",
       "keccak256": "0xa60eadfddbfda0daebb8a1b883b89d33b800cff7ce7e12458170ea17cd5ede58",
+      "sha256": "0x8c2a69fbab9bdf503538028c697e09e51a7e699323ae7100c375cb35c415a819",
       "urls": [
         "bzzr://87e29a7298d49b8b52ed01d6146b05aa41c11a85d1b805dd48181ac2ed5e9b22",
         "dweb:/ipfs/QmSZEQEGuVJ7hudg8FzfDMXKVtn5AVGKaxbhSSDXwpX73K"
@@ -237,6 +258,7 @@
       "build": "commit.3155dd80",
       "longVersion": "0.4.20+commit.3155dd80",
       "keccak256": "0x6c6dfa967526b7060634474ef730761711e5be662abf5ee02dc05985abfadec9",
+      "sha256": "0x9852ad94048600cc5a1458b4a7ab625996844c809b314422693bdc81d953fcc0",
       "urls": [
         "bzzr://3edc1542fb719d3e08138b492a5db06333fb36055a434c3b071b2dcb69e54fbc",
         "dweb:/ipfs/QmcsCpg6kfp7Vea4y9qPtfDXcaQJbDidb65n3t9f2MFDpR"
@@ -248,6 +270,7 @@
       "build": "commit.dfe3193c",
       "longVersion": "0.4.21+commit.dfe3193c",
       "keccak256": "0xd0f9a689670184ad874ca6a2cb40dfe57e9cf539d9330ca3f2501951478eace8",
+      "sha256": "0x4197bb1cb0ea7e637ed8a0e7810f1bfe32c90d0151d6f423bb3dfeef9f6777c4",
       "urls": [
         "bzzr://1abbc4967f3c6c5124f8876abe521d508c71b0d0d64dc066c1e7a1bfe6ba596d",
         "dweb:/ipfs/QmY7UN95hdfFSD1jwFANegze5eLX8PgP5BfWFH1usTB8Sw"
@@ -259,6 +282,7 @@
       "build": "commit.4cb486ee",
       "longVersion": "0.4.22+commit.4cb486ee",
       "keccak256": "0x50972c5b966188341d133aa58fbf895c54655d7bd733fb5ad58852e85f9f9444",
+      "sha256": "0x73458d16a3e34fc7b489d2399b3680cccfc968d01abc9f1b61e438b6fb0c24a1",
       "urls": [
         "bzzr://9eab5a9c94bde3d90eb76a1189febd5ae4d6c7bbc63cc1d76e8871e14e6e9b89",
         "dweb:/ipfs/QmPUJNa1LYaThwLQsw6fF5DMYyDfEg57gmD5wCsazkLS8c"
@@ -270,6 +294,7 @@
       "build": "commit.124ca40d",
       "longVersion": "0.4.23+commit.124ca40d",
       "keccak256": "0x74f927b4f520d8d31863996a100ebc7827f919c77f777f6d4d416c6e613a03c7",
+      "sha256": "0x98c350cc41f873af84a78d1e24cbc8449045ee54923af0a39440e4d84600dc50",
       "urls": [
         "bzzr://a052dbfe589a766af66d85d4d797829241e867e0ead93fbf3d5e492c71b6434f",
         "dweb:/ipfs/QmZbo5YkSbcenWrUDjiCvUZdQe4UrNBw9vtx9nbgcMdRAs"
@@ -281,6 +306,7 @@
       "build": "commit.e67f0147",
       "longVersion": "0.4.24+commit.e67f0147",
       "keccak256": "0x4cc2bb4c8894ad4349a88f330ba74d7ea643030d3f68037d1c94c370b6a25dd7",
+      "sha256": "0xf83e8f7014ad6b8bc801dc3684c644e372673ed678425c35aea5d4b4fe37e922",
       "urls": [
         "bzzr://2aae73578e361285488b6319e8e7b27e23b2736eeee3953cd65f1207cd849395",
         "dweb:/ipfs/QmauztXLDUdwJitA4Uc9MQYCTttUcivR5foTZYgwt4aAeC"
@@ -292,6 +318,7 @@
       "build": "commit.59dbf8f1",
       "longVersion": "0.4.25+commit.59dbf8f1",
       "keccak256": "0x92b9c5de10bd908527e9cfba3f04bbe637163b4a5313c5a69179ccddd5fa6685",
+      "sha256": "0x782a999d3e1227c86854e7e29954ee856c6ae684124b9facf09f4f1724dc4e85",
       "urls": [
         "bzzr://fb1e9b951ce8abe575f8514bff6baa01417a988a399fab1dd27a252e7812d1bc",
         "dweb:/ipfs/QmUtwmzqqCftcubfyGwAefLBQ8ffp8EFhW7HCEQfhaviFs"
@@ -303,6 +330,7 @@
       "build": "commit.4563c3fc",
       "longVersion": "0.4.26+commit.4563c3fc",
       "keccak256": "0xc9c60203789ef778b9104ae7a39e9090b3d1256b24983d49e40e7d1e3c3ed65d",
+      "sha256": "0x264d0d25e31cb32f4369f82ba3ad0b6a84a8a1975b10bd738123ddf947618840",
       "urls": [
         "bzzr://335a6b94d26623dcaa4590ccd6d7529db1e153b65af3bf7def45fffaf9ee256a",
         "dweb:/ipfs/QmRd1uRbHRvpybQk5TQ11zyqmG4wQqHnefgvYdJ14V5D8x"
@@ -314,6 +342,7 @@
       "build": "commit.1d4f565a",
       "longVersion": "0.5.0+commit.1d4f565a",
       "keccak256": "0x2921f518cf5a0627d96e07e8c3d2b5482dbbf14d7dc6bbb055481c46d98903f3",
+      "sha256": "0xaf811843add541705ff65f0c20fd864bd0387116544524fa1830cf67a14af6c4",
       "urls": [
         "bzzr://31231abb33dc43d0478f03a4c8b15b161b172097c884307cf6cf64aeb83a6dc9",
         "dweb:/ipfs/QmYLhaeGbq3tFdCUC2pvtA8QdGnCbA8kn24z3C741k5TUE"
@@ -325,6 +354,7 @@
       "build": "commit.c8a2cb62",
       "longVersion": "0.5.1+commit.c8a2cb62",
       "keccak256": "0x1980cf8a81c6bd2b371bf7d9145c819a7fb2d72e9aa462aaff0c10b4eccd595c",
+      "sha256": "0x69cb1300b5f72eb128604507991d9ada97180d31afde7c59aa3fa3ae9ad5200d",
       "urls": [
         "bzzr://7f35988e2c32ed2f3f1885fb81ace357b1555964d23085940980cacd29023da6",
         "dweb:/ipfs/QmPfxPYsYysRR8HFkWr47FMQ8ardmfmtrmdYc2ogT9Gfp9"
@@ -336,6 +366,7 @@
       "build": "commit.1df8f40c",
       "longVersion": "0.5.2+commit.1df8f40c",
       "keccak256": "0x3efd0585a3c00a1a2c62e590e22a69aa981d1b5148af2ebdbe1610dff93cea78",
+      "sha256": "0xaff4ca62ac0b03cb4b9c50f8250e2e7307b5c75fefc9847f269bd05c20367148",
       "urls": [
         "bzzr://e30e085b875fc291e5ee46ed7c88c28ec8e8c540ad8c799b106c365a52df9e97",
         "dweb:/ipfs/QmaZrQSg8njYzFXH2PzwxHDLKxkBhKmYmLm43DJWnurPeJ"
@@ -347,6 +378,7 @@
       "build": "commit.10d17f24",
       "longVersion": "0.5.3+commit.10d17f24",
       "keccak256": "0x9b7a39606c3c27a8619b3eb493efca512cbd26c5ab7fc95489564239aab32a50",
+      "sha256": "0x24b4cbc28d68bde8455c14a46b55e4f292c3c295271e09991b2176a487cb4487",
       "urls": [
         "bzzr://3bccb9b8cee48b99b39f2f1296f7353bcd39c1ae61b1e19e5add7cedd0256cb2",
         "dweb:/ipfs/QmQmkd5FGiKKg8eRmo3L7Cn62nuV1M6GRDUGiq5bAx4AWx"
@@ -358,6 +390,7 @@
       "build": "commit.9549d8ff",
       "longVersion": "0.5.4+commit.9549d8ff",
       "keccak256": "0x4a6244b03de1968f0a48800e75640921d62b7602d0301093e1c5c318d1effb36",
+      "sha256": "0x91ed0cf4390f33174a4aaf49d1ce7cd9c72e28b95d2f9422314a29b2144b2042",
       "urls": [
         "bzzr://a5ab50564d82e6d55b462f4f85284d3fac294c78f2699b680544bc7efde2fb16",
         "dweb:/ipfs/QmRPchg1b5ofkLnLTPuunfSMKnxbXcZyzSR4NkyJAYUTrR"
@@ -369,6 +402,7 @@
       "build": "commit.47a71e8f",
       "longVersion": "0.5.5+commit.47a71e8f",
       "keccak256": "0xf46cb35b3aefb9b3d59a1fb4c151eb23a0f0a05387b379b3e7fbed1c01c861df",
+      "sha256": "0xaf812445476c101ae5ef92941c79eaebf57b39d455bdfb54a6a86b4ab6ca498c",
       "urls": [
         "bzzr://2e72b599d5a700cbd03d9f7ca082464b4823dbaabfc5e1031075b9631c005d35",
         "dweb:/ipfs/QmPYEmgLWDjk7kPGovojurz7fzdGv8Ti3H66nEzRzdiGwh"
@@ -380,6 +414,7 @@
       "build": "commit.b259423e",
       "longVersion": "0.5.6+commit.b259423e",
       "keccak256": "0x66669372d2d958bfeb5129a387dbc3882a96e260fc12e2910a7eb148b8ea5dd6",
+      "sha256": "0x9ffc04d0aee2c817ae6a897b1ba5aaca2bcd860416aaddfaa4de553fc1ad6e8e",
       "urls": [
         "bzzr://5f5dbf4ebe3be5dbe3e917a2de3908b3a9ed24207a6406a6e434e6f041e993c4",
         "dweb:/ipfs/QmYWL8Z3yXfCuhrprimdLhYFkjR74TjFHULxcABbUipetv"
@@ -391,6 +426,7 @@
       "build": "commit.6da8b019",
       "longVersion": "0.5.7+commit.6da8b019",
       "keccak256": "0x27e324f75dd52eb180569e7a8865048253e5fcdaacc52e7c998ecaeb78dcdabd",
+      "sha256": "0xfd7c4e652d5891c84d93b28c90b8ac58c9253d2a3677935883a337ee96087b8f",
       "urls": [
         "bzzr://764a91ca290bfa564d890f3c1a5a88067b04e96398f223576cbdd17bbc1faee2",
         "dweb:/ipfs/QmdEr1zJrD2UYawZzeE6zPuYiYaSHdpLtKeHYixHgRp9ko"
@@ -402,6 +438,7 @@
       "build": "commit.23d335f2",
       "longVersion": "0.5.8+commit.23d335f2",
       "keccak256": "0x05c00863784c63220704197d8446ac1e277fe53c42b5264093960b7bb70b9792",
+      "sha256": "0x25cfdd733e9c780ab85373268fde7bfa2e4b22093af57422ca3b586c7af7cd60",
       "urls": [
         "bzzr://18fc5b15154aef1640559c31bbd91ae267def62a2b86e434564184b6d3d283ce",
         "dweb:/ipfs/QmSUakgiWEffZ82RrN7hgLaemdqtLSCD7pfGAKxGhDUJxB"
@@ -413,6 +450,7 @@
       "build": "commit.e560f70d",
       "longVersion": "0.5.9+commit.e560f70d",
       "keccak256": "0x7c967d9dc0fdca0db88a7cee22cf5886f65e8fa8b4a145eccd910fc81a1c949d",
+      "sha256": "0x7d40c6325c0aa4635babdb8913626b7c4bac6a4f41e1c383de5f398e1fc98e1b",
       "urls": [
         "bzzr://c1f03890d82592751d779ea2da8a690e15b0ccc5667314bf634c1f16ff4ed322",
         "dweb:/ipfs/QmZcHLPfa2Dz8M3justKYyDmDnaNo4pseTgAeQbtJNYywe"
@@ -424,6 +462,7 @@
       "build": "commit.5a6ea5b1",
       "longVersion": "0.5.10+commit.5a6ea5b1",
       "keccak256": "0x012ae146ebdd510b31c1e44a8d60071a66cdebc77f0e743a6ebc2fe68e67d297",
+      "sha256": "0x566601442deff058d393359df59ed72b41e1f6a65b0aa371fab7f903c189b59d",
       "urls": [
         "bzzr://47c24a09321abb781b5dbc05fffae84ece6844e41a295847dd68ad69633f60a4",
         "dweb:/ipfs/Qmej9jEnSsD2LqGnL4jgbUvHTxTwiFiHqeMpqyuPLaX1uw"
@@ -435,6 +474,7 @@
       "build": "commit.c082d0b4",
       "longVersion": "0.5.11+commit.c082d0b4",
       "keccak256": "0x4ba5500559a9ad03e4c1d3866ba9d915cdb5d7f2e326b4cb1fa0fe7bdf90dc27",
+      "sha256": "0x89978dcef86244b8e7af95298abe26aaf4825df819d6c556e4323dc152c988ad",
       "urls": [
         "bzzr://c609e5725e607a4d853f33c8d46064e0ab11b489f7a585134cfca570e29f447a",
         "dweb:/ipfs/QmdgDj3bPSKU1xKMY8FRHj8E6z9BQefeuaVuF27RpvZMXJ"
@@ -446,6 +486,7 @@
       "build": "commit.7709ece9",
       "longVersion": "0.5.12+commit.7709ece9",
       "keccak256": "0xcda83fe69ce2a319d0caa20c98b53ff36ea1886054ab3dab23fa80ede3dcdea0",
+      "sha256": "0x1784f89fcfffccddaa94273a58e452682f61dea05d142406775f099c6ef5d61f",
       "urls": [
         "bzzr://5eacd00f2f132ea8fbb308baed9753579ade721a44e94067debb602e193b7ae2",
         "dweb:/ipfs/QmPA1Uf4iwkr2ouguzxxFepVxaRg36XFXxiwqYUuwafQzQ"
@@ -457,6 +498,7 @@
       "build": "commit.5b0b510c",
       "longVersion": "0.5.13+commit.5b0b510c",
       "keccak256": "0x432dd5d662d88c2316b4df503f693ae9e6e8ed4216726db2fdb3e7f628523fe5",
+      "sha256": "0x6e095eefc48dfc21fec18d0b63f229e929f881b5d6e8a999e1622c6b707a7f54",
       "urls": [
         "bzzr://1b3ef14eabfe47ff614c088337dfdf163c695612c193aeab9ac5a2af69d30334",
         "dweb:/ipfs/QmSgJ8Ru6vraz9CyCDPMifVxpckkoooVSBj9vYcQqG4wG4"
@@ -468,6 +510,7 @@
       "build": "commit.01f1aaa4",
       "longVersion": "0.5.14+commit.01f1aaa4",
       "keccak256": "0x98e1027fbf3acb279f740c3b38df69d79ad3f2e6171414508d50604dc2dfc13e",
+      "sha256": "0x43b85bc9941814b018065da5c6c8d40e2af49264d0d1f06bdefbfbe628e65ff8",
       "urls": [
         "bzzr://b6283a40a65b321a0e88f61594fc8bed00fb21a53c7ac1bf5ae421706a372d01",
         "dweb:/ipfs/QmeXatGB9MdWA2NBLSNQbcKvuZpa4Sxem51vCrqyQGfXnU"
@@ -479,6 +522,7 @@
       "build": "commit.6a57276f",
       "longVersion": "0.5.15+commit.6a57276f",
       "keccak256": "0x6f9251f86fd798a3ae25688307ffc7a9984dcf0d809a1aef54f5c68b6cf9fb6a",
+      "sha256": "0x0d34e4ed048bbf67daacdf36cd5ce0f553a32962967b52edab6afccaa071878b",
       "urls": [
         "bzzr://e866e6bdb31fea0646b44a8e57acc9505932ffe813028ce1330ca49fe3edc4d0",
         "dweb:/ipfs/Qmdx3AHUB8bN6ZZs1XsTV3Gz9FV3gAB7x7JbYeUsn43Azu"
@@ -490,6 +534,7 @@
       "build": "commit.9c3226ce",
       "longVersion": "0.5.16+commit.9c3226ce",
       "keccak256": "0x6abf17bdb1b934d072739e0e083ecfd579c523d200d45184b8d3987924ca0454",
+      "sha256": "0xa09c9cc2672678d461dc71100600bb58802db87be4de9424769241712ccbec03",
       "urls": [
         "bzzr://9b51780766b138ee36e2796cee7bdd4cb494da5d925c36cc6101202818d37e42",
         "dweb:/ipfs/QmQjodGav6KhMDjuoyJ1ag8osgKLBsFC1E9LmaGP7qCRZ2"
@@ -501,6 +546,7 @@
       "build": "commit.26b70077",
       "longVersion": "0.6.0+commit.26b70077",
       "keccak256": "0xea559c55bf7046cb48378fe9b43eaab6e345700aa22d701fcf946a42ec6b1008",
+      "sha256": "0xf22c63511a85230f7640ff5a77433db643d8d32be8b7c7f1dc24c1301a5158e9",
       "urls": [
         "bzzr://471b0435c47963835dd0f70d67ec069fab5daadbe6c8bf760d2e50adfb839461",
         "dweb:/ipfs/QmTQPQb6br2VEzKTiXBEE6z69xRXEk24xi2R2gn8EsvGD9"
@@ -512,6 +558,7 @@
       "build": "commit.e6f7d5a4",
       "longVersion": "0.6.1+commit.e6f7d5a4",
       "keccak256": "0xb2657b5ce7a9b405a65e4a88845a51216cd7371e8f84861eef9cb0cb20d78081",
+      "sha256": "0x3628fdefd6971ea9cc16acbf91e5f6d6cfb2079181784b47e4d24f4c5d92e4e4",
       "urls": [
         "bzzr://7bc2dc95d81092991a4122b45aad03f9cc62bc98fa455f03fc9286445ef9de8e",
         "dweb:/ipfs/QmYWAkYAJo59kc5dHWaLuQqEm7xusESdu5meDzjpxnyXKt"
@@ -523,6 +570,7 @@
       "build": "commit.bacdbe57",
       "longVersion": "0.6.2+commit.bacdbe57",
       "keccak256": "0x7dc96455c864b49abc7dd5f38ba6a47904709ad132ea36babbfce98d42e962e6",
+      "sha256": "0x25f564cbecc5bfe95d6d358e0e7543c31ece0ab1332c555ff323ca163711bd2b",
       "urls": [
         "bzzr://f61230aa01565c8c24aa2ed50eec7dfd26195be35f5bbe4445c6a3efceaa4b7d",
         "dweb:/ipfs/QmaLUM18c7ecA911ig5u2HY6fAu4AiUbhJpnZwwCMc9cWi"
@@ -534,6 +582,7 @@
       "build": "commit.8dda9521",
       "longVersion": "0.6.3+commit.8dda9521",
       "keccak256": "0x39ae8b2f3ba05ed7d4a7c16f0a9f4f5118180a209379cfc9bdd2d4fb5d015dff",
+      "sha256": "0xf89514dedd8cfb3c4d351580ff80b8444acde702f8be0e5fad710fe6e906c687",
       "urls": [
         "bzzr://1d6deff5623d883b8d0b3a3a5539e4604925ce4c1677defb86e0e37838ea70c5",
         "dweb:/ipfs/Qmd9JfFpUXsUQrJad1u2QDuMxBMeVrcG8mrpfJVV9jiBXB"
@@ -545,6 +594,7 @@
       "build": "commit.1dca32f3",
       "longVersion": "0.6.4+commit.1dca32f3",
       "keccak256": "0x435820544c2598d4ffbfb6f11003364c883a0766c8ac2a03215dd73022b34679",
+      "sha256": "0xa4fd5bb021259cdde001b03dac0e66353a3b066b47eb2476acb58b2610a224ca",
       "urls": [
         "bzzr://62ef2a9bf7dbb8fd596b7c6ca6848d9b1a6c8562d10239659f0a56ee27c110ce",
         "dweb:/ipfs/QmTxzbPN4HwcK5YX7n3PNkb1BzKFiRwStsmBfgC9VwrtFt"
@@ -556,6 +606,7 @@
       "build": "commit.f956cc89",
       "longVersion": "0.6.5+commit.f956cc89",
       "keccak256": "0x6262768243c1ceaf91418e52dc6f52d2ce94d19c6e1065d54499b7bc4d6e14dc",
+      "sha256": "0xf8f83757e73f33f44389d1fa72d013fb266454a8dd9bb6897c7776f8fc3b0231",
       "urls": [
         "bzzr://ed91c1114615572c10a34f0ab28a3a159d2d433fabbcec9eae7253c25ecac8b4",
         "dweb:/ipfs/QmRUoBQeA5zpun1NK7BvBhQk6pTT4uZw7Jn2wZnWQETH9W"
@@ -567,6 +618,7 @@
       "build": "commit.6c089d02",
       "longVersion": "0.6.6+commit.6c089d02",
       "keccak256": "0x3c9cfccc78bf352f4c7901d7af76757bd228f93af2634af4cd16b4916c13e44e",
+      "sha256": "0x09f6098026622c5c334c7798c3ad2b8f7c0ebc62f87846c7d5e7e725c3d1cbc2",
       "urls": [
         "bzzr://ab23bd0e01952ee485f0426c9c4e47fcf6a508bc4919e83be31c0f9ea6e396ca",
         "dweb:/ipfs/QmRj2pxXxvmJ96i57maVjLMfs4DUtCuptM8vSVvvDweJ74"
@@ -578,6 +630,7 @@
       "build": "commit.b8d736ae",
       "longVersion": "0.6.7+commit.b8d736ae",
       "keccak256": "0xb463b6a61fc027247655a32cbfd50bf543eafa3a6b42ceacdda7293e3ada8866",
+      "sha256": "0xb795f1b20f065a0aee492c24071fc1efa1633c3caab77cff20278a9ae822f04e",
       "urls": [
         "bzzr://c82fea785ae31fb4847f5640e6305edc05d1a5b0b47552f60325c25cce280f75",
         "dweb:/ipfs/QmShUrNZf1dZFjziorJYE8fMGNUSMFsbaR3ipSvsCMvExM"
@@ -589,6 +642,7 @@
       "build": "commit.0bbfe453",
       "longVersion": "0.6.8+commit.0bbfe453",
       "keccak256": "0x537cefc0579dd9631ec952cae951b3df0a50a3e557b5638107a67275f7aacc07",
+      "sha256": "0x3e8b01cbd194e40971b41017ada7c8b2fa941b0458cb701bdfb6a82257ca971b",
       "urls": [
         "bzzr://130bff47eed9546c6a4d019c6281896186cf2368b766b16bc49b3d489b6cdb92",
         "dweb:/ipfs/Qmdq9AfwdmKfEGP8u7H9E4VYrKLVinRZPZD1EWRnXSn1oe"
@@ -600,6 +654,7 @@
       "build": "commit.3e3065ac",
       "longVersion": "0.6.9+commit.3e3065ac",
       "keccak256": "0xa2d4d3ebe5d52bfa7ddf1a1fcd9bfed81eaa8678e6a1dd5a1c84954dd064422c",
+      "sha256": "0xf1724fd46b7a353561b3f8d473b0dc8c855b6d84b5af559d7e3326ac79b9d758",
       "urls": [
         "bzzr://2c5fff6b816edb78adb2220f175591c9f4f6d38cfd27a83afb1849191cf9a524",
         "dweb:/ipfs/Qmad6iesaR5FQ45RRtMrt2Fa1EYDuq1oGoMJJB6beMHESn"
@@ -611,6 +666,7 @@
       "build": "commit.00c0fcaf",
       "longVersion": "0.6.10+commit.00c0fcaf",
       "keccak256": "0x620163da7ee7b2622c9ee48b06110a52739f633189555148a3b5ecf767e60cfb",
+      "sha256": "0xfa27ce9d23bddaa76a4aefbafa48e48affde9a1ee7c8a5e8784cf8d4c390f655",
       "urls": [
         "bzzr://823b4efe3ca2964d660348214fd1a44579e13e1e8ce69a81f447372a11d60316",
         "dweb:/ipfs/QmUinsRZvs2zFNG6FMWy7ngTYUnZccXq7MRtgpj1dPfxu4"
@@ -622,6 +678,7 @@
       "build": "commit.5ef660b1",
       "longVersion": "0.6.11+commit.5ef660b1",
       "keccak256": "0xf0abd02c495a0b4c5c9a7ff20de8b932e11fc3066d0b754422035ecd96fcdbbc",
+      "sha256": "0x9778e4a7667d5fd7632caf3ef3791d390a7cc217f94f96e919a31e3be332386a",
       "urls": [
         "bzzr://9f9244a3605543a67f5ff35f21e3d6d3331a6e1361f09b271c37f396b5b89bd5",
         "dweb:/ipfs/QmXyjgFNMyFD4fdf8wt9uvUU92MGdDVGmcPdMZhNEo1g8N"
@@ -633,6 +690,7 @@
       "build": "commit.27d51765",
       "longVersion": "0.6.12+commit.27d51765",
       "keccak256": "0xe1412d909a0dae79b13c0066b9bf08831c522daec00b273bbc19a799af213d6a",
+      "sha256": "0x3e1956c550ca48e289044c7c0bd892403081b4b5e17e77ce707c815ce6c4228f",
       "urls": [
         "bzzr://b69ab6704a1e42fddb326e91f331e35fdf071b158e8754e2c887c0e607aee7b0",
         "dweb:/ipfs/QmTs8PnAGr1ijXtWvMjoWraefAtVv2Y5ZnwkArz6NqJ93w"
@@ -644,6 +702,7 @@
       "build": "commit.9e61f92b",
       "longVersion": "0.7.0+commit.9e61f92b",
       "keccak256": "0x0c7a4386781683c327fde95363535f377941e14feffad5bb1134c7aa7eba726f",
+      "sha256": "0xe7e1be3d0a67469f6a37cd676a22314c4faa8a22ff9d5ebde11302db754453eb",
       "urls": [
         "bzzr://65dc33e3d9ef94defff1b24e66f093d9d15a92c59778c8eb26e76fd8b64bd3da",
         "dweb:/ipfs/QmQFhTptWdDzhemjGpa7Q65HKWGphs4nKKS13nzkcVE8pM"
@@ -655,6 +714,7 @@
       "build": "commit.f4a555be",
       "longVersion": "0.7.1+commit.f4a555be",
       "keccak256": "0x3502cf7933fbce9f1fe1d87a83d5b9df12eee36c03997c3b9821493ce03fcf3e",
+      "sha256": "0x7fcc983c5149840a47b946fc51fc14f1c21cda07c01d650e4a1f814319cb1423",
       "urls": [
         "bzzr://617dff84fd7dc06b476f93a95c015a561662d9ff1d3356ac6a3e5f5b09a636f0",
         "dweb:/ipfs/Qmdw9c3usmqgdV2w4JoNWJqscHzscKNVWsWtos1engJa1o"
@@ -666,6 +726,7 @@
       "build": "commit.51b20bc0",
       "longVersion": "0.7.2+commit.51b20bc0",
       "keccak256": "0x0c80a0bf9e17700249a04a80d7729ccb012a55a82cb0f9e412fa32cc14b09c2b",
+      "sha256": "0xdfa3f2bb4589bdc9c054292173c82ee70e65af8d1971598f6e13b9b79ba94185",
       "urls": [
         "bzzr://a45264806fb74fd38c19704070c83053972270b63bf7b09ddff3c3e15cd1baa0",
         "dweb:/ipfs/QmTNWY4vkVLgtNdfGXyH6CY8URmzr33VzMJNN37z5dsAgu"
@@ -677,6 +738,7 @@
       "build": "commit.9bfce1f6",
       "longVersion": "0.7.3+commit.9bfce1f6",
       "keccak256": "0xcf099e7057d6c3d5acac1f4e349798ad5a581b6cb7ffcebdf5b37b86eac4872d",
+      "sha256": "0xcaf4b1f3e01fcf946aad2d22bbe046b9dc4fd50049a05c3458ff239e2c93a785",
       "urls": [
         "bzzr://2f8ec45d2d7298ab1fa49f3568ada6c6e030c7dd7f490a1505ed9d4713d86dc8",
         "dweb:/ipfs/QmQMH2o7Nz3DaQ31hNYyHVAgejqTyZouvA35Zzzwe2UBPt"
@@ -688,6 +750,7 @@
       "build": "commit.3f05b770",
       "longVersion": "0.7.4+commit.3f05b770",
       "keccak256": "0x300330ecd127756b824aa13e843cb1f43c473cb22eaf3750d5fb9c99279af8c3",
+      "sha256": "0x2b55ed5fec4d9625b6c7b3ab1abd2b7fb7dd2a9c68543bf0323db2c7e2d55af2",
       "urls": [
         "bzzr://16c5f09109c793db99fe35f037c6092b061bd39260ee7a677c8a97f18c955ab1",
         "dweb:/ipfs/QmTLs5MuLEWXQkths41HiACoXDiH8zxyqBHGFDRSzVE5CS"
@@ -699,6 +762,7 @@
       "build": "commit.eb77ed08",
       "longVersion": "0.7.5+commit.eb77ed08",
       "keccak256": "0xfe223dd264421f9b96c3dd3c835a3d0d4d9cfa4c61f75ca0761860c9ae8906ca",
+      "sha256": "0x2ee1c6434a32a40b137ac28be12ceeba64701bfad5e80239690803d9c139908e",
       "urls": [
         "bzzr://d67cf500345ceca523e9bbe55dab9399e27321fd9005704a5b16bab82185260c",
         "dweb:/ipfs/Qmf5fpJmeHdwgmSjQPqdu25XtA9akTotakkNmrh4axgo8N"
@@ -710,6 +774,7 @@
       "build": "commit.7338295f",
       "longVersion": "0.7.6+commit.7338295f",
       "keccak256": "0xc68517effed7163db0c7f4559931a4c5530fe6f2a8a20596361640d9d7eff655",
+      "sha256": "0xb94e69dfb056b3e26080f805ab43b668afbc0ac70bf124bfb7391ecfc0172ad2",
       "urls": [
         "bzzr://523852f3e01b02ce947771e0279ffb6154d12700f809ba3606d908ba6271431c",
         "dweb:/ipfs/QmWjG6PLzF5M6kxkHujhEMg5znQCgf2m1cM1UptKA719Hy"
@@ -721,6 +786,7 @@
       "build": "commit.c7dfd78e",
       "longVersion": "0.8.0+commit.c7dfd78e",
       "keccak256": "0x08dd57a5cf5fd59accbd5b601909ffa22d28da756b5367c29b523ff17bbc2f99",
+      "sha256": "0xc596765f9b3dce486cf596ea35676f37124d54f3ada0fcbc02f094c392066a59",
       "urls": [
         "bzzr://7047ade6879aab4c825594dab0914b8ec673bb907eecc6dfbd68f63086e5a36e",
         "dweb:/ipfs/QmYh5C2rgDAx452f7HyHA8soLhnoL1GeeNNEWEuw9jKY8w"
@@ -732,6 +798,7 @@
       "build": "commit.df193b15",
       "longVersion": "0.8.1+commit.df193b15",
       "keccak256": "0x84a0e9282047512eeec499d55c83dbb6981430b08692d81d6c09730bb18e6cd8",
+      "sha256": "0xf77f141e5fed9594b28342e2c630ac6d48f2a724e4383a457881acd7fa62b1cf",
       "urls": [
         "bzzr://da8c5ea3f2ecd33d3f83ac2c276871f4ee41370fb55ae62c6c29835c9376bdec",
         "dweb:/ipfs/QmQ6W5VedQpZAwuGTtp1BhmNkvVheLnJq4xwN9Qmt9bAbH"

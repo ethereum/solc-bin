@@ -6,11 +6,11 @@
       "build": "commit.4fc6fc2c",
       "longVersion": "0.4.1+commit.4fc6fc2c",
       "keccak256": "0x8ad763849cff88a5e6446bc8d261d4983f993319fad8947538800316b22ed3e0",
-      "sha256": "0xe2815a517b24f6695b5f85002dd5b6ba095a327687708cf0d762db311600f6e9",
       "urls": [
         "bzzr://e96e68d314c6e0eac252093b983ff1a67eb1718277940505e73b0c8cea8cdb2a",
         "dweb:/ipfs/QmYJL1V3jyf5zJ7ZfzVgdCGUCHxhwQLgsqFi3SjaYRT17H"
-      ]
+      ],
+      "sha256": "0xe2815a517b24f6695b5f85002dd5b6ba095a327687708cf0d762db311600f6e9"
     },
     {
       "path": "solc-windows-amd64-v0.4.2+commit.af6afb04.zip",
@@ -18,11 +18,11 @@
       "build": "commit.af6afb04",
       "longVersion": "0.4.2+commit.af6afb04",
       "keccak256": "0xe45a3d296656d66cdf9e7c5eec47b37afe260b9eed81dcbf60717b5c7b388e08",
-      "sha256": "0x34e10611651cbe9c2d7b8b4d1cc94779fc80d52a6c6975e308384308fe117eb9",
       "urls": [
         "bzzr://48505b6688b4509345d078c566fb2ebcec2716905777cb6a3cd66af60bc44fb2",
         "dweb:/ipfs/QmbdrkjQMueW2dJ3kZFXpMoyuCXuPrb6YdUZXP9ud92ueT"
-      ]
+      ],
+      "sha256": "0x34e10611651cbe9c2d7b8b4d1cc94779fc80d52a6c6975e308384308fe117eb9"
     },
     {
       "path": "solc-windows-amd64-v0.4.5+commit.b318366e.zip",
@@ -30,11 +30,11 @@
       "build": "commit.b318366e",
       "longVersion": "0.4.5+commit.b318366e",
       "keccak256": "0xe8ba1ef2f572e166e7a13173a6fb20d9bc4d7c018f53be1aa3b8597b2ac5364b",
-      "sha256": "0xfca24ce3cb85bcb5e409aef626f27c2785493f895bdf7112e9c04d89c03dc288",
       "urls": [
         "bzzr://2b1d8121498dff90d9188cdc21ae150fb33f3a18ffb49109ecd924f9436c87de",
         "dweb:/ipfs/Qmbz8uYBVWkLHCcDrfFojExPsgpPBniZvmYLajT1sSwuo7"
-      ]
+      ],
+      "sha256": "0xfca24ce3cb85bcb5e409aef626f27c2785493f895bdf7112e9c04d89c03dc288"
     },
     {
       "path": "solc-windows-amd64-v0.4.6+commit.2dabbdf0.zip",
@@ -42,11 +42,11 @@
       "build": "commit.2dabbdf0",
       "longVersion": "0.4.6+commit.2dabbdf0",
       "keccak256": "0xbda1176403e9761c3ad8ebde0bc7103a60b3ce0f3668a096cf7eff712d094db2",
-      "sha256": "0xaae6144ce5cd12326e80b95a570ff841490f052e0b45ce3408303cb3a2f307eb",
       "urls": [
         "bzzr://f04069b53e048c5eb2cde4e515f18c749f5839e5f132eb83bd7c2cb244222526",
         "dweb:/ipfs/QmbLBjSNvQf8EwL7ENNsB13F8dFapYYXungbSkrHpoS51K"
-      ]
+      ],
+      "sha256": "0xaae6144ce5cd12326e80b95a570ff841490f052e0b45ce3408303cb3a2f307eb"
     },
     {
       "path": "solc-windows-amd64-v0.4.7+commit.822622cf.zip",
@@ -54,11 +54,11 @@
       "build": "commit.822622cf",
       "longVersion": "0.4.7+commit.822622cf",
       "keccak256": "0x32a1309e9650bcbc79dac80e8c006058c2976d83dd0acc41335e10810e11c6e9",
-      "sha256": "0xecf5f996b8ff66bae30071372728df4d8ce1c867d395411ac8463c2cef112851",
       "urls": [
         "bzzr://a2edba454cbd3c9965ad8bbb825f439268eb82fae6a034ffdfdacd4872397683",
         "dweb:/ipfs/QmVpro2wSTnJEMvg2ExXNzkesuTzBCqGu7F7ZSm4Edm3PX"
-      ]
+      ],
+      "sha256": "0xecf5f996b8ff66bae30071372728df4d8ce1c867d395411ac8463c2cef112851"
     },
     {
       "path": "solc-windows-amd64-v0.4.8+commit.60cc1668.zip",
@@ -66,11 +66,11 @@
       "build": "commit.60cc1668",
       "longVersion": "0.4.8+commit.60cc1668",
       "keccak256": "0x76e1198403fbf787eb35e7ddaf484529fb45808fee29a5fffc80df6094a8c678",
-      "sha256": "0xa3647784541931671285db886827aae982942440cbcf5dda88ee03ec50b7d8ec",
       "urls": [
         "bzzr://065e4cd673a82221a3c37363e84f192c7529401cccbfec8ab1543e319cf360be",
         "dweb:/ipfs/QmNrNEkB3csnBWDq7ynMjxbEkWgu3RPwghfHoaH66RtgGF"
-      ]
+      ],
+      "sha256": "0xa3647784541931671285db886827aae982942440cbcf5dda88ee03ec50b7d8ec"
     },
     {
       "path": "solc-windows-amd64-v0.4.9+commit.364da425.zip",
@@ -78,11 +78,11 @@
       "build": "commit.364da425",
       "longVersion": "0.4.9+commit.364da425",
       "keccak256": "0xa86c1483ed721085adecc114ae77a8e03786dcc193135ea98262bbbb010a96c3",
-      "sha256": "0x793418c77bf9fb065914ca9831411918e5c47f17708050cfb16abdda579dbe1d",
       "urls": [
         "bzzr://6845f5ff6225adcca4e49272627490d1f95b3a1464832dc25dd6034602226414",
         "dweb:/ipfs/QmNmDGKmbgxcek11kKpfsaWcoQapAKtLhysCTw5Fa7rDMp"
-      ]
+      ],
+      "sha256": "0x793418c77bf9fb065914ca9831411918e5c47f17708050cfb16abdda579dbe1d"
     },
     {
       "path": "solc-windows-amd64-v0.4.10+commit.f0d539ae.zip",
@@ -90,11 +90,11 @@
       "build": "commit.f0d539ae",
       "longVersion": "0.4.10+commit.f0d539ae",
       "keccak256": "0x4aabfa3991923f514c7a55ed2cee9f0ecb52a4e752c13c7776224ef4f011bacf",
-      "sha256": "0x4f1f5d548c6d1ce887a21a0730680c0955711cdc27fbd02b221f087271b5c40b",
       "urls": [
         "bzzr://09e33f9f803de825a71ff14ef1f373a0b147b2fbb30f87d4e3a0a3cc75c79843",
         "dweb:/ipfs/QmPtuVqf2UZxAQJeMiBJL4t8CYB3HLHUst3YXwMdeAtxv9"
-      ]
+      ],
+      "sha256": "0x4f1f5d548c6d1ce887a21a0730680c0955711cdc27fbd02b221f087271b5c40b"
     },
     {
       "path": "solc-windows-amd64-v0.4.11+commit.68ef5810.zip",
@@ -102,11 +102,11 @@
       "build": "commit.68ef5810",
       "longVersion": "0.4.11+commit.68ef5810",
       "keccak256": "0xbe2ba8f580adeadf340604e1d7f7e76f053f5a3dea31c723269910a92c74e479",
-      "sha256": "0x4387ef9733643ed387e5975d2241e423bd8d79c54db90d07a70c62c8c3e1be77",
       "urls": [
         "bzzr://3209ae7421c096bbb1a33d46040c5bfdff41587416667f8598c49f97f7a91c41",
         "dweb:/ipfs/QmSCVVtDLzwCBv3h9NXa2MKaXZnbofNFXFYZVPcsW6qNhe"
-      ]
+      ],
+      "sha256": "0x4387ef9733643ed387e5975d2241e423bd8d79c54db90d07a70c62c8c3e1be77"
     },
     {
       "path": "solc-windows-amd64-v0.4.12+commit.194ff033.zip",
@@ -114,11 +114,11 @@
       "build": "commit.194ff033",
       "longVersion": "0.4.12+commit.194ff033",
       "keccak256": "0xd3c42b28bf9970da9d6675672b19ec97aab4b33c243633ff041df748f340c953",
-      "sha256": "0x52e312b41980400cd37c9b7363cdf5d8f4efcaa0a1fd53ceb840e2837d6014f8",
       "urls": [
         "bzzr://193648d3588b3951a98dc4e767db199acd82fcc3a50a5a6e39d17e187b3a476d",
         "dweb:/ipfs/QmbsVx5b7Y1jAr41C4PYHuH4sC8mhtg26yQoCppJzRxyjM"
-      ]
+      ],
+      "sha256": "0x52e312b41980400cd37c9b7363cdf5d8f4efcaa0a1fd53ceb840e2837d6014f8"
     },
     {
       "path": "solc-windows-amd64-v0.4.13+commit.0fb4cb1a.zip",
@@ -126,11 +126,11 @@
       "build": "commit.0fb4cb1a",
       "longVersion": "0.4.13+commit.0fb4cb1a",
       "keccak256": "0x61bb18891689eacab989730ad71cb0ad812736b100e9c5b22ac92f51bfd52a75",
-      "sha256": "0xe352d97d7fc9ebe2e271d46b38e0e8ca95e1b3d7e6eb87d998a0b439384b5e02",
       "urls": [
         "bzzr://88932addea1b0e22da43077f72d405df894e81c917efa3b84ff9aa51e864a53e",
         "dweb:/ipfs/QmasAhfrHXw7oC5GEdUSqG9tQ4jSti1ZKKfajANpbVh7UU"
-      ]
+      ],
+      "sha256": "0xe352d97d7fc9ebe2e271d46b38e0e8ca95e1b3d7e6eb87d998a0b439384b5e02"
     },
     {
       "path": "solc-windows-amd64-v0.4.14+commit.c2215d46.zip",
@@ -138,11 +138,11 @@
       "build": "commit.c2215d46",
       "longVersion": "0.4.14+commit.c2215d46",
       "keccak256": "0xa4f951bd073094f5223c6d3121bdf433b45d20acdf42e4a6143c8e0b11c42687",
-      "sha256": "0x0d8e576d402d819e36e7020f875d4111335fa416d03ad0aebdf8596d6f3767fc",
       "urls": [
         "bzzr://b5420ae0abcbedee59d8e34a02af3c961e2ba97a43d11e7ff5a5931d25293343",
         "dweb:/ipfs/QmckAmGaP8fPt6iTbHD4KmQXJzvxbMH3mk8ypWSG6RYjPV"
-      ]
+      ],
+      "sha256": "0x0d8e576d402d819e36e7020f875d4111335fa416d03ad0aebdf8596d6f3767fc"
     },
     {
       "path": "solc-windows-amd64-v0.4.15+commit.8b45bddb.zip",
@@ -150,11 +150,11 @@
       "build": "commit.8b45bddb",
       "longVersion": "0.4.15+commit.8b45bddb",
       "keccak256": "0xd66750e9c72e3b83d2cf5182b24094b4c4e0246acab72d6380dbd7a01778dd8d",
-      "sha256": "0xbe0550cc8fd6d60311eb149fc75152c49fbaee694ee9c0ada7ee06733b9744d6",
       "urls": [
         "bzzr://e4d61367f9163881eda882e3eae3902e50d2854b98211782b83d88bac5b75ae8",
         "dweb:/ipfs/QmVFChhTFSWY9LwhMsiWULsEExvaaSbuixyhpM7nA9PmRU"
-      ]
+      ],
+      "sha256": "0xbe0550cc8fd6d60311eb149fc75152c49fbaee694ee9c0ada7ee06733b9744d6"
     },
     {
       "path": "solc-windows-amd64-v0.4.16+commit.d7661dd9.zip",
@@ -162,11 +162,11 @@
       "build": "commit.d7661dd9",
       "longVersion": "0.4.16+commit.d7661dd9",
       "keccak256": "0x861c801b4e9d126405474447021ec1dd5671561144b54841e9dc24ea318389a3",
-      "sha256": "0x064c0e200bee546551d335174d765572972ee4e71a3d93b8d19599b0645f1a33",
       "urls": [
         "bzzr://50ae2123a5fc558e47dacd7a390937ac4208242661c42a862f2d2d07aad05938",
         "dweb:/ipfs/QmSqJwh2duApEN17sVcp3pM9GUEaHzDCmuy4kD1ACeRq4D"
-      ]
+      ],
+      "sha256": "0x064c0e200bee546551d335174d765572972ee4e71a3d93b8d19599b0645f1a33"
     },
     {
       "path": "solc-windows-amd64-v0.4.17+commit.bdeb9e52.zip",
@@ -174,11 +174,11 @@
       "build": "commit.bdeb9e52",
       "longVersion": "0.4.17+commit.bdeb9e52",
       "keccak256": "0x6d4c6a8ae694dbd0e5cc08894f76915bc96346950d691bb6e9c1d13373ffaf53",
-      "sha256": "0xb76cc572d072b1d6303aaa90eabf00d0defed061c356ea2320fb5684f2615417",
       "urls": [
         "bzzr://45c103b3b14b4d01fdf0ede18c0fb6d814849c807f2395d00024e0bfa783fca9",
         "dweb:/ipfs/QmPwzUTg7oVbdSCzFnxUbo3UWStcSM6xPhC6bWopZJ7tyu"
-      ]
+      ],
+      "sha256": "0xb76cc572d072b1d6303aaa90eabf00d0defed061c356ea2320fb5684f2615417"
     },
     {
       "path": "solc-windows-amd64-v0.4.18+commit.9cf6e910.zip",
@@ -186,11 +186,11 @@
       "build": "commit.9cf6e910",
       "longVersion": "0.4.18+commit.9cf6e910",
       "keccak256": "0x36749b20f7695b608e87d23db6f3750b150506da64262694b9ac6209a5542a04",
-      "sha256": "0xcdd99d6c9a43e87130e57ef44e03a55e38b9bb1ce4a1121b22815d5655c1653a",
       "urls": [
         "bzzr://8a88446abe699540e8ba4b62427b8b0802f682c3cf176d9351350295c3129455",
         "dweb:/ipfs/QmcRCfiwva7gpLKZGo7X6aiVRLZMmCQPRwx5jWhisW4u9j"
-      ]
+      ],
+      "sha256": "0xcdd99d6c9a43e87130e57ef44e03a55e38b9bb1ce4a1121b22815d5655c1653a"
     },
     {
       "path": "solc-windows-amd64-v0.4.19+commit.c4cbbb05.zip",
@@ -198,11 +198,11 @@
       "build": "commit.c4cbbb05",
       "longVersion": "0.4.19+commit.c4cbbb05",
       "keccak256": "0xe1a8e395e57ec9e4a526d3d30d5b5385be204134753f01f7fca978af42c3196e",
-      "sha256": "0x12a44c124cd43ea975b00cd5d9d17d5eefe8e338a0f875208338f16a84a8a43f",
       "urls": [
         "bzzr://19885d6d54ad58435c4e420561f2a8472c6074a2d021bfea445f2f5c5265c4e5",
         "dweb:/ipfs/QmVW5oBkmtovWxCq2rBzNeW6PnLvYYK5FAFgwctpxMPvJx"
-      ]
+      ],
+      "sha256": "0x12a44c124cd43ea975b00cd5d9d17d5eefe8e338a0f875208338f16a84a8a43f"
     },
     {
       "path": "solc-windows-amd64-v0.4.20+commit.3155dd80.zip",
@@ -210,11 +210,11 @@
       "build": "commit.3155dd80",
       "longVersion": "0.4.20+commit.3155dd80",
       "keccak256": "0x511a883d4dbdc86ece1fb217af219f3653c503408b7abc813d3964f1c772da0e",
-      "sha256": "0x3ca115b8d9dac2b96e10b1d0bfa8b0fe4e7ccc087fe0890f4629ee09c3533314",
       "urls": [
         "bzzr://19e8171b2c846fca302eeb45af1c7fa43ee7cc71ef7a14e458fa696b06596af9",
         "dweb:/ipfs/QmcZs3A8AC9S7E6KQ112fsAnaTHQ6Zz7GYTYfYXrgeEKGL"
-      ]
+      ],
+      "sha256": "0x3ca115b8d9dac2b96e10b1d0bfa8b0fe4e7ccc087fe0890f4629ee09c3533314"
     },
     {
       "path": "solc-windows-amd64-v0.4.21+commit.dfe3193c.zip",
@@ -222,11 +222,11 @@
       "build": "commit.dfe3193c",
       "longVersion": "0.4.21+commit.dfe3193c",
       "keccak256": "0xc92d2e1ce90dff0721a84f979f042fc136bc876e85effccbccabef2b68fd78c7",
-      "sha256": "0x9e734b989f8d6a75bb009283020d991761c030b8af0d15158198d497410c87ad",
       "urls": [
         "bzzr://15ce2c40101936975660c414e3130c5c46a6a05532a1795edecfb422f8df2e60",
         "dweb:/ipfs/QmT6B9HYKLfF2ET9B6SrNom9P9Ro1JSyJpFsvVoSbkFiEg"
-      ]
+      ],
+      "sha256": "0x9e734b989f8d6a75bb009283020d991761c030b8af0d15158198d497410c87ad"
     },
     {
       "path": "solc-windows-amd64-v0.4.22+commit.4cb486ee.zip",
@@ -234,11 +234,11 @@
       "build": "commit.4cb486ee",
       "longVersion": "0.4.22+commit.4cb486ee",
       "keccak256": "0xf00767c3ad0f0a3eca92dd2225b435093aee9f5dac587d825dc2f138e6744379",
-      "sha256": "0x7c8a9fcadc6b7b970b904bdd372485ef2af74b8a5fe2439bb16d62fe11617972",
       "urls": [
         "bzzr://685bd47a8066c19b9c9060fc156299d28bd5e480c1e82b5cd6941ab567415f27",
         "dweb:/ipfs/QmP2Z1vvoVX4eb8vWeadNUG25YX2aaWjTVCHJ6kfVzUEY4"
-      ]
+      ],
+      "sha256": "0x7c8a9fcadc6b7b970b904bdd372485ef2af74b8a5fe2439bb16d62fe11617972"
     },
     {
       "path": "solc-windows-amd64-v0.4.23+commit.124ca40d.zip",
@@ -246,11 +246,11 @@
       "build": "commit.124ca40d",
       "longVersion": "0.4.23+commit.124ca40d",
       "keccak256": "0xa4fc748d1c7fc7c890f858cce9bd5847b8b6975da7c3f501594b71a58dccc747",
-      "sha256": "0x28e001925fee2aeb0ed0afa4afb39313182b79a157b30a73df183efee29e306c",
       "urls": [
         "bzzr://938679a37871b7716abb880ea6e7cda0c9d99afbdfef4b241718d32e55b032c7",
         "dweb:/ipfs/QmZ98KhvGDeiPAwB9ewfJZzLmsVpUgqRGpKaZwP76NsB1X"
-      ]
+      ],
+      "sha256": "0x28e001925fee2aeb0ed0afa4afb39313182b79a157b30a73df183efee29e306c"
     },
     {
       "path": "solc-windows-amd64-v0.4.24+commit.e67f0147.zip",
@@ -258,11 +258,11 @@
       "build": "commit.e67f0147",
       "longVersion": "0.4.24+commit.e67f0147",
       "keccak256": "0x742efc21520455719958b12de128cb1498e18f11c44957d5b85006c5ae3270c7",
-      "sha256": "0x0a9f3620a7c9ab63e92cbeb2a6c5ad1e02c023286576b4e61a9baadfa2fec42e",
       "urls": [
         "bzzr://b826492fecf564bdd8b79df782339a0e4ec2a266d559dbd692eebe091ffc267b",
         "dweb:/ipfs/QmZfWvRr968XnGN1kvFyLzoLMg3V5u8tbSBiu7jdEJZzqM"
-      ]
+      ],
+      "sha256": "0x0a9f3620a7c9ab63e92cbeb2a6c5ad1e02c023286576b4e61a9baadfa2fec42e"
     },
     {
       "path": "solc-windows-amd64-v0.4.25+commit.59dbf8f1.zip",
@@ -270,11 +270,11 @@
       "build": "commit.59dbf8f1",
       "longVersion": "0.4.25+commit.59dbf8f1",
       "keccak256": "0x0900921512e8135c93fc86ee12f2e1bb0b7199177bf395757a40f874b7aa96a0",
-      "sha256": "0xbbcf687dea5d26de255fe585e10b3ad7a55f58b4487ad9235994788e7d16c7f4",
       "urls": [
         "bzzr://1673dba72e363c2c552cf9f5593aef0970d4cdd0a17637836e56b48fa7657b73",
         "dweb:/ipfs/QmScHcM2YTywhhKDrYEULpbfiKBMavoedCeg12d9t9BgMs"
-      ]
+      ],
+      "sha256": "0xbbcf687dea5d26de255fe585e10b3ad7a55f58b4487ad9235994788e7d16c7f4"
     },
     {
       "path": "solc-windows-amd64-v0.4.26+commit.4563c3fc.zip",
@@ -282,11 +282,11 @@
       "build": "commit.4563c3fc",
       "longVersion": "0.4.26+commit.4563c3fc",
       "keccak256": "0x12942db74740f7f2dbd051af39963d3d31bf8a649d9090c821942e4ad5a01cfd",
-      "sha256": "0x8314b16303b1ae0eded0b2930a3f71c477e192ea7f37e3f4d01bf9e21ac4e505",
       "urls": [
         "bzzr://6e96cfe93243126a0edfb056ad0625e4e6c649db69348e0e936463f28e058c41",
         "dweb:/ipfs/QmQrM4sogezWfmKY3SqdeR3tyhM8oTf3epvCXNJBDUABd4"
-      ]
+      ],
+      "sha256": "0x8314b16303b1ae0eded0b2930a3f71c477e192ea7f37e3f4d01bf9e21ac4e505"
     },
     {
       "path": "solc-windows-amd64-v0.5.0+commit.1d4f565a.zip",
@@ -294,11 +294,11 @@
       "build": "commit.1d4f565a",
       "longVersion": "0.5.0+commit.1d4f565a",
       "keccak256": "0x5fecc2a4ec40b7571cefeae5a8d9e8a154e7c45a1126404901d1190adb1fe241",
-      "sha256": "0xb3681a20aee97cea39915f9129430ded7a7b73c2c21ecb448c230f549e8276cd",
       "urls": [
         "bzzr://a6b730e184ef384fd80674b0c18c44e7d380c1e7ca880ba2f10cbcc68c5b5369",
         "dweb:/ipfs/QmaPZqP9dfvM9gVTgtBbSfxGQSZUy8kHUcacfWBGGQeuBx"
-      ]
+      ],
+      "sha256": "0xb3681a20aee97cea39915f9129430ded7a7b73c2c21ecb448c230f549e8276cd"
     },
     {
       "path": "solc-windows-amd64-v0.5.1+commit.c8a2cb62.zip",
@@ -306,11 +306,11 @@
       "build": "commit.c8a2cb62",
       "longVersion": "0.5.1+commit.c8a2cb62",
       "keccak256": "0x8bcbbf03c5964a092059f87f217826b8769fabd832335f82d001719c37e7980f",
-      "sha256": "0x6cf8f23fcd3461b969bf6f60ccf3f52232b98cd8b34d58d0e7da86b2fb25a89e",
       "urls": [
         "bzzr://dbf3dc58aa93c5617ecfc9982767ea56f97810b3d59eb3cc7a6cab9867a485f5",
         "dweb:/ipfs/QmY4mBkhMBqf692ebdPJH48TdzRd9ixFae7BFFerQsTfBc"
-      ]
+      ],
+      "sha256": "0x6cf8f23fcd3461b969bf6f60ccf3f52232b98cd8b34d58d0e7da86b2fb25a89e"
     },
     {
       "path": "solc-windows-amd64-v0.5.2+commit.1df8f40c.zip",
@@ -318,11 +318,11 @@
       "build": "commit.1df8f40c",
       "longVersion": "0.5.2+commit.1df8f40c",
       "keccak256": "0x6bd569335e38785105ec53c0ce247866a1dac725fddf3456460706346c040b9b",
-      "sha256": "0x54b15641ad2217a5e1d836a8c13934884f41ec369d74542b0782e7fd70d47d86",
       "urls": [
         "bzzr://8f808cc7e02f3d4ee2b76553894e94ceabd7a6d7f3c211d768b6c81462c25012",
         "dweb:/ipfs/QmY3miivVZPpUjxxhV6Ht7bGAbY8xf33Y1E1wb9Qfhr1aK"
-      ]
+      ],
+      "sha256": "0x54b15641ad2217a5e1d836a8c13934884f41ec369d74542b0782e7fd70d47d86"
     },
     {
       "path": "solc-windows-amd64-v0.5.3+commit.10d17f24.zip",
@@ -330,11 +330,11 @@
       "build": "commit.10d17f24",
       "longVersion": "0.5.3+commit.10d17f24",
       "keccak256": "0xea6df6e8d1612630c93cb5f425650337d260bda8173aada5cb69c3403fbb9499",
-      "sha256": "0x0ef5cc2d15c59e893ce376021ded40443988b332ae19dcdb5b06e57a014d5073",
       "urls": [
         "bzzr://d95a39d403e6785f18e835ecffca735812cc5aa38d20c0ea5782eae8541ef2a8",
         "dweb:/ipfs/QmUJvGhePXTgAFvhoPJU7UXgfGShepPm7vX8RDTGc1EEAG"
-      ]
+      ],
+      "sha256": "0x0ef5cc2d15c59e893ce376021ded40443988b332ae19dcdb5b06e57a014d5073"
     },
     {
       "path": "solc-windows-amd64-v0.5.4+commit.9549d8ff.zip",
@@ -342,11 +342,11 @@
       "build": "commit.9549d8ff",
       "longVersion": "0.5.4+commit.9549d8ff",
       "keccak256": "0x37c6799c359e99f5b352b02a730b45acafde46b3b6e17582dbf971988d5299e2",
-      "sha256": "0x32fb8afaba5a54332a938158010622ef79b64b46fe9273f149be08fbc75afa5f",
       "urls": [
         "bzzr://63b6baf23545e4e9ecf3c0ce69673a63fba9124c2d375a9b3ac9b8f7371e1f60",
         "dweb:/ipfs/QmZARxp8oQophq1Q3qxehYPTw8Jfs8ECa49Z4nHFaguc3x"
-      ]
+      ],
+      "sha256": "0x32fb8afaba5a54332a938158010622ef79b64b46fe9273f149be08fbc75afa5f"
     },
     {
       "path": "solc-windows-amd64-v0.5.5+commit.47a71e8f.zip",
@@ -354,11 +354,11 @@
       "build": "commit.47a71e8f",
       "longVersion": "0.5.5+commit.47a71e8f",
       "keccak256": "0x687515d49a11e8996d39b2e349f1af9bf44c949b869d9cb8d140291d336ede36",
-      "sha256": "0x9b8d949294ad15b8a23bf67b3776caf345b64753c2d06e697f6e012b7e473af4",
       "urls": [
         "bzzr://a5aa444cf882323498fd61402813130e500160974819a3d06ae1e02d5026ac7a",
         "dweb:/ipfs/QmUAsFbkeKN8xZGhxe1KnNMvFimUuZmdEdqPacm6L4Lfqi"
-      ]
+      ],
+      "sha256": "0x9b8d949294ad15b8a23bf67b3776caf345b64753c2d06e697f6e012b7e473af4"
     },
     {
       "path": "solc-windows-amd64-v0.5.6+commit.b259423e.zip",
@@ -366,11 +366,11 @@
       "build": "commit.b259423e",
       "longVersion": "0.5.6+commit.b259423e",
       "keccak256": "0x10b6ba85e0886f30fe07c012391e9ef84e74d2b26aabfac3f1f1fa15f825db5e",
-      "sha256": "0x490130fb35eef67cb748eb5ad5ff728fc366302da80e1684af00723a07ef31d5",
       "urls": [
         "bzzr://6c9766d1f9df5871f42e42f4a050161ebad1ad2b1a6fcc1f062b33d63a28c383",
         "dweb:/ipfs/QmT2XZoMzfLXGFBbHEZgeypYrbPSyReDQMcvESgQCBrsV2"
-      ]
+      ],
+      "sha256": "0x490130fb35eef67cb748eb5ad5ff728fc366302da80e1684af00723a07ef31d5"
     },
     {
       "path": "solc-windows-amd64-v0.5.7+commit.6da8b019.zip",
@@ -378,11 +378,11 @@
       "build": "commit.6da8b019",
       "longVersion": "0.5.7+commit.6da8b019",
       "keccak256": "0xacd33505d959ce83a2bdca4602067b14bc73854d521a7cbb07cfc9127f65c56c",
-      "sha256": "0x16fa8226d52a00d88a887bbe2d49f08e10cdc04dafd789621686ab07485ec8dc",
       "urls": [
         "bzzr://947dcd456b28fa9aeae736b2208cb5c7be2a43365b009bfbeeb187d3cfab2c7a",
         "dweb:/ipfs/QmTNXAhJikGpibfJFcQDC3oYgn11RbLm6dgfmHb8ucqHyC"
-      ]
+      ],
+      "sha256": "0x16fa8226d52a00d88a887bbe2d49f08e10cdc04dafd789621686ab07485ec8dc"
     },
     {
       "path": "solc-windows-amd64-v0.5.8+commit.23d335f2.zip",
@@ -390,11 +390,11 @@
       "build": "commit.23d335f2",
       "longVersion": "0.5.8+commit.23d335f2",
       "keccak256": "0x253cd8ff00fbb05a4d26de79911f3156d068d392fee07dec1c64fbdd82b77501",
-      "sha256": "0xd737fd544b7d5a34917ccd95b3c8251c2573caa54a3951332827d8b4bfd5d069",
       "urls": [
         "bzzr://61c6eaf64799a9a28019d4ee744410a3942068d8970da0d4cb971e58fa53fff8",
         "dweb:/ipfs/QmdmP6W3VLrxociecXK8hj4W2z1DoqJ1RjcijAeo7F52B1"
-      ]
+      ],
+      "sha256": "0xd737fd544b7d5a34917ccd95b3c8251c2573caa54a3951332827d8b4bfd5d069"
     },
     {
       "path": "solc-windows-amd64-v0.5.9+commit.c68bc34e.zip",
@@ -402,11 +402,11 @@
       "build": "commit.c68bc34e",
       "longVersion": "0.5.9+commit.c68bc34e",
       "keccak256": "0x8e9d4df8c30194f0cfc776cd974b1491eb8f2090d36a6518499dac8ad7610d7c",
-      "sha256": "0xbce6d4a77bffbc01bbfd0032a66e877a099af797fdcc0e5948df6766af7952ab",
       "urls": [
         "bzzr://6f20ce77325a431a7eef2ee13fddba87c435c9cb2bb45e78f18a67c63d548449",
         "dweb:/ipfs/QmTHMBmRRoYyEB5tkmrYiZpCPWa8pxwhkHNR37smTLH6Hu"
-      ]
+      ],
+      "sha256": "0xbce6d4a77bffbc01bbfd0032a66e877a099af797fdcc0e5948df6766af7952ab"
     },
     {
       "path": "solc-windows-amd64-v0.5.10+commit.5a6ea5b1.zip",
@@ -414,11 +414,11 @@
       "build": "commit.5a6ea5b1",
       "longVersion": "0.5.10+commit.5a6ea5b1",
       "keccak256": "0x16acdfff67a7d55aba6e1bf14a678fa67bed913900e6308f278a2967201f960b",
-      "sha256": "0x7ea0dfe43f7d9a69237d07cb23ca77eeaa9cb0c361ff62b798c42dd93de96596",
       "urls": [
         "bzzr://06fa72a0bff48b9a762fd3fc3b679acaa351ca0c8520639f4eb2ef6637d387b9",
         "dweb:/ipfs/QmPU1ZeAaU2QAJxnV6mzTT1XzGAVoaDgGYFa5BM6Qi4mko"
-      ]
+      ],
+      "sha256": "0x7ea0dfe43f7d9a69237d07cb23ca77eeaa9cb0c361ff62b798c42dd93de96596"
     },
     {
       "path": "solc-windows-amd64-v0.5.11+commit.22be8592.zip",
@@ -426,11 +426,11 @@
       "build": "commit.22be8592",
       "longVersion": "0.5.11+commit.22be8592",
       "keccak256": "0x94de5c21f6883b3d17318924b8e1b270421095caa47f4a316bfaa539c13e1d36",
-      "sha256": "0xe187556d3f244d441319f1e2f24da2ecc0f79d6c6f4baee820f9f321fdc89286",
       "urls": [
         "bzzr://dd70cb62c8ac4810530a749c762639049c80391b2414618fe95d0a21c7017ac7",
         "dweb:/ipfs/QmWaw5VgUjRaCY2pA5ahstQZFFWUqWuvWgs3g8X9yPFrvt"
-      ]
+      ],
+      "sha256": "0xe187556d3f244d441319f1e2f24da2ecc0f79d6c6f4baee820f9f321fdc89286"
     },
     {
       "path": "solc-windows-amd64-v0.5.12+commit.7709ece9.zip",
@@ -438,11 +438,11 @@
       "build": "commit.7709ece9",
       "longVersion": "0.5.12+commit.7709ece9",
       "keccak256": "0x1d2000b60e6bda98c97f85af32dde2e61b14e845a66ba804ff45271f2938b9d1",
-      "sha256": "0xe9bd4722af7d300ceb1c896fa69eced4d25bfdc875e00a0e267cc85c9f121eb8",
       "urls": [
         "bzzr://75c68455749fecb26dc914f70cea9c8a5d1f4d359b4d71944e3facdc919672e0",
         "dweb:/ipfs/QmSsvShhgcaSHmKQ6QNq5CzeCUoiUW2HCW43ECmicacAQV"
-      ]
+      ],
+      "sha256": "0xe9bd4722af7d300ceb1c896fa69eced4d25bfdc875e00a0e267cc85c9f121eb8"
     },
     {
       "path": "solc-windows-amd64-v0.5.13+commit.5b0b510c.zip",
@@ -450,11 +450,11 @@
       "build": "commit.5b0b510c",
       "longVersion": "0.5.13+commit.5b0b510c",
       "keccak256": "0x2396f159dc82668f11778d50736198fe4e974c1f62a1361f8e412782462ad54d",
-      "sha256": "0xaec5ef3a08b64b3d261ead18e3f9118fe5409e9a5861f89b274c07cc639fe9b3",
       "urls": [
         "bzzr://1bce31ea2fd1fe35305458cc28d5a8ee1a119bf5de00470561c1061c5b7d8384",
         "dweb:/ipfs/QmU4w4Ft71R1f47fC6zxSA1FJSg5JB2ck5BS55yXjQwjGU"
-      ]
+      ],
+      "sha256": "0xaec5ef3a08b64b3d261ead18e3f9118fe5409e9a5861f89b274c07cc639fe9b3"
     },
     {
       "path": "solc-windows-amd64-v0.5.14+commit.01f1aaa4.zip",
@@ -462,11 +462,11 @@
       "build": "commit.01f1aaa4",
       "longVersion": "0.5.14+commit.01f1aaa4",
       "keccak256": "0xc4b94841c7e5f015fbb5c3aabe5fd75e62419f8c6468a1529b2c22de9ba64dab",
-      "sha256": "0xd3311f4fab0072ae09647019e223e2a663a1eef66cfd0092f3ebb4180cff1b38",
       "urls": [
         "bzzr://5e3cda74ad8c8cd48d7fe2c72b5285e3d1751a58916f2bc2df2902f71b767696",
         "dweb:/ipfs/Qmef9XoYoxzwFSDmijfSBp4WBnPFHaTDyepCfeZzZ7iCV1"
-      ]
+      ],
+      "sha256": "0xd3311f4fab0072ae09647019e223e2a663a1eef66cfd0092f3ebb4180cff1b38"
     },
     {
       "path": "solc-windows-amd64-v0.5.15+commit.6a57276f.zip",
@@ -474,11 +474,11 @@
       "build": "commit.6a57276f",
       "longVersion": "0.5.15+commit.6a57276f",
       "keccak256": "0x1799e504983ed504ae10e2d00ca1db602f65b0be2bd989e6c06f08a429ccea7d",
-      "sha256": "0x7c2acd9f607b9d20555e300a8452450fe1303717ca306a820e9fa254aab34684",
       "urls": [
         "bzzr://2db9f4a5179eaa48191d0836016f6f7ae99b9b85defac85385f1ea20a06d4b27",
         "dweb:/ipfs/QmbqBiKFpbcJozstfgmUeHetDW4m7oTJKLBZradCvoXyri"
-      ]
+      ],
+      "sha256": "0x7c2acd9f607b9d20555e300a8452450fe1303717ca306a820e9fa254aab34684"
     },
     {
       "path": "solc-windows-amd64-v0.5.16+commit.9c3226ce.zip",
@@ -486,11 +486,11 @@
       "build": "commit.9c3226ce",
       "longVersion": "0.5.16+commit.9c3226ce",
       "keccak256": "0x97a1aab77cd458f7aa21370b575d42bf3b8af57d328693bd37d9be9eb30be818",
-      "sha256": "0x7f1e4862a46bb3a5d203f1b995fe64bee4bbdb8a5d378090ae0e8306300bcbc0",
       "urls": [
         "bzzr://50ace888f6f6498b151d31f4c742553b191e2b1219d8adace4da64dc93bab0f2",
         "dweb:/ipfs/Qmb2d1vZpuYNEL9DP1eg1wfAZPvmTevMJCCpUuJDyq9BiG"
-      ]
+      ],
+      "sha256": "0x7f1e4862a46bb3a5d203f1b995fe64bee4bbdb8a5d378090ae0e8306300bcbc0"
     },
     {
       "path": "solc-windows-amd64-v0.5.17+commit.d19bba13.zip",
@@ -498,11 +498,11 @@
       "build": "commit.d19bba13",
       "longVersion": "0.5.17+commit.d19bba13",
       "keccak256": "0xf841b88c8ec78153b6ff03c28ef9d755d8fdbc9d3076717e81a346e2e75e917e",
-      "sha256": "0xb70623f47c66d24ad1aadcdce755d2788fe9cb7000d5c9059e44d5e7fa0060f1",
       "urls": [
         "bzzr://8492514994e7c5c66c6cc62902950d800f95c7e144ea3bd0d5a9539a971a6f36",
         "dweb:/ipfs/QmQb1NgBrfsytxYLc4oLurvWNis6VNBhLJ1GS4hwGT9CfM"
-      ]
+      ],
+      "sha256": "0xb70623f47c66d24ad1aadcdce755d2788fe9cb7000d5c9059e44d5e7fa0060f1"
     },
     {
       "path": "solc-windows-amd64-v0.6.0+commit.26b70077.zip",
@@ -510,11 +510,11 @@
       "build": "commit.26b70077",
       "longVersion": "0.6.0+commit.26b70077",
       "keccak256": "0x04c954fcc4412bd7c44edc03cfe537a74c894c4defdb91a8ddd4a2cec9c7bec0",
-      "sha256": "0x9c0d54a3565affa409a80488297e8c253c80e0ef7dbffd4214921545015b5a47",
       "urls": [
         "bzzr://9d552544b8b429a7679afd2fab22180845a51193f8fb1e1b3112aeebb449ccb1",
         "dweb:/ipfs/QmdhfjKaaM3CoSTJLtKfJLAdBFwWk269wrfuZbeKFhtzr4"
-      ]
+      ],
+      "sha256": "0x9c0d54a3565affa409a80488297e8c253c80e0ef7dbffd4214921545015b5a47"
     },
     {
       "path": "solc-windows-amd64-v0.6.1+commit.e6f7d5a4.zip",
@@ -522,11 +522,11 @@
       "build": "commit.e6f7d5a4",
       "longVersion": "0.6.1+commit.e6f7d5a4",
       "keccak256": "0x867c4a633d59327b01e0f400a232a7b637a8144b0b9c5593deb51ee2f2229398",
-      "sha256": "0xe232b49e88dbb7a33ada09a5ecce5047f3b1f7aa990ae0c682fc2ef48456e4ca",
       "urls": [
         "bzzr://9df52208164d149981891700c25192dd883831638cc6f0df0d487850f16d578d",
         "dweb:/ipfs/QmckPWJhAkLyw3fBS2fMJCArpTEtZ2JSGd76ZqtkkMeTYw"
-      ]
+      ],
+      "sha256": "0xe232b49e88dbb7a33ada09a5ecce5047f3b1f7aa990ae0c682fc2ef48456e4ca"
     },
     {
       "path": "solc-windows-amd64-v0.6.2+commit.bacdbe57.zip",
@@ -534,11 +534,11 @@
       "build": "commit.bacdbe57",
       "longVersion": "0.6.2+commit.bacdbe57",
       "keccak256": "0x60237b2fd407c4cab46e04397bf84050f9c189f0b6111e35f5abfe8cef7457d2",
-      "sha256": "0x251fc0df7f24c1e000958bcb7c0507a7948eb4dcf8c1d61030f8be48ac462dd5",
       "urls": [
         "bzzr://fc33bd1f84bf527d656c6bd76ef0c40f624e80e725fa0e1511ef3fd2860ee604",
         "dweb:/ipfs/QmaFJS29AFHwkay41GF6UFi1Z93jXEyW6mAtkKox3E3Edk"
-      ]
+      ],
+      "sha256": "0x251fc0df7f24c1e000958bcb7c0507a7948eb4dcf8c1d61030f8be48ac462dd5"
     },
     {
       "path": "solc-windows-amd64-v0.6.3+commit.8dda9521.zip",
@@ -546,11 +546,11 @@
       "build": "commit.8dda9521",
       "longVersion": "0.6.3+commit.8dda9521",
       "keccak256": "0x3bf94c472e6f62557744fe28b82947a8bddaed5bc3968499dff73ca93ff1c671",
-      "sha256": "0x34792883aae2a488868d9463a4e629e10093f1f36671109d0bd76d322c697d9e",
       "urls": [
         "bzzr://004a1924e4e8562c24b71589893cc0e62bdd9b74ff3aaf0198cf7761460795ce",
         "dweb:/ipfs/QmUCBTtEJYYm3oUjAzYuQBAJE2XZAy2m6tFxzPfAXQVxJQ"
-      ]
+      ],
+      "sha256": "0x34792883aae2a488868d9463a4e629e10093f1f36671109d0bd76d322c697d9e"
     },
     {
       "path": "solc-windows-amd64-v0.6.4+commit.1dca32f3.zip",
@@ -558,11 +558,11 @@
       "build": "commit.1dca32f3",
       "longVersion": "0.6.4+commit.1dca32f3",
       "keccak256": "0xa0c76549c4c80211ef580091fd80fa4fa27a43f731822ba377ad9baff5be951d",
-      "sha256": "0x82a6a676f8fe813bddb3cdac0923dc14ac23b8e039978708e2e54425575228be",
       "urls": [
         "bzzr://d6928356241e04f716cc5bfe653ddaf7239ecee61abf5536fe1dd9bf9b661e53",
         "dweb:/ipfs/QmaKptGqTziTQDAvriXS5VuSdhTnXuzrPUJ7yKnZCyNtXn"
-      ]
+      ],
+      "sha256": "0x82a6a676f8fe813bddb3cdac0923dc14ac23b8e039978708e2e54425575228be"
     },
     {
       "path": "solc-windows-amd64-v0.6.5+commit.f956cc89.zip",
@@ -570,11 +570,11 @@
       "build": "commit.f956cc89",
       "longVersion": "0.6.5+commit.f956cc89",
       "keccak256": "0xd2dc01a3ac7dd765c07269ba18855de74c1102b1dcd302964e86433665eb280b",
-      "sha256": "0xf143b32c9eb446fca787de1688167626a6e3f835775e590a8936e620b0e612db",
       "urls": [
         "bzzr://fcb9ef68e92f69659a609c0033a0adaa80d09ceb3b6e123e0451fcb304c4e02b",
         "dweb:/ipfs/QmPwkFBd8N9JyYkqXyYgxr1mwf3nzSXPihuL2nYjeGTUSp"
-      ]
+      ],
+      "sha256": "0xf143b32c9eb446fca787de1688167626a6e3f835775e590a8936e620b0e612db"
     },
     {
       "path": "solc-windows-amd64-v0.6.6+commit.6c089d02.zip",
@@ -582,11 +582,11 @@
       "build": "commit.6c089d02",
       "longVersion": "0.6.6+commit.6c089d02",
       "keccak256": "0xcfe3cca080638af87ce828de6d45fdb5ddf8375cc0215e0de2bd0a0e71d30c10",
-      "sha256": "0x4b4c11253c77560ee7d891b48bf996ff7e2334ff9b95cca3ea4958a342de2e83",
       "urls": [
         "bzzr://42f45506b79cfa5e0d9358dcc569ac8341757f383f4901c578076d0dffd8d6c7",
         "dweb:/ipfs/QmcrxLy15xiCq7vKdabpBTdbNQ6PbHt92aUXL1qR6fpG2n"
-      ]
+      ],
+      "sha256": "0x4b4c11253c77560ee7d891b48bf996ff7e2334ff9b95cca3ea4958a342de2e83"
     },
     {
       "path": "solc-windows-amd64-v0.6.7+commit.b8d736ae.zip",
@@ -594,11 +594,11 @@
       "build": "commit.b8d736ae",
       "longVersion": "0.6.7+commit.b8d736ae",
       "keccak256": "0x0f43cc26292bef1fbf71d0c06dc8030620d355f3fe0e7670be1ab4dc1ac9834d",
-      "sha256": "0xe565130ca2e80c8ddacd9957289c8f3816df21946d64dccc5ed8e7fead1b6273",
       "urls": [
         "bzzr://e5157e692c109477dd6c3e1fb2cbdc5fd6a0d1bb1afc56d949b84ed7ae6765fd",
         "dweb:/ipfs/QmWbJGtLj72yzsy1MKGXTEWi1fBUKyM3bWsEiPwqiL8y2w"
-      ]
+      ],
+      "sha256": "0xe565130ca2e80c8ddacd9957289c8f3816df21946d64dccc5ed8e7fead1b6273"
     },
     {
       "path": "solc-windows-amd64-v0.6.8+commit.0bbfe453.zip",
@@ -606,11 +606,11 @@
       "build": "commit.0bbfe453",
       "longVersion": "0.6.8+commit.0bbfe453",
       "keccak256": "0xf80346c12f47f1c19f83d44164a56c549602b342aba5eeb065e76e534f88e6ff",
-      "sha256": "0x39d26dc65588fc7ec8ba3177bd60a97471784202cb568028e6620458bfe68061",
       "urls": [
         "bzzr://c1bdd8b7bc191ddb9d814f711624e09a649a7cb45277d6d3b901ad9507c27e12",
         "dweb:/ipfs/QmUoNRJdh9zbT3GZCYrYJ3Hjg6fDeDnbg6EdpLAezTtEZS"
-      ]
+      ],
+      "sha256": "0x39d26dc65588fc7ec8ba3177bd60a97471784202cb568028e6620458bfe68061"
     },
     {
       "path": "solc-windows-amd64-v0.6.9+commit.3e3065ac.zip",
@@ -618,11 +618,11 @@
       "build": "commit.3e3065ac",
       "longVersion": "0.6.9+commit.3e3065ac",
       "keccak256": "0xeb74baf460b5321c1307e73dab30b1a52a4098691d87719e930b05977a439474",
-      "sha256": "0x5a609adf66875b85acdd672a48f35460659736b7c2cfded01e0d2c4874f48a20",
       "urls": [
         "bzzr://c4c52398b7f6b4d4fe95a3e27d8fd01ac8ef6a5ff2f7047069425f21ab2077c3",
         "dweb:/ipfs/Qmd18LhCvamRQiEXi4LabHhha42YrsSnvLcRquzs1XAySb"
-      ]
+      ],
+      "sha256": "0x5a609adf66875b85acdd672a48f35460659736b7c2cfded01e0d2c4874f48a20"
     },
     {
       "path": "solc-windows-amd64-v0.6.10+commit.00c0fcaf.zip",
@@ -630,11 +630,11 @@
       "build": "commit.00c0fcaf",
       "longVersion": "0.6.10+commit.00c0fcaf",
       "keccak256": "0xda5153097c5abae3818abcc6700f11c81bb9f65dad151e6553ceda966606fcc5",
-      "sha256": "0x6fcdd51640d82631f59d544958a04c06442f91740afc1c5f71badf83e6471dab",
       "urls": [
         "bzzr://97b2807ff0a627723d0ee73f0d459443e27d65fe6d5949726a3ff9c88323c766",
         "dweb:/ipfs/QmXQ6tJYYEvfG8qAPthXEuipN3qngLuU8VGnMymmFGPdnb"
-      ]
+      ],
+      "sha256": "0x6fcdd51640d82631f59d544958a04c06442f91740afc1c5f71badf83e6471dab"
     },
     {
       "path": "solc-windows-amd64-v0.6.11+commit.5ef660b1.zip",
@@ -642,11 +642,11 @@
       "build": "commit.5ef660b1",
       "longVersion": "0.6.11+commit.5ef660b1",
       "keccak256": "0xf096317cd1a42f24824c72c248d6c8f4d56e32592a3d38c73d84ad32f5916b24",
-      "sha256": "0x4f1f180b91f91ec2da8bda8c9ded620cc4c94d1430289238ba7e7af5e2a87172",
       "urls": [
         "bzzr://d3322f2aa227d8c8e2ad9927dd07159cd34153ba6d7f62a5c15982d24524d447",
         "dweb:/ipfs/QmRUcAQ8CofqjdvCtWQtYARNRb55zprueYmj6QN4EF9x1v"
-      ]
+      ],
+      "sha256": "0x4f1f180b91f91ec2da8bda8c9ded620cc4c94d1430289238ba7e7af5e2a87172"
     },
     {
       "path": "solc-windows-amd64-v0.6.12+commit.27d51765.zip",
@@ -654,11 +654,11 @@
       "build": "commit.27d51765",
       "longVersion": "0.6.12+commit.27d51765",
       "keccak256": "0xd5642aecd13b6af819b70e1e2a4e642ad0b481356275d6ed5ff5b77f125d4fc4",
-      "sha256": "0x7a1874cff4cae30b9ee0509631ddae34a8aa573cb2a6104f25e4a6a63ab3ad5f",
       "urls": [
         "bzzr://a9e5bdc12bf07a279dcfa49e1abe45e0b6b83a67442ae60ef83d21d37968321a",
         "dweb:/ipfs/Qmaoy9L2hdrnvudqAkQXXu7kqNnhrtsj2bmcM1b6DLr125"
-      ]
+      ],
+      "sha256": "0x7a1874cff4cae30b9ee0509631ddae34a8aa573cb2a6104f25e4a6a63ab3ad5f"
     },
     {
       "path": "solc-windows-amd64-v0.7.0+commit.9e61f92b.zip",
@@ -666,11 +666,11 @@
       "build": "commit.9e61f92b",
       "longVersion": "0.7.0+commit.9e61f92b",
       "keccak256": "0xbd0fc66c6643c7aeec128b6a2017414861c1ec5e06eceb43e7a19a66e29a35a6",
-      "sha256": "0x13d9f2b614936c201e1214fea1084d70a59ddef4c7966d5c94716c008510e0ff",
       "urls": [
         "bzzr://ed59474df948998ca73abc8ebdbd7c9620309efdc26728bb7d74c0d44b6ac9e1",
         "dweb:/ipfs/QmUUEw7mFj77AdLhEgKoGTbm9wbf6373gCuXrCVPiumqyd"
-      ]
+      ],
+      "sha256": "0x13d9f2b614936c201e1214fea1084d70a59ddef4c7966d5c94716c008510e0ff"
     },
     {
       "path": "solc-windows-amd64-v0.7.1+commit.f4a555be.zip",
@@ -678,11 +678,11 @@
       "build": "commit.f4a555be",
       "longVersion": "0.7.1+commit.f4a555be",
       "keccak256": "0xe869643a8ff108344f83c69617f79d7f8f49b37ed65f7189a8c5a7648026a52d",
-      "sha256": "0x241c16ca378b90801e784a9188c0e046538f4d6f9c35289cd4d7c7f855c2a0bc",
       "urls": [
         "bzzr://007ec9302ae0fe96670a539bdec21d56ee7851713e4ca02068c18adb329edcf3",
         "dweb:/ipfs/QmdJHbxXDjG74dcDrEidEQKVKTgVG5UHfa8pXeoBYvfz7B"
-      ]
+      ],
+      "sha256": "0x241c16ca378b90801e784a9188c0e046538f4d6f9c35289cd4d7c7f855c2a0bc"
     },
     {
       "path": "solc-windows-amd64-v0.7.2+commit.51b20bc0.exe",
@@ -690,11 +690,11 @@
       "build": "commit.51b20bc0",
       "longVersion": "0.7.2+commit.51b20bc0",
       "keccak256": "0x750f4d3806b74bfa1f9c2d937003103663e03aad047222add7838baa15cd71ba",
-      "sha256": "0x4d4bdeaa6eac6a7633f4bc2882f5d59041d19d09851d33a64534491c96474591",
       "urls": [
         "bzzr://9eab025cc22cb576920db9a5cdf3fe471312968991d2246ec38afc87912433b4",
         "dweb:/ipfs/QmPEdHnj2Fzb4TtE8gQDobqjmV2tJtBb4nFWfuCeavvngn"
-      ]
+      ],
+      "sha256": "0x4d4bdeaa6eac6a7633f4bc2882f5d59041d19d09851d33a64534491c96474591"
     },
     {
       "path": "solc-windows-amd64-v0.7.3+commit.9bfce1f6.exe",
@@ -702,11 +702,11 @@
       "build": "commit.9bfce1f6",
       "longVersion": "0.7.3+commit.9bfce1f6",
       "keccak256": "0x9da78e13815a0316e966c9548d87782198b0f2883df8427c74a069f16bed2e93",
-      "sha256": "0x5461bddca624eedff1d5b70bc1f5955b017c4587a7467cb1260bd16a56a8e537",
       "urls": [
         "bzzr://923159d76646df5147e0ff81a80c8583d77241bccc64c2ca27ae0f124d92f39b",
         "dweb:/ipfs/Qmdux34G3boJkvr49Hnnkf7fsLTjYYzvvE1dX8zfy1CrnG"
-      ]
+      ],
+      "sha256": "0x5461bddca624eedff1d5b70bc1f5955b017c4587a7467cb1260bd16a56a8e537"
     },
     {
       "path": "solc-windows-amd64-v0.7.4+commit.3f05b770.exe",
@@ -714,11 +714,11 @@
       "build": "commit.3f05b770",
       "longVersion": "0.7.4+commit.3f05b770",
       "keccak256": "0xa215850b05d1754f5737aa463cf7a9a048c279937994c35c3fb12aa644b4ee2d",
-      "sha256": "0xb1532383cd3cec415d77a5415f298fc0a207c740fecfda3f371f2300306341a9",
       "urls": [
         "bzzr://0eeca185f114d88da32d81af38a7ea4cd71a8e7cc4b132dd52a656108f1dea52",
         "dweb:/ipfs/QmZNMxnJEM499xJYJYD6L5GbkoHwVGmcSdFrhgefawTvbG"
-      ]
+      ],
+      "sha256": "0xb1532383cd3cec415d77a5415f298fc0a207c740fecfda3f371f2300306341a9"
     },
     {
       "path": "solc-windows-amd64-v0.7.5+commit.eb77ed08.exe",
@@ -726,11 +726,11 @@
       "build": "commit.eb77ed08",
       "longVersion": "0.7.5+commit.eb77ed08",
       "keccak256": "0x6d79ef8e3eebdb8a297088fd28c21afc96a795f4e408101417d49fb6b7ce0e42",
-      "sha256": "0xc6243653b8d894a14bab2b342820bd79eb48695f447b402eebe702d5c9ee0d7d",
       "urls": [
         "bzzr://3cc5aa9168b572c3d1c53e977fad597779b75ce5243c60e1c4ede50cd7e4aa31",
         "dweb:/ipfs/QmX5H1dHyzKqeFerHriuChCjk2tnfKqMKndnFwrErGg7pq"
-      ]
+      ],
+      "sha256": "0xc6243653b8d894a14bab2b342820bd79eb48695f447b402eebe702d5c9ee0d7d"
     },
     {
       "path": "solc-windows-amd64-v0.7.6+commit.7338295f.exe",
@@ -738,11 +738,11 @@
       "build": "commit.7338295f",
       "longVersion": "0.7.6+commit.7338295f",
       "keccak256": "0x4fbd020496c3a9e02c1eeb825d23f4d83d9198c4e21fda19deccdb7e74435edf",
-      "sha256": "0x9214e06741c5cb51a61d745697c905f37480c0c8da1d5ac69e3bacda0063dfa5",
       "urls": [
         "bzzr://e13f9d5af36ac7b732225fb153328c4e533399ab0576c7343721a690460e5110",
         "dweb:/ipfs/QmbckJWhamjWcoeoe1vBMaJgs3cTW6PHnh6KcxAgCkMwn4"
-      ]
+      ],
+      "sha256": "0x9214e06741c5cb51a61d745697c905f37480c0c8da1d5ac69e3bacda0063dfa5"
     },
     {
       "path": "solc-windows-amd64-v0.8.0+commit.c7dfd78e.exe",
@@ -750,11 +750,11 @@
       "build": "commit.c7dfd78e",
       "longVersion": "0.8.0+commit.c7dfd78e",
       "keccak256": "0xad7aa0c7b9139011142ca59b73483ee18f36f488edb061b2ffe515ff8ac0dff8",
-      "sha256": "0xed74a625bd67dbb74f616aec64f771060df3376f38ef068bd17fd5a5fe19d98c",
       "urls": [
         "bzzr://626c9cf53996323597485a33d19c29f37c08d90bc42d4ed78233675bb4e6ea6a",
         "dweb:/ipfs/QmY2hXxMX7mbtoZZmcZpfg4297DLkbJALAbKtiT19SZzsJ"
-      ]
+      ],
+      "sha256": "0xed74a625bd67dbb74f616aec64f771060df3376f38ef068bd17fd5a5fe19d98c"
     },
     {
       "path": "solc-windows-amd64-v0.8.1+commit.df193b15.exe",
@@ -762,14 +762,27 @@
       "build": "commit.df193b15",
       "longVersion": "0.8.1+commit.df193b15",
       "keccak256": "0xc0b395aaf644dd201a91810a5660e7663da957a196ebdde6e872fe437d6090bb",
-      "sha256": "0xde87d174b8858fb9cad0d10710009b65b7ac98b333522e82f555dfe62b42bc1d",
       "urls": [
         "bzzr://e631e9af01c168e852653cc666f7c212a4b74eee3fc7ed87b39adaacd9b80ae5",
         "dweb:/ipfs/QmWtkgWyp5CsTkpiFuw45URN91SFUmj6V51BSLh6owj9C9"
+      ],
+      "sha256": "0xde87d174b8858fb9cad0d10710009b65b7ac98b333522e82f555dfe62b42bc1d"
+    },
+    {
+      "path": "solc-windows-amd64-v0.8.2+commit.92b52cbf.exe",
+      "version": "0.8.2",
+      "build": "commit.92b52cbf",
+      "longVersion": "0.8.2+commit.92b52cbf",
+      "keccak256": "0xc44898ac42f8d63dff8e279e852855fb1e11d311e5239d3919e8da8f4c9ea47e",
+      "sha256": "0xb485e28e8254f3be0c5c29755ddbe34183a0c80d0f833b9cde7aee32254d3354",
+      "urls": [
+        "bzzr://b431581ac55694f65aec45ad567c3013dc933eaf5ae865ab6488af0851261eca",
+        "dweb:/ipfs/QmWgkt7ZQnx7V6suBJZcWATW3YHkCrfzonhaJDSktkdza1"
       ]
     }
   ],
   "releases": {
+    "0.8.2": "solc-windows-amd64-v0.8.2+commit.92b52cbf.exe",
     "0.8.1": "solc-windows-amd64-v0.8.1+commit.df193b15.exe",
     "0.8.0": "solc-windows-amd64-v0.8.0+commit.c7dfd78e.exe",
     "0.7.6": "solc-windows-amd64-v0.7.6+commit.7338295f.exe",
@@ -835,5 +848,5 @@
     "0.4.2": "solc-windows-amd64-v0.4.2+commit.af6afb04.zip",
     "0.4.1": "solc-windows-amd64-v0.4.1+commit.4fc6fc2c.zip"
   },
-  "latestRelease": "0.8.1"
+  "latestRelease": "0.8.2"
 }

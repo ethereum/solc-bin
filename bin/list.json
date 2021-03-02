@@ -13328,6 +13328,19 @@
         "bzzr://309233f67b2bafcaf6ac20ac4402a39241c91a309d6eac3b9d7c2da55c6531a6",
         "dweb:/ipfs/QmetymiZQze9BfYPaBmQ7JEADwN6gGFDEktoJw1qaUvH2U"
       ]
+    },
+    {
+      "path": "soljson-v0.8.2-nightly.2021.3.1+commit.ad48b713.js",
+      "version": "0.8.2",
+      "prerelease": "nightly.2021.3.1",
+      "build": "commit.ad48b713",
+      "longVersion": "0.8.2-nightly.2021.3.1+commit.ad48b713",
+      "keccak256": "0x7a3ecf926e850b22367ee0f01d15ca95b4708df20c6726fd356dbdcfd4866c44",
+      "sha256": "0xed3813f876cef5ecd311f5a096c782a570300f2f167fc186a4496cbcc85a2b6d",
+      "urls": [
+        "bzzr://0ee8cb22e37dae65fc624c704de97071866ae839a5c7eed73f91468a04416e58",
+        "dweb:/ipfs/QmR6kUEnDsiMcteHDA3mKz7vMP2qv4pkfQDTSxz1rpTvNn"
+      ]
     }
   ],
   "releases": {

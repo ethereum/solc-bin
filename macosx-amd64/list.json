@@ -5,11 +5,11 @@
       "version": "0.3.6",
       "build": "commit.988fe5e5",
       "longVersion": "0.3.6+commit.988fe5e5",
-      "keccak256": "0x82cc2f0f2a27c800b53873d83ca7e0af9a6eb109b9c52318a523f5657e35c1da",
-      "sha256": "0xfdbc88cc48ecf62d4ad75aa8357e9c3b3d2b0d69e92faadb62e71afd4f8f27bf",
+      "keccak256": "0x662f94643bbc549d00fe7cfdbcdff504c78c697b10dcfca645d6082d464c1402",
+      "sha256": "0x02d581b5b373d8160b9e75d690dd2ee898c3e0f6a39bbda54cd0698224c09df4",
       "urls": [
-        "bzzr://31ce87aa8709d619a825aa1916dd0c8dda8381e2c01dcbbc05c2ad0239101fd5",
-        "dweb:/ipfs/QmeAdYxChoHYQSyn4ntkwo2Zh8FUxUrpF1ffxzx1ysZ8LA"
+        "bzzr://f8f4ef96514fda43ca31517a4f493aef6224d72ead70ac0b4cc36a5d341901a6",
+        "dweb:/ipfs/QmR59SfyA5TETyhBvxgZBvhedSZyA9Ka2NPBGVbV9CknYf"
       ]
     },
     {
@@ -17,11 +17,11 @@
       "version": "0.4.0",
       "build": "commit.acd334c9",
       "longVersion": "0.4.0+commit.acd334c9",
-      "keccak256": "0xdd2b6c9cc32a4572787ee5234f7ec4d8d6b17603696bf630dd56a4db34b9ebd5",
-      "sha256": "0xbca38052c5f8b9ac3800ff396d2a77d6f19cb280ad9acd6c674ba125d256d6e9",
+      "keccak256": "0xe15cdf6bfd7a87c22aca862df0ed268c56d0a3aed404c56c92aaa1c02b4738c2",
+      "sha256": "0xbba6e2c33935259c478060501a7fb0ee1db4b0c56567356c9d01b6ec0491a558",
       "urls": [
-        "bzzr://581b55b2841842c899a02192b274be4ee1a2635060bf0554a68d65e9419dd94f",
-        "dweb:/ipfs/QmQJbCQu2YVsShF9VsSE1QLQwtkMzzguPWMUJk5g6n8uU7"
+        "bzzr://e130cfd6a4369d932e02220b164417ff025a6967ac2a4f4241140eb08793c8f9",
+        "dweb:/ipfs/QmWtKJmhaLmaLsqQW5Bptq6FADF7WCaZkmMQdKdzi8bdUw"
       ]
     },
     {
@@ -29,11 +29,11 @@
       "version": "0.4.1",
       "build": "commit.4fc6fc2c",
       "longVersion": "0.4.1+commit.4fc6fc2c",
-      "keccak256": "0x34f2c3632c979c5195f1c21fb57daa626323462e5b5d93987044ba213e41251e",
-      "sha256": "0x1e31f8cb93abc0f9b51d64637e80aae01de6136e246d8a531b0200f1254bd73d",
+      "keccak256": "0xd0142f44be7a230ff448237472451521abbabcb5d75d388346d1b7cd1e9e6962",
+      "sha256": "0x2de730163c80670b2f4c1ef78dc77ab13f757aad1ead044761821293275c382b",
       "urls": [
-        "bzzr://a1d475d534c111288de9425ec12110e9ea67f6d00b78c0fbca1eed2df09423a3",
-        "dweb:/ipfs/QmbRUdF7QRiGJqUvudeR7pqL9hqaCyS95c2wxWwFWFyoBo"
+        "bzzr://441e085a6f97965273b9dc0cae1870fdf769473db11aab99a9fc1dbbe073e7b3",
+        "dweb:/ipfs/QmQhL9fPTox8eJsiSxzFyUjZ5G26sy2BVUSYXLya4KpcWT"
       ]
     },
     {
@@ -41,11 +41,11 @@
       "version": "0.4.2",
       "build": "commit.af6afb04",
       "longVersion": "0.4.2+commit.af6afb04",
-      "keccak256": "0x533798595f0028f67ae6f9da0f391899d631c26b381f528e3b5dd40f6fa18009",
-      "sha256": "0xce3f1eca514c445cd0baac038ecd1491cf808ea41ff175544ca7097bb8471bcf",
+      "keccak256": "0x1b25df7ffcbd8bd77346482483164905ec57837bca8a6035aa4d32beb11434ca",
+      "sha256": "0x9882bb966b82c0f4847735dba20b517118cf5408ed2a872485750f6ff26cf98b",
       "urls": [
-        "bzzr://3ca41000bd2505225911dc041f459d4dc3fcba2dbf4f403cbb64ac106579ed4a",
-        "dweb:/ipfs/QmQECUkm8kL4JX8WceB177N2dHF4PT22GuEpSCSTEwFXYV"
+        "bzzr://5d6baebbb6372afa3c0d6185de44709dc9fa0a69b239bcc06612eccd44f80216",
+        "dweb:/ipfs/QmcjAyKwEdj93CTgL4DNYwgSzigb6ZhBtEzWpXBjs4xJvr"
       ]
     },
     {
@@ -53,11 +53,11 @@
       "version": "0.4.3",
       "build": "commit.2353da71",
       "longVersion": "0.4.3+commit.2353da71",
-      "keccak256": "0x233c964527fe03f7596d817cb2d7dc0024d1379e6f8fa899a3ba0c5cb580a5ae",
-      "sha256": "0x470f5e3b00caaeb42a103824c0b6abb8dd17b06ece0633226b9a5bf555b6106f",
+      "keccak256": "0x41d167822f3ab9cf03e4e3dcb800aff49a93cbd2b5ea37941777df80a5bef69e",
+      "sha256": "0x3ac02a93f4c7c20b9f17b6038af25b41acb8cfe178040be0f2246adc8bb8fe0a",
       "urls": [
-        "bzzr://a48180e11d43783876edd50048fd5bee406a0c1e918c3be41f898ab58d424db2",
-        "dweb:/ipfs/QmUWFTQSoM4RPVDnNu9NyQnNnp9pfa7akLvQMVyV4X6RTP"
+        "bzzr://03a77f58631ae16e81aa85c6dacbc6bc2ca7c34c1073171e2562ef0738979570",
+        "dweb:/ipfs/QmaZZSYJV7pYHTDJTX44UsVrSS8UkCX2xBx3FhYyjzP8bn"
       ]
     },
     {
@@ -65,11 +65,11 @@
       "version": "0.4.4",
       "build": "commit.4633f3de",
       "longVersion": "0.4.4+commit.4633f3de",
-      "keccak256": "0x800343e9f299ac057a91c023e226507210431d2ecd4e8d1936a7cb36d0d0fe6b",
-      "sha256": "0x4f4ea73203844cc56da6e9ef18f11c4f8d42e7a66c64f1c3c14d00ffc7fde15c",
+      "keccak256": "0x66721111ee0d4c3d718832ac2150fed55b3d61baa4fcf0f3bfcfd6d034f7515f",
+      "sha256": "0x38ceeea801b5952d74bdb79ae5bc6bbb4c187ee5941e2701de388fdf95322f58",
       "urls": [
-        "bzzr://a874ea445b6c6aff1cd13ad65464d3646ecf2f38054cdbb7d8c72ee303eb7057",
-        "dweb:/ipfs/QmW87mZrcep1ydQW4zm2BTMfXHwvajpDkobTS5kKnh8J8E"
+        "bzzr://fe16871dbb1f5ae55e7fd4a2feb2e57f10fbe9ae240c408d74e4821544a71cfe",
+        "dweb:/ipfs/QmWcNcnW2NiHiY4Lm1DaEWGgiBnHcDh8NjAJzmxtEewHC1"
       ]
     },
     {
@@ -77,11 +77,11 @@
       "version": "0.4.5",
       "build": "commit.b318366e",
       "longVersion": "0.4.5+commit.b318366e",
-      "keccak256": "0xa9acaef409dd1247b2748d0914a565bbeed4ead7011cadea1bfd865992243cac",
-      "sha256": "0xc0d83250aab88d1d86214bb06e390d806045af315d820e5a69e966e5ccbf4342",
+      "keccak256": "0x5171e0d6ee047330e44c5b041a579aabe348482145405449cdcdf70c089db66c",
+      "sha256": "0x003b09c2f255d2a40c2b2a1798192f92e6a3f1b35bda1a35ba66675919be1555",
       "urls": [
-        "bzzr://9f1470f980d94c601d5d5f245f4d456f8e608afc4ade15c37a376374052aec38",
-        "dweb:/ipfs/QmerkkEpQBjxN8hdMSySobKk6dZqaDH9MGrvEPxxbPRkQg"
+        "bzzr://77fac88430da037b2559f5023168624a071f4ecadf5ea6c65d9689a2e1f829cb",
+        "dweb:/ipfs/QmTVDBJBqUyoJVXYYAYGsL3udgx8QrTcTMAADottWRCYpi"
       ]
     },
     {
@@ -89,11 +89,11 @@
       "version": "0.4.6",
       "build": "commit.2dabbdf0",
       "longVersion": "0.4.6+commit.2dabbdf0",
-      "keccak256": "0x4b8153df9648fc5d37a11ed7bdbc898dadade86a58bf9d4f9eeb41a92e0e7ab2",
-      "sha256": "0x563b92181893c7b68cc9da573843cee557ca861b8153651e48df3e086780cbc1",
+      "keccak256": "0x6ad5195014b546f57e6dee05a5170dadbedde6f657893da05d9da1416e45e2f0",
+      "sha256": "0xaef1ebf2d2783a31742a612461f13e0ffc656c4a5ce25a0eeb747186ce03b276",
       "urls": [
-        "bzzr://7f5cb9e787a039faebb9c5ca18772f17b7b6a154ab2a1b54e6b5ea52fa8232f7",
-        "dweb:/ipfs/QmbFwtTAko6AELJdXvt7v32f15ScJqQpYW9NGTFvxRgtXE"
+        "bzzr://2aac1f5d260866e1707f750fcad9eb253afd35073a6a97aa1a62121fb78d6a0f",
+        "dweb:/ipfs/QmbrbFFvcCstpF8sVoSP8sPt3WYqHfvGmZ8zKHF1syx8uS"
       ]
     },
     {
@@ -101,11 +101,11 @@
       "version": "0.4.7",
       "build": "commit.822622cf",
       "longVersion": "0.4.7+commit.822622cf",
-      "keccak256": "0x43e0d27ed974f416ba04bdab40af98c4d0a638dedbd5ade7bbbe816b4b69a427",
-      "sha256": "0xa4043c0ac108636da28ac40e333a1e909834d30adfe9af18d3a9a427ffdb0e37",
+      "keccak256": "0xeeb96fbbe5b942c2c6ecf8a0ca4c0a88d290731a56782df8e52284aa3d48e754",
+      "sha256": "0xfc386d2547b6f764a0c1139487ed1d4a19e334c510a727614ff8ebeb1bd01a93",
       "urls": [
-        "bzzr://70e7f7be1443fac12f1dd71c9bed965b13d9a23906cb0419ea9a7258ad211c8f",
-        "dweb:/ipfs/QmViZAMUdL3VzZtMdogoJ2GHeGzR1GiTX2UwgUDC2ikPcE"
+        "bzzr://518ea2503a211c4dbf511dee27dac4a367820273268103c14d0366400fe639da",
+        "dweb:/ipfs/QmWoWxZpANYVnTwSf9ef1BG597NVDkxVyJzdxMcp1qTKgs"
       ]
     },
     {
@@ -113,11 +113,11 @@
       "version": "0.4.8",
       "build": "commit.60cc1668",
       "longVersion": "0.4.8+commit.60cc1668",
-      "keccak256": "0xaa3abc193485e9dee7fcffb4e34ad9f6aa4c81b5081993bed7b9580705809798",
-      "sha256": "0x23d21c81847aa9dad9f6416203ddd2152fe3de0f7e8de2f49295dda7e55d736c",
+      "keccak256": "0x690ab93a9d9d5174e699cb58f4898391ea112850d95f5ecac25e259f36505dad",
+      "sha256": "0xebb64b8b8dd465bd53a52fa7063569115df176c7561ac4feb47004513e1df74b",
       "urls": [
-        "bzzr://26ab8e9c128ad3d30bfaa807b430e6cf46f5102018022b8fa2101799260f288e",
-        "dweb:/ipfs/QmeqdwQQAq838fozhXaSERwKtrmZmwN6QP3dj6eFkmeLJF"
+        "bzzr://1a6089dc3d33e3bbec9f0a9ccd04872282b90da2563466200bea21eb72b8c7c3",
+        "dweb:/ipfs/QmRiR9xu9wV3sGmfQbiWjDHnbpa1HfqwSeudL831LqFBYt"
       ]
     },
     {
@@ -125,11 +125,11 @@
       "version": "0.4.9",
       "build": "commit.364da425",
       "longVersion": "0.4.9+commit.364da425",
-      "keccak256": "0x43bd1a2872b59b7d47e93016f539462d80b79857086096ea9fd79f7453f0a4a6",
-      "sha256": "0xe8effe1339e17024a8681397a237b6cf49ac37d1c1dcc8e0e4a195a54b98c698",
+      "keccak256": "0x31fa8fa8b04ddb729490ca59fe1e212e8b1d25f9fb19de190864a1093d7c1609",
+      "sha256": "0xa5b4227ed259c474426d8a2ef380606766aa8ba7f65487ab177139b3a51f0dee",
       "urls": [
-        "bzzr://882ce0ea92a9791861dba3fa4db5978cb700e138e00f912ebe7a40b683a8de1a",
-        "dweb:/ipfs/QmeyUYoBD7NWXsZSo7UeAUNKaQg6cjxonrCqp6NmYi3gS4"
+        "bzzr://06fdc632eda9b6916774ba35432bc0f02bbd2f48ca8c8675db24ec5a902b82b6",
+        "dweb:/ipfs/QmQTVdW8cyRGPXEWbpRvinZBDGBYhUAsSZSf7Khp5VQKNQ"
       ]
     },
     {
@@ -137,11 +137,11 @@
       "version": "0.4.10",
       "build": "commit.f0d539ae",
       "longVersion": "0.4.10+commit.f0d539ae",
-      "keccak256": "0x2d3437f929de1c5e5d70e191705df67f5d0044afe025e09cf114c45be3251060",
-      "sha256": "0xbb3918a72f3a91af94dc38aa419b436ec3f2abfa78c6a85df8d34a7e218b7817",
+      "keccak256": "0x7b642dedbe89b221e7ab15c1b67d18aa04e4de91f987c5d2b8ff90c0bc761e60",
+      "sha256": "0x40f179e4d27201ab726669dd26d594cfe10bf4dd6117495ee49d26f0dda9ef42",
       "urls": [
-        "bzzr://754c919bf1a5c964b61c1be104b230adbdc6b1f6e92d27f7a2c1861377465bc1",
-        "dweb:/ipfs/QmaH5p1hzcmNnXEehpDwZY8G3DJ2enx5e8G3yzo9i7xBR9"
+        "bzzr://79a004dab9401b9e45c882ef19929ad3141af89b3d3f9fd8c21f8cf3310703e9",
+        "dweb:/ipfs/Qmbsi7dJy45HyzkprNd3QuxARRedNH3akSLwcxibGghGaU"
       ]
     },
     {
@@ -149,11 +149,11 @@
       "version": "0.4.11",
       "build": "commit.68ef5810",
       "longVersion": "0.4.11+commit.68ef5810",
-      "keccak256": "0x9ffad421de9f68d2f37d94cc88b123113b4ffc6a673e08cd0836e6f09107a643",
-      "sha256": "0xea5594e60e6c29316af669bfcb595b9bf2f80d3a13ddea18ba7b2d50f59a259b",
+      "keccak256": "0x230569faf79408fec44b931151f7113006e4b34038b55eecb2a2d1dba6407c60",
+      "sha256": "0x287eab0187dd4bdec50226f3173526bd8d247adeebdf64bc0b7448711abbea61",
       "urls": [
-        "bzzr://a7e7f09db20a02d4284f623e37fe0d3d08b9adf2fbed817935daa67e506aa57c",
-        "dweb:/ipfs/QmXcCKmRThztdz9DMpJtxsRRjpdjmq724BRxnKfTMq44jr"
+        "bzzr://9cd6f534ed307b73097d1efa92f1fa12c4d44ae45026549e3d6c968d8c351e97",
+        "dweb:/ipfs/QmZEGqT4RLTC6ngDzP22MAunduX537gdBD5FuHMRqWPzGi"
       ]
     },
     {
@@ -161,11 +161,11 @@
       "version": "0.4.12",
       "build": "commit.194ff033",
       "longVersion": "0.4.12+commit.194ff033",
-      "keccak256": "0x1768c7edd050314b7c6abeccecaa9d70369c8b2462710a2274022030de593d8d",
-      "sha256": "0x03dce11bd794c3594817d4e6c5f9043e9833fcf1cac8efdd7c77466ae0c63c95",
+      "keccak256": "0xd347f34d80512781730a88a35f54ea60cc8f22f41fa89a90fa23d6067e48e9c5",
+      "sha256": "0x65cc92c918d6334f533a7596f62916825fc722b2a7a235729ed87cfbec622bcd",
       "urls": [
-        "bzzr://a51f372e3dcb519c5c43366c222ea21b28911bd1eaa2c2f58f3585d2de5f5b53",
-        "dweb:/ipfs/QmWahYJQ7zqxKV5W3McBHR1P26jmZXmD18DkuhrSho746x"
+        "bzzr://e6b9f049ff3fa866f1289081cd7696d0d60f5a6532d785c1453b8499244e24ee",
+        "dweb:/ipfs/QmUGFo9on7dTJZEU5JUZpUpgat2B9dhyawSMxYnYVTmuvP"
       ]
     },
     {
@@ -173,11 +173,11 @@
       "version": "0.4.13",
       "build": "commit.0fb4cb1a",
       "longVersion": "0.4.13+commit.0fb4cb1a",
-      "keccak256": "0x566dd72dbbb2a8eb87d6ceb84f684b7daba1af06282a753414ac7c44f5c53b86",
-      "sha256": "0xdee44e947342da97a000ab8346179647180f8488e2796e88e7028e99001ebb7a",
+      "keccak256": "0x0715c4a2295fae7c057d810535d83cd34b280a2296cd7fc83efdfa2f38d5fece",
+      "sha256": "0x701eebf0e37d172cb829dc1e65c74a46b3b96737f3866758f9894696a639b6b7",
       "urls": [
-        "bzzr://4ece29fc6b7e88c3fcc9f5be0042f0eeeaa7d14bcc3f3f2683d9c6e254f223e2",
-        "dweb:/ipfs/QmSQjSBd7fLWoxQ2iiw118s1iqKvJFaj7syTooZefWkjHR"
+        "bzzr://2b54f83e600406898dc18ba2e43307c79c49f29f1d2fdfdae0afc9b8f20a3d0b",
+        "dweb:/ipfs/QmcTSjhWs8WCjqAoU8h5Wo5qCstmwxnNsDtGMzNu3F6MiV"
       ]
     },
     {
@@ -185,11 +185,11 @@
       "version": "0.4.14",
       "build": "commit.c2215d46",
       "longVersion": "0.4.14+commit.c2215d46",
-      "keccak256": "0x8ae692bdeb27480e4deb4f3f2c944a19cbdb9b30ce8ceec3cfcf3fd13a003c71",
-      "sha256": "0x83ee4d8c343d4cc97c9d480a0416413cec4b752ee8119f958c86c540dd4d173d",
+      "keccak256": "0x1fbb0477543b5d27102f095807bf68ec8f2ff23b65212869fea942bcfe6f1e4d",
+      "sha256": "0xa4ef22d9d36e75151bdd64720e69eddf57500883dd623c57805edb5ccb644a89",
       "urls": [
-        "bzzr://a08367e64bef6737430cafa08d123a37357b58de40c67036d5df67e1d87a905c",
-        "dweb:/ipfs/QmdfYrQbqMApKShYRGHckCWNogoLtwZLUM1W1EXu4eG4hy"
+        "bzzr://826435367348f6ecab540323f9dbe55540a0d0aeb7336cf7dfee5c18bd0eccbe",
+        "dweb:/ipfs/QmdfbxCdhvrfL24y78KNzqUKGJzRHi5H8ckW9p6GLTZr72"
       ]
     },
     {
@@ -197,11 +197,11 @@
       "version": "0.4.15",
       "build": "commit.8b45bddb",
       "longVersion": "0.4.15+commit.8b45bddb",
-      "keccak256": "0x9794ae31fdfec812f3f285473599d4d572b6cc8981150c2353bbec109656baf6",
-      "sha256": "0xddd252451fc0f578f91c82f32eb6eb5619be1bf9f6605e717e112964fc1e1555",
+      "keccak256": "0x64a70448467ddd8207ef0917b405ec5378a31b8b8e71b896f72c7b2721ea8366",
+      "sha256": "0xe449a4980db4ff18e7ffe704b40083cded96cccf33986bf6a6bb6fe925eb86c0",
       "urls": [
-        "bzzr://3da5cb51b0d43342e6de224abe70d638c93d1dd106bc6b355847c2ed68b87d7f",
-        "dweb:/ipfs/QmUsatbuE2vhznQFZQHUeJhqxF8SqFjMMBmXo3XhHPQmAZ"
+        "bzzr://d12223b8d998d355bb53aa8806ca68d64303521ec0bd33a263686b62ac47dcf2",
+        "dweb:/ipfs/QmQrFUVDkwGfDeLvnX6tyTeEQf4ivcNYEHBGUmhZan1jTg"
       ]
     },
     {
@@ -209,11 +209,11 @@
       "version": "0.4.16",
       "build": "commit.d7661dd9",
       "longVersion": "0.4.16+commit.d7661dd9",
-      "keccak256": "0x95ca3dfd2403649b73be8a0b5586f3b113b7e80dab62e78a67d53d10a627a05f",
-      "sha256": "0x97253c86ae2814419be8b2c26feccdc4bfe6545b5fc301fbe9c2454684c7240c",
+      "keccak256": "0x05d5bbd0dad953327dad1fcce80e5c44dfb04995d8ad87a3e7078eef6b4a83ec",
+      "sha256": "0xa24512aee16652c4469979715bbdcaa6c4afabb94b717bb40980e4b2d25c4709",
       "urls": [
-        "bzzr://6be0e5fd024bc5dc48e44370efa84ecf5eefee28c3bde9cd0cd14b40f2fa292f",
-        "dweb:/ipfs/QmeviVYtrfYx8369iXRi691ba2TLRojfJAP5E7uxSgszbY"
+        "bzzr://f69b11c78859b4d63777a18ce8320989a814a75751e9a1e7e8c958574d9b7089",
+        "dweb:/ipfs/QmeHjMa2nfHsQkPHd2ameFYTEM7dRHtFvXRm1TzUakfRSA"
       ]
     },
     {
@@ -221,11 +221,11 @@
       "version": "0.4.17",
       "build": "commit.bdeb9e52",
       "longVersion": "0.4.17+commit.bdeb9e52",
-      "keccak256": "0xa44e9556ca1987301876ac596476514eebf591cac5d918d045c0e782782035c7",
-      "sha256": "0xdfa0c808521c13df11ad5cd3bb91b4a120a1974e3263831c2dd0676aa3da177c",
+      "keccak256": "0x52b105a3d36e2fd2b99e1fa69e4366035810c93c92baeb27ad9d37a29391a23d",
+      "sha256": "0x458c3e2de2ffe609b79d9cdc4eb3080d6ed7662ef1bdd7c8a03fb18f1ca9a137",
       "urls": [
-        "bzzr://ebd4ec4691f2d354c8a16bd57112da50bbbfd829f80a94d7b17c193fcba9f6e0",
-        "dweb:/ipfs/QmYV6WS9sLjUj4rPSaBDqCouGKLboxMm757cszKGoJr4aW"
+        "bzzr://caf9f5842fe15e713653a69236cf51f8cb2bba9b29f03915b6588fcce8b9267d",
+        "dweb:/ipfs/QmbNCaPHNdpaHBLYcAEHVFjms6TKfpo5maU9kS7fj2zF32"
       ]
     },
     {
@@ -233,11 +233,11 @@
       "version": "0.4.18",
       "build": "commit.9cf6e910",
       "longVersion": "0.4.18+commit.9cf6e910",
-      "keccak256": "0x7612fee333d4f62b3eb9b245bde26927cb627ed878274da65b37dd4e111f7b62",
-      "sha256": "0xea86bf42bbde928172fffe512d3255d961faa3f8a025661cacb6c891a1a37493",
+      "keccak256": "0x6ed8a169695fddb45e22975b416b6ac8bf5758f6765a5fc45a7708e266bd3eeb",
+      "sha256": "0xdddc86683d12d0f016b5d5799ed84f6f2a79f667ebb932b9a8e6bfe9a48c3190",
       "urls": [
-        "bzzr://3b7aeb0bbbf5e066a3337fbb01b84d8007ce36ce8d4fee2fc6224b5a8673ac71",
-        "dweb:/ipfs/QmejB2cqkgfV75QfoixuZq5Ue8wiioDm2vHmgZHn5U6Jui"
+        "bzzr://61696afc061612e49abd151286c3afef433f8d0a9e2eaf9527bc7fce7f3a5a2b",
+        "dweb:/ipfs/QmQBofdea6hmCFSurTKyiqVW3dLC5raFiucVG7k8tFq26y"
       ]
     },
     {
@@ -245,11 +245,11 @@
       "version": "0.4.19",
       "build": "commit.c4cbbb05",
       "longVersion": "0.4.19+commit.c4cbbb05",
-      "keccak256": "0x056532469efe5b1bf17f5db57409a2d64f611a88de4371e16f1807969ecc9bae",
-      "sha256": "0x47f9e7a76e192ac76e607f8b0ff5854c567ed6ad545fd7e11cc02bbe8c7a6373",
+      "keccak256": "0xa291d2f1fb5d75e61c3f07e96093bce7fc0ac1607c609bf352b434bb9158170d",
+      "sha256": "0xace5107a68fa75634e26848d6d208b808a76cc4f9262e53e8a3622bcefd4dcaf",
       "urls": [
-        "bzzr://638247a65faf86106601890895a21848c6c16356dbeab9f987f7ab7e85093b51",
-        "dweb:/ipfs/QmW3swNmpjMhKZVQwpMBGvHKTCETuqCAeVVz5ajz1BnVks"
+        "bzzr://9971fb2527a4627a4f74efec763417bfb80da2da2152a030d86112861378947e",
+        "dweb:/ipfs/QmevE3c2Bezj8ommRqtY35SjrwRHUEMbJM8LntWHzqB99n"
       ]
     },
     {
@@ -257,11 +257,11 @@
       "version": "0.4.20",
       "build": "commit.3155dd80",
       "longVersion": "0.4.20+commit.3155dd80",
-      "keccak256": "0x9f83beb544f5418c71ee75861c378144f3d37591d876ebf2b7cb6cdfe57e07cc",
-      "sha256": "0x4cf738832c748e5985c3a1841232355d9f6db7cac00e2b283bca0635db4a489c",
+      "keccak256": "0x035cf886038fb4c4afe8014391c8432cf91997971f37d2cd509e8dd56a3f7f71",
+      "sha256": "0x47425e338b9461d3e6498a0b0d5c2b9cc7cf998e4aa69126ea9f64c0a176e605",
       "urls": [
-        "bzzr://ff69bc5434db133bd0b3b0efe4389ceb3f6098c5ef2cf4fb8728fb42c283012d",
-        "dweb:/ipfs/QmdE6QB4atzygLNyJPdJikgGfiWidYFtkad6tzh9JBkWaU"
+        "bzzr://f07a63c06de8fbc236ae8e90d8e936656a1b1cb6d4009685e16382aa180ed6c0",
+        "dweb:/ipfs/QmUUkRBTZ5KF5yZi8yzPVn7wrMr1rL2NPE7xfyyBCsbGxS"
       ]
     },
     {
@@ -269,11 +269,11 @@
       "version": "0.4.21",
       "build": "commit.dfe3193c",
       "longVersion": "0.4.21+commit.dfe3193c",
-      "keccak256": "0x438609d560ac4ef7faa73a14a768d21525052ed73ffb45ac17189af1163a022f",
-      "sha256": "0x0ae3ca3b1777e7e8e35beb2f8a85b94de82ca3b7544d29f92d11aacdb4331bb3",
+      "keccak256": "0xf5cb6ae6e7ad8d7d33e0dfb310691eff9fa18f27fbe8db2c3a848812ce38e1bf",
+      "sha256": "0xe035cb9a81b5e3e11a7b99ead6f51a3ef7729794eebee470a964e2c08e30b857",
       "urls": [
-        "bzzr://0ffca1352d09b1ce1c4d075f376fe8140d955c4b0c9c3cd41cab3902612d2c73",
-        "dweb:/ipfs/Qmbqnxv9wWCbr6E1PvtXNaYNHkvaZuJrdntnR13A1uHJgo"
+        "bzzr://6bb86ad1929e0eb0c499b0863324cae9f2c74686bba8961b23acb39c324b574e",
+        "dweb:/ipfs/QmcgbaThT7VV5fJn3QrgMxXL5convCAccaopRX1yWii4CM"
       ]
     },
     {
@@ -281,11 +281,11 @@
       "version": "0.4.22",
       "build": "commit.4cb486ee",
       "longVersion": "0.4.22+commit.4cb486ee",
-      "keccak256": "0x992cffa319e04f7d1ae4913c17fa1f4e6b5d94d821244582f7ac1eeaf92a5267",
-      "sha256": "0x526c0ba491cc132513a7d47c3fb2e1fde1f413eeda829029c4b754939e06582e",
+      "keccak256": "0x49ed59d22c36ff495a6167d4e34074dc0ad0c50806016fbb6e2dc111baf0ab09",
+      "sha256": "0xa9341add7a4f01c52dbb36bb4028104676c684b0b6003a2cd9dd84a2a9802b59",
       "urls": [
-        "bzzr://796113d58e42e9d78a7f54211d2dbeb9e651a6eee7a540f80ef384b728c646e5",
-        "dweb:/ipfs/QmexdWzABXvjVnDUZhj6gADMTWQb8V2mUfhvEkCNE7NMwR"
+        "bzzr://e549af82db389897157316c7748c276d2b7706df4af04bd761e3f58b0b8efe85",
+        "dweb:/ipfs/QmURjSdCxu4e6qpmFPArWjR5zZGaZt4gMxooWgUmZjE5ih"
       ]
     },
     {
@@ -293,11 +293,11 @@
       "version": "0.4.23",
       "build": "commit.124ca40d",
       "longVersion": "0.4.23+commit.124ca40d",
-      "keccak256": "0x5feafe59973028728f32976e4a9b9088dd87a8c1390fab68602f84dfeba958ff",
-      "sha256": "0x5bd2cb20c474b53d2450557997d534ce0b74caaf290600e64d3452f461449339",
+      "keccak256": "0x71f9c2c1eb71eaa97dc8cdeabb254f2bc460933bc59c2b3059aefab4942825a8",
+      "sha256": "0x502eddb177f9268d79b1e05e6acfb2f229471823bf6711eff411d2a23e8cc0b1",
       "urls": [
-        "bzzr://d0a6987cd6d2ab7b6435a85f031f077eb220e52e9ec62750be099cb28d539903",
-        "dweb:/ipfs/QmRpLgkuVVPv4sfCEXe4zYfQq5WoNQtQTRDhKCAWJafX3J"
+        "bzzr://8edd27d6b2a43ed0c8e4d3f4ab569d3bbaa58f18b7d69fe9c88913e2e074fd1c",
+        "dweb:/ipfs/QmPHfgmtFZXrwb2jWnKSh3hXESNcHx6rRSoWPoDdvgyzKq"
       ]
     },
     {
@@ -305,11 +305,11 @@
       "version": "0.4.24",
       "build": "commit.e67f0147",
       "longVersion": "0.4.24+commit.e67f0147",
-      "keccak256": "0xc2f282d23a7214183fea94a9ae78a7af260ed3d2d86567c9fafe3a8b4cff5b81",
-      "sha256": "0x963e2869ecc5adfe48570a7595b7f56c2445aefe9bba22f4b5efc8ba2ea16966",
+      "keccak256": "0x287dc3f7742980f494c95d7b70724133b7f49d51132eb47eaef1423c87a6edba",
+      "sha256": "0x7034c4048bc713d5c14cdd6681953c736e2adbdb9174f8bfbfb6a097109ffaaa",
       "urls": [
-        "bzzr://3eb2d9bd1937ff48b35619aec74dd4e2787f27b020187b5348e24067d2e8f2ae",
-        "dweb:/ipfs/QmWsvWCnTATgg239Kk4V8nRSaBKsPsym2KBfN9adEqv84K"
+        "bzzr://d2778b5ba7cbcab0e9fbf9c8b0fdf689b3b680c145c6f949e47ec4f023bb2189",
+        "dweb:/ipfs/QmbPhCgU88uhyWjYF7CBvFiCK6etGssxUTNkV3QkBHgtMk"
       ]
     },
     {
@@ -317,11 +317,11 @@
       "version": "0.4.25",
       "build": "commit.59dbf8f1",
       "longVersion": "0.4.25+commit.59dbf8f1",
-      "keccak256": "0x2c78315e86bfea1b615e6d7bb345c190857b397a18e5ec640320106604665b26",
-      "sha256": "0xf000944e41456d3ee8dc2d5e27eb9ad9862f543e536c4fca98421b341a4b52a8",
+      "keccak256": "0x857693802947544d326f294238bcffbade6a49acd2e1e7204d7b5c0577de21ca",
+      "sha256": "0x9dd7686975200be71ce731f153823e7ea0d68106f3354ea16fecd5975f5c98b7",
       "urls": [
-        "bzzr://46bf7606e2cdea7386d3affcc66d63befdf54b234226d563e00137211c004a8b",
-        "dweb:/ipfs/QmV7gxNgUn4E1X78L7YTtrvYc7jgDnU6WWGRAUp2V7viZm"
+        "bzzr://c1011a43e36ca050aa9a00b52e7ed0c42176439f781e4d59f45ee496f37d3e98",
+        "dweb:/ipfs/QmcaC5MrrbYP9jEHo4Pn4FLMMhSwL6z8RhheGaVPFvGJjB"
       ]
     },
     {
@@ -329,11 +329,11 @@
       "version": "0.4.26",
       "build": "commit.4563c3fc",
       "longVersion": "0.4.26+commit.4563c3fc",
-      "keccak256": "0xa1023199ee994ada32b1483903b106b87f84d16a835b45353ecf4d7d03b26ec2",
-      "sha256": "0x1ce52a6c9227c4af239bfb75ab485380d40282f311949ae80b9feda599c419af",
+      "keccak256": "0x0f75819686eab4238b1f662667cd55bde1f923d022e83a547f5b9d4753ca7147",
+      "sha256": "0xbc956645b792dcbb8f820b8010a8d4ec1e188f7b40c6af951a436da4c13ae677",
       "urls": [
-        "bzzr://0efbc4848aab21ee67414d103d58839c2a00029149f0672af76c74bee1879df3",
-        "dweb:/ipfs/QmQ9RTBdr6Dn8UGnJuhiCiXsZ33SXtyG2rPFoFHiTvn8FE"
+        "bzzr://1928511f27ffe8f44c5cff04e0f4f2787b67c816da9ea869d34628f6f499c7af",
+        "dweb:/ipfs/QmaM4Fs6pzH8LvNFhFCbfgTfUo8nmZTKugfxmN7Ze6tT8U"
       ]
     },
     {
@@ -341,11 +341,11 @@
       "version": "0.5.0",
       "build": "commit.1d4f565a",
       "longVersion": "0.5.0+commit.1d4f565a",
-      "keccak256": "0x3398d052ddb040f815293e68d70072b3fc0b7dc14841634be6f4cdd861024ec5",
-      "sha256": "0xc16d4b72559d4efb23e2d98fdda6123457ff35b1b405a46731c58c75975ef315",
+      "keccak256": "0x0a89e22f8423a2ee551b4a7811c69321a06a70d8a00784deb712c6cf0757fca2",
+      "sha256": "0x9fa663fc427e8e9613815ad6b83783b4e4cb10439f16ca0dcb12fc002c45ab5a",
       "urls": [
-        "bzzr://34ea2834804d741389f616f1fdd40ac3d51db90e50eecd6f0d2242574bd9c677",
-        "dweb:/ipfs/QmWqj7iqwSrbqyLp24E8mEm5dcWYzBMDDXxiABkFoT1zRG"
+        "bzzr://5f7b9658b980f95e54f2da92b39e02af3e1c81a8aca603955c3492b72651e51c",
+        "dweb:/ipfs/QmdHxa1Z4fM3mFxueHba257rxyxD8Vjqg6a3n8GzvMQqFz"
       ]
     },
     {
@@ -353,11 +353,11 @@
       "version": "0.5.1",
       "build": "commit.c8a2cb62",
       "longVersion": "0.5.1+commit.c8a2cb62",
-      "keccak256": "0x80d3600d80ac443e749ef215dd4c61af5e586c2b009c57554a37d09e149ada91",
-      "sha256": "0x2247c72aeed7c794adecf2f355e2abd837df3ec7c4b0a89e0cb0d232cd71efb6",
+      "keccak256": "0x7135a9fd0c2e6cb403adbbd0534f22b8904bef330f5debaa4c240d7d5bdfd5ac",
+      "sha256": "0xf2bad43386065684b4e15b86a175410f5d1e4d234b052cba44eb50f4c74b021f",
       "urls": [
-        "bzzr://fa78e685b229b2fb79b423c754e6dd30a4547bfa5301462986e6df611e61aebb",
-        "dweb:/ipfs/QmfVwpcnBs4xN7NjxcuunBJfGq9xu5iaNLZr9n2CTHRDNd"
+        "bzzr://060a48f64c36ec851b09dfa80af17a219db1945b1bd078e61e2e59287e5f5477",
+        "dweb:/ipfs/QmejDUR2dLS5h6nrqt7x1pJ7seBoo82SJpRYBRW2qN2VDa"
       ]
     },
     {
@@ -365,11 +365,11 @@
       "version": "0.5.2",
       "build": "commit.1df8f40c",
       "longVersion": "0.5.2+commit.1df8f40c",
-      "keccak256": "0x0e206c9a10687d411b6a360ecf49a25299a43c0aac2580c4fb78ea6f17118f25",
-      "sha256": "0x23a8233b16040401a7e16e2ac4cfece52af996118de37cb7c4fdd4562f7786ec",
+      "keccak256": "0x7a87045680f25893ebd0d14c36113303ee36864c715dae6b6bf60eff7c6c6073",
+      "sha256": "0x9e7ee54f0bc2978fa8738b9603d636715a069d84771778d6195577bb91ecb9c8",
       "urls": [
-        "bzzr://bbb2f091d02794d964e3a13cd4a2b03a6787e549d3092e3eeb5be2a989531cc7",
-        "dweb:/ipfs/QmW5BVk6QuUg7wp6CfFmweoYi6kCE3pyxqi46DzspTH5Bd"
+        "bzzr://6f84855b70c094210e3e0edb4549d746135a441ea5fcc5f3ac0e6bdb3d64225d",
+        "dweb:/ipfs/QmPwnPkuf89E6H2U6mBjRUeMr6feD5YoAihnzd8a5HeQrF"
       ]
     },
     {
@@ -377,11 +377,11 @@
       "version": "0.5.3",
       "build": "commit.10d17f24",
       "longVersion": "0.5.3+commit.10d17f24",
-      "keccak256": "0xf233a0f22f87080f58833a45a8340a6d199e077b88a2e1c93b8ace0268a7cf96",
-      "sha256": "0x7e3766702ecf2499669b2502307fed00016164344e8ce54707cf3fe7e07bb9c1",
+      "keccak256": "0xa3e5beb407a5396463e4bb17a100cd8e19d00aa8bc76496af4dd7e96787c53b2",
+      "sha256": "0x03a6cfa2d74e57ea38eee83ce9a3ea37a6e50928d7f109e74b37cae31319af2b",
       "urls": [
-        "bzzr://b572e8e1377d6a24e8bde0dffc14089f64b4532bc2667698b1eac28ae9d73599",
-        "dweb:/ipfs/QmdBvUdaWV1Wwcah44PfZZw5oPsf98b634tTkTTF7kVtQn"
+        "bzzr://b0a16ff7c23c5da577edcacad06972d6cb7fafaa5c9215699ad99f0b4be9f8c7",
+        "dweb:/ipfs/QmYvHkxeXXk8sPUsVtzmetE2osWfEYB85PNhtQ2d7uxFKe"
       ]
     },
     {
@@ -389,11 +389,11 @@
       "version": "0.5.4",
       "build": "commit.9549d8ff",
       "longVersion": "0.5.4+commit.9549d8ff",
-      "keccak256": "0x059cbd8238e17616e94bcbe8bffe927e66d5e439bc1e3cfac098ba1c4e68b82e",
-      "sha256": "0x2ae1bf515b9b5054571850576c7812f96be950a0f23bb0aa5b612adf020649d0",
+      "keccak256": "0x6ac8af918e4121b072d51212a4648cbc3667f0aa7e50285cad1291577a08efb5",
+      "sha256": "0x32a8affa996d05c55257317cc700b9e5b4377d94919b59055564eb0b5f941773",
       "urls": [
-        "bzzr://ab098def204c5e6993859c91957665418e7967deaa7c110691fc0065f2173879",
-        "dweb:/ipfs/Qme5ey4cvGuyD2AZT7X6qTBFQRuypbRPJwVmywhTtiLZHS"
+        "bzzr://c7033e1e4fdf923304d28a5e188cb4f4a11bced6e3178c674cc843ed4c3583ed",
+        "dweb:/ipfs/QmUJFZ4To2PfV5rbqpjNCfBopZQ7VXzkLd4DiRYf5EFWN4"
       ]
     },
     {
@@ -401,11 +401,11 @@
       "version": "0.5.5",
       "build": "commit.47a71e8f",
       "longVersion": "0.5.5+commit.47a71e8f",
-      "keccak256": "0xd7a64120d9c0c8513e39e3deffea5aca2e08cd85f5720de3d24c30adf932124e",
-      "sha256": "0x3bc3186a8be9c6bc3bfdc1c2400660da3fe74d6068ceecc09c727dfb03d151b9",
+      "keccak256": "0x182fc3bd33895c32dbb0613113aecd72f59f4330e7e7bfe5c47646abbdd26cc7",
+      "sha256": "0x7fc0600cc150020402c9539ec0ad584eb9271b2d0e0bff9e3b4d4ca672be3452",
       "urls": [
-        "bzzr://88ad76b950c3cf6ddfac4f2f89c27c6525aea91d583f0a75e384b0678dd32f07",
-        "dweb:/ipfs/QmXUNwpwqdLEauSoQiGDZoJLV9dbg3ht63Df9VCmzfsSTL"
+        "bzzr://9bad36f6326e8adc929b3c95abd6c6580092e0a3508056773203ae34ca17830c",
+        "dweb:/ipfs/QmWp2yX7HF2sH61XsRkwqWmngXEdPnKtcz6Ah1pQopeMUj"
       ]
     },
     {
@@ -413,11 +413,11 @@
       "version": "0.5.6",
       "build": "commit.b259423e",
       "longVersion": "0.5.6+commit.b259423e",
-      "keccak256": "0x2e61f883211fd778f196ef43e961a39b164ee88af3efd2ed8b32580a714c4ff0",
-      "sha256": "0xc42fbbbee74b883751e1fc80e9aa8085049d3f9d7d62259f7a4223f20e000c5f",
+      "keccak256": "0x29720ecdacb43bad240afea74e98c21ee106ddcf9fba81a2046bcff698e66346",
+      "sha256": "0x428f9c0873d88740242f6fc16a3ae6f91b35f73ddf7676b5d5b39687d9d9b7dc",
       "urls": [
-        "bzzr://15c5609ecaa1e68bf3eeeb882959dbb411db2a5a2083735437bbce33e61fd196",
-        "dweb:/ipfs/QmTMN88wmn2dnoU3tG2fSefCkP653ct16M45QnB2qBT1g9"
+        "bzzr://f704edde1884e85980ebb07b8fb9feb32adcd605c19cb78a1195aa4021354d2e",
+        "dweb:/ipfs/QmSsdA3d2CzD2cMrhid4yDsTy1USkBWDYySLSsKJGvtPAc"
       ]
     },
     {
@@ -425,11 +425,11 @@
       "version": "0.5.7",
       "build": "commit.6da8b019",
       "longVersion": "0.5.7+commit.6da8b019",
-      "keccak256": "0x38299fab346ce5c8501aa4cb2c6cb7fa51894e94c8efb7622b5b238b874ed8e4",
-      "sha256": "0x347a77e29655fa4cd41d8651dcc6dddc3d967c8c8c52390c19907c4c462bda5c",
+      "keccak256": "0x02ffc634068a3930b72e9861207346ce033fc6710f11d288489f905b4c325815",
+      "sha256": "0xa7d6b8e3cb22d90789a79b484b721fe02943f89e9b7e996863edd2d40ba7b524",
       "urls": [
-        "bzzr://181b289c9cebe7e16a2aefa097a250b8895a6de9f6caccfb6b20566760eb47a8",
-        "dweb:/ipfs/QmNZaPsrz66f1wYT7X18RTHgfai644HpVATj9cah6Y9i9e"
+        "bzzr://dcf38cc06936a72f761c6b8eb77728d21d14e1130380a985893840c4f99fa140",
+        "dweb:/ipfs/QmamAAci8zMaxZ3zCdQMm3Hke5ChCqLbRR5zJiCCH27QQB"
       ]
     },
     {
@@ -437,11 +437,11 @@
       "version": "0.5.8",
       "build": "commit.23d335f2",
       "longVersion": "0.5.8+commit.23d335f2",
-      "keccak256": "0xacaef28d8758dbaa505d35f1208053b3bd276b20021b0046f86c3ce6cdf6e5fb",
-      "sha256": "0xe2d8d1f37ead457e2bbc593a8246c11e59fa9ec3c74da91758a7ccd8ca7827f6",
+      "keccak256": "0x0fc5f3026ac39048101bffae40a053f6da119e57c0154445cfabcea6dd716cb5",
+      "sha256": "0x9f383896c8506cd96ac5ef9c97d7ab1c385fb5f4772a5f3d2cf8715cae793554",
       "urls": [
-        "bzzr://1f91d936cfa7dfcf739512c4788fcb5fb48d5b340fc968cf8343952c4c8e149f",
-        "dweb:/ipfs/QmcYHZ3bABkX8CPznb6Z5DDfPC73LPCMSu8KHqM2izy4JX"
+        "bzzr://5256f697214601e713a377821707ab7aa81e00a86ba63cd0291683629d5c3db6",
+        "dweb:/ipfs/QmdqvCaENZmRPg6WCjh2hVhWTpnaU7yf2qvY5a3T4BMXXh"
       ]
     },
     {
@@ -449,11 +449,11 @@
       "version": "0.5.9",
       "build": "commit.c68bc34e",
       "longVersion": "0.5.9+commit.c68bc34e",
-      "keccak256": "0x32ab4fb9db905c7b803daf44b85082814b79a54a47ead055b0b2f85686ba7466",
-      "sha256": "0x510664cf41fdd391ba068490674407cb46364962345eae2b4273e768bf164321",
+      "keccak256": "0x0d4aa467fe96d5c934201f5265a5c940e556551e10bb630481f88ff59070b8d5",
+      "sha256": "0x92e3688207c0c2b86bd9d10088340e4a585e29e3a88d1cf79c2043f4f9f121c4",
       "urls": [
-        "bzzr://1c9acc235856e326d1402b8ac2c3a173f6c3c6015a56951fb1f4e2ef86a0d36d",
-        "dweb:/ipfs/QmYxafodrEMU7ySuTQJoyLAhxebkt6TKd512zYmYghipMN"
+        "bzzr://8b6991bceb463e4d1617c9e5bbb2f5fe40c435a5fcc76b8286f3581e56ae3cbd",
+        "dweb:/ipfs/QmYQEBMqCFzJAQgijj3AQUXx1b1UEEUmM6zHw3m8xQwrsA"
       ]
     },
     {
@@ -461,11 +461,11 @@
       "version": "0.5.10",
       "build": "commit.5a6ea5b1",
       "longVersion": "0.5.10+commit.5a6ea5b1",
-      "keccak256": "0x51ac2e87755e7fb56e02b8c16c0c57b869e869747f7a8b1c5269dff46308e666",
-      "sha256": "0xf621fc0a4b55b9520ad67001cbfe3c64117ee4849d34f86014dc0da8120b3dc9",
+      "keccak256": "0x001e08d9d1902a4f040e109b2b7e049371e687896409ad2de84dfe9b455bd547",
+      "sha256": "0x5082bb5c492ca35b68b0c3e24d5934b56d3add83f1400ba95654e8f163c741ff",
       "urls": [
-        "bzzr://3758d875ea5c471d1257194403c65776ceca19e9c9ff624d40fc6435e1b4002d",
-        "dweb:/ipfs/QmXjscYWKkNY3Y4iwondBUZmWBZEtZ5aKxxVdSGiMo6rkt"
+        "bzzr://bae78448cfca3858a555580c0824271eabfd1bf808a15adc68fc00a861b98e53",
+        "dweb:/ipfs/QmeXwGRydas256VMavRw4kPcT3fX1MY6LjZP28qmsnWPwx"
       ]
     },
     {
@@ -473,11 +473,11 @@
       "version": "0.5.11",
       "build": "commit.22be8592",
       "longVersion": "0.5.11+commit.22be8592",
-      "keccak256": "0xa9493e493fb495e64ef28b4d51ec3c18a8f480b5b7a7fc8120fe6ce11b0668f5",
-      "sha256": "0x3c0068a78a550e1e3f67e91a63ae3abd18fb3707ebcca4d15bd33661be19e726",
+      "keccak256": "0x6f0de51d7773d7670b5db78e143fd55809cd4490759311e018ad82b9f10d58a3",
+      "sha256": "0x0e8ee89ddb1096b81c34e11bdb5985822e749d3a9dc4e7218ba2474afa6400cb",
       "urls": [
-        "bzzr://fba29778cd15e6a82177ca936cf4849ff68b6c1b420c35a77a63bf1f964d2d29",
-        "dweb:/ipfs/QmTvFcRcNDVYSg9XnKsKQB5zqR446KJYXe2kGKq88UV8Z6"
+        "bzzr://83204b31d6fa5fafc94244922a04ff84a63d5089e61359aee3fcb76935d92f54",
+        "dweb:/ipfs/QmT4C8cecbPkS4vzkSYfA2KX1b4iqApEdQd4fswZr9K88u"
       ]
     },
     {
@@ -485,11 +485,11 @@
       "version": "0.5.12",
       "build": "commit.7709ece9",
       "longVersion": "0.5.12+commit.7709ece9",
-      "keccak256": "0x5b97cafaf43c81de61e22353d5c17edd470961198878cc5fffbe5aa9996d1b30",
-      "sha256": "0x8cde85108f69bc0e18708b11e30f0f3f6e0bb40a2cd2bbd3d91cd2462af8b106",
+      "keccak256": "0x815157d38845c5127c3dd3ab399ef90c6139019f6bf2a807a08e612e74439d35",
+      "sha256": "0x3dfb97bc941492afaea7f404c3fb9c6fe215b3386aa6e0370791b571e4679548",
       "urls": [
-        "bzzr://b53f8ec45cccd925929a644c9e20ae7e09049bc4abe56efe4ee5202465fb9175",
-        "dweb:/ipfs/QmRXCNTFPXx94jr7cTo3FFKxztbZhEW4heJ56UmCExyfGU"
+        "bzzr://cdcd3c916db81ad1f05405220069ee136a17d0f51db613e627fc8a36897b5b03",
+        "dweb:/ipfs/QmQhhZKvjDQVwP6eaahfro5srD4jZ1JxQwgUUUowi6NkaL"
       ]
     },
     {
@@ -497,11 +497,11 @@
       "version": "0.5.13",
       "build": "commit.5b0b510c",
       "longVersion": "0.5.13+commit.5b0b510c",
-      "keccak256": "0x61ed50e74344d6adb0ac36f93d2ddf7fb53fe27d1adcdbdf093395454f45950c",
-      "sha256": "0xf1c8280db503244e53e71263fbb151e8d1368308fda94da7b6e5d26a77853627",
+      "keccak256": "0x472dab91d5bc4f7a4066a66869da74075dc587d48bd1cec55814b01f1126b9b9",
+      "sha256": "0x68a344d9de40b0d7482089ee7748e43088c52e3b108480d801b34c64020beb48",
       "urls": [
-        "bzzr://7a47a3d5507c6169bd1c54bf94e2c427d7862fe3929fae5a880291aea5dea82b",
-        "dweb:/ipfs/QmTeGFBVWbFszQ2dRECfkbkEL7onteuuWpfdPV9aYhQ5t4"
+        "bzzr://9f15e79ade2f897c8a754887839c4aed352f37d3bbade568c269580c722563f6",
+        "dweb:/ipfs/QmXxM4YfZcq5np84wcCn762sm4XDxyjoMaKXtUaeunp6th"
       ]
     },
     {
@@ -509,11 +509,11 @@
       "version": "0.5.14",
       "build": "commit.01f1aaa4",
       "longVersion": "0.5.14+commit.01f1aaa4",
-      "keccak256": "0xf8374badabcb1998265d9af0a3b4d3963952cc8ed66d082e348a575f5d4d429c",
-      "sha256": "0x33834c634d0dc250298450e252f93e3923ed8777c7ebb9ece787566715f16500",
+      "keccak256": "0xcc9cddd6f0d0de2a39afaff31a063dc66eebe91b3c7bdd62e0152de4547bba07",
+      "sha256": "0x8afa926b6bb8ad492fb25078b1dce09fd05faa5765e4e2b2672b3c99cf71eeb1",
       "urls": [
-        "bzzr://fbc80dae699dc2cf46c2f9ea935124255064ab029e6d6a29862b6f199c389f9f",
-        "dweb:/ipfs/QmUemT7p5ybbTLYLmSoJEcqDbu4k6nxWFaiK2aJU18RPv6"
+        "bzzr://1bf2e4af9bebd83bf3dad7ff7bc6cfd1fa4571ea0627da66890cae3ae6f39c1d",
+        "dweb:/ipfs/QmQZsPrUCGcTnFiBgdvbAFhw5qoUp61Eer1Rxe71Eg7Db1"
       ]
     },
     {
@@ -521,11 +521,11 @@
       "version": "0.5.15",
       "build": "commit.6a57276f",
       "longVersion": "0.5.15+commit.6a57276f",
-      "keccak256": "0xf7cf4eeeab8f46705f5097ff0bb79940ad70018251d67d28b249d7f80d18df5a",
-      "sha256": "0xc881b3ee662416897002756342083f014aac30455d755b1fd820bc37b5b10343",
+      "keccak256": "0xf918ebb44bdc82a0129b4d0b2edeca7de44b5af66ded6765a784d23b2f344014",
+      "sha256": "0x9e05051c3d42a49c8470cbed1f2bfa89fe76e930a9e5558c52ce5653cf794e25",
       "urls": [
-        "bzzr://a2a7e2d211a447cd86bfeffaa8b7bc37ee93ded9565da6d471a431290fb7881a",
-        "dweb:/ipfs/QmZSo7gdfTZe9Yo31PP3dqWjFy9RGaSsKo2kRJ6YMqhYFR"
+        "bzzr://ebb5a9f6594feb4096866be5f43fe1e780454d405efd07f891c411d1be7beb8a",
+        "dweb:/ipfs/QmY5eKeMgFVxGgyzbVsmeEUurZyfQVUZ9hVoACf46iyN8R"
       ]
     },
     {
@@ -533,11 +533,11 @@
       "version": "0.5.16",
       "build": "commit.9c3226ce",
       "longVersion": "0.5.16+commit.9c3226ce",
-      "keccak256": "0xbb4910ccdeae52e7fe79615bd3c33b568212dd6ac241681dd39631effd76423b",
-      "sha256": "0xf7bd1cb8fd585866f6bd0f10518ce14c0823469415dbc15c2bffff968e0d448c",
+      "keccak256": "0xa8d1fa05cbf6d30c9d6cf4c0080d040c1518db7944ba943ec4a816f1b6f0b1bd",
+      "sha256": "0x9f6624e408497142bbd29efe0744ee25e445aeb7c932be401c0bc30478a6bb75",
       "urls": [
-        "bzzr://a0a7e1e74981e80baee238eaa4fc266f224048f0de938fee9787126dce292061",
-        "dweb:/ipfs/QmdBwdtDRf1H2QiZi87ku8s23zn3HM8egU7VWff9YnFM4g"
+        "bzzr://407abc296f3a4fbf71fdc1f413c5f32cdd66a2b525081a21524a6ab5608e870b",
+        "dweb:/ipfs/QmRwNXSmQj5m522CJNC8d9DEMPQ2ut6kNmDZQr4oUdS4jw"
       ]
     },
     {
@@ -545,11 +545,11 @@
       "version": "0.5.17",
       "build": "commit.d19bba13",
       "longVersion": "0.5.17+commit.d19bba13",
-      "keccak256": "0xf49d2861749ecc3597e48db3280c01a70df1a31ffb4d4246596ddbabcc6c4b8d",
-      "sha256": "0xee79ccd890836e0331c662383963a6317a87c1c77dec6ddb35f49c3bd619d772",
+      "keccak256": "0x1142bf5e71342697a0786a0032838299c3e106afd5c54960c9b44b5f60ac0760",
+      "sha256": "0x35be28f68488b71f1de66148f915b91d64e062900e4fc175bf2eb8fb948810bd",
       "urls": [
-        "bzzr://05b9c8df8654a5d85ee4b467032331aaf6223442bcfa4576d1de9adcf8fe759b",
-        "dweb:/ipfs/QmabYDys7apfFQeKpavxHCTVSR6uK3T9rxKQAB5SGUCGUB"
+        "bzzr://312c6aae351990e74291d8cdf9d732768c5bcc57fefae1a0aa3720d911a239d5",
+        "dweb:/ipfs/QmVXgA6QjWq8CTtvhysrru2QgjVdqx2Bd16iuADZ2eP9fC"
       ]
     },
     {
@@ -557,11 +557,11 @@
       "version": "0.6.0",
       "build": "commit.26b70077",
       "longVersion": "0.6.0+commit.26b70077",
-      "keccak256": "0xa1c2c1ae3efa97ca81af19494ca0b310bd11e2a3430b1d9974c9bfa6269431ff",
-      "sha256": "0xddda22dab0b453ea1e92af843279ad7f99b76e8ea53d2d52e0eec1825fe1ff92",
+      "keccak256": "0x7875c887df2e92df1163665db622d962e0336ccf9784549244f3595ed37e8570",
+      "sha256": "0x37beed8c8b947eba644cfd8c20446e1ba5d74055e6856b646dd6ad4bb470d9ae",
       "urls": [
-        "bzzr://2570e584ca95ac2cd82c51ba4fe060a07712e473f04ee711b21789e3d50eb9e6",
-        "dweb:/ipfs/QmZCXVnWzUJtdjLP1mVkKrkQLRoMKNyqGqU6N2mrtWqDAA"
+        "bzzr://600161db2bf70cdd1b150e4e6dc5dd08b642092d75a96994290aa8c59134bba9",
+        "dweb:/ipfs/QmSuT85oAvJFVfWj6PBRHgSAC4iQQ5uPTJFDpxC84aGtq9"
       ]
     },
     {

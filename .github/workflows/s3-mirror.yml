@@ -36,6 +36,11 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Render README.md to HTML
+        run: |
+          pip install markdown
+          echo "<html><body>$(python -m markdown README.md)</body></html>" > README.html
+
       - name: Sync the S3 bucket
         run: |
           ./sync-s3.sh "$S3_BUCKET"

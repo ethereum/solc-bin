@@ -20,6 +20,14 @@ jobs:
     timeout-minutes: 30
 
     steps:
+      - name: Remove unused software to free up space
+        run: |
+          # These are quick to delete and large enough to make a difference
+          rm -rf /usr/share/swift/                         # 1.3 GB in 80 subdirs
+          rm -rf /usr/local/lib/android/sdk/build-tools/   # 2.1 GB in 450 subdirs
+          rm -rf /usr/share/dotnet/shared/                 # 5.3 GB in 350 subdirs
+          rm -rf /usr/local/lib/android/sdk/ndk/           # 7.6 GB in 1500 subdirs
+
       - name: Wait for other instances of this workflow to finish
         # It's not safe to run two S3 sync operations concurrently with different files
         uses: softprops/turnstyle@v1

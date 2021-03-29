@@ -1,5 +1,6 @@
 
 var soljsonSources = [
+  "solc-emscripten-wasm32-v0.8.3+commit.194ff033.js",
   "solc-emscripten-wasm32-v0.8.3+commit.8d00100c.js",
   "solc-emscripten-wasm32-v0.8.2+commit.661d1103.js",
   "solc-emscripten-wasm32-v0.8.1+commit.df193b15.js",

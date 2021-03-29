@@ -1,1 +1,1 @@
-solc-emscripten-asmjs-v0.6.1+commit.e6f7d5a4.js
+solc-emscripten-asmjs-v0.8.3+commit.194ff033.js

@@ -791,6 +791,18 @@
         "bzzr://e71211a323d88983b6621576ddb6ed91dced1b520b93980389352f2484a2f162",
         "dweb:/ipfs/QmVt9NaXqy6ErmU7XAXiuo5hbTX66j2Ws3M23m46xmZRH8"
       ]
+    },
+    {
+      "path": "solc-windows-amd64-v0.8.3+commit.194ff033.zip",
+      "version": "0.8.3",
+      "build": "commit.194ff033",
+      "longVersion": "0.8.3+commit.194ff033",
+      "keccak256": "0xd3c42b28bf9970da9d6675672b19ec97aab4b33c243633ff041df748f340c953",
+      "sha256": "0x52e312b41980400cd37c9b7363cdf5d8f4efcaa0a1fd53ceb840e2837d6014f8",
+      "urls": [
+        "bzzr://193648d3588b3951a98dc4e767db199acd82fcc3a50a5a6e39d17e187b3a476d",
+        "dweb:/ipfs/QmbsVx5b7Y1jAr41C4PYHuH4sC8mhtg26yQoCppJzRxyjM"
+      ]
     }
   ],
   "releases": {

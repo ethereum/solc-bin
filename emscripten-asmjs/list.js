@@ -1,5 +1,6 @@
 
 var soljsonSources = [
+  "solc-emscripten-asmjs-v0.8.3+commit.194ff033.js",
   "solc-emscripten-asmjs-v0.6.1+commit.e6f7d5a4.js",
   "solc-emscripten-asmjs-v0.6.0+commit.26b70077.js",
   "solc-emscripten-asmjs-v0.5.17+commit.d19bba13.js",
@@ -69,6 +70,7 @@ var soljsonSources = [
   "solc-emscripten-asmjs-v0.1.1+commit.6ff4cd6.js"
 ];
 var soljsonReleases = {
+  "0.8.3": "solc-emscripten-asmjs-v0.8.3+commit.194ff033.js",
   "0.6.1": "solc-emscripten-asmjs-v0.6.1+commit.e6f7d5a4.js",
   "0.6.0": "solc-emscripten-asmjs-v0.6.0+commit.26b70077.js",
   "0.5.17": "solc-emscripten-asmjs-v0.5.17+commit.d19bba13.js",

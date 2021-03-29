@@ -707,6 +707,18 @@
         "bzzr://95d6a343a95590a185e7a34419ee0a55b1870979206f6d30bb1e780b33114d09",
         "dweb:/ipfs/Qmb1AFeoZzpy32zDG1A4dqRXwk6idm5z6pnxkv3rU1toLV"
       ]
+    },
+    {
+      "path": "solc-linux-amd64-v0.8.3+commit.194ff033",
+      "version": "0.8.3",
+      "build": "commit.194ff033",
+      "longVersion": "0.8.3+commit.194ff033",
+      "keccak256": "0x6cffb262a3498b98e59baa4f579ba92c9496c960ca37f675fbd17d179a31dbd1",
+      "sha256": "0x221ae33e12bda5c8b796c9abae2b2eb73e46d9b12128bfee451b12856f8b47ee",
+      "urls": [
+        "bzzr://246480c5502c5daea350af895c79213971672c5fdb85b7de93d27b20406c89a8",
+        "dweb:/ipfs/QmTTW8RScz5F9W9fyYMafyQKYP2y1XN5ZeJE89N55LU122"
+      ]
     }
   ],
   "releases": {

@@ -46,6 +46,7 @@ jobs:
         with:
           repository: 'ethereum/solidity'
           path: 'solidity/'
+          ref: solc-bin-version-check
           # bytecode_reports_for_modified_binaries.sh requires access to a working copy with full history
           fetch-depth: 0
 

@@ -1,5 +1,6 @@
 
 var soljsonSources = [
+  "solc-linux-amd64-v0.8.4+commit.c7e474f2",
   "solc-linux-amd64-v0.8.3+commit.8d00100c",
   "solc-linux-amd64-v0.8.2+commit.661d1103",
   "solc-linux-amd64-v0.8.1+commit.df193b15",
@@ -61,6 +62,7 @@ var soljsonSources = [
   "solc-linux-amd64-v0.4.10+commit.9e8cc01b"
 ];
 var soljsonReleases = {
+  "0.8.4": "solc-linux-amd64-v0.8.4+commit.c7e474f2",
   "0.8.3": "solc-linux-amd64-v0.8.3+commit.8d00100c",
   "0.8.2": "solc-linux-amd64-v0.8.2+commit.661d1103",
   "0.8.1": "solc-linux-amd64-v0.8.1+commit.df193b15",

@@ -66,7 +66,7 @@ jobs:
           "${base_dir}/solidity/scripts/solc-bin/bytecode_reports_for_modified_binaries.sh" \
             "$PLATFORM" \
             "origin/${{ github.base_ref }}" \
-            "${GITHUB_REF}" \
+            "origin/${GITHUB_HEAD_REF}" \
             "$base_dir/solc-bin" \
             "$base_dir/solidity"
 

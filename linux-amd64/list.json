@@ -197,11 +197,11 @@
       "version": "0.4.26",
       "build": "commit.4563c3fc",
       "longVersion": "0.4.26+commit.4563c3fc",
-      "keccak256": "0x0d5fcb9bc7534458207abbf64d9f93462bf70f8a7eae6ca259f627e4c1401b2d",
-      "sha256": "0x9f9da5a12fca278d75165f4ca75ee9d290d9f0bd8cabd59f16bf39cf0ac62192",
+      "keccak256": "0x5ee9bf00d10e712f1d43b94df82a17c4a2382a622f41ef67757f83fcbb0a604c",
+      "sha256": "0x5d577b3f7918dd735ab157e2f37a21d06c90469f13868359874f15184f2fa4d0",
       "urls": [
-        "bzzr://3a5c5800c1bc2b60b0c99cd8ed8bb74fdda09348a88d2b7099ba49346b8b0199",
-        "dweb:/ipfs/QmS3va55A2wvVvanqCtFzmhf4ePsuPdt7iFrNLUF6HXE7B"
+        "bzzr://ec7ce34dca7075d994468cfc407b0cddd2fd5d6426d5ba3bc7b9f0471304e11d",
+        "dweb:/ipfs/QmbVDnn2V5uvBZk6vBXSELYvQLZQfegQUNygn3nXMyfrTU"
       ]
     },
     {

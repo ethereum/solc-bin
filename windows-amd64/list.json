@@ -773,11 +773,11 @@
       "version": "0.8.2",
       "build": "commit.661d1103",
       "longVersion": "0.8.2+commit.661d1103",
-      "keccak256": "0xc44898ac42f8d63dff8e279e852855fb1e11d311e5239d3919e8da8f4c9ea47e",
-      "sha256": "0xb485e28e8254f3be0c5c29755ddbe34183a0c80d0f833b9cde7aee32254d3354",
+      "keccak256": "0xb9a01623672ba81da76e6ece5e1bd8f888218f544dedb8d9689d73cd03bd35c9",
+      "sha256": "0x4cf71f8ba00ebc278f3e36f4ddf2074e91e4786ba1278b778cbc05453c4b6c71",
       "urls": [
-        "bzzr://b431581ac55694f65aec45ad567c3013dc933eaf5ae865ab6488af0851261eca",
-        "dweb:/ipfs/QmWgkt7ZQnx7V6suBJZcWATW3YHkCrfzonhaJDSktkdza1"
+        "bzzr://1282031bdd1d4c93e048627285303f29ba92b82dcca5d61463b95cd659e04f8d",
+        "dweb:/ipfs/QmUtsVpQLx7MbqRGpZfkoSV4AKvy4NYHThpwTgMUaxYSqP"
       ]
     },
     {

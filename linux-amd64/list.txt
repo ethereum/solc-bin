@@ -1,3 +1,4 @@
+solc-linux-amd64-v0.8.5+commit.a4f2e591
 solc-linux-amd64-v0.8.4+commit.c7e474f2
 solc-linux-amd64-v0.8.3+commit.8d00100c
 solc-linux-amd64-v0.8.2+commit.661d1103

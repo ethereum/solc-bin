@@ -815,9 +815,22 @@
         "bzzr://13851c6174ee72fd94992fa4024a9aaaf2641e55cb74a6fe5400e8c02f49c3e8",
         "dweb:/ipfs/QmXAzMa68euYVhkWPmee1ouho8p1xH4FFNhQJ6SxTcVieW"
       ]
+    },
+    {
+      "path": "solc-windows-amd64-v0.8.6+commit.11564f7e.exe",
+      "version": "0.8.6",
+      "build": "commit.11564f7e",
+      "longVersion": "0.8.6+commit.11564f7e",
+      "keccak256": "0x7e48e2b4a8e5f80bc922007288b01ec1f2cd50f9a2f5a3dbfaf3f0f858c3f085",
+      "sha256": "0xe52b42739da41dfe8c902b0e65daf1447928af3311860abbb165acbb840df8fc",
+      "urls": [
+        "bzzr://63c3eeb047497d54e349d93ea2b8e4abc760cfd29a89b14c4eaaba19a698f84d",
+        "dweb:/ipfs/QmRnkwrjRPJsM96d4tsrDugn7StFaQSEKyFfK9aagmEq6c"
+      ]
     }
   ],
   "releases": {
+    "0.8.6": "solc-windows-amd64-v0.8.6+commit.11564f7e.exe",
     "0.8.5": "solc-windows-amd64-v0.8.5+commit.a4f2e591.exe",
     "0.8.4": "solc-windows-amd64-v0.8.4+commit.c7e474f2.exe",
     "0.8.3": "solc-windows-amd64-v0.8.3+commit.8d00100c.exe",
@@ -887,5 +900,5 @@
     "0.4.2": "solc-windows-amd64-v0.4.2+commit.af6afb04.zip",
     "0.4.1": "solc-windows-amd64-v0.4.1+commit.4fc6fc2c.zip"
   },
-  "latestRelease": "0.8.5"
+  "latestRelease": "0.8.6"
 }

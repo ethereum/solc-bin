@@ -13,6 +13,7 @@ on:
 env:
   S3_BUCKET: solc-bin
   S3_REGION: eu-central-1
+  CLOUDFRONT_DISTRIBUTION_ID: E1O6GT57WUFUHD
 
 jobs:
   push-to-s3:
@@ -51,4 +52,4 @@ jobs:
 
       - name: Sync the S3 bucket
         run: |
-          ./sync-s3.sh "$S3_BUCKET"
+          ./sync-s3.sh "$S3_BUCKET" "$CLOUDFRONT_DISTRIBUTION_ID"

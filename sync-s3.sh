@@ -44,8 +44,8 @@ done
 echo "===> Removing files that should not be uploaded to S3"
 # NOTE: This ensures that they will be deleted from the bucket if they're already there.
 # If we used `aws s3 sync --delete --exclude` instead, they would not get deleted.
-find -path './.*' -delete
-find -path './_*' -delete
+find . -path './.*' -delete
+find . -path './_*' -delete
 
 echo "===> Adding compatibility symlinks for files containing plus signs in the name"
 # NOTE: This is a quick'n'dirty workaround for Amazon S3 decoding plus sign in paths

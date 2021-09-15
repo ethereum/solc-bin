@@ -27,7 +27,8 @@ set -eo pipefail
 die() { >&2 echo "ERROR: $@" && false; }
 
 s3_bucket="$1"
-(( $# == 1 )) || die "Expected exactly 1 parameter."
+cloudfront_distribution_id="$2"
+(( $# == 2 )) || die "Expected exactly 2 parameters."
 
 [[ $(git rev-parse --is-shallow-repository) == false ]] || die "This script requires access to full git history to be able to set file timestamps correctly."
 
@@ -43,8 +44,8 @@ done
 echo "===> Removing files that should not be uploaded to S3"
 # NOTE: This ensures that they will be deleted from the bucket if they're already there.
 # If we used `aws s3 sync --delete --exclude` instead, they would not get deleted.
-find -path './.*' -delete
-find -path './_*' -delete
+find . -path './.*' -delete
+find . -path './_*' -delete
 
 echo "===> Adding compatibility symlinks for files containing plus signs in the name"
 # NOTE: This is a quick'n'dirty workaround for Amazon S3 decoding plus sign in paths
@@ -59,3 +60,17 @@ aws s3 sync . "s3://${s3_bucket}" --delete --follow-symlinks --no-progress --exc
 
 echo "===> Syncing file lists with the S3 bucket"
 aws s3 sync . "s3://${s3_bucket}" --delete --follow-symlinks --no-progress --exclude "*" --include "*/list.*"
+
+echo "===> Invalidating CloudFront cache"
+# Invalidate only the files that might change in-place when new binaries are added.
+# NOTE: Invalidation paths allow wildcards only as the last character. When used at
+# any other position, AWS will not report an error but will also not invalidate it.
+# NOTE: The code below assumes that paths do not contain whitespace.
+aws cloudfront create-invalidation \
+    --distribution-id "$cloudfront_distribution_id" \
+    --paths \
+        /bin/soljson-nightly.js \
+        /soljson.js \
+        $(find . -wholename '*/list.*' | cut --characters 2-) \
+        $(find . -wholename '*/*-latest' | cut --characters 2-) \
+        $(find . -wholename '*/*-latest.*' | cut --characters 2-)

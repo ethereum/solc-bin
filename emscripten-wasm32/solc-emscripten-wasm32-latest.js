@@ -1,1 +1,1 @@
-solc-emscripten-wasm32-v0.8.7+commit.e28d00a7.js
+solc-emscripten-wasm32-v0.8.8+commit.dddeac2f.js

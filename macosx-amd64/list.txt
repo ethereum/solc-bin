@@ -1,3 +1,4 @@
+solc-macosx-amd64-v0.8.8+commit.dddeac2f
 solc-macosx-amd64-v0.8.7+commit.e28d00a7
 solc-macosx-amd64-v0.8.6+commit.11564f7e
 solc-macosx-amd64-v0.8.5+commit.a4f2e591

@@ -15066,6 +15066,19 @@
       ]
     },
     {
+      "path": "soljson-v0.8.8-nightly.2021.9.27+commit.c3ef27f3.js",
+      "version": "0.8.8",
+      "prerelease": "nightly.2021.9.27",
+      "build": "commit.c3ef27f3",
+      "longVersion": "0.8.8-nightly.2021.9.27+commit.c3ef27f3",
+      "keccak256": "0x9c6d474687cf27ce9333503578f7cef807bd4b6d57e8f40fe8395a450c57bdc8",
+      "sha256": "0xaebfbc6916cc99fae3f976b6536612d1eb1bed133e7cc14c4a30d44388e13e80",
+      "urls": [
+        "bzzr://029821defe237537439cc8ea4165118b1278672e6d5de2576280e7248e26d026",
+        "dweb:/ipfs/Qma6qpvjNBiEtb1r8Qe2MVCC8cAfAiUutJj9W91uZeKqnn"
+      ]
+    },
+    {
       "path": "soljson-v0.8.8+commit.dddeac2f.js",
       "version": "0.8.8",
       "build": "commit.dddeac2f",

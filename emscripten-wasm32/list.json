@@ -887,9 +887,22 @@
         "bzzr://7543aa16521848b06a1359afcb9dbd7be1dd09a36f4ca53edd3ed3a512a475e9",
         "dweb:/ipfs/QmZaSrn3TPvPVoShtjSonQLFd3BV6RdgRMqw8GTzhnKYpm"
       ]
+    },
+    {
+      "path": "solc-emscripten-wasm32-v0.8.9+commit.e5eed63a.js",
+      "version": "0.8.9",
+      "build": "commit.e5eed63a",
+      "longVersion": "0.8.9+commit.e5eed63a",
+      "keccak256": "0xbc470ab3442e78bb4d3f16c01c39b2f160f4f34eb4373efed11c234e1c7f6ca0",
+      "sha256": "0x5b25f987aae32a0275fdc6c1be36cc47cf126024a04dafd8e4be39a1d1d1422c",
+      "urls": [
+        "bzzr://83bf64f11a09845a6eb732da08283a58f877e9227190f489c9852f790c81d0c4",
+        "dweb:/ipfs/QmfFq3MvisCSUJy8N8EVsBribgPbdpTZb7tQ2eHYw7dwag"
+      ]
     }
   ],
   "releases": {
+    "0.8.9": "solc-emscripten-wasm32-v0.8.9+commit.e5eed63a.js",
     "0.8.8": "solc-emscripten-wasm32-v0.8.8+commit.dddeac2f.js",
     "0.8.7": "solc-emscripten-wasm32-v0.8.7+commit.e28d00a7.js",
     "0.8.6": "solc-emscripten-wasm32-v0.8.6+commit.11564f7e.js",
@@ -965,5 +978,5 @@
     "0.4.0": "solc-emscripten-wasm32-v0.4.0+commit.acd334c9.js",
     "0.3.6": "solc-emscripten-wasm32-v0.3.6+commit.3fc68da5.js"
   },
-  "latestRelease": "0.8.8"
+  "latestRelease": "0.8.9"
 }

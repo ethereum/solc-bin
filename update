@@ -16,9 +16,14 @@ const swarmhash = require('swarmhash')
 // as well as the 'latest' and 'nightly' symlinks/files.
 
 const ipfsHash = async (content) => {
-  for await (const { cid } of ipfsImporter([{ content }], await inMemory(IPLD), { onlyHash: true })) {
-    return cid.toString()
+  const iterator = ipfsImporter.importer([{ content }], await inMemory(IPLD), { onlyHash: true })
+  const { value, done } = await iterator.next()
+  if (done) {
+    throw new Error('Failed to calculate an IPFS hash.')
   }
+
+  await iterator.return()
+  return value.cid.toString()
 }
 
 function generateLegacyListJS (builds, releases) {
@@ -231,6 +236,7 @@ function processDir (dir, options, listCallback) {
         if (version.prerelease === undefined) {
           return version
         }
+        return undefined
       })
       .map(function (version) {
         return version.version

@@ -183,21 +183,24 @@ function processDir (dir, options, listCallback) {
     }[dir] || ''
 
     // ascending list (oldest version first)
-    const parsedList = (await Promise.all(files
-      .filter(function (file) {
-        // Skip symbolic links with less then 8 characters in the commit hash.
-        // They exist only for backwards-compatibilty and should not be on the list.
-        return dir !== '/bin' ||
-          !file.isSymbolicLink() ||
-          file.name.match(/^.+\+commit\.[0-9a-f]{8,}\.js$/)
-      })
-      .map(function (file) { return file.name })
-      .map(function (file) {
-        const escapedExtensions = binaryExtensions.map(function (binaryExtension) { return binaryExtension.replace('.', '\\.') })
-        return file.match(new RegExp('^' + binaryPrefix + '-v([0-9.]*)(-([^+]*))?(\\+(.*))?(' + escapedExtensions.join('|') + ')$'))
-      })
-      .filter(function (version) { return version })
-      .map(async function (pars) { return await makeEntry(dir, pars, oldList) })
+    const parsedList = (await Promise.all(
+      files
+        .filter(function (file) {
+          // Skip symbolic links with less then 8 characters in the commit hash.
+          // They exist only for backwards-compatibilty and should not be on the list.
+          return dir !== '/bin' ||
+            !file.isSymbolicLink() ||
+            file.name.match(/^.+\+commit\.[0-9a-f]{8,}\.js$/)
+        })
+        .map(function (file) { return file.name })
+        .map(function (binaryName) {
+          const escapedExtensions = binaryExtensions.map(function (binaryExtension) {
+            return binaryExtension.replace('.', '\\.')
+          })
+          return binaryName.match(new RegExp('^' + binaryPrefix + '-v([0-9.]*)(-([^+]*))?(\\+(.*))?(' + escapedExtensions.join('|') + ')$'))
+        })
+        .filter(function (matchResult) { return matchResult !== null })
+        .map(async function (matchResult) { return await makeEntry(dir, matchResult, oldList) })
     ))
       .sort(function (a, b) {
         if (a.longVersion === b.longVersion) {
@@ -217,7 +220,8 @@ function processDir (dir, options, listCallback) {
 
     // descending list
     const releases = parsedList
-      .slice().reverse()
+      .slice()
+      .reverse()
       .reduce(function (prev, next) {
         if (next.prerelease === undefined) {
           prev[next.version] = next.path
@@ -227,19 +231,21 @@ function processDir (dir, options, listCallback) {
 
     // descending list
     const buildNames = parsedList
-      .slice().reverse()
-      .map(function (ver) { return ver.path })
+      .slice()
+      .reverse()
+      .map(function (listEntry) { return listEntry.path })
 
     const latestRelease = parsedList
-      .slice().reverse()
-      .filter(function (version) {
-        if (version.prerelease === undefined) {
-          return version
+      .slice()
+      .reverse()
+      .filter(function (listEntry) {
+        if (listEntry.prerelease === undefined) {
+          return listEntry
         }
         return undefined
       })
-      .map(function (version) {
-        return version.version
+      .map(function (listEntry) {
+        return listEntry.version
       })[0]
 
     // latest build (nightly)

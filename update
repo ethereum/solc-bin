@@ -316,18 +316,24 @@ function processDir (dir, options, listCallback) {
 }
 
 function parseCommandLine () {
-  if (process.argv.length > 3) {
-    console.error('Expected at most one argument, got ' + (process.argv.length - 2))
-    process.exit(1)
+  let reuseHashes
+
+  for (let i = 2; i < process.argv.length; ++i) {
+    if (process.argv[i] === '--reuse-hashes') {
+      reuseHashes = true
+    } else {
+      console.error("Invalid option: '" + process.argv[i] + "'.")
+      process.exit(1)
+    }
   }
 
-  if (process.argv.length === 3 && process.argv[2] !== '--reuse-hashes') {
-    console.error('Invalid argument: ' + process.argv[2])
-    process.exit(1)
+  // Defaults
+  if (reuseHashes === undefined) {
+    reuseHashes = false
   }
 
   return {
-    reuseHashes: process.argv.length === 3 && process.argv[2] === '--reuse-hashes'
+    reuseHashes: reuseHashes,
   }
 }
 

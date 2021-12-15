@@ -155,6 +155,18 @@ async function makeEntry (dir, parsedFileName, oldList) {
   return build
 }
 
+async function batchedAsyncMap (values, batchSize, asyncMapFunction) {
+  if (batchSize === null) {
+    batchSize = values.length
+  }
+
+  let results = []
+  for (let i = 0; i < values.length; i += batchSize) {
+    results = results.concat(await Promise.all(values.slice(i, i + batchSize).map(asyncMapFunction)))
+  }
+  return results
+}
+
 function processDir (dir, options, listCallback) {
   fs.readdir(path.join(__dirname, dir), { withFileTypes: true }, async function (err, files) {
     if (err) {
@@ -183,7 +195,7 @@ function processDir (dir, options, listCallback) {
     }[dir] || ''
 
     // ascending list (oldest version first)
-    const parsedList = (await Promise.all(files
+    const parsedFileNames = files
       .filter(function (file) {
         // Skip symbolic links with less then 8 characters in the commit hash.
         // They exist only for backwards-compatibilty and should not be on the list.
@@ -192,13 +204,17 @@ function processDir (dir, options, listCallback) {
           file.name.match(/^.+\+commit\.[0-9a-f]{8,}\.js$/)
       })
       .map(function (file) { return file.name })
-      .map(function (file) {
-        const escapedExtensions = binaryExtensions.map(function (binaryExtension) { return binaryExtension.replace('.', '\\.') })
-        return file.match(new RegExp('^' + binaryPrefix + '-v([0-9.]*)(-([^+]*))?(\\+(.*))?(' + escapedExtensions.join('|') + ')$'))
+      .map(function (binaryName) {
+        const escapedExtensions = binaryExtensions.map(function (binaryExtension) {
+          return binaryExtension.replace('.', '\\.')
+        })
+        return binaryName.match(new RegExp('^' + binaryPrefix + '-v([0-9.]*)(-([^+]*))?(\\+(.*))?(' + escapedExtensions.join('|') + ')$'))
       })
-      .filter(function (version) { return version })
-      .map(async function (pars) { return await makeEntry(dir, pars, oldList) })
-    ))
+      .filter(function (matchResult) { return matchResult !== null })
+
+    const parsedList = (await batchedAsyncMap(parsedFileNames, options.maxFilesPerBatch, async function (matchResult) {
+      return await makeEntry(dir, matchResult, oldList)
+    }))
       .sort(function (a, b) {
         if (a.longVersion === b.longVersion) {
           return 0
@@ -217,7 +233,8 @@ function processDir (dir, options, listCallback) {
 
     // descending list
     const releases = parsedList
-      .slice().reverse()
+      .slice()
+      .reverse()
       .reduce(function (prev, next) {
         if (next.prerelease === undefined) {
           prev[next.version] = next.path
@@ -227,19 +244,21 @@ function processDir (dir, options, listCallback) {
 
     // descending list
     const buildNames = parsedList
-      .slice().reverse()
-      .map(function (ver) { return ver.path })
+      .slice()
+      .reverse()
+      .map(function (listEntry) { return listEntry.path })
 
     const latestRelease = parsedList
-      .slice().reverse()
-      .filter(function (version) {
-        if (version.prerelease === undefined) {
-          return version
+      .slice()
+      .reverse()
+      .filter(function (listEntry) {
+        if (listEntry.prerelease === undefined) {
+          return listEntry
         }
         return undefined
       })
-      .map(function (version) {
-        return version.version
+      .map(function (listEntry) {
+        return listEntry.version
       })[0]
 
     // latest build (nightly)
@@ -310,18 +329,41 @@ function processDir (dir, options, listCallback) {
 }
 
 function parseCommandLine () {
-  if (process.argv.length > 3) {
-    console.error('Expected at most one argument, got ' + (process.argv.length - 2))
-    process.exit(1)
+  let reuseHashes
+  let maxFilesPerBatch
+
+  for (let i = 2; i < process.argv.length; ++i) {
+    if (process.argv[i] === '--reuse-hashes') {
+      reuseHashes = true
+    } else if (process.argv[i] === '--max-files-per-batch') {
+      if (i + 1 >= process.argv.length) {
+        console.error('Expected an integer argument after --max-files-per-batch.')
+        process.exit(1)
+      }
+
+      maxFilesPerBatch = parseInt(process.argv[i + 1], 10)
+      if (isNaN(maxFilesPerBatch) || maxFilesPerBatch <= 0) {
+        console.error("Expected the argument of --max-files-per-batch to be a positive integer, got '" + process.argv[i + 1] + "'.")
+        process.exit(1)
+      }
+      ++i
+    } else {
+      console.error("Invalid option: '" + process.argv[i] + "'.")
+      process.exit(1)
+    }
   }
 
-  if (process.argv.length === 3 && process.argv[2] !== '--reuse-hashes') {
-    console.error('Invalid argument: ' + process.argv[2])
-    process.exit(1)
+  // Defaults
+  if (reuseHashes === undefined) {
+    reuseHashes = false
+  }
+  if (maxFilesPerBatch === undefined) {
+    maxFilesPerBatch = null // no limit
   }
 
   return {
-    reuseHashes: process.argv.length === 3 && process.argv[2] === '--reuse-hashes'
+    reuseHashes: reuseHashes,
+    maxFilesPerBatch: maxFilesPerBatch
   }
 }
 

@@ -5,7 +5,7 @@ jobs:
     docker:
       # FIXME: sha3 package fails to build on latest node.js (version 17)
       - image: circleci/node:16
-    resource_class: xlarge
+    resource_class: small
     steps:
       - checkout
       - run: npm install

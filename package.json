@@ -16,7 +16,7 @@
   },
   "scripts": {
     "lint": "standard update",
-    "update": "./update",
+    "update": "./update --max-files-per-batch 1",
     "test": "git checkout -f && npm run update && git diff --exit-code"
   },
   "repository": {

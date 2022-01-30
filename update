@@ -684,8 +684,6 @@ class IPLDMock {
       await this.bs.put(block, options);
     }
 
-   // Block({ cid, bytes, value }: { cid: multiformat.CID; bytes: ByteView<any>; value: any; }): Block<any>
-
     return cid;
   }
 

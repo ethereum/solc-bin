@@ -17,6 +17,8 @@ const ipldDagPb = require('ipld-dag-pb')
 const ipldRaw = require('ipld-raw')
 const multicodec = require('multicodec')
 const typical = require('typical')
+const { Block } = require('multiformats/block')
+const { sha256 } = require('multiformats/hashes/sha2')
 
 // This script updates the index files list.js and list.txt in the directories containing binaries,
 // as well as the 'latest' and 'nightly' symlinks/files.
@@ -678,9 +680,11 @@ class IPLDMock {
     const cid = await formatImpl.util.cid(serialized, cidOptions);
 
     if (!options.onlyHash) {
-      const block = new Block(serialized, cid);
+      const block = new Block({ cid, bytes: serialized, codec: ipldDagCbor.codec, hasher: sha256  })
       await this.bs.put(block, options);
     }
+
+   // Block({ cid, bytes, value }: { cid: multiformat.CID; bytes: ByteView<any>; value: any; }): Block<any>
 
     return cid;
   }

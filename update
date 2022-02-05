@@ -1,22 +1,22 @@
 #!/usr/bin/env node
 
-"use strict";
+'use strict'
 
-const fs = require("fs");
-const util = require("util");
-const path = require("path");
-const semver = require("semver");
-const ethUtil = require("ethereumjs-util");
-const ipfsImporter = require("ipfs-unixfs-importer");
-const inMemory = require("ipld-in-memory");
-const swarmhash = require("swarmhash");
-const mergeOptions = require("merge-options");
+const fs = require('fs')
+const util = require('util')
+const path = require('path')
+const semver = require('semver')
+const ethUtil = require('ethereumjs-util')
+const ipfsImporter = require('ipfs-unixfs-importer')
+const inMemory = require('ipld-in-memory')
+const swarmhash = require('swarmhash')
+const mergeOptions = require('merge-options')
 const multiformat = require('multiformats')
 const ipldDagCbor = require('ipld-dag-cbor')
 const ipldDagPb = require('ipld-dag-pb')
 const ipldRaw = require('ipld-raw')
 const multicodec = require('multicodec')
-const typical = require('typical')
+const isIterable = require('is-iterable')
 const { Block } = require('multiformats/block')
 const { sha256 } = require('multiformats/hashes/sha2')
 
@@ -24,19 +24,17 @@ const { sha256 } = require('multiformats/hashes/sha2')
 // as well as the 'latest' and 'nightly' symlinks/files.
 
 const ipfsHash = async (content) => {
-  const iterator = ipfsImporter.importer([{ content }], await inMemory(IPLDMock), {
-    onlyHash: true,
-  });
-  const { value, done } = await iterator.next();
+  const iterator = ipfsImporter.importer([{ content }], await inMemory(IPLDMock), { onlyHash: true })
+  const { value, done } = await iterator.next()
   if (done) {
-    throw new Error("Failed to calculate an IPFS hash.");
+    throw new Error('Failed to calculate an IPFS hash.')
   }
 
-  await iterator.return();
-  return value.cid.toString();
-};
+  await iterator.return()
+  return value.cid.toString()
+}
 
-function generateLegacyListJS(builds, releases) {
+function generateLegacyListJS (builds, releases) {
   return `
 var soljsonSources = ${JSON.stringify(builds, null, 2)};
 var soljsonReleases = ${JSON.stringify(releases, null, 2)};
@@ -46,545 +44,449 @@ if (typeof(module) !== 'undefined')
     'allVersions': soljsonSources,
     'releases': soljsonReleases
   };
-`;
+`
 }
 
-function updateSymlinkSync(linkPathRelativeToRoot, targetRelativeToLink) {
-  const absoluteLinkPath = path.join(__dirname, linkPathRelativeToRoot);
-  let linkString;
+function updateSymlinkSync (linkPathRelativeToRoot, targetRelativeToLink) {
+  const absoluteLinkPath = path.join(__dirname, linkPathRelativeToRoot)
+  let linkString
 
   try {
-    linkString = fs.readlinkSync(absoluteLinkPath);
+    linkString = fs.readlinkSync(absoluteLinkPath)
 
     if (targetRelativeToLink !== linkString) {
-      fs.unlinkSync(absoluteLinkPath);
-      console.log(
-        "Removed link " + linkPathRelativeToRoot + " -> " + linkString
-      );
+      fs.unlinkSync(absoluteLinkPath)
+      console.log('Removed link ' + linkPathRelativeToRoot + ' -> ' + linkString)
     }
   } catch (err) {
-    if (err.code !== "ENOENT") {
-      throw err;
+    if (err.code !== 'ENOENT') {
+      throw err
     }
   }
 
   if (targetRelativeToLink !== linkString) {
-    fs.symlinkSync(targetRelativeToLink, absoluteLinkPath, "file");
-    console.log(
-      "Created link " + linkPathRelativeToRoot + " -> " + targetRelativeToLink
-    );
+    fs.symlinkSync(targetRelativeToLink, absoluteLinkPath, 'file')
+    console.log('Created link ' + linkPathRelativeToRoot + ' -> ' + targetRelativeToLink)
   }
 }
 
-function updateCopy(srcRelativeToRoot, destRelativeToRoot) {
+function updateCopy (srcRelativeToRoot, destRelativeToRoot) {
   fs.readFile(path.join(__dirname, srcRelativeToRoot), function (err, data) {
     if (err) {
-      throw err;
+      throw err
     }
 
-    const absoluteDest = path.join(__dirname, destRelativeToRoot);
+    const absoluteDest = path.join(__dirname, destRelativeToRoot)
     fs.stat(absoluteDest, function (err, stats) {
-      if (err && err.code !== "ENOENT") {
-        throw err;
+      if (err && err.code !== 'ENOENT') {
+        throw err
       }
 
       // If the target is a symlink, we want to replace it with a copy rather than overwrite the file it links to
       if (!err && stats.isSymbolicLink()) {
-        fs.unlinkSync(absoluteDest);
+        fs.unlinkSync(absoluteDest)
       }
 
       fs.writeFile(absoluteDest, data, function (err) {
         if (err) {
-          throw err;
+          throw err
         }
-        console.log("Updated " + destRelativeToRoot);
-      });
-    });
-  });
+        console.log('Updated ' + destRelativeToRoot)
+      })
+    })
+  })
 }
 
-function deleteIfExists(filePathRelativeToRoot) {
-  const absoluteFilePath = path.join(__dirname, filePathRelativeToRoot);
+function deleteIfExists (filePathRelativeToRoot) {
+  const absoluteFilePath = path.join(__dirname, filePathRelativeToRoot)
 
   fs.lstat(absoluteFilePath, function (err, stats) {
-    if (err && err.code !== "ENOENT") {
-      throw err;
+    if (err && err.code !== 'ENOENT') {
+      throw err
     }
 
     if (!err) {
-      console.log("Deleted " + filePathRelativeToRoot);
-      fs.unlinkSync(absoluteFilePath);
+      console.log('Deleted ' + filePathRelativeToRoot)
+      fs.unlinkSync(absoluteFilePath)
     }
-  });
+  })
 }
 
-function buildVersion(build) {
-  let version = build.version;
+function buildVersion (build) {
+  let version = build.version
   if (build.prerelease && build.prerelease.length > 0) {
-    version += "-" + build.prerelease;
+    version += '-' + build.prerelease
   }
   if (build.build && build.build.length > 0) {
-    version += "+" + build.build;
+    version += '+' + build.build
   }
-  return version;
+  return version
 }
 
-async function makeEntry(dir, parsedFileName, oldList) {
-  const pathRelativeToRoot = path.join(dir, parsedFileName[0]);
-  const absolutePath = path.join(__dirname, pathRelativeToRoot);
+async function makeEntry (dir, parsedFileName, oldList) {
+  const pathRelativeToRoot = path.join(dir, parsedFileName[0])
+  const absolutePath = path.join(__dirname, pathRelativeToRoot)
 
   const build = {
     path: parsedFileName[0],
     version: parsedFileName[1],
     prerelease: parsedFileName[3],
-    build: parsedFileName[5],
-  };
-  build.longVersion = buildVersion(build);
+    build: parsedFileName[5]
+  }
+  build.longVersion = buildVersion(build)
 
   if (oldList) {
-    const entries = oldList.builds.filter(
-      (entry) => entry.path === parsedFileName[0]
-    );
+    const entries = oldList.builds.filter(entry => (entry.path === parsedFileName[0]))
     if (entries) {
       if (entries.length >= 2) {
-        throw Error(
-          "Found multiple list.json entries for binary '" +
-            pathRelativeToRoot +
-            "'"
-        );
+        throw Error("Found multiple list.json entries for binary '" + pathRelativeToRoot + "'")
       } else if (entries.length === 1) {
-        build.keccak256 = entries[0].keccak256;
-        build.sha256 = entries[0].sha256;
-        build.urls = entries[0].urls;
+        build.keccak256 = entries[0].keccak256
+        build.sha256 = entries[0].sha256
+        build.urls = entries[0].urls
       }
     }
   }
 
-  if (
-    !build.sha256 ||
-    !build.keccak256 ||
-    !build.urls ||
-    build.urls.length !== 2
-  ) {
-    const readFile = util.promisify(fs.readFile);
-    const fileContent = await readFile(absolutePath);
-    build.keccak256 = "0x" + ethUtil.keccak(fileContent).toString("hex");
-    console.log("Computing hashes of '" + pathRelativeToRoot + "'");
-    build.sha256 = "0x" + ethUtil.sha256(fileContent).toString("hex");
+  if (!build.sha256 || !build.keccak256 || !build.urls || build.urls.length !== 2) {
+    const readFile = util.promisify(fs.readFile)
+    const fileContent = await readFile(absolutePath)
+    build.keccak256 = '0x' + ethUtil.keccak(fileContent).toString('hex')
+    console.log("Computing hashes of '" + pathRelativeToRoot + "'")
+    build.sha256 = '0x' + ethUtil.sha256(fileContent).toString('hex')
     build.urls = [
-      "bzzr://" + swarmhash(fileContent).toString("hex"),
-      "dweb:/ipfs/" + (await ipfsHash(fileContent)),
-    ];
+      'bzzr://' + swarmhash(fileContent).toString('hex'),
+      'dweb:/ipfs/' + await ipfsHash(fileContent)
+    ]
   }
 
-  return build;
+  return build
 }
 
-async function batchedAsyncMap(values, batchSize, asyncMapFunction) {
+async function batchedAsyncMap (values, batchSize, asyncMapFunction) {
   if (batchSize === null) {
-    batchSize = values.length;
+    batchSize = values.length
   }
 
-  let results = [];
+  let results = []
   for (let i = 0; i < values.length; i += batchSize) {
-    results = results.concat(
-      await Promise.all(values.slice(i, i + batchSize).map(asyncMapFunction))
-    );
+    results = results.concat(await Promise.all(values.slice(i, i + batchSize).map(asyncMapFunction)))
   }
-  return results;
+  return results
 }
 
-function processDir(dir, options, listCallback) {
-  fs.readdir(
-    path.join(__dirname, dir),
-    { withFileTypes: true },
-    async function (err, files) {
-      if (err) {
-        throw err;
+function processDir (dir, options, listCallback) {
+  fs.readdir(path.join(__dirname, dir), { withFileTypes: true }, async function (err, files) {
+    if (err) {
+      throw err
+    }
+
+    let oldList
+    if (options.reuseHashes) {
+      try {
+        oldList = JSON.parse(fs.readFileSync(path.join(__dirname, dir, '/list.json')))
+      } catch (err) {
+        // Not being able to read the existing list is not a critical error.
+        // We'll just recreate it from scratch.
       }
+    }
 
-      let oldList;
-      if (options.reuseHashes) {
-        try {
-          oldList = JSON.parse(
-            fs.readFileSync(path.join(__dirname, dir, "/list.json"))
-          );
-        } catch (err) {
-          // Not being able to read the existing list is not a critical error.
-          // We'll just recreate it from scratch.
-        }
-      }
+    const binaryPrefix = (dir === '/bin' || dir === '/wasm' ? 'soljson' : 'solc-' + dir.slice(1))
+    const binaryExtensions = {
+      '/bin': ['.js'],
+      '/wasm': ['.js'],
+      '/emscripten-asmjs': ['.js'],
+      '/emscripten-wasm32': ['.js'],
+      '/windows-amd64': ['.zip', '.exe'],
+      '/linux-amd64': [''],
+      '/macosx-amd64': ['']
+    }[dir] || ''
 
-      const binaryPrefix =
-        dir === "/bin" || dir === "/wasm" ? "soljson" : "solc-" + dir.slice(1);
-      const binaryExtensions =
-        {
-          "/bin": [".js"],
-          "/wasm": [".js"],
-          "/emscripten-asmjs": [".js"],
-          "/emscripten-wasm32": [".js"],
-          "/windows-amd64": [".zip", ".exe"],
-          "/linux-amd64": [""],
-          "/macosx-amd64": [""],
-        }[dir] || "";
-
-      // ascending list (oldest version first)
-      const parsedFileNames = files
-        .filter(function (file) {
-          // Skip symbolic links with less then 8 characters in the commit hash.
-          // They exist only for backwards-compatibilty and should not be on the list.
-          return (
-            dir !== "/bin" ||
-            !file.isSymbolicLink() ||
-            file.name.match(/^.+\+commit\.[0-9a-f]{8,}\.js$/)
-          );
+    // ascending list (oldest version first)
+    const parsedFileNames = files
+      .filter(function (file) {
+        // Skip symbolic links with less then 8 characters in the commit hash.
+        // They exist only for backwards-compatibilty and should not be on the list.
+        return dir !== '/bin' ||
+          !file.isSymbolicLink() ||
+          file.name.match(/^.+\+commit\.[0-9a-f]{8,}\.js$/)
+      })
+      .map(function (file) { return file.name })
+      .map(function (binaryName) {
+        const escapedExtensions = binaryExtensions.map(function (binaryExtension) {
+          return binaryExtension.replace('.', '\\.')
         })
-        .map(function (file) {
-          return file.name;
-        })
-        .map(function (binaryName) {
-          const escapedExtensions = binaryExtensions.map(function (
-            binaryExtension
-          ) {
-            return binaryExtension.replace(".", "\\.");
-          });
-          return binaryName.match(
-            new RegExp(
-              "^" +
-                binaryPrefix +
-                "-v([0-9.]*)(-([^+]*))?(\\+(.*))?(" +
-                escapedExtensions.join("|") +
-                ")$"
-            )
-          );
-        })
-        .filter(function (matchResult) {
-          return matchResult !== null;
-        });
+        return binaryName.match(new RegExp('^' + binaryPrefix + '-v([0-9.]*)(-([^+]*))?(\\+(.*))?(' + escapedExtensions.join('|') + ')$'))
+      })
+      .filter(function (matchResult) { return matchResult !== null })
 
-      const parsedList = (
-        await batchedAsyncMap(
-          parsedFileNames,
-          options.maxFilesPerBatch,
-          async function (matchResult) {
-            return await makeEntry(dir, matchResult, oldList);
-          }
-        )
-      ).sort(function (a, b) {
+    const parsedList = (await batchedAsyncMap(parsedFileNames, options.maxFilesPerBatch, async function (matchResult) {
+      return await makeEntry(dir, matchResult, oldList)
+    }))
+      .sort(function (a, b) {
         if (a.longVersion === b.longVersion) {
-          return 0;
+          return 0
         }
 
         // NOTE: a vs. b (the order is important), because we want oldest first on parsedList.
         // NOTE: If semver considers two versions equal we don't have enough info to say which came earlier
         // so we don't care about their relative order as long as it's deterministic.
-        return (
-          semver.compare(a.longVersion, b.longVersion) ||
-          (a.longVersion > b.longVersion ? -1 : 1)
-        );
-      });
+        return semver.compare(a.longVersion, b.longVersion) || (a.longVersion > b.longVersion ? -1 : 1)
+      })
 
-      // When the list is ready, let the callback process it
-      if (listCallback !== undefined) {
-        listCallback(parsedList);
+    // When the list is ready, let the callback process it
+    if (listCallback !== undefined) {
+      listCallback(parsedList)
+    }
+
+    // descending list
+    const releases = parsedList
+      .slice()
+      .reverse()
+      .reduce(function (prev, next) {
+        if (next.prerelease === undefined) {
+          prev[next.version] = next.path
+        }
+        return prev
+      }, {})
+
+    // descending list
+    const buildNames = parsedList
+      .slice()
+      .reverse()
+      .map(function (listEntry) { return listEntry.path })
+
+    const latestRelease = parsedList
+      .slice()
+      .reverse()
+      .filter(function (listEntry) {
+        if (listEntry.prerelease === undefined) {
+          return listEntry
+        }
+        return undefined
+      })
+      .map(function (listEntry) {
+        return listEntry.version
+      })[0]
+
+    // latest build (nightly)
+    const latestBuildFile = buildNames[0]
+
+    // latest release
+    const latestReleaseFile = releases[latestRelease]
+
+    // Write list.txt
+    // A descending list of file names.
+    fs.writeFile(path.join(__dirname, dir, '/list.txt'), buildNames.join('\n'), function (err) {
+      if (err) {
+        throw err
       }
+      console.log('Updated ' + dir + '/list.txt')
+    })
 
-      // descending list
-      const releases = parsedList
-        .slice()
-        .reverse()
-        .reduce(function (prev, next) {
-          if (next.prerelease === undefined) {
-            prev[next.version] = next.path;
-          }
-          return prev;
-        }, {});
-
-      // descending list
-      const buildNames = parsedList
-        .slice()
-        .reverse()
-        .map(function (listEntry) {
-          return listEntry.path;
-        });
-
-      const latestRelease = parsedList
-        .slice()
-        .reverse()
-        .filter(function (listEntry) {
-          if (listEntry.prerelease === undefined) {
-            return listEntry;
-          }
-          return undefined;
-        })
-        .map(function (listEntry) {
-          return listEntry.version;
-        })[0];
-
-      // latest build (nightly)
-      const latestBuildFile = buildNames[0];
-
-      // latest release
-      const latestReleaseFile = releases[latestRelease];
-
-      // Write list.txt
-      // A descending list of file names.
-      fs.writeFile(
-        path.join(__dirname, dir, "/list.txt"),
-        buildNames.join("\n"),
-        function (err) {
-          if (err) {
-            throw err;
-          }
-          console.log("Updated " + dir + "/list.txt");
-        }
-      );
-
-      // Write bin/list.json
-      // Ascending list of builds and descending map of releases.
-      fs.writeFile(
-        path.join(__dirname, dir, "/list.json"),
-        JSON.stringify(
-          {
-            builds: parsedList,
-            releases: releases,
-            latestRelease: latestRelease,
-          },
-          null,
-          2
-        ),
-        function (err) {
-          if (err) {
-            throw err;
-          }
-          console.log("Updated " + dir + "/list.json");
-        }
-      );
-
-      // Write bin/list.js
-      // Descending list of build filenames and descending map of releases.
-      fs.writeFile(
-        path.join(__dirname, dir, "/list.js"),
-        generateLegacyListJS(buildNames, releases),
-        function (err) {
-          if (err) {
-            throw err;
-          }
-          console.log("Updated " + dir + "/list.js");
-        }
-      );
-
-      // Update 'latest' symlink (except for wasm/ where the link is hard-coded to point at the one in bin/).
-      // bin/ is a special case because we need to keep a copy rather than a symlink. The reason is that
-      // some tools (in particular solc-js) have hard-coded github download URLs to it and can't handle symlinks.
-      if (dir !== "/wasm") {
-        const releaseExtension = binaryExtensions.find(function (extension) {
-          return latestReleaseFile.endsWith(extension);
-        });
-
-        binaryExtensions.forEach(function (extension) {
-          if (extension !== releaseExtension) {
-            deleteIfExists(
-              path.join(dir, binaryPrefix + "-latest" + extension)
-            );
-          }
-        });
-
-        if (dir === "/bin") {
-          updateCopy(
-            path.join(dir, latestReleaseFile),
-            path.join(dir, binaryPrefix + "-latest" + releaseExtension)
-          );
-        } else {
-          updateSymlinkSync(
-            path.join(dir, binaryPrefix + "-latest" + releaseExtension),
-            latestReleaseFile
-          );
-        }
+    // Write bin/list.json
+    // Ascending list of builds and descending map of releases.
+    fs.writeFile(path.join(__dirname, dir, '/list.json'), JSON.stringify({ builds: parsedList, releases: releases, latestRelease: latestRelease }, null, 2), function (err) {
+      if (err) {
+        throw err
       }
+      console.log('Updated ' + dir + '/list.json')
+    })
 
-      // Update 'nightly' symlink in bin/ (we don't have nightlies for other platforms)
-      if (dir === "/bin") {
-        const nightlyExtension = binaryExtensions.find(function (extension) {
-          return latestBuildFile.endsWith(extension);
-        });
+    // Write bin/list.js
+    // Descending list of build filenames and descending map of releases.
+    fs.writeFile(path.join(__dirname, dir, '/list.js'), generateLegacyListJS(buildNames, releases), function (err) {
+      if (err) {
+        throw err
+      }
+      console.log('Updated ' + dir + '/list.js')
+    })
 
-        binaryExtensions.forEach(function (extension) {
-          if (extension !== nightlyExtension) {
-            deleteIfExists(
-              path.join(dir, binaryPrefix + "-latest" + extension)
-            );
-          }
-        });
+    // Update 'latest' symlink (except for wasm/ where the link is hard-coded to point at the one in bin/).
+    // bin/ is a special case because we need to keep a copy rather than a symlink. The reason is that
+    // some tools (in particular solc-js) have hard-coded github download URLs to it and can't handle symlinks.
+    if (dir !== '/wasm') {
+      const releaseExtension = binaryExtensions.find(function (extension) { return latestReleaseFile.endsWith(extension) })
 
-        updateSymlinkSync(
-          path.join(dir, binaryPrefix + "-nightly" + nightlyExtension),
-          latestBuildFile
-        );
+      binaryExtensions.forEach(function (extension) {
+        if (extension !== releaseExtension) {
+          deleteIfExists(path.join(dir, binaryPrefix + '-latest' + extension))
+        }
+      })
+
+      if (dir === '/bin') {
+        updateCopy(path.join(dir, latestReleaseFile), path.join(dir, binaryPrefix + '-latest' + releaseExtension))
+      } else {
+        updateSymlinkSync(path.join(dir, binaryPrefix + '-latest' + releaseExtension), latestReleaseFile)
       }
     }
-  );
+
+    // Update 'nightly' symlink in bin/ (we don't have nightlies for other platforms)
+    if (dir === '/bin') {
+      const nightlyExtension = binaryExtensions.find(function (extension) { return latestBuildFile.endsWith(extension) })
+
+      binaryExtensions.forEach(function (extension) {
+        if (extension !== nightlyExtension) {
+          deleteIfExists(path.join(dir, binaryPrefix + '-latest' + extension))
+        }
+      })
+
+      updateSymlinkSync(path.join(dir, binaryPrefix + '-nightly' + nightlyExtension), latestBuildFile)
+    }
+  })
 }
 
-function parseCommandLine() {
-  let reuseHashes;
-  let maxFilesPerBatch;
+function parseCommandLine () {
+  let reuseHashes
+  let maxFilesPerBatch
 
   for (let i = 2; i < process.argv.length; ++i) {
-    if (process.argv[i] === "--reuse-hashes") {
-      reuseHashes = true;
-    } else if (process.argv[i] === "--max-files-per-batch") {
+    if (process.argv[i] === '--reuse-hashes') {
+      reuseHashes = true
+    } else if (process.argv[i] === '--max-files-per-batch') {
       if (i + 1 >= process.argv.length) {
-        console.error(
-          "Expected an integer argument after --max-files-per-batch."
-        );
-        process.exit(1);
+        console.error('Expected an integer argument after --max-files-per-batch.')
+        process.exit(1)
       }
 
-      maxFilesPerBatch = parseInt(process.argv[i + 1], 10);
+      maxFilesPerBatch = parseInt(process.argv[i + 1], 10)
       if (isNaN(maxFilesPerBatch) || maxFilesPerBatch <= 0) {
-        console.error(
-          "Expected the argument of --max-files-per-batch to be a positive integer, got '" +
-            process.argv[i + 1] +
-            "'."
-        );
-        process.exit(1);
+        console.error("Expected the argument of --max-files-per-batch to be a positive integer, got '" + process.argv[i + 1] + "'.")
+        process.exit(1)
       }
-      ++i;
+      ++i
     } else {
-      console.error("Invalid option: '" + process.argv[i] + "'.");
-      process.exit(1);
+      console.error("Invalid option: '" + process.argv[i] + "'.")
+      process.exit(1)
     }
   }
 
   // Defaults
   if (reuseHashes === undefined) {
-    reuseHashes = false;
+    reuseHashes = false
   }
   if (maxFilesPerBatch === undefined) {
-    maxFilesPerBatch = null; // no limit
+    maxFilesPerBatch = null // no limit
   }
 
   return {
     reuseHashes: reuseHashes,
-    maxFilesPerBatch: maxFilesPerBatch,
-  };
+    maxFilesPerBatch: maxFilesPerBatch
+  }
 }
 
-const DIRS = ["/bin", "/linux-amd64", "/macosx-amd64", "/windows-amd64"];
+const DIRS = [
+  '/bin',
+  '/linux-amd64',
+  '/macosx-amd64',
+  '/windows-amd64'
+]
 
-const options = parseCommandLine();
+const options = parseCommandLine()
 
 DIRS.forEach(function (dir) {
-  if (dir !== "/bin") {
-    processDir(dir, options);
+  if (dir !== '/bin') {
+    processDir(dir, options)
   } else {
     processDir(dir, options, function (parsedList) {
       // Any new releases added to bin/ need to be linked in other directories before we can start processing them.
       parsedList.forEach(function (release) {
         if (release.prerelease === undefined) {
           // Starting with 0.6.2 we no longer build asm.js releases and the new builds added to bin/ are all wasm.
-          if (semver.gt(release.version, "0.6.1")) {
+          if (semver.gt(release.version, '0.6.1')) {
             updateSymlinkSync(
-              path.join("/wasm", release.path),
-              path.join("..", "bin", release.path)
-            );
+              path.join('/wasm', release.path),
+              path.join('..', 'bin', release.path)
+            )
           } else {
             updateSymlinkSync(
-              path.join(
-                "/emscripten-asmjs",
-                "solc-emscripten-asmjs-v" + release.longVersion + ".js"
-              ),
-              path.join("..", "bin", release.path)
-            );
+              path.join('/emscripten-asmjs', 'solc-emscripten-asmjs-v' + release.longVersion + '.js'),
+              path.join('..', 'bin', release.path)
+            )
           }
         }
-      });
+      })
 
-      processDir("/emscripten-asmjs", options);
-      processDir("/wasm", options, function (parsedList) {
+      processDir('/emscripten-asmjs', options)
+      processDir('/wasm', options, function (parsedList) {
         // Any new releases added to wasm/ need to be linked in emscripten-wasm32/ first.
         parsedList.forEach(function (release) {
           if (release.prerelease === undefined) {
             updateSymlinkSync(
-              path.join(
-                "/emscripten-wasm32",
-                "solc-emscripten-wasm32-v" + release.longVersion + ".js"
-              ),
-              path.join("..", "wasm", release.path)
-            );
+              path.join('/emscripten-wasm32', 'solc-emscripten-wasm32-v' + release.longVersion + '.js'),
+              path.join('..', 'wasm', release.path)
+            )
           }
-        });
+        })
 
-        processDir("/emscripten-wasm32", options);
-      });
-    });
+        processDir('/emscripten-wasm32', options)
+      })
+    })
   }
-});
-
+})
 
 class IPLDMock {
-  constructor(userOptions) {
-    const options = mergeOptions({ formats: [ipldDagCbor, ipldDagPb, ipldRaw] }, userOptions);
+  constructor (userOptions) {
+    const options = mergeOptions({ formats: [ipldDagCbor, ipldDagPb, ipldRaw] }, userOptions)
 
     if (!options.blockService) {
-      throw new Error("Missing blockservice");
+      throw new Error('Missing blockservice')
     }
 
-    this.bs = options.blockService;
+    this.bs = options.blockService
 
     // Object with current list of active resolvers
     /** @type {{ [key: number]: IPLDFormat}} */
-    this.resolvers = {};
+    this.resolvers = {}
 
-    if (typeof options.loadFormat !== "function") {
+    if (typeof options.loadFormat !== 'function') {
       /**
        * @type {LoadFormatFn}
        */
       this.loadFormat = (codec) => {
-        const codecName = multicodec.getNameFromCode(codec);
-        throw new Error(`No resolver found for codec "${codecName}"`);
-      };
+        const codecName = multicodec.getNameFromCode(codec)
+        throw new Error(`No resolver found for codec "${codecName}"`)
+      }
     } else {
-      this.loadFormat = options.loadFormat;
+      this.loadFormat = options.loadFormat
     }
 
     // Enable all supplied formats
     for (const format of options.formats) {
-      this.addFormat(format);
+      this.addFormat(format)
     }
   }
 
-  addFormat(format) {
-    const codec = format.codec;
+  addFormat (format) {
+    const codec = format.codec
 
     if (this.resolvers[format.codec]) {
-      const codecName = multicodec.getNameFromCode(codec);
-      throw new Error(`Resolver already exists for codec "${codecName}"`);
+      const codecName = multicodec.getNameFromCode(codec)
+      throw new Error(`Resolver already exists for codec "${codecName}"`)
     }
 
-    this.resolvers[codec] = format;
+    this.resolvers[codec] = format
 
-    return this;
+    return this
   }
 
-  removeFormat(codec) {
+  removeFormat (codec) {
     if (this.resolvers[codec]) {
-      delete this.resolvers[codec];
+      delete this.resolvers[codec]
     }
 
-    return this;
+    return this
   }
 
-  resolve(cid, path, options) {
+  resolve (cid, path, options) {
     if (!multiformat.CID.isCID(cid)) {
-      throw new Error("`cid` argument must be a CID");
+      throw new Error('`cid` argument must be a CID')
     }
-    if (typeof path !== "string") {
-      throw new Error("`path` argument must be a string");
+    if (typeof path !== 'string') {
+      throw new Error('`path` argument must be a string')
     }
 
-    const generator = async function* () {
+    const generator = async function * () {
       // End iteration if there isn't a CID to follow any more
       while (true) {
         const format = await this.getFormat(multicodec.getCodeFromName(cid.codec))
@@ -592,120 +494,122 @@ class IPLDMock {
         // get block
         // use local resolver
         // update path value
-        const block = await this.bs.get(cid, options);
-        const result = format.resolver.resolve(block.data, path);
+        const block = await this.bs.get(cid, options)
+        const result = format.resolver.resolve(block.data, path)
 
         // Prepare for the next iteration if there is a `remainderPath`
-        path = result.remainderPath;
-        let value = result.value;
+        path = result.remainderPath
+        let value = result.value
         // NOTE vmx 2018-11-29: Not all IPLD Formats return links as
         // CIDs yet. Hence try to convert old style links to CIDs
-        if (Object.keys(value).length === 1 && "/" in value) {
+        if (Object.keys(value).length === 1 && '/' in value) {
           try {
-            value = new multiformat.CID.asCID(value["/"]);
+            value = multiformat.CID.asCID(value['/'])
           } catch (_error) {
-            value = null;
+            value = null
           }
         }
 
         yield {
           remainderPath: path,
-          value,
-        };
+          value
+        }
 
         if (multiformat.CID.isCID(value)) {
-          cid = value;
+          cid = value
         } else {
-          return;
+          return
         }
       }
-    };
+    }
 
     const ipld = this
 
-    return ipld.extendIterator(generator());
+    return ipld.extendIterator(generator())
   }
 
-  async get(cid, options) {
-    const block = await this.bs.get(cid, options);
+  async get (cid, options) {
+    const block = await this.bs.get(cid, options)
     const format = await this.getFormat(block.cid.codec)
     const node = format.util.deserialize(block.data)
 
-    return node;
+    return node
   }
 
-  getMany(cids, options) {
+  getMany (cids, options) {
     if (
-      !typical.isIterable(cids) ||
-      typeof cids === "string" ||
+      !isIterable(cids) ||
+      typeof cids === 'string' ||
       cids instanceof Uint8Array
     ) {
-      throw new Error("`cids` must be an iterable of CIDs");
+      throw new Error('`cids` must be an iterable of CIDs')
     }
 
     const ipld = this
 
     const generator = async function * () {
       for await (const cid of cids) {
-        yield ipld.get(cid, options);
+        yield ipld.get(cid, options)
       }
-    };
+    }
 
-    return ipld.extendIterator(generator());
+    return ipld.extendIterator(generator())
   }
 
-  async put(node, format, userOptions) {
+  async put (node, format, userOptions) {
     if (format === undefined) {
-      throw new Error("`put` requires a format");
+      throw new Error('`put` requires a format')
     }
-    if (typeof format !== "number") {
-      throw new Error("`format` parameter must be number (multicodec)");
+    if (typeof format !== 'number') {
+      throw new Error('`format` parameter must be number (multicodec)')
     }
 
     const formatImpl = await this.getFormat(format)
-    
     const defaultOptions = {
       hashAlg: formatImpl.defaultHashAlg,
       cidVersion: 1,
-      onlyHash: false,
-    };
-    const options = mergeOptions(defaultOptions, userOptions);
+      onlyHash: false
+    }
+    const options = Object.assign({}, mergeOptions(defaultOptions, userOptions))
 
     const cidOptions = {
       cidVersion: options.cidVersion,
       hashAlg: options.hashAlg,
-      onlyHash: options.onlyHash,
-    };
-    const serialized = formatImpl.util.serialize(node);
-    const cid = await formatImpl.util.cid(serialized, cidOptions);
+      onlyHash: options.onlyHash
+    }
+    const serialized = formatImpl.util.serialize(node)
+    const cid = await formatImpl.util.cid(serialized, cidOptions)
 
     if (!options.onlyHash) {
-      const block = new Block({ cid, bytes: serialized, codec: ipldDagCbor.codec, hasher: sha256  })
-      await this.bs.put(block, options);
+      const block = new Block({ cid, bytes: serialized, codec: ipldDagCbor.codec, hasher: sha256 })
+      await this.bs.put(block, options)
     }
 
-    return cid;
+    return cid
   }
 
-  putMany(nodes, format, userOptions) {
+  putMany (nodes, format, userOptions) {
     if (
-      !typical.isIterable(nodes) ||
-      typeof nodes === "string" ||
+      !isIterable(nodes) ||
+      typeof nodes === 'string' ||
       nodes instanceof Uint8Array
     ) {
-      throw new Error("`nodes` must be an iterable");
+      throw new Error('`nodes` must be an iterable')
     }
 
     if (format === undefined) {
-      throw new Error("`put` requires a format");
+      throw new Error('`put` requires a format')
     }
-    if (typeof format !== "number") {
-      throw new Error("`format` parameter must be number (multicodec)");
+    if (typeof format !== 'number') {
+      throw new Error('`format` parameter must be number (multicodec)')
     }
 
-    const ipld = this;
+    let options
+    let formatImpl
 
-    const generator = async function* () {
+    const ipld = this
+
+    const generator = async function * () {
       for await (const node of nodes) {
         // Lazy load the options not when the iterator is initialized, but
         // when we hit the first iteration. This way the constructor can be
@@ -715,55 +619,55 @@ class IPLDMock {
           const defaultOptions = {
             hashAlg: formatImpl.defaultHashAlg,
             cidVersion: 1,
-            onlyHash: false,
-          };
-          options = mergeOptions(defaultOptions, userOptions);
+            onlyHash: false
+          }
+          options = mergeOptions(defaultOptions, userOptions)
         }
 
-        yield ipld.put(node, format, options);
+        yield ipld.put(node, format, options)
       }
-    };
+    }
 
-    return ipld.extendIterator(generator());
+    return ipld.extendIterator(generator())
   }
 
-  async remove(cid, options) {
+  async remove (cid, options) {
     // eslint-disable-line require-await
-    return this.bs.delete(cid, options);
+    return this.bs.delete(cid, options)
   }
 
-  removeMany(cids, options) {
+  removeMany (cids, options) {
     if (
-      !typical.isIterable(cids) ||
-      typeof cids === "string" ||
+      !isIterable(cids) ||
+      typeof cids === 'string' ||
       cids instanceof Uint8Array
     ) {
-      throw new Error("`cids` must be an iterable of CIDs");
+      throw new Error('`cids` must be an iterable of CIDs')
     }
 
     const ipld = this
 
-    const generator = async function* () {
+    const generator = async function * () {
       for await (const cid of cids) {
-        yield ipld.remove(cid, options);
+        yield ipld.remove(cid, options)
       }
-    };
+    }
 
-    return ipld.extendIterator(generator());
+    return ipld.extendIterator(generator())
   }
 
-  tree(cid, offsetPath, userOptions) {
-    if (typeof offsetPath === "object") {
-      userOptions = offsetPath;
-      offsetPath = undefined;
+  tree (cid, offsetPath, userOptions) {
+    if (typeof offsetPath === 'object') {
+      userOptions = offsetPath
+      offsetPath = undefined
     }
-    offsetPath = offsetPath || "";
+    offsetPath = offsetPath || ''
 
     const defaultOptions = {
-      recursive: false,
-    };
+      recursive: false
+    }
 
-    const options = mergeOptions(defaultOptions, userOptions);
+    const options = mergeOptions(defaultOptions, userOptions)
 
     /**
      * If a path is a link then follow it and return its CID
@@ -774,27 +678,27 @@ class IPLDMock {
     const maybeRecurse = async (block, treePath) => {
       // A treepath we might want to follow recursively
 
-      const format = await this.getFormat(multicodec.getCodeFromName(block.cid.codec));
-      const result = format.resolver.resolve(block.data, treePath);
+      const format = await this.getFormat(multicodec.getCodeFromName(block.cid.codec))
+      const result = format.resolver.resolve(block.data, treePath)
       // Something to follow recursively, hence push it into the queue
       if (multiformat.CID.isCID(result.value)) {
-        return result.value;
+        return result.value
       }
-    };
+    }
 
     const ipld = this
 
-    const generator = async function* () {
+    const generator = async function * () {
       // The list of paths that will get returned
-      const treePaths = [];
+      const treePaths = []
       // The current block, needed to call `isLink()` on every iteration
-      let block;
+      let block
       // The list of items we want to follow recursively. The items are
       // an object consisting of the CID and the currently already resolved
       // path
-      const queue = [{ cid, basePath: "" }];
+      const queue = [{ cid, basePath: '' }]
       // The path that was already traversed
-      let basePath;
+      let basePath
 
       // End of iteration if there aren't any paths left to return or
       // if we don't want to traverse recursively and have already
@@ -802,29 +706,29 @@ class IPLDMock {
       while (treePaths.length > 0 || queue.length > 0) {
         // There aren't any paths left, get them from the given CID
         if (treePaths.length === 0 && queue.length > 0) {
-          const next = queue.shift();
+          const next = queue.shift()
 
           if (next) {
-            ({ cid, basePath } = next);
+            ({ cid, basePath } = next)
             const format = await ipld.getFormat(
               multicodec.getCodeFromName(cid.codec)
-            );
-            block = await this.bs.get(cid, options);
+            )
+            block = await this.bs.get(cid, options)
 
-            const paths = format.resolver.tree(block.data);
-            treePaths.push(...paths);
+            const paths = format.resolver.tree(block.data)
+            treePaths.push(...paths)
           }
         }
 
-        const treePath = treePaths.shift() || "";
-        let fullPath = basePath + treePath;
+        const treePath = treePaths.shift() || ''
+        let fullPath = basePath + treePath
 
         // Only follow links if recursion is intended
         if (options.recursive) {
-          const cid = await maybeRecurse(block, treePath);
+          const cid = await maybeRecurse(block, treePath)
 
           if (cid != null) {
-            queue.push({ cid, basePath: fullPath + "/" });
+            queue.push({ cid, basePath: fullPath + '/' })
           }
         }
 
@@ -836,46 +740,46 @@ class IPLDMock {
           fullPath.length > offsetPath.length
         ) {
           if (offsetPath.length > 0) {
-            fullPath = fullPath.slice(offsetPath.length + 1);
+            fullPath = fullPath.slice(offsetPath.length + 1)
           }
 
-          yield fullPath;
+          yield fullPath
         }
       }
-    };
+    }
 
-    return ipld.extendIterator(generator());
+    return ipld.extendIterator(generator())
   }
 
-  async getFormat(codec) {
+  async getFormat (codec) {
     // TODO vmx 2019-01-24: Once all CIDs support accessing the codec code
     // instead of the name, remove this part
-    if (typeof codec === "string") {
+    if (typeof codec === 'string') {
       codec = multicodec.getCodeFromName(codec)
     }
 
     if (this.resolvers[codec]) {
-      return this.resolvers[codec];
+      return this.resolvers[codec]
     }
 
     // If not supported, attempt to dynamically load this format
-    const format = await this.loadFormat(codec);
+    const format = await this.loadFormat(codec)
     if (this.resolvers[codec] == null) {
-      this.addFormat(format);
+      this.addFormat(format)
     } else {
-      return this.resolvers[codec];
+      return this.resolvers[codec]
     }
-    return format;
+    return format
   }
 
-  async extendIterator(iterator) {
-    iterator.first = () => {
+  extendIterator (iterator) {
+    iterator.first = async () => {
       for await (const value of iterator) { // eslint-disable-line no-unreachable-loop
         return value
       }
     }
 
-    iterator.last = () => {
+    iterator.last = async () => {
       let value
       for await (value of iterator) {
         // Intentionally empty
@@ -883,14 +787,12 @@ class IPLDMock {
       return value
     }
 
-    iterator.all = () => {
-      {
-        const values = []
-        for await (const value of iterator) {
-          values.push(value)
-        }
-        return values
+    iterator.all = async () => {
+      const values = []
+      for await (const value of iterator) {
+        values.push(value)
       }
+      return values
     }
-  } 
+  }
 }

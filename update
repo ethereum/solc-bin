@@ -12,6 +12,7 @@ const workerpool = require('workerpool')
 // as well as the 'latest' and 'nightly' symlinks/files.
 
 const readFile = util.promisify(fs.readFile)
+const readdir = util.promisify(fs.readdir)
 
 function generateLegacyListJS (builds, releases) {
   return `
@@ -101,159 +102,155 @@ async function batchedAsyncMap (values, batchSize, dir, oldList) {
   return (await Promise.all(batchPromises)).flat()
 }
 
-function processDir (dir, options, listCallback) {
-  fs.readdir(path.join(__dirname, dir), { withFileTypes: true }, async function (err, files) {
+async function processDir (dir, options, listCallback) {
+  const files = await readdir(path.join(__dirname, dir), { withFileTypes: true })
+
+  let oldList
+  if (options.reuseHashes) {
+    try {
+      const oldListFileContent = await readFile(path.join(__dirname, dir, '/list.json'))
+      oldList = JSON.parse(oldListFileContent.toString())
+    } catch (err) {
+      // Not being able to read the existing list is not a critical error.
+      // We'll just recreate it from scratch.
+    }
+  }
+
+  const binaryPrefix = (dir === '/bin' || dir === '/wasm' ? 'soljson' : 'solc-' + dir.slice(1))
+  const binaryExtensions = {
+    '/bin': ['.js'],
+    '/wasm': ['.js'],
+    '/emscripten-asmjs': ['.js'],
+    '/emscripten-wasm32': ['.js'],
+    '/windows-amd64': ['.zip', '.exe'],
+    '/linux-amd64': [''],
+    '/macosx-amd64': ['']
+  }[dir] || ''
+
+  // ascending list (oldest version first)
+  const parsedFileNames = files
+    .filter(function (file) {
+      // Skip symbolic links with less then 8 characters in the commit hash.
+      // They exist only for backwards-compatibilty and should not be on the list.
+      return dir !== '/bin' ||
+        !file.isSymbolicLink() ||
+        file.name.match(/^.+\+commit\.[0-9a-f]{8,}\.js$/)
+    })
+    .map(function (file) { return file.name })
+    .map(function (binaryName) {
+      const escapedExtensions = binaryExtensions.map(function (binaryExtension) {
+        return binaryExtension.replace('.', '\\.')
+      })
+      return binaryName.match(new RegExp('^' + binaryPrefix + '-v([0-9.]*)(-([^+]*))?(\\+(.*))?(' + escapedExtensions.join('|') + ')$'))
+    })
+    .filter(function (matchResult) { return matchResult !== null })
+
+  const parsedList = (await batchedAsyncMap(parsedFileNames, options.maxFilesPerBatch, dir, oldList))
+    .sort(function (a, b) {
+      if (a.longVersion === b.longVersion) {
+        return 0
+      }
+
+      // NOTE: a vs. b (the order is important), because we want oldest first on parsedList.
+      // NOTE: If semver considers two versions equal we don't have enough info to say which came earlier
+      // so we don't care about their relative order as long as it's deterministic.
+      return semver.compare(a.longVersion, b.longVersion) || (a.longVersion > b.longVersion ? -1 : 1)
+    })
+
+  // When the list is ready, let the callback process it
+  if (listCallback !== undefined) {
+    listCallback(parsedList)
+  }
+
+  // descending list
+  const releases = parsedList
+    .slice()
+    .reverse()
+    .reduce(function (prev, next) {
+      if (next.prerelease === null) {
+        prev[next.version] = next.path
+      }
+      return prev
+    }, {})
+
+  // descending list
+  const buildNames = parsedList
+    .slice()
+    .reverse()
+    .map(function (listEntry) { return listEntry.path })
+
+  const latestRelease = parsedList
+    .slice()
+    .reverse()
+    .filter(function (listEntry) { return listEntry.prerelease === null })
+    .map(function (listEntry) {
+      return listEntry.version
+    })[0]
+
+  // latest build (nightly)
+  const latestBuildFile = buildNames[0]
+
+  // latest release
+  const latestReleaseFile = releases[latestRelease]
+
+  // Write list.txt
+  // A descending list of file names.
+  fs.writeFile(path.join(__dirname, dir, '/list.txt'), buildNames.join('\n'), function (err) {
     if (err) {
       throw err
     }
-
-    let oldList
-    if (options.reuseHashes) {
-      try {
-        const oldListFileContent = await readFile(path.join(__dirname, dir, '/list.json'))
-        oldList = JSON.parse(oldListFileContent.toString())
-      } catch (err) {
-        // Not being able to read the existing list is not a critical error.
-        // We'll just recreate it from scratch.
-      }
-    }
-
-    const binaryPrefix = (dir === '/bin' || dir === '/wasm' ? 'soljson' : 'solc-' + dir.slice(1))
-    const binaryExtensions = {
-      '/bin': ['.js'],
-      '/wasm': ['.js'],
-      '/emscripten-asmjs': ['.js'],
-      '/emscripten-wasm32': ['.js'],
-      '/windows-amd64': ['.zip', '.exe'],
-      '/linux-amd64': [''],
-      '/macosx-amd64': ['']
-    }[dir] || ''
-
-    // ascending list (oldest version first)
-    const parsedFileNames = files
-      .filter(function (file) {
-        // Skip symbolic links with less then 8 characters in the commit hash.
-        // They exist only for backwards-compatibilty and should not be on the list.
-        return dir !== '/bin' ||
-          !file.isSymbolicLink() ||
-          file.name.match(/^.+\+commit\.[0-9a-f]{8,}\.js$/)
-      })
-      .map(function (file) { return file.name })
-      .map(function (binaryName) {
-        const escapedExtensions = binaryExtensions.map(function (binaryExtension) {
-          return binaryExtension.replace('.', '\\.')
-        })
-        return binaryName.match(new RegExp('^' + binaryPrefix + '-v([0-9.]*)(-([^+]*))?(\\+(.*))?(' + escapedExtensions.join('|') + ')$'))
-      })
-      .filter(function (matchResult) { return matchResult !== null })
-
-    const parsedList = (await batchedAsyncMap(parsedFileNames, options.maxFilesPerBatch, dir, oldList))
-      .sort(function (a, b) {
-        if (a.longVersion === b.longVersion) {
-          return 0
-        }
-
-        // NOTE: a vs. b (the order is important), because we want oldest first on parsedList.
-        // NOTE: If semver considers two versions equal we don't have enough info to say which came earlier
-        // so we don't care about their relative order as long as it's deterministic.
-        return semver.compare(a.longVersion, b.longVersion) || (a.longVersion > b.longVersion ? -1 : 1)
-      })
-
-    // When the list is ready, let the callback process it
-    if (listCallback !== undefined) {
-      listCallback(parsedList)
-    }
-
-    // descending list
-    const releases = parsedList
-      .slice()
-      .reverse()
-      .reduce(function (prev, next) {
-        if (next.prerelease === null) {
-          prev[next.version] = next.path
-        }
-        return prev
-      }, {})
-
-    // descending list
-    const buildNames = parsedList
-      .slice()
-      .reverse()
-      .map(function (listEntry) { return listEntry.path })
-
-    const latestRelease = parsedList
-      .slice()
-      .reverse()
-      .filter(function (listEntry) { return listEntry.prerelease === null })
-      .map(function (listEntry) {
-        return listEntry.version
-      })[0]
-
-    // latest build (nightly)
-    const latestBuildFile = buildNames[0]
-
-    // latest release
-    const latestReleaseFile = releases[latestRelease]
-
-    // Write list.txt
-    // A descending list of file names.
-    fs.writeFile(path.join(__dirname, dir, '/list.txt'), buildNames.join('\n'), function (err) {
-      if (err) {
-        throw err
-      }
-      console.log('Updated ' + dir + '/list.txt')
-    })
-
-    // Write bin/list.json
-    // Ascending list of builds and descending map of releases.
-    fs.writeFile(path.join(__dirname, dir, '/list.json'), JSON.stringify({ builds: parsedList, releases: releases, latestRelease: latestRelease }, null, 2), function (err) {
-      if (err) {
-        throw err
-      }
-      console.log('Updated ' + dir + '/list.json')
-    })
-
-    // Write bin/list.js
-    // Descending list of build filenames and descending map of releases.
-    fs.writeFile(path.join(__dirname, dir, '/list.js'), generateLegacyListJS(buildNames, releases), function (err) {
-      if (err) {
-        throw err
-      }
-      console.log('Updated ' + dir + '/list.js')
-    })
-
-    // Update 'latest' symlink (except for wasm/ where the link is hard-coded to point at the one in bin/).
-    // bin/ is a special case because we need to keep a copy rather than a symlink. The reason is that
-    // some tools (in particular solc-js) have hard-coded github download URLs to it and can't handle symlinks.
-    if (dir !== '/wasm') {
-      const releaseExtension = binaryExtensions.find(function (extension) { return latestReleaseFile.endsWith(extension) })
-
-      binaryExtensions.forEach(function (extension) {
-        if (extension !== releaseExtension) {
-          deleteIfExists(path.join(dir, binaryPrefix + '-latest' + extension))
-        }
-      })
-
-      if (dir === '/bin') {
-        updateCopy(path.join(dir, latestReleaseFile), path.join(dir, binaryPrefix + '-latest' + releaseExtension))
-      } else {
-        updateSymlinkSync(path.join(dir, binaryPrefix + '-latest' + releaseExtension), latestReleaseFile)
-      }
-    }
-
-    // Update 'nightly' symlink in bin/ (we don't have nightlies for other platforms)
-    if (dir === '/bin') {
-      const nightlyExtension = binaryExtensions.find(function (extension) { return latestBuildFile.endsWith(extension) })
-
-      binaryExtensions.forEach(function (extension) {
-        if (extension !== nightlyExtension) {
-          deleteIfExists(path.join(dir, binaryPrefix + '-latest' + extension))
-        }
-      })
-
-      updateSymlinkSync(path.join(dir, binaryPrefix + '-nightly' + nightlyExtension), latestBuildFile)
-    }
+    console.log('Updated ' + dir + '/list.txt')
   })
+
+  // Write bin/list.json
+  // Ascending list of builds and descending map of releases.
+  fs.writeFile(path.join(__dirname, dir, '/list.json'), JSON.stringify({ builds: parsedList, releases: releases, latestRelease: latestRelease }, null, 2), function (err) {
+    if (err) {
+      throw err
+    }
+    console.log('Updated ' + dir + '/list.json')
+  })
+
+  // Write bin/list.js
+  // Descending list of build filenames and descending map of releases.
+  fs.writeFile(path.join(__dirname, dir, '/list.js'), generateLegacyListJS(buildNames, releases), function (err) {
+    if (err) {
+      throw err
+    }
+    console.log('Updated ' + dir + '/list.js')
+  })
+
+  // Update 'latest' symlink (except for wasm/ where the link is hard-coded to point at the one in bin/).
+  // bin/ is a special case because we need to keep a copy rather than a symlink. The reason is that
+  // some tools (in particular solc-js) have hard-coded github download URLs to it and can't handle symlinks.
+  if (dir !== '/wasm') {
+    const releaseExtension = binaryExtensions.find(function (extension) { return latestReleaseFile.endsWith(extension) })
+
+    binaryExtensions.forEach(function (extension) {
+      if (extension !== releaseExtension) {
+        deleteIfExists(path.join(dir, binaryPrefix + '-latest' + extension))
+      }
+    })
+
+    if (dir === '/bin') {
+      updateCopy(path.join(dir, latestReleaseFile), path.join(dir, binaryPrefix + '-latest' + releaseExtension))
+    } else {
+      updateSymlinkSync(path.join(dir, binaryPrefix + '-latest' + releaseExtension), latestReleaseFile)
+    }
+  }
+
+  // Update 'nightly' symlink in bin/ (we don't have nightlies for other platforms)
+  if (dir === '/bin') {
+    const nightlyExtension = binaryExtensions.find(function (extension) { return latestBuildFile.endsWith(extension) })
+
+    binaryExtensions.forEach(function (extension) {
+      if (extension !== nightlyExtension) {
+        deleteIfExists(path.join(dir, binaryPrefix + '-latest' + extension))
+      }
+    })
+
+    updateSymlinkSync(path.join(dir, binaryPrefix + '-nightly' + nightlyExtension), latestBuildFile)
+  }
 }
 
 function parseCommandLine () {
@@ -327,31 +324,33 @@ const pool = workerpool.pool('./update-worker.js', {
   workerType: 'process'
 })
 
-DIRS.forEach(function (dir) {
-  if (dir !== '/bin') {
-    processDir(dir, options)
-  } else {
-    processDir(dir, options, function (parsedList) {
-      // Any new releases added to bin/ need to be linked in other directories before we can start processing them.
-      parsedList.forEach(function (release) {
-        if (release.prerelease === undefined) {
-          // Starting with 0.6.2 we no longer build asm.js releases and the new builds added to bin/ are all wasm.
-          if (semver.gt(release.version, '0.6.1')) {
-            updateSymlinkSync(
-              path.join('/wasm', release.path),
-              path.join('..', 'bin', release.path)
-            )
-          } else {
-            updateSymlinkSync(
-              path.join('/emscripten-asmjs', 'solc-emscripten-asmjs-v' + release.longVersion + '.js'),
-              path.join('..', 'bin', release.path)
-            )
+async function main () {
+  await Promise.all(DIRS.map(async function (dir) {
+    if (dir !== '/bin') {
+      await processDir(dir, options)
+    } else {
+      await processDir(dir, options, function (parsedList) {
+        // Any new releases added to bin/ need to be linked in other directories before we can start processing them.
+        parsedList.forEach(function (release) {
+          if (release.prerelease === undefined) {
+            // Starting with 0.6.2 we no longer build asm.js releases and the new builds added to bin/ are all wasm.
+            if (semver.gt(release.version, '0.6.1')) {
+              updateSymlinkSync(
+                path.join('/wasm', release.path),
+                path.join('..', 'bin', release.path)
+              )
+            } else {
+              updateSymlinkSync(
+                path.join('/emscripten-asmjs', 'solc-emscripten-asmjs-v' + release.longVersion + '.js'),
+                path.join('..', 'bin', release.path)
+              )
+            }
           }
-        }
+        })
       })
 
-      processDir('/emscripten-asmjs', options)
-      processDir('/wasm', options, function (parsedList) {
+      await processDir('/emscripten-asmjs', options)
+      await processDir('/wasm', options, function (parsedList) {
         // Any new releases added to wasm/ need to be linked in emscripten-wasm32/ first.
         parsedList.forEach(function (release) {
           if (release.prerelease === undefined) {
@@ -361,9 +360,13 @@ DIRS.forEach(function (dir) {
             )
           }
         })
-
-        processDir('/emscripten-wasm32', options)
       })
-    })
-  }
-})
+
+      await processDir('/emscripten-wasm32', options)
+    }
+  }))
+
+  pool.terminate()
+}
+
+main();

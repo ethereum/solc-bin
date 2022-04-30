@@ -3,28 +3,15 @@
 'use strict'
 
 const fs = require('fs')
-const util = require('util')
 const path = require('path')
+const util = require('util')
 const semver = require('semver')
-const ethUtil = require('ethereumjs-util')
-const ipfsImporter = require('ipfs-unixfs-importer')
-const IPLD = require('ipld')
-const inMemory = require('ipld-in-memory')
-const swarmhash = require('swarmhash')
+const workerpool = require('workerpool')
 
 // This script updates the index files list.js and list.txt in the directories containing binaries,
 // as well as the 'latest' and 'nightly' symlinks/files.
 
-const ipfsHash = async (content) => {
-  const iterator = ipfsImporter.importer([{ content }], await inMemory(IPLD), { onlyHash: true })
-  const { value, done } = await iterator.next()
-  if (done) {
-    throw new Error('Failed to calculate an IPFS hash.')
-  }
-
-  await iterator.return()
-  return value.cid.toString()
-}
+const readFile = util.promisify(fs.readFile)
 
 function generateLegacyListJS (builds, releases) {
   return `
@@ -104,67 +91,14 @@ function deleteIfExists (filePathRelativeToRoot) {
   })
 }
 
-function buildVersion (build) {
-  let version = build.version
-  if (build.prerelease && build.prerelease.length > 0) {
-    version += '-' + build.prerelease
-  }
-  if (build.build && build.build.length > 0) {
-    version += '+' + build.build
-  }
-  return version
-}
+async function batchedAsyncMap (values, batchSize, dir, oldList) {
+  const batchPromises = []
 
-async function makeEntry (dir, parsedFileName, oldList) {
-  const pathRelativeToRoot = path.join(dir, parsedFileName[0])
-  const absolutePath = path.join(__dirname, pathRelativeToRoot)
-
-  const build = {
-    path: parsedFileName[0],
-    version: parsedFileName[1],
-    prerelease: parsedFileName[3],
-    build: parsedFileName[5]
-  }
-  build.longVersion = buildVersion(build)
-
-  if (oldList) {
-    const entries = oldList.builds.filter(entry => (entry.path === parsedFileName[0]))
-    if (entries) {
-      if (entries.length >= 2) {
-        throw Error("Found multiple list.json entries for binary '" + pathRelativeToRoot + "'")
-      } else if (entries.length === 1) {
-        build.keccak256 = entries[0].keccak256
-        build.sha256 = entries[0].sha256
-        build.urls = entries[0].urls
-      }
-    }
-  }
-
-  if (!build.sha256 || !build.keccak256 || !build.urls || build.urls.length !== 2) {
-    const readFile = util.promisify(fs.readFile)
-    const fileContent = await readFile(absolutePath)
-    build.keccak256 = '0x' + ethUtil.keccak(fileContent).toString('hex')
-    console.log("Computing hashes of '" + pathRelativeToRoot + "'")
-    build.sha256 = '0x' + ethUtil.sha256(fileContent).toString('hex')
-    build.urls = [
-      'bzzr://' + swarmhash(fileContent).toString('hex'),
-      'dweb:/ipfs/' + await ipfsHash(fileContent)
-    ]
-  }
-
-  return build
-}
-
-async function batchedAsyncMap (values, batchSize, asyncMapFunction) {
-  if (batchSize === null) {
-    batchSize = values.length
-  }
-
-  let results = []
   for (let i = 0; i < values.length; i += batchSize) {
-    results = results.concat(await Promise.all(values.slice(i, i + batchSize).map(asyncMapFunction)))
+    batchPromises.push(pool.exec('workerMain', [dir, values.slice(i, i + batchSize), oldList]))
   }
-  return results
+
+  return (await Promise.all(batchPromises)).flat()
 }
 
 function processDir (dir, options, listCallback) {
@@ -176,7 +110,8 @@ function processDir (dir, options, listCallback) {
     let oldList
     if (options.reuseHashes) {
       try {
-        oldList = JSON.parse(fs.readFileSync(path.join(__dirname, dir, '/list.json')))
+        const oldListFileContent = await readFile(path.join(__dirname, dir, '/list.json'))
+        oldList = JSON.parse(oldListFileContent.toString())
       } catch (err) {
         // Not being able to read the existing list is not a critical error.
         // We'll just recreate it from scratch.
@@ -212,9 +147,7 @@ function processDir (dir, options, listCallback) {
       })
       .filter(function (matchResult) { return matchResult !== null })
 
-    const parsedList = (await batchedAsyncMap(parsedFileNames, options.maxFilesPerBatch, async function (matchResult) {
-      return await makeEntry(dir, matchResult, oldList)
-    }))
+    const parsedList = (await batchedAsyncMap(parsedFileNames, options.maxFilesPerBatch, dir, oldList))
       .sort(function (a, b) {
         if (a.longVersion === b.longVersion) {
           return 0
@@ -236,7 +169,7 @@ function processDir (dir, options, listCallback) {
       .slice()
       .reverse()
       .reduce(function (prev, next) {
-        if (next.prerelease === undefined) {
+        if (next.prerelease === null) {
           prev[next.version] = next.path
         }
         return prev
@@ -251,12 +184,7 @@ function processDir (dir, options, listCallback) {
     const latestRelease = parsedList
       .slice()
       .reverse()
-      .filter(function (listEntry) {
-        if (listEntry.prerelease === undefined) {
-          return listEntry
-        }
-        return undefined
-      })
+      .filter(function (listEntry) { return listEntry.prerelease === null })
       .map(function (listEntry) {
         return listEntry.version
       })[0]
@@ -331,6 +259,7 @@ function processDir (dir, options, listCallback) {
 function parseCommandLine () {
   let reuseHashes
   let maxFilesPerBatch
+  let maxWorkerProcesses
 
   for (let i = 2; i < process.argv.length; ++i) {
     if (process.argv[i] === '--reuse-hashes') {
@@ -347,6 +276,18 @@ function parseCommandLine () {
         process.exit(1)
       }
       ++i
+    } else if (process.argv[i] === '--max-worker-processes') {
+      if (i + 1 >= process.argv.length) {
+        console.error('Expected an integer argument after --max-worker-processes.')
+        process.exit(1)
+      }
+
+      maxWorkerProcesses = parseInt(process.argv[i + 1], 10)
+      if (isNaN(maxWorkerProcesses) || maxWorkerProcesses <= 0) {
+        console.error("Expected the argument of --max-worker-processes to be a positive integer, got '" + process.argv[i + 1] + "'.")
+        process.exit(1)
+      }
+      ++i
     } else {
       console.error("Invalid option: '" + process.argv[i] + "'.")
       process.exit(1)
@@ -358,12 +299,16 @@ function parseCommandLine () {
     reuseHashes = false
   }
   if (maxFilesPerBatch === undefined) {
-    maxFilesPerBatch = null // no limit
+    maxFilesPerBatch = 10 // Sensible default to not drown out a single worker
+  }
+  if (maxWorkerProcesses === undefined) {
+    maxWorkerProcesses = 1
   }
 
   return {
     reuseHashes: reuseHashes,
-    maxFilesPerBatch: maxFilesPerBatch
+    maxFilesPerBatch: maxFilesPerBatch,
+    maxWorkerProcesses: maxWorkerProcesses
   }
 }
 
@@ -375,6 +320,12 @@ const DIRS = [
 ]
 
 const options = parseCommandLine()
+
+const pool = workerpool.pool('./update-worker.js', {
+  maxWorkers: options.maxWorkerProcesses,
+  // Threads would be ideal, but do not work as expected due to an issue with the swarmhash module
+  workerType: 'process'
+})
 
 DIRS.forEach(function (dir) {
   if (dir !== '/bin') {

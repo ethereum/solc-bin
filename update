@@ -8,15 +8,86 @@ const path = require('path')
 const semver = require('semver')
 const ethUtil = require('ethereumjs-util')
 const ipfsImporter = require('ipfs-unixfs-importer')
-const IPLD = require('ipld')
 const inMemory = require('ipld-in-memory')
 const swarmhash = require('swarmhash')
+const Block = require('multiformats/block')
+const { CID } = require('multiformats/cid')
+const { sha256 } = require('multiformats/hashes/sha2')
+const dagCbor = require('@ipld/dag-cbor')
+const dagJson = require('@ipld/dag-json')
+const dagPb = require('@ipld/dag-pb')
+const raw = require('multiformats/codecs/raw')
+const multicodec = require('multicodec')
 
 // This script updates the index files list.js and list.txt in the directories containing binaries,
 // as well as the 'latest' and 'nightly' symlinks/files.
+class IPLDBlockstore {
+  constructor (defaultOptions) {
+    this.options = defaultOptions
+
+    if (!defaultOptions.blockService) {
+      throw new Error('Missing blockservice')
+    }
+
+    this.blockStore = defaultOptions.blockService
+  }
+
+  async put (node, format, options) {
+    if (format === undefined) {
+      throw new Error('`put` requires a format')
+    }
+
+    let codec
+
+    if (typeof format === 'number') {
+      codec = multicodec.getCodeFromName(format)
+    } else {
+      codec = multicodec.getCodeFromName(format.codec)
+    }
+    const formatUtil = this.getFormat(codec)
+    const bytes = formatUtil.encode(node)
+    const hash = await sha256.digest(bytes)
+    const cid = CID.create(1, formatUtil.code, hash)
+    const block = Block.create({ bytes, cid, hasher: sha256, codec })
+    const putOptions = Object.assign({}, options, this.options)
+
+    if (!putOptions.onlyHash) {
+      await this.blockstore.put(cid, block)
+    }
+
+    return cid
+  }
+
+  async get (cid) {
+    if (!CID.isCID(cid)) {
+      throw new Error('You must provide a valid CID')
+    }
+
+    const block = await this.blockstore.get(cid, this.options)
+    const formatUtil = this.getFormat(block.cid.codec)
+    const node = formatUtil.decode(block.bytes)
+
+    return node
+  }
+
+  getFormat (codec) {
+    switch (codec) {
+      case 'dag-pb':
+        return dagPb
+      case 'dag-cbor':
+        return dagCbor
+      case 'dag-json':
+        return dagJson
+      case 'raw':
+        return raw
+      default:
+        throw new Error('Invalid codec')
+    }
+  }
+}
 
 const ipfsHash = async (content) => {
-  const iterator = ipfsImporter.importer([{ content }], await inMemory(IPLD), { onlyHash: true })
+  const iterator = ipfsImporter.importer([{ content }], await inMemory(IPLDBlockstore), { onlyHash: true })
   const { value, done } = await iterator.next()
   if (done) {
     throw new Error('Failed to calculate an IPFS hash.')

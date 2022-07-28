@@ -1,5 +1,7 @@
 # solc-bin
 
+[![GitPOAP Badge](https://public-api.gitpoap.io/v1/repo/ethereum/solc-bin/badge)](https://www.gitpoap.io/gh/ethereum/solc-bin)
+
 This repository contains current and historical builds of the [Solidity Compiler](https://github.com/ethereum/solidity/).
 
 Please refer to the section on [Static Binaries](https://docs.soliditylang.org/en/latest/installing-solidity.html#static-binaries)

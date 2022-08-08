@@ -983,9 +983,22 @@
         "bzzr://ac5baefba32f4779a03d1207d9f1ed69365280c702fd73002a729b7a3d52c425",
         "dweb:/ipfs/QmPiBrYZxxpNZPQ98GNyL7Xa1F9Dq7uHtdt9ESwhPNkHhc"
       ]
+    },
+    {
+      "path": "soljson-v0.8.16+commit.07a7930e.js",
+      "version": "0.8.16",
+      "build": "commit.07a7930e",
+      "longVersion": "0.8.16+commit.07a7930e",
+      "keccak256": "0x331f4bc6de3d44d87b68629e83f711105325b482da7e9ca9bdbdd01371fee438",
+      "sha256": "0x27b2820ef93805a65c76b7945a49432582d306fd17a28985709a51e6403677c2",
+      "urls": [
+        "bzzr://af0d70945c85865298732ac2bfdacdf2774fb4daf793c94fafe135b839a60a5c",
+        "dweb:/ipfs/QmWzBJ8gdccvRSSB5YsMKiF2qt3RFmAP2X25QEWqqQnR4y"
+      ]
     }
   ],
   "releases": {
+    "0.8.16": "soljson-v0.8.16+commit.07a7930e.js",
     "0.8.15": "soljson-v0.8.15+commit.e14f2714.js",
     "0.8.14": "soljson-v0.8.14+commit.80d49f37.js",
     "0.8.13": "soljson-v0.8.13+commit.abaa5c0e.js",
@@ -1069,5 +1082,5 @@
     "0.4.0": "soljson-v0.4.0+commit.acd334c9.js",
     "0.3.6": "soljson-v0.3.6+commit.3fc68da5.js"
   },
-  "latestRelease": "0.8.15"
+  "latestRelease": "0.8.16"
 }

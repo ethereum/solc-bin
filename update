@@ -7,21 +7,24 @@ const util = require('util')
 const path = require('path')
 const semver = require('semver')
 const ethUtil = require('ethereumjs-util')
-const ipfsImporter = require('ipfs-unixfs-importer')
-const IPLD = require('ipld')
-const inMemory = require('ipld-in-memory')
 const swarmhash = require('swarmhash')
 
 // This script updates the index files list.js and list.txt in the directories containing binaries,
 // as well as the 'latest' and 'nightly' symlinks/files.
 
 const ipfsHash = async (content) => {
-  const iterator = ipfsImporter.importer([{ content }], await inMemory(IPLD), { onlyHash: true })
+  // Version ipfs-unixfs-importer@v10.0.0 dropped support to CommonJS, and it is now ESM-only.
+  // https://github.com/ipfs/js-ipfs-unixfs/blob/master/packages/ipfs-unixfs-importer/CHANGELOG.md#-breaking-changes-1
+  // FIXME: We need to migrate from CommonJS to ESM eventually.
+  // The below is a workaround to dynamically import the ESM modules at runtime from a CJS module
+  const { importer } = await import('ipfs-unixfs-importer')
+  const { MemoryBlockstore } = await import('blockstore-core/memory')
+
+  const iterator = importer([{ content }], new MemoryBlockstore(), { onlyHash: true })
   const { value, done } = await iterator.next()
   if (done) {
     throw new Error('Failed to calculate an IPFS hash.')
   }
-
   await iterator.return()
   return value.cid.toString()
 }

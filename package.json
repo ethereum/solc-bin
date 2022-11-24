@@ -12,7 +12,8 @@
     "ipld": "^0.30.2",
     "ipld-in-memory": "^8.0.0",
     "standard": "^16.0.4",
-    "swarmhash": "^0.1.1"
+    "swarmhash": "^0.1.1",
+    "workerpool": "^6.2.1"
   },
   "scripts": {
     "lint": "standard update",

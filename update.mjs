@@ -1,27 +1,36 @@
-#!/usr/bin/env node
-
-'use strict'
-
-const fs = require('fs')
-const util = require('util')
-const path = require('path')
-const semver = require('semver')
-const ethUtil = require('ethereumjs-util')
-const ipfsImporter = require('ipfs-unixfs-importer')
-const IPLD = require('ipld')
-const inMemory = require('ipld-in-memory')
-const swarmhash = require('swarmhash')
-
 // This script updates the index files list.js and list.txt in the directories containing binaries,
 // as well as the 'latest' and 'nightly' symlinks/files.
 
+import { fileURLToPath } from 'url'
+import { dirname, join } from 'path'
+
+import {
+  readlinkSync,
+  unlinkSync,
+  symlinkSync,
+  readFileSync,
+  writeFile,
+  readdir,
+  stat,
+  lstat
+} from 'fs'
+
+import semver from 'semver'
+import swarmhash from 'swarmhash'
+import { readFile as readFileAsync } from 'node:fs/promises'
+import { keccak, sha256 } from 'ethereumjs-util'
+import { importer } from 'ipfs-unixfs-importer'
+import { MemoryBlockstore } from 'blockstore-core/memory'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
 const ipfsHash = async (content) => {
-  const iterator = ipfsImporter.importer([{ content }], await inMemory(IPLD), { onlyHash: true })
+  const iterator = importer([{ content }], new MemoryBlockstore(), { onlyHash: true })
   const { value, done } = await iterator.next()
   if (done) {
     throw new Error('Failed to calculate an IPFS hash.')
   }
-
   await iterator.return()
   return value.cid.toString()
 }
@@ -40,14 +49,14 @@ if (typeof(module) !== 'undefined')
 }
 
 function updateSymlinkSync (linkPathRelativeToRoot, targetRelativeToLink) {
-  const absoluteLinkPath = path.join(__dirname, linkPathRelativeToRoot)
+  const absoluteLinkPath = join(__dirname, linkPathRelativeToRoot)
   let linkString
 
   try {
-    linkString = fs.readlinkSync(absoluteLinkPath)
+    linkString = readlinkSync(absoluteLinkPath)
 
     if (targetRelativeToLink !== linkString) {
-      fs.unlinkSync(absoluteLinkPath)
+      unlinkSync(absoluteLinkPath)
       console.log('Removed link ' + linkPathRelativeToRoot + ' -> ' + linkString)
     }
   } catch (err) {
@@ -57,29 +66,29 @@ function updateSymlinkSync (linkPathRelativeToRoot, targetRelativeToLink) {
   }
 
   if (targetRelativeToLink !== linkString) {
-    fs.symlinkSync(targetRelativeToLink, absoluteLinkPath, 'file')
+    symlinkSync(targetRelativeToLink, absoluteLinkPath, 'file')
     console.log('Created link ' + linkPathRelativeToRoot + ' -> ' + targetRelativeToLink)
   }
 }
 
 function updateCopy (srcRelativeToRoot, destRelativeToRoot) {
-  fs.readFile(path.join(__dirname, srcRelativeToRoot), function (err, data) {
+  readFileSync(join(__dirname, srcRelativeToRoot), function (err, data) {
     if (err) {
       throw err
     }
 
-    const absoluteDest = path.join(__dirname, destRelativeToRoot)
-    fs.stat(absoluteDest, function (err, stats) {
+    const absoluteDest = join(__dirname, destRelativeToRoot)
+    stat(absoluteDest, function (err, stats) {
       if (err && err.code !== 'ENOENT') {
         throw err
       }
 
       // If the target is a symlink, we want to replace it with a copy rather than overwrite the file it links to
       if (!err && stats.isSymbolicLink()) {
-        fs.unlinkSync(absoluteDest)
+        unlinkSync(absoluteDest)
       }
 
-      fs.writeFile(absoluteDest, data, function (err) {
+      writeFile(absoluteDest, data, function (err) {
         if (err) {
           throw err
         }
@@ -90,16 +99,16 @@ function updateCopy (srcRelativeToRoot, destRelativeToRoot) {
 }
 
 function deleteIfExists (filePathRelativeToRoot) {
-  const absoluteFilePath = path.join(__dirname, filePathRelativeToRoot)
+  const absoluteFilePath = join(__dirname, filePathRelativeToRoot)
 
-  fs.lstat(absoluteFilePath, function (err, stats) {
+  lstat(absoluteFilePath, function (err, stats) {
     if (err && err.code !== 'ENOENT') {
       throw err
     }
 
     if (!err) {
       console.log('Deleted ' + filePathRelativeToRoot)
-      fs.unlinkSync(absoluteFilePath)
+      unlinkSync(absoluteFilePath)
     }
   })
 }
@@ -116,8 +125,8 @@ function buildVersion (build) {
 }
 
 async function makeEntry (dir, parsedFileName, oldList) {
-  const pathRelativeToRoot = path.join(dir, parsedFileName[0])
-  const absolutePath = path.join(__dirname, pathRelativeToRoot)
+  const pathRelativeToRoot = join(dir, parsedFileName[0])
+  const absolutePath = join(__dirname, pathRelativeToRoot)
 
   const build = {
     path: parsedFileName[0],
@@ -141,11 +150,10 @@ async function makeEntry (dir, parsedFileName, oldList) {
   }
 
   if (!build.sha256 || !build.keccak256 || !build.urls || build.urls.length !== 2) {
-    const readFile = util.promisify(fs.readFile)
-    const fileContent = await readFile(absolutePath)
-    build.keccak256 = '0x' + ethUtil.keccak(fileContent).toString('hex')
+    const fileContent = await readFileAsync(absolutePath)
+    build.keccak256 = '0x' + keccak(fileContent).toString('hex')
     console.log("Computing hashes of '" + pathRelativeToRoot + "'")
-    build.sha256 = '0x' + ethUtil.sha256(fileContent).toString('hex')
+    build.sha256 = '0x' + sha256(fileContent).toString('hex')
     build.urls = [
       'bzzr://' + swarmhash(fileContent).toString('hex'),
       'dweb:/ipfs/' + await ipfsHash(fileContent)
@@ -168,7 +176,7 @@ async function batchedAsyncMap (values, batchSize, asyncMapFunction) {
 }
 
 function processDir (dir, options, listCallback) {
-  fs.readdir(path.join(__dirname, dir), { withFileTypes: true }, async function (err, files) {
+  readdir(join(__dirname, dir), { withFileTypes: true }, async function (err, files) {
     if (err) {
       throw err
     }
@@ -176,7 +184,7 @@ function processDir (dir, options, listCallback) {
     let oldList
     if (options.reuseHashes) {
       try {
-        oldList = JSON.parse(fs.readFileSync(path.join(__dirname, dir, '/list.json')))
+        oldList = JSON.parse(readFileSync(join(__dirname, dir, '/list.json')))
       } catch (err) {
         // Not being able to read the existing list is not a critical error.
         // We'll just recreate it from scratch.
@@ -269,7 +277,7 @@ function processDir (dir, options, listCallback) {
 
     // Write list.txt
     // A descending list of file names.
-    fs.writeFile(path.join(__dirname, dir, '/list.txt'), buildNames.join('\n'), function (err) {
+    writeFile(join(__dirname, dir, '/list.txt'), buildNames.join('\n'), function (err) {
       if (err) {
         throw err
       }
@@ -278,7 +286,7 @@ function processDir (dir, options, listCallback) {
 
     // Write bin/list.json
     // Ascending list of builds and descending map of releases.
-    fs.writeFile(path.join(__dirname, dir, '/list.json'), JSON.stringify({ builds: parsedList, releases: releases, latestRelease: latestRelease }, null, 2), function (err) {
+    writeFile(join(__dirname, dir, '/list.json'), JSON.stringify({ builds: parsedList, releases: releases, latestRelease: latestRelease }, null, 2), function (err) {
       if (err) {
         throw err
       }
@@ -287,7 +295,7 @@ function processDir (dir, options, listCallback) {
 
     // Write bin/list.js
     // Descending list of build filenames and descending map of releases.
-    fs.writeFile(path.join(__dirname, dir, '/list.js'), generateLegacyListJS(buildNames, releases), function (err) {
+    writeFile(join(__dirname, dir, '/list.js'), generateLegacyListJS(buildNames, releases), function (err) {
       if (err) {
         throw err
       }
@@ -302,14 +310,14 @@ function processDir (dir, options, listCallback) {
 
       binaryExtensions.forEach(function (extension) {
         if (extension !== releaseExtension) {
-          deleteIfExists(path.join(dir, binaryPrefix + '-latest' + extension))
+          deleteIfExists(join(dir, binaryPrefix + '-latest' + extension))
         }
       })
 
       if (dir === '/bin') {
-        updateCopy(path.join(dir, latestReleaseFile), path.join(dir, binaryPrefix + '-latest' + releaseExtension))
+        updateCopy(join(dir, latestReleaseFile), join(dir, binaryPrefix + '-latest' + releaseExtension))
       } else {
-        updateSymlinkSync(path.join(dir, binaryPrefix + '-latest' + releaseExtension), latestReleaseFile)
+        updateSymlinkSync(join(dir, binaryPrefix + '-latest' + releaseExtension), latestReleaseFile)
       }
     }
 
@@ -319,11 +327,11 @@ function processDir (dir, options, listCallback) {
 
       binaryExtensions.forEach(function (extension) {
         if (extension !== nightlyExtension) {
-          deleteIfExists(path.join(dir, binaryPrefix + '-latest' + extension))
+          deleteIfExists(join(dir, binaryPrefix + '-latest' + extension))
         }
       })
 
-      updateSymlinkSync(path.join(dir, binaryPrefix + '-nightly' + nightlyExtension), latestBuildFile)
+      updateSymlinkSync(join(dir, binaryPrefix + '-nightly' + nightlyExtension), latestBuildFile)
     }
   })
 }
@@ -387,13 +395,13 @@ DIRS.forEach(function (dir) {
           // Starting with 0.6.2 we no longer build asm.js releases and the new builds added to bin/ are all wasm.
           if (semver.gt(release.version, '0.6.1')) {
             updateSymlinkSync(
-              path.join('/wasm', release.path),
-              path.join('..', 'bin', release.path)
+              join('/wasm', release.path),
+              join('..', 'bin', release.path)
             )
           } else {
             updateSymlinkSync(
-              path.join('/emscripten-asmjs', 'solc-emscripten-asmjs-v' + release.longVersion + '.js'),
-              path.join('..', 'bin', release.path)
+              join('/emscripten-asmjs', 'solc-emscripten-asmjs-v' + release.longVersion + '.js'),
+              join('..', 'bin', release.path)
             )
           }
         }
@@ -405,8 +413,8 @@ DIRS.forEach(function (dir) {
         parsedList.forEach(function (release) {
           if (release.prerelease === undefined) {
             updateSymlinkSync(
-              path.join('/emscripten-wasm32', 'solc-emscripten-wasm32-v' + release.longVersion + '.js'),
-              path.join('..', 'wasm', release.path)
+              join('/emscripten-wasm32', 'solc-emscripten-wasm32-v' + release.longVersion + '.js'),
+              join('..', 'wasm', release.path)
             )
           }
         })

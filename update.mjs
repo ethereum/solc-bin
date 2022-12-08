@@ -118,6 +118,11 @@ function buildVersion (build) {
   if (build.prerelease && build.prerelease.length > 0) {
     version += '-' + build.prerelease
   }
+  // workaround for pre-0.4.0, where prereleases didn't bump the version
+  // NOTE: the text must be lexically after 'nightly'
+  if (semver.lt(build.version, '0.4.0')) {
+    version += '-workaround'
+  }
   if (build.build && build.build.length > 0) {
     version += '+' + build.build
   }

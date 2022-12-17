@@ -19565,6 +19565,19 @@
         "bzzr://9362ef87d472a2b437726ee5050c89e30b84495de0b6fd502c33617a30f043b3",
         "dweb:/ipfs/QmRBEE4gvKwJ7HftrYYCFpD1G18UwPzmzMP7fepueeXxuw"
       ]
+    },
+    {
+      "path": "soljson-v0.8.18-nightly.2022.12.16+commit.b053359b.js",
+      "version": "0.8.18",
+      "prerelease": "nightly.2022.12.16",
+      "build": "commit.b053359b",
+      "longVersion": "0.8.18-nightly.2022.12.16+commit.b053359b",
+      "keccak256": "0x263d0ca4e31b79416a161483c52203e551dbbfe7d6ec7419f018ebdf82be2919",
+      "sha256": "0x3cd1efcaae3012b8eadda075805ee3d5fc1efef53c1ff8147311aaf9aab1e219",
+      "urls": [
+        "bzzr://151a9f07f744a84b7620fb54e768cb622237bd32abaf2e77260f9bceec91d520",
+        "dweb:/ipfs/QmXYS8dzBgNub3LXiH8eBityfVNkTJxKeZuN6ZvcgJi8aE"
+      ]
     }
   ],
   "releases": {

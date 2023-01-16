@@ -206,7 +206,7 @@ function processDir (dir, options, listCallback) {
     const parsedFileNames = files
       .filter(function (file) {
         // Skip symbolic links with less then 8 characters in the commit hash.
-        // They exist only for backwards-compatibilty and should not be on the list.
+        // They exist only for backwards-compatibility and should not be on the list.
         return dir !== '/bin' ||
           !file.isSymbolicLink() ||
           file.name.match(/^.+\+commit\.[0-9a-f]{8,}\.js$/)

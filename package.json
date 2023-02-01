@@ -1,7 +1,6 @@
 {
   "private": true,
   "name": "solc-bin",
-  "type": "module",
   "version": "0.0.0",
   "description": "Current and historical (emscripten) binaries for Solidity",
   "dependencies": {

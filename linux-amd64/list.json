@@ -881,11 +881,11 @@
       "version": "0.8.18",
       "build": "commit.87f61d96",
       "longVersion": "0.8.18+commit.87f61d96",
-      "keccak256": "0x265ad8479d7c5d30ef3556c5c23efddbf1718c1112abd219a6add420489cf930",
-      "sha256": "0xa1c0f33eb4482c26f56719ecf62b0ee05d7d7a4f8264ffbddf9ebcd9095c32bd",
+      "keccak256": "0x932901581a2ef0795851363522811fa160db5561e34cbb306e7105b6bbc3834d",
+      "sha256": "0x95e6ed4949a63ad89afb443ecba1fb8302dd2860ee5e9baace3e674a0f48aa77",
       "urls": [
-        "bzzr://bc795017b74430520c9fd41300536f45d43edb74ca3c497ce2117d1954bbca12",
-        "dweb:/ipfs/QmPkAoHf5hNoZS9W7uZhrGgVTSPoCui3h9MEEKTTfSe8am"
+        "bzzr://61828ca55d703ddcd2ceff0e20a48ae6bca28a58b09725836893dc5f6b8e8018",
+        "dweb:/ipfs/Qmf68UBPAspGAh6TJ1F9zKLFy3WjvH6W43HvzWWGAUQXTv"
       ]
     }
   ],

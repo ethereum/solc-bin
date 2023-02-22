@@ -887,9 +887,22 @@
         "bzzr://61828ca55d703ddcd2ceff0e20a48ae6bca28a58b09725836893dc5f6b8e8018",
         "dweb:/ipfs/Qmf68UBPAspGAh6TJ1F9zKLFy3WjvH6W43HvzWWGAUQXTv"
       ]
+    },
+    {
+      "path": "solc-linux-amd64-v0.8.19+commit.7dd6d404",
+      "version": "0.8.19",
+      "build": "commit.7dd6d404",
+      "longVersion": "0.8.19+commit.7dd6d404",
+      "keccak256": "0x8da560f93223e19fbd973f12a29f765869559274aaeed3f795738ac433130ab9",
+      "sha256": "0x7a5c1d3dc9a8eba62bb2ec37192c9178ae5fe8a54a56e5573fd3c9c17cd9eb48",
+      "urls": [
+        "bzzr://49229e5b39418fb70d9aac067baba0a745ad1ce4c01ce1a97fe6a73bc416140c",
+        "dweb:/ipfs/Qmdpou1M3LCvJNUihLD2cmopbpbeKdhro1YvkT7KfpaTvt"
+      ]
     }
   ],
   "releases": {
+    "0.8.19": "solc-linux-amd64-v0.8.19+commit.7dd6d404",
     "0.8.18": "solc-linux-amd64-v0.8.18+commit.87f61d96",
     "0.8.17": "solc-linux-amd64-v0.8.17+commit.8df45f5f",
     "0.8.16": "solc-linux-amd64-v0.8.16+commit.07a7930e",
@@ -965,5 +978,5 @@
     "0.4.11": "solc-linux-amd64-v0.4.11+commit.68ef5810",
     "0.4.10": "solc-linux-amd64-v0.4.10+commit.9e8cc01b"
   },
-  "latestRelease": "0.8.18"
+  "latestRelease": "0.8.19"
 }

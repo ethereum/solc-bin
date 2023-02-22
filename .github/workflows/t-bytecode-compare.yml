@@ -27,6 +27,10 @@ jobs:
       PLATFORM: ${{ matrix.platform }}
 
     steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
       - name: Remove unused software to free up space
         # macOS runners apparently have > 70 GB free so it's only needed on Ubuntu
         if: "env.PLATFORM != 'macosx-amd64'"

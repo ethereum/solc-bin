@@ -118,6 +118,11 @@ jobs:
 
     if: "needs.build-emscripten-nightly.outputs.nightly-already-exists == 'false'"
     steps:
+      # TODO: remove when https://github.com/axic/keccakjs/issues/13 got fixed
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
       - name: Remove unused software to free up space
         run: |
           # These are quick to delete and large enough to make a difference

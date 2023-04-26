@@ -28,7 +28,7 @@ jobs:
           rm -rf /usr/share/dotnet/shared/                 # 5.3 GB in 350 subdirs
           rm -rf /usr/local/lib/android/sdk/ndk/           # 7.6 GB in 1500 subdirs
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           repository: 'ethereum/solidity'
           ref: 'develop'
@@ -78,7 +78,7 @@ jobs:
 
       - name: Upload soljson.js as an artifact
         if: "env.NIGHTLY_ALREADY_EXISTS == 'false'"
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: soljson.js
           path: solidity/upload/soljson.js
@@ -93,12 +93,12 @@ jobs:
 
     if: "needs.build-emscripten-nightly.outputs.nightly-already-exists == 'false'"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           repository: 'ethereum/solidity'
 
       - name: Download soljson.js artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: soljson.js
 
@@ -131,13 +131,13 @@ jobs:
           rm -rf /usr/share/dotnet/shared/                 # 5.3 GB in 350 subdirs
           rm -rf /usr/local/lib/android/sdk/ndk/           # 7.6 GB in 1500 subdirs
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: ${{ env.TARGET_BRANCH }}
           path: 'solc-bin'
 
       - name: Download soljson.js artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: soljson.js
 

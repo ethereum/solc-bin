@@ -42,7 +42,7 @@ jobs:
           rm -rf /usr/share/dotnet/shared/                 # 5.3 GB in 350 subdirs
           rm -rf /usr/local/lib/android/sdk/ndk/           # 7.6 GB in 1500 subdirs
 
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v3
         with:
           # Use the latest minor release of Python 3. prepare_report.py requires Python >= 3.7
           python-version: '3.x'

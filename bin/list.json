@@ -20265,6 +20265,19 @@
         "bzzr://fe5f1ec4066f25d2389fa38d6d482df144bfd8464112053eba4eb3844702d191",
         "dweb:/ipfs/Qmczeb11iQRLxkPdfpmdKRiKWXgvzjQtvEYgUQ7PaJrmWE"
       ]
+    },
+    {
+      "path": "soljson-v0.8.20-nightly.2023.5.9+commit.44a30e47.js",
+      "version": "0.8.20",
+      "prerelease": "nightly.2023.5.9",
+      "build": "commit.44a30e47",
+      "longVersion": "0.8.20-nightly.2023.5.9+commit.44a30e47",
+      "keccak256": "0x6e8d875627264ea84f2b4900913cdd362f8455fe87ebbcb4513a49233647f098",
+      "sha256": "0x9d851505ef6d7b607f42b670cc81d5914d79574eef9bb16e0121bb723ab1a94b",
+      "urls": [
+        "bzzr://bc108644bcf843cb3dd35e87b1ebe355f20f3524f066c2c37da4587431b1b7fc",
+        "dweb:/ipfs/QmZMzxvvG36vNjF2VSrGrEc74UiydeYmvC7xTUrKGE73Qy"
+      ]
     }
   ],
   "releases": {

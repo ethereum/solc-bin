@@ -41,7 +41,7 @@ jobs:
           aws configure set aws_access_key_id '${{ secrets.AWS_ACCESS_KEY_ID }}'
           aws configure set aws_secret_access_key '${{ secrets.AWS_SECRET_ACCESS_KEY }}'
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 

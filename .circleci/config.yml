@@ -4,7 +4,7 @@ jobs:
   chk_npm_lint_and_test:
     docker:
       # FIXME: sha3 package fails to build on latest node.js (version 17)
-      - image: circleci/node:16
+      - image: cimg/node:16.20
     resource_class: small
     steps:
       - checkout

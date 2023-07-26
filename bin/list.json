@@ -20822,6 +20822,19 @@
         "bzzr://46f03d20d7631ed84e94619adda87aadb00801e78f43d40ba4ca447daa62c1ad",
         "dweb:/ipfs/QmapTBV1RRJWVwVHTPkN8Qr53Wv8PPms2kENsnpC9n5Kcc"
       ]
+    },
+    {
+      "path": "soljson-v0.8.22-nightly.2023.7.25+commit.95beef40.js",
+      "version": "0.8.22",
+      "prerelease": "nightly.2023.7.25",
+      "build": "commit.95beef40",
+      "longVersion": "0.8.22-nightly.2023.7.25+commit.95beef40",
+      "keccak256": "0xef9d502d731899b3d70f85174e9f7e37da1965b2121bc3e11bac2a9abe7c0361",
+      "sha256": "0x5cce89cae5e57879527c6a5dce299106ca6ca51e792bc47adced35525d30c8f7",
+      "urls": [
+        "bzzr://1889b9b10e091389b5081f9cf3a3802d9a66dc1b7ad48638b18a37cae49f9898",
+        "dweb:/ipfs/QmSX51pYZQeyzCuMAjuLc1HAVxYSxXHHuueC49sh7b7WeE"
+      ]
     }
   ],
   "releases": {

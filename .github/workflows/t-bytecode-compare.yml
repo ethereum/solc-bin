@@ -42,19 +42,19 @@ jobs:
           rm -rf /usr/share/dotnet/shared/                 # 5.3 GB in 350 subdirs
           rm -rf /usr/local/lib/android/sdk/ndk/           # 7.6 GB in 1500 subdirs
 
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v3
         with:
           # Use the latest minor release of Python 3. prepare_report.py requires Python >= 3.7
           python-version: '3.x'
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           repository: 'ethereum/solidity'
           path: 'solidity/'
           # bytecode_reports_for_modified_binaries.sh requires access to a working copy with full history
           fetch-depth: 0
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: ${{ env.GITHUB_REF }}
           path: 'solc-bin/'
@@ -76,7 +76,7 @@ jobs:
             "$base_dir/solidity"
 
       - name: Upload reports
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ${{ matrix.platform }}
           path: reports/*
@@ -86,13 +86,13 @@ jobs:
     needs: generate
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           repository: 'ethereum/solidity'
           path: 'solidity/'
 
       - name: Download all artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           path: reports/
 

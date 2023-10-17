@@ -21238,6 +21238,19 @@
         "bzzr://1edadf32f7e6f04c0fb3994ce970b986842e46cfea3a03613bdebb1080c6b575",
         "dweb:/ipfs/QmSSVUWStzhFxV7mQDrWH8UNoe7MhiDvpTtpkD6yLTVBfD"
       ]
+    },
+    {
+      "path": "soljson-v0.8.22-nightly.2023.10.16+commit.e98f174d.js",
+      "version": "0.8.22",
+      "prerelease": "nightly.2023.10.16",
+      "build": "commit.e98f174d",
+      "longVersion": "0.8.22-nightly.2023.10.16+commit.e98f174d",
+      "keccak256": "0x6d04b866868cadae29f54502784ecc73623c2d9f3045eaf830fb6793e07510ed",
+      "sha256": "0x17c857151c7ae90e37e8162f73a6a081e40667f3d15848afc83f085f70a28b90",
+      "urls": [
+        "bzzr://4e10135f1cbe24475508d69c7f8abd86af7beb0a2a2de19b13880bb08b675edb",
+        "dweb:/ipfs/QmP8CdurCswNhbCJTvh3EfbfPMTeo27vD76GsjQGSKfbRv"
+      ]
     }
   ],
   "releases": {

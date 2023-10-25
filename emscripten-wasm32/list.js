@@ -1,5 +1,6 @@
 
 var soljsonSources = [
+  "solc-emscripten-wasm32-v0.8.22+commit.4fc1097e.js",
   "solc-emscripten-wasm32-v0.8.21+commit.d9974bed.js",
   "solc-emscripten-wasm32-v0.8.20+commit.a1b79de6.js",
   "solc-emscripten-wasm32-v0.8.19+commit.7dd6d404.js",
@@ -90,6 +91,7 @@ var soljsonSources = [
   "solc-emscripten-wasm32-v0.3.6+commit.3fc68da5.js"
 ];
 var soljsonReleases = {
+  "0.8.22": "solc-emscripten-wasm32-v0.8.22+commit.4fc1097e.js",
   "0.8.21": "solc-emscripten-wasm32-v0.8.21+commit.d9974bed.js",
   "0.8.20": "solc-emscripten-wasm32-v0.8.20+commit.a1b79de6.js",
   "0.8.19": "solc-emscripten-wasm32-v0.8.19+commit.7dd6d404.js",

@@ -1,3 +1,4 @@
+solc-windows-amd64-v0.8.22+commit.4fc1097e.exe
 solc-windows-amd64-v0.8.21+commit.d9974bed.exe
 solc-windows-amd64-v0.8.20+commit.a1b79de6.exe
 solc-windows-amd64-v0.8.19+commit.7dd6d404.exe

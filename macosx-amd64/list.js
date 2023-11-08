@@ -1,5 +1,6 @@
 
 var soljsonSources = [
+  "solc-macosx-amd64-v0.8.23+commit.f704f362",
   "solc-macosx-amd64-v0.8.22+commit.4fc1097e",
   "solc-macosx-amd64-v0.8.21+commit.d9974bed",
   "solc-macosx-amd64-v0.8.20+commit.a1b79de6",
@@ -91,6 +92,7 @@ var soljsonSources = [
   "solc-macosx-amd64-v0.3.6+commit.988fe5e5"
 ];
 var soljsonReleases = {
+  "0.8.23": "solc-macosx-amd64-v0.8.23+commit.f704f362",
   "0.8.22": "solc-macosx-amd64-v0.8.22+commit.4fc1097e",
   "0.8.21": "solc-macosx-amd64-v0.8.21+commit.d9974bed",
   "0.8.20": "solc-macosx-amd64-v0.8.20+commit.a1b79de6",

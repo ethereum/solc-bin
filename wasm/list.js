@@ -1,5 +1,6 @@
 
 var soljsonSources = [
+  "soljson-v0.8.24+commit.e11b9ed9.js",
   "soljson-v0.8.23+commit.f704f362.js",
   "soljson-v0.8.22+commit.4fc1097e.js",
   "soljson-v0.8.21+commit.d9974bed.js",
@@ -92,6 +93,7 @@ var soljsonSources = [
   "soljson-v0.3.6+commit.3fc68da5.js"
 ];
 var soljsonReleases = {
+  "0.8.24": "soljson-v0.8.24+commit.e11b9ed9.js",
   "0.8.23": "soljson-v0.8.23+commit.f704f362.js",
   "0.8.22": "soljson-v0.8.22+commit.4fc1097e.js",
   "0.8.21": "soljson-v0.8.21+commit.d9974bed.js",

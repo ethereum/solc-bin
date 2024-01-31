@@ -1,3 +1,4 @@
+soljson-v0.8.25-nightly.2024.1.30+commit.4577aebf.js
 soljson-v0.8.25-nightly.2024.1.26+commit.4edbaf1e.js
 soljson-v0.8.24+commit.e11b9ed9.js
 soljson-v0.8.24-nightly.2024.1.25+commit.7e7c45cb.js

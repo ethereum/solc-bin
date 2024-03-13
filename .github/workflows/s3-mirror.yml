@@ -43,12 +43,15 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
+          path: 'solc-bin'
 
       - name: Render README.md to HTML
         run: |
           pip install markdown
+          cd solc-bin/
           echo "<html><body>$(python -m markdown README.md)</body></html>" > README.html
 
       - name: Sync the S3 bucket
         run: |
+          cd solc-bin/
           ./sync-s3.sh "$S3_BUCKET" "$CLOUDFRONT_DISTRIBUTION_ID"

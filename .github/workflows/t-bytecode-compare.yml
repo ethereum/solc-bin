@@ -32,15 +32,16 @@ jobs:
         with:
           node-version: 16
 
-      - name: Remove unused software to free up space
-        # macOS runners apparently have > 70 GB free so it's only needed on Ubuntu
+      - name: Symlink solc-bin to /mnt/solc-bin
+        # It's now too big to fit on the main partition on Ubuntu. macOS runners are fine since
+        # they apparently have >70 GB available, but on Ubuntu it's mostly filled with software.
+        # NOTE: We don't clone to /mnt/solc-bin directly because the checkout action does not support that.
+        # See https://github.com/actions/checkout/issues/197
         if: "env.PLATFORM != 'macosx-amd64'"
         run: |
-          # These are quick to delete and large enough to make a difference
-          rm -rf /usr/share/swift/                         # 1.3 GB in 80 subdirs
-          rm -rf /usr/local/lib/android/sdk/build-tools/   # 2.1 GB in 450 subdirs
-          rm -rf /usr/share/dotnet/shared/                 # 5.3 GB in 350 subdirs
-          rm -rf /usr/local/lib/android/sdk/ndk/           # 7.6 GB in 1500 subdirs
+          sudo mkdir /mnt/solc-bin/
+          sudo chown "$USER" /mnt/solc-bin/
+          ln -s /mnt/solc-bin/ solc-bin
 
       - uses: actions/setup-python@v3
         with:

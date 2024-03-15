@@ -149,5 +149,6 @@ jobs:
 
       - name: Run add-nightly-and-push.sh
         run: |
+          soljson_path="${PWD}/soljson.js"
           cd solc-bin/
-          ./add-nightly-and-push.sh ../soljson.js "$NIGHTLY_VERSION"
+          ./add-nightly-and-push.sh "$soljson_path" "$NIGHTLY_VERSION"

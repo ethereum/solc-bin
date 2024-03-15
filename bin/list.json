@@ -21780,6 +21780,19 @@
         "bzzr://d201e60bd46193b11382988a854132b9e7fb0e1574cc766cb7f9efe8e44a680c",
         "dweb:/ipfs/QmdduJxmPXungjJk2FBDw1bdDQ6ucHxYGLXRMBJqMFW7h9"
       ]
+    },
+    {
+      "path": "soljson-v0.8.26-nightly.2024.3.15+commit.afda6984.js",
+      "version": "0.8.26",
+      "prerelease": "nightly.2024.3.15",
+      "build": "commit.afda6984",
+      "longVersion": "0.8.26-nightly.2024.3.15+commit.afda6984",
+      "keccak256": "0xe743aa061cc39fdc634a211f0a9dc9e1119c17529bbc727160880f4cf2566a58",
+      "sha256": "0x391e10924b1747ea175f656ef7570439bf252c4ae720823c2fd2856c9662643a",
+      "urls": [
+        "bzzr://bd68d4270770ac19a24a82c6e2fdf5d76ec035961fdd1148e5c85049239967e3",
+        "dweb:/ipfs/QmT8ydNNBJcBu5woG1fZcwy2o58ccF6FUAuUqE9FydqfxH"
+      ]
     }
   ],
   "releases": {

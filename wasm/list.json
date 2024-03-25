@@ -4,7 +4,7 @@
       "path": "soljson-v0.3.6+commit.3fc68da5.js",
       "version": "0.3.6",
       "build": "commit.3fc68da5",
-      "longVersion": "0.3.6+commit.3fc68da5",
+      "longVersion": "0.3.6-workaround+commit.3fc68da5",
       "keccak256": "0x4a1c2a6a4896edefd3a4178a6c3ed8f1de625bd7c00dd7cc5781a9f36236e7db",
       "sha256": "0xee7ba01680ed3a1c1cda236189a51c1e6ff99f6dca602a580e5b16441772b50b",
       "urls": [

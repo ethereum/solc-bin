@@ -89,4 +89,5 @@ solc-emscripten-wasm32-v0.4.3+commit.2353da71.js
 solc-emscripten-wasm32-v0.4.2+commit.af6afb04.js
 solc-emscripten-wasm32-v0.4.1+commit.4fc6fc2c.js
 solc-emscripten-wasm32-v0.4.0+commit.acd334c9.js
+solc-emscripten-wasm32-v0.3.6-workaround+commit.3fc68da5.js
 solc-emscripten-wasm32-v0.3.6+commit.3fc68da5.js

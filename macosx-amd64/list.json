@@ -4,7 +4,7 @@
       "path": "solc-macosx-amd64-v0.3.6+commit.988fe5e5",
       "version": "0.3.6",
       "build": "commit.988fe5e5",
-      "longVersion": "0.3.6+commit.988fe5e5",
+      "longVersion": "0.3.6-workaround+commit.988fe5e5",
       "keccak256": "0x662f94643bbc549d00fe7cfdbcdff504c78c697b10dcfca645d6082d464c1402",
       "sha256": "0x02d581b5b373d8160b9e75d690dd2ee898c3e0f6a39bbda54cd0698224c09df4",
       "urls": [

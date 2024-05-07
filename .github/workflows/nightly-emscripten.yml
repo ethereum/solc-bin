@@ -1,9 +1,9 @@
 name: Emscripten nightly build + push to solc-bin
 
 on:
-  schedule:
-    # Run once a day, at midnight
-    - cron: '0 0 * * *'
+  push:
+    # Action disabled. The filter excludes all the possible branch names.
+    branches: ["!*"]
 
 env:
   TARGET_BRANCH: gh-pages

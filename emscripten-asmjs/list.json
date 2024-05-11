@@ -4,7 +4,20 @@
       "path": "solc-emscripten-asmjs-v0.1.1+commit.6ff4cd6.js",
       "version": "0.1.1",
       "build": "commit.6ff4cd6",
-      "longVersion": "0.1.1+commit.6ff4cd6",
+      "longVersion": "0.1.1-workaround+commit.6ff4cd6",
+      "keccak256": "0xd8b8c64f4e9de41e6604e6ac30274eff5b80f831f8534f0ad85ec0aff466bb25",
+      "sha256": "0xfc54135edfe07d835216f87fa6c3b9049e1415c2825027b926daad018e09269f",
+      "urls": [
+        "bzzr://8f3c028825a1b72645f46920b67dca9432a87fc37a8940a2b2ce1dd6ddc2e29b",
+        "dweb:/ipfs/QmPPGxsMtQSEUt9hn9VAtrtBTa1u9S5KF1myw78epNNFkx"
+      ]
+    },
+    {
+      "path": "solc-emscripten-asmjs-v0.1.1-workaround+commit.6ff4cd6.js",
+      "version": "0.1.1",
+      "prerelease": "workaround",
+      "build": "commit.6ff4cd6",
+      "longVersion": "0.1.1-workaround-workaround+commit.6ff4cd6",
       "keccak256": "0xd8b8c64f4e9de41e6604e6ac30274eff5b80f831f8534f0ad85ec0aff466bb25",
       "sha256": "0xfc54135edfe07d835216f87fa6c3b9049e1415c2825027b926daad018e09269f",
       "urls": [
@@ -16,7 +29,20 @@
       "path": "solc-emscripten-asmjs-v0.1.2+commit.d0d36e3.js",
       "version": "0.1.2",
       "build": "commit.d0d36e3",
-      "longVersion": "0.1.2+commit.d0d36e3",
+      "longVersion": "0.1.2-workaround+commit.d0d36e3",
+      "keccak256": "0xa70b3d4acf77a303efa93c3ddcadd55b8762c7be109fd8f259ec7d6be654f03e",
+      "sha256": "0x7ad9fa9de246a33c5e5472127b6e0b6e713f3900c7ea360c7c2824f6e9202a0f",
+      "urls": [
+        "bzzr://e662d71e9b8e1b0311c129b962e678e5dd63487ad9b020ee539d7f74cd7392c9",
+        "dweb:/ipfs/QmWRGd4p3EUkvPh7QfFVoF829SdFFF2mhtsEsK6exaqdB4"
+      ]
+    },
+    {
+      "path": "solc-emscripten-asmjs-v0.1.2-workaround+commit.d0d36e3.js",
+      "version": "0.1.2",
+      "prerelease": "workaround",
+      "build": "commit.d0d36e3",
+      "longVersion": "0.1.2-workaround-workaround+commit.d0d36e3",
       "keccak256": "0xa70b3d4acf77a303efa93c3ddcadd55b8762c7be109fd8f259ec7d6be654f03e",
       "sha256": "0x7ad9fa9de246a33c5e5472127b6e0b6e713f3900c7ea360c7c2824f6e9202a0f",
       "urls": [
@@ -28,7 +54,20 @@
       "path": "solc-emscripten-asmjs-v0.1.3+commit.028f561d.js",
       "version": "0.1.3",
       "build": "commit.028f561d",
-      "longVersion": "0.1.3+commit.028f561d",
+      "longVersion": "0.1.3-workaround+commit.028f561d",
+      "keccak256": "0x39ac3bf19dd7749006b19243aab5bdfd1e92b93133a2fa236e9d61af957dd444",
+      "sha256": "0x1a806813a02d4925b180737aff1d58d6ee9bee38a528fb49dbbfd3e676d00a1c",
+      "urls": [
+        "bzzr://05a3b37b2d7823363272c5b5648e12f3737457430a1f4e4477f6c3467592f7df",
+        "dweb:/ipfs/QmeAjv4azyWQy7nZnPRChtGx3Uys2MygDc4LgzSsWDnWig"
+      ]
+    },
+    {
+      "path": "solc-emscripten-asmjs-v0.1.3-workaround+commit.028f561d.js",
+      "version": "0.1.3",
+      "prerelease": "workaround",
+      "build": "commit.028f561d",
+      "longVersion": "0.1.3-workaround-workaround+commit.028f561d",
       "keccak256": "0x39ac3bf19dd7749006b19243aab5bdfd1e92b93133a2fa236e9d61af957dd444",
       "sha256": "0x1a806813a02d4925b180737aff1d58d6ee9bee38a528fb49dbbfd3e676d00a1c",
       "urls": [
@@ -40,7 +79,20 @@
       "path": "solc-emscripten-asmjs-v0.1.4+commit.5f6c3cdf.js",
       "version": "0.1.4",
       "build": "commit.5f6c3cdf",
-      "longVersion": "0.1.4+commit.5f6c3cdf",
+      "longVersion": "0.1.4-workaround+commit.5f6c3cdf",
+      "keccak256": "0xc6b0944a8b55b534eb4eec02d3be54d26791ff60c99288ed5b2dc9c78ced32fe",
+      "sha256": "0x34a1e8b62b5eae88ee59e572c8f941a375d587a7f3c21b6d24f415452bdc7a15",
+      "urls": [
+        "bzzr://4da68f33bd6bf02fff03670b9501121f5ce75cc4a2a7fea657c22d3f4a625d57",
+        "dweb:/ipfs/QmXuvThTcmHUAH9uxTLzYqMN3ZSTGrPFQSmMgKfhwajVF3"
+      ]
+    },
+    {
+      "path": "solc-emscripten-asmjs-v0.1.4-workaround+commit.5f6c3cdf.js",
+      "version": "0.1.4",
+      "prerelease": "workaround",
+      "build": "commit.5f6c3cdf",
+      "longVersion": "0.1.4-workaround-workaround+commit.5f6c3cdf",
       "keccak256": "0xc6b0944a8b55b534eb4eec02d3be54d26791ff60c99288ed5b2dc9c78ced32fe",
       "sha256": "0x34a1e8b62b5eae88ee59e572c8f941a375d587a7f3c21b6d24f415452bdc7a15",
       "urls": [
@@ -52,7 +104,20 @@
       "path": "solc-emscripten-asmjs-v0.1.5+commit.23865e39.js",
       "version": "0.1.5",
       "build": "commit.23865e39",
-      "longVersion": "0.1.5+commit.23865e39",
+      "longVersion": "0.1.5-workaround+commit.23865e39",
+      "keccak256": "0x9639c043ae6df7267b0d904c334342e83c95bc3786dcb2b7d2a7c15c9f6ad916",
+      "sha256": "0x6c9bc5397f56746f928ce1d4e2522d2865052348d506f521b4f731f98f99c6df",
+      "urls": [
+        "bzzr://c6533d87a48abff42c084159156c7fea1fe4fc8c7ee5fa64edaaa944cfb55603",
+        "dweb:/ipfs/QmYpMSkjoHMGihr7xrzSzDCMJyXxBoeB8QqCyM367x3Twm"
+      ]
+    },
+    {
+      "path": "solc-emscripten-asmjs-v0.1.5-workaround+commit.23865e39.js",
+      "version": "0.1.5",
+      "prerelease": "workaround",
+      "build": "commit.23865e39",
+      "longVersion": "0.1.5-workaround-workaround+commit.23865e39",
       "keccak256": "0x9639c043ae6df7267b0d904c334342e83c95bc3786dcb2b7d2a7c15c9f6ad916",
       "sha256": "0x6c9bc5397f56746f928ce1d4e2522d2865052348d506f521b4f731f98f99c6df",
       "urls": [
@@ -64,7 +129,20 @@
       "path": "solc-emscripten-asmjs-v0.1.6+commit.d41f8b7c.js",
       "version": "0.1.6",
       "build": "commit.d41f8b7c",
-      "longVersion": "0.1.6+commit.d41f8b7c",
+      "longVersion": "0.1.6-workaround+commit.d41f8b7c",
+      "keccak256": "0x08610325fc49fb7dc244cf5adfd60a664c3cfb9d4845c90b30ef6f6abb748c60",
+      "sha256": "0xb2fcb4f707ad6545c8a65b70164c59d4555cd607b97204844d51a803917a4549",
+      "urls": [
+        "bzzr://e6eca935f031f31758db12507e10fe82d576a293b210caa3775c4246bb9679f2",
+        "dweb:/ipfs/QmZQFLgDnwS3jpR4KBAnWC4ihTixXmmCUdoBKGooJQDHJ2"
+      ]
+    },
+    {
+      "path": "solc-emscripten-asmjs-v0.1.6-workaround+commit.d41f8b7c.js",
+      "version": "0.1.6",
+      "prerelease": "workaround",
+      "build": "commit.d41f8b7c",
+      "longVersion": "0.1.6-workaround-workaround+commit.d41f8b7c",
       "keccak256": "0x08610325fc49fb7dc244cf5adfd60a664c3cfb9d4845c90b30ef6f6abb748c60",
       "sha256": "0xb2fcb4f707ad6545c8a65b70164c59d4555cd607b97204844d51a803917a4549",
       "urls": [
@@ -76,7 +154,20 @@
       "path": "solc-emscripten-asmjs-v0.1.7+commit.b4e666cc.js",
       "version": "0.1.7",
       "build": "commit.b4e666cc",
-      "longVersion": "0.1.7+commit.b4e666cc",
+      "longVersion": "0.1.7-workaround+commit.b4e666cc",
+      "keccak256": "0x90567736ca352a90da3bb8cec7e9f7c5793ec6a77686ed4a87f373b456781e09",
+      "sha256": "0x41a0cbd38f6fb957ed3748688078f6e6186d9a2e8b6706de9a63dbf65c62ffd3",
+      "urls": [
+        "bzzr://84c85953cb16cfb7da8f75b09853ced60ddc3b36de6b2570cd66032a6fe0e802",
+        "dweb:/ipfs/QmQKXN99fA1rAi6B4wEt6vBDqEjXsZbepuTBxkUeLdc6Cf"
+      ]
+    },
+    {
+      "path": "solc-emscripten-asmjs-v0.1.7-workaround+commit.b4e666cc.js",
+      "version": "0.1.7",
+      "prerelease": "workaround",
+      "build": "commit.b4e666cc",
+      "longVersion": "0.1.7-workaround-workaround+commit.b4e666cc",
       "keccak256": "0x90567736ca352a90da3bb8cec7e9f7c5793ec6a77686ed4a87f373b456781e09",
       "sha256": "0x41a0cbd38f6fb957ed3748688078f6e6186d9a2e8b6706de9a63dbf65c62ffd3",
       "urls": [
@@ -88,7 +179,20 @@
       "path": "solc-emscripten-asmjs-v0.2.0+commit.4dc2445e.js",
       "version": "0.2.0",
       "build": "commit.4dc2445e",
-      "longVersion": "0.2.0+commit.4dc2445e",
+      "longVersion": "0.2.0-workaround+commit.4dc2445e",
+      "keccak256": "0x7d8ea0312905d250ec7554bd84526c3d97d05f6d5748888e6ec00629bd3ea7a6",
+      "sha256": "0x0fa8617f2180be99751704256f2a50f05321a99a5a1aa537543c4fa7516dedfb",
+      "urls": [
+        "bzzr://0848ea1ded5b47cbae17d915810d1bf0857d9ea625cb332a0da68550cb27c699",
+        "dweb:/ipfs/QmSBMT6wATobR4wsfGiAEZnmrWYbWT1od2DCufRe7nfR8E"
+      ]
+    },
+    {
+      "path": "solc-emscripten-asmjs-v0.2.0-workaround+commit.4dc2445e.js",
+      "version": "0.2.0",
+      "prerelease": "workaround",
+      "build": "commit.4dc2445e",
+      "longVersion": "0.2.0-workaround-workaround+commit.4dc2445e",
       "keccak256": "0x7d8ea0312905d250ec7554bd84526c3d97d05f6d5748888e6ec00629bd3ea7a6",
       "sha256": "0x0fa8617f2180be99751704256f2a50f05321a99a5a1aa537543c4fa7516dedfb",
       "urls": [
@@ -100,7 +204,20 @@
       "path": "solc-emscripten-asmjs-v0.2.1+commit.91a6b35f.js",
       "version": "0.2.1",
       "build": "commit.91a6b35f",
-      "longVersion": "0.2.1+commit.91a6b35f",
+      "longVersion": "0.2.1-workaround+commit.91a6b35f",
+      "keccak256": "0x7067e5792a88111c06a7078a23358641a64d0fa273b5220bfa5212029352dbe9",
+      "sha256": "0x1f954fc43414ac9012125c6080e007508bd8502bfa180d23c3033aa6943c4550",
+      "urls": [
+        "bzzr://5b84475c0815ab9cd44ca5b4dcf4cd14d5f7db0bf3077fc825234b648305b277",
+        "dweb:/ipfs/QmZhD1pVi51kF63twouEb4ZGGtPQt8f45fPcoVZHZxWuwq"
+      ]
+    },
+    {
+      "path": "solc-emscripten-asmjs-v0.2.1-workaround+commit.91a6b35f.js",
+      "version": "0.2.1",
+      "prerelease": "workaround",
+      "build": "commit.91a6b35f",
+      "longVersion": "0.2.1-workaround-workaround+commit.91a6b35f",
       "keccak256": "0x7067e5792a88111c06a7078a23358641a64d0fa273b5220bfa5212029352dbe9",
       "sha256": "0x1f954fc43414ac9012125c6080e007508bd8502bfa180d23c3033aa6943c4550",
       "urls": [
@@ -112,7 +229,20 @@
       "path": "solc-emscripten-asmjs-v0.2.2+commit.ef92f566.js",
       "version": "0.2.2",
       "build": "commit.ef92f566",
-      "longVersion": "0.2.2+commit.ef92f566",
+      "longVersion": "0.2.2-workaround+commit.ef92f566",
+      "keccak256": "0xd7b4eac4e3bf9a128f4729fa44f2efbd865739d1fc513ad3a21129fea333502d",
+      "sha256": "0x04f5e3c386833a5a0e15e204dec859a2499c8d7da69b89544e475c25004c4602",
+      "urls": [
+        "bzzr://18452b4e52d051af96e6b1331a5d123bbe3bf6c52592b59b41325502b5eadd7c",
+        "dweb:/ipfs/QmbKmiNg1L6SBeETW2CoszXW8XycbX8EcFbsUbToSy35Ec"
+      ]
+    },
+    {
+      "path": "solc-emscripten-asmjs-v0.2.2-workaround+commit.ef92f566.js",
+      "version": "0.2.2",
+      "prerelease": "workaround",
+      "build": "commit.ef92f566",
+      "longVersion": "0.2.2-workaround-workaround+commit.ef92f566",
       "keccak256": "0xd7b4eac4e3bf9a128f4729fa44f2efbd865739d1fc513ad3a21129fea333502d",
       "sha256": "0x04f5e3c386833a5a0e15e204dec859a2499c8d7da69b89544e475c25004c4602",
       "urls": [
@@ -124,7 +254,20 @@
       "path": "solc-emscripten-asmjs-v0.3.0+commit.11d67369.js",
       "version": "0.3.0",
       "build": "commit.11d67369",
-      "longVersion": "0.3.0+commit.11d67369",
+      "longVersion": "0.3.0-workaround+commit.11d67369",
+      "keccak256": "0x454d35224a9aa036650acc809cf01f1f161aac5387f57e597b6e543eaf03ffd8",
+      "sha256": "0xd936d1b755582da12f0d11acd3bdb85050c40dfcb779d736d8929ca2e50de9d1",
+      "urls": [
+        "bzzr://23b5bb211fecf22617061fdba5037f1b82ac1e53e7cd031684fff8d16722826c",
+        "dweb:/ipfs/QmVGkLXrv2j8ps84tX7jQfBD5ESFYMGo9vhwEAbtsQsKHA"
+      ]
+    },
+    {
+      "path": "solc-emscripten-asmjs-v0.3.0-workaround+commit.11d67369.js",
+      "version": "0.3.0",
+      "prerelease": "workaround",
+      "build": "commit.11d67369",
+      "longVersion": "0.3.0-workaround-workaround+commit.11d67369",
       "keccak256": "0x454d35224a9aa036650acc809cf01f1f161aac5387f57e597b6e543eaf03ffd8",
       "sha256": "0xd936d1b755582da12f0d11acd3bdb85050c40dfcb779d736d8929ca2e50de9d1",
       "urls": [
@@ -136,7 +279,20 @@
       "path": "solc-emscripten-asmjs-v0.3.1+commit.c492d9be.js",
       "version": "0.3.1",
       "build": "commit.c492d9be",
-      "longVersion": "0.3.1+commit.c492d9be",
+      "longVersion": "0.3.1-workaround+commit.c492d9be",
+      "keccak256": "0x17b583f06e82c007ca0daf40344a12b5d93e85dd31969f076ecfe705db6d360c",
+      "sha256": "0xaa7c0b18821a2f23c09da479d803f73976011445d2b512cf23e4a31d1a268bd5",
+      "urls": [
+        "bzzr://2b86d6491012ec3289a22ee1c2fd6a093e68dd0d93675177f9a92c1f795b9415",
+        "dweb:/ipfs/QmZiWoPyohpifswK4QAyBHubCAnqXHzXRxiv1Hq2bB3iyE"
+      ]
+    },
+    {
+      "path": "solc-emscripten-asmjs-v0.3.1-workaround+commit.c492d9be.js",
+      "version": "0.3.1",
+      "prerelease": "workaround",
+      "build": "commit.c492d9be",
+      "longVersion": "0.3.1-workaround-workaround+commit.c492d9be",
       "keccak256": "0x17b583f06e82c007ca0daf40344a12b5d93e85dd31969f076ecfe705db6d360c",
       "sha256": "0xaa7c0b18821a2f23c09da479d803f73976011445d2b512cf23e4a31d1a268bd5",
       "urls": [
@@ -148,7 +304,20 @@
       "path": "solc-emscripten-asmjs-v0.3.2+commit.81ae2a78.js",
       "version": "0.3.2",
       "build": "commit.81ae2a78",
-      "longVersion": "0.3.2+commit.81ae2a78",
+      "longVersion": "0.3.2-workaround+commit.81ae2a78",
+      "keccak256": "0x44064048f215bd393fa394964d6c7e29d31c98053312b0536ce4ba3c5948c25b",
+      "sha256": "0xa6dd551109f4f316d9b6a469fa5066f94653db9682d28058eeeec49ae0eadfc4",
+      "urls": [
+        "bzzr://b14059a11e929ff53add0629e12162b3071135da21d86d1769f53a1cc224c6b5",
+        "dweb:/ipfs/QmaUBG4aatMXVivmBzEjzqGtAQhD6zNFfmnaqU8fUxmBy1"
+      ]
+    },
+    {
+      "path": "solc-emscripten-asmjs-v0.3.2-workaround+commit.81ae2a78.js",
+      "version": "0.3.2",
+      "prerelease": "workaround",
+      "build": "commit.81ae2a78",
+      "longVersion": "0.3.2-workaround-workaround+commit.81ae2a78",
       "keccak256": "0x44064048f215bd393fa394964d6c7e29d31c98053312b0536ce4ba3c5948c25b",
       "sha256": "0xa6dd551109f4f316d9b6a469fa5066f94653db9682d28058eeeec49ae0eadfc4",
       "urls": [
@@ -160,7 +329,20 @@
       "path": "solc-emscripten-asmjs-v0.3.3+commit.4dc1cb14.js",
       "version": "0.3.3",
       "build": "commit.4dc1cb14",
-      "longVersion": "0.3.3+commit.4dc1cb14",
+      "longVersion": "0.3.3-workaround+commit.4dc1cb14",
+      "keccak256": "0xc7e1f69fc0fd67be01a07ac60fdd085425d0a93f04affe696e24d2f9145ee742",
+      "sha256": "0x91a9569b69fc7f6676014bbd265d29efb09338b96d5880943bd6f1836e213b0c",
+      "urls": [
+        "bzzr://046fe63be520a7cbfe99a031fe6c94bdfef8c1af66823d003c10cfaa6a645c23",
+        "dweb:/ipfs/QmNhg5AjrnTzG7PZV5ASUWpm68ff8MUjB8JdsAuNHua4Zd"
+      ]
+    },
+    {
+      "path": "solc-emscripten-asmjs-v0.3.3-workaround+commit.4dc1cb14.js",
+      "version": "0.3.3",
+      "prerelease": "workaround",
+      "build": "commit.4dc1cb14",
+      "longVersion": "0.3.3-workaround-workaround+commit.4dc1cb14",
       "keccak256": "0xc7e1f69fc0fd67be01a07ac60fdd085425d0a93f04affe696e24d2f9145ee742",
       "sha256": "0x91a9569b69fc7f6676014bbd265d29efb09338b96d5880943bd6f1836e213b0c",
       "urls": [
@@ -172,7 +354,20 @@
       "path": "solc-emscripten-asmjs-v0.3.4+commit.7dab8902.js",
       "version": "0.3.4",
       "build": "commit.7dab8902",
-      "longVersion": "0.3.4+commit.7dab8902",
+      "longVersion": "0.3.4-workaround+commit.7dab8902",
+      "keccak256": "0x14496dd7e58f65f6d1a14efe54f0ecb45d4784d0f7e86f64b6ae09dff054bee6",
+      "sha256": "0xc49cc2e003871c9255dfdf4afcd79b8d5b30a46236b71c7379ef442d12ad2fee",
+      "urls": [
+        "bzzr://ea06d3e1b3607b098a9cfc0abfc1df872d2734a3671d6212dea100089cbb2216",
+        "dweb:/ipfs/QmRUQpExWxf5R8FrUUCi11jguqhKNiTETKiXmK7CZ2tCtf"
+      ]
+    },
+    {
+      "path": "solc-emscripten-asmjs-v0.3.4-workaround+commit.7dab8902.js",
+      "version": "0.3.4",
+      "prerelease": "workaround",
+      "build": "commit.7dab8902",
+      "longVersion": "0.3.4-workaround-workaround+commit.7dab8902",
       "keccak256": "0x14496dd7e58f65f6d1a14efe54f0ecb45d4784d0f7e86f64b6ae09dff054bee6",
       "sha256": "0xc49cc2e003871c9255dfdf4afcd79b8d5b30a46236b71c7379ef442d12ad2fee",
       "urls": [
@@ -184,7 +379,20 @@
       "path": "solc-emscripten-asmjs-v0.3.5+commit.5f97274a.js",
       "version": "0.3.5",
       "build": "commit.5f97274a",
-      "longVersion": "0.3.5+commit.5f97274a",
+      "longVersion": "0.3.5-workaround+commit.5f97274a",
+      "keccak256": "0x814bf4e5eacbb1849ea12377f5935b1fd846ff1af5ffa2afeef2619f94273994",
+      "sha256": "0x3af892fabc38b975b96a242b13e0b6465d9c09f505ea11932c60b982c0d37705",
+      "urls": [
+        "bzzr://18acaee3f543de385d445ad0e0f96b506a5a78ea36feb22e79b984f0ea9500de",
+        "dweb:/ipfs/QmaHD5nZjQLVqVEdPyHJyaxEP46BAHSdYBXeeFtUb2bK82"
+      ]
+    },
+    {
+      "path": "solc-emscripten-asmjs-v0.3.5-workaround+commit.5f97274a.js",
+      "version": "0.3.5",
+      "prerelease": "workaround",
+      "build": "commit.5f97274a",
+      "longVersion": "0.3.5-workaround-workaround+commit.5f97274a",
       "keccak256": "0x814bf4e5eacbb1849ea12377f5935b1fd846ff1af5ffa2afeef2619f94273994",
       "sha256": "0x3af892fabc38b975b96a242b13e0b6465d9c09f505ea11932c60b982c0d37705",
       "urls": [
@@ -196,7 +404,20 @@
       "path": "solc-emscripten-asmjs-v0.3.6+commit.3fc68da5.js",
       "version": "0.3.6",
       "build": "commit.3fc68da5",
-      "longVersion": "0.3.6+commit.3fc68da5",
+      "longVersion": "0.3.6-workaround+commit.3fc68da5",
+      "keccak256": "0xca308f787d878ece018898f1a731de2760c23d95dea77345263d28a286010e22",
+      "sha256": "0xe6092a90398b8519fe2ad7c582074b806e365ebd55fc86d7d2d5c27513732373",
+      "urls": [
+        "bzzr://980e9ced0a6e1c174fa9f2244536f1ef1017b1cb2758bfd5993c54bc6c0debe7",
+        "dweb:/ipfs/QmXcSiETZMMhrxqN5BMNS7hCAkxJnPN2PAZEGnPgDKdAv6"
+      ]
+    },
+    {
+      "path": "solc-emscripten-asmjs-v0.3.6-workaround+commit.3fc68da5.js",
+      "version": "0.3.6",
+      "prerelease": "workaround",
+      "build": "commit.3fc68da5",
+      "longVersion": "0.3.6-workaround-workaround+commit.3fc68da5",
       "keccak256": "0xca308f787d878ece018898f1a731de2760c23d95dea77345263d28a286010e22",
       "sha256": "0xe6092a90398b8519fe2ad7c582074b806e365ebd55fc86d7d2d5c27513732373",
       "urls": [

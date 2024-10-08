@@ -19,3 +19,4 @@ replacement. This allows us to make changes to the underlying hosting in a trans
 minimize disruption. Unlike the `ethereum.github.io` domain, which we do not have any control
 over, `binaries.soliditylang.org` is guaranteed to work and maintain the same URL structure
 in the long-term.
+ 

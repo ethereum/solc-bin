@@ -87,6 +87,18 @@ jobs:
           # We need more than just a single revision to be able to use diff
           fetch-depth: 0
 
+      - name: Patch bytecode script to use develop branch for unreleased versions
+        run: |
+          SCRIPT="solidity/scripts/solc-bin/bytecode_reports_for_modified_binaries.sh"
+
+          # Use develop branch instead of version-specific branch
+          sed -i.bak 's/--branch "v\${solidity_version}"/--branch "develop"/' "$SCRIPT"
+
+          # Patch validation to accept CI builds by stripping -ci.DATE before comparison
+          sed -i.bak '84s|sed -E .*|sed -E '\''s/^[[:space:]]*([0-9.]+)(-ci\\.[0-9.]+)?(\\+commit\\.[0-9a-f]+).*/\\1\\3/'\''|' "$SCRIPT"
+
+          rm -f "$SCRIPT.bak"
+
       - name: Generate reports from matching release binaries
         run: |
           base_dir="$PWD"

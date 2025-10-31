@@ -9,7 +9,6 @@ env:
   TARGET_BRANCH: gh-pages
   COMMITTER_NAME: emscripten nightly action
   COMMITTER_EMAIL: builds@argot.org
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   build-emscripten-nightly:

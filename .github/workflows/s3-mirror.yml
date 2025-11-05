@@ -56,3 +56,14 @@ jobs:
         run: |
           cd solc-bin/
           ./sync-s3.sh "$S3_BUCKET" "$CLOUDFRONT_DISTRIBUTION_ID"
+
+      - name: Sync the R2 bucket
+        run: |
+          cd solc-bin/
+          ./sync-r2.sh \
+            '${{ secrets.R2_ACCOUNT_ID }}' \
+            '${{ secrets.R2_ZONE }}' \
+            '${{ secrets.R2_BUCKET_NAME }}' \
+            '${{ secrets.CLOUDFLARE_ZONE_ID }}' \
+            '${{ secrets.CLOUDFLARE_CACHE_HOST }}' \
+            '${{ secrets.CLOUDFLARE_API_TOKEN }}'

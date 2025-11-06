@@ -81,13 +81,7 @@ purge_paths=(
 )
 while IFS= read -r path; do
     purge_paths+=("/${path}")
-done < <(find . -wholename '*/list.*' | cut --characters 2-)
-while IFS= read -r path; do
-    purge_paths+=("/${path}")
-done < <(find . -wholename '*/*-latest' | cut --characters 2-)
-while IFS= read -r path; do
-    purge_paths+=("/${path}")
-done < <(find . -wholename '*/*-latest.*' | cut --characters 2-)
+done < <(find . \( -wholename '*/list.*' -o -wholename '*/*-latest' -o -wholename '*/*-latest.*' \) | cut --characters 2-)
 
 purge_payload='{"files":['
 separator=""

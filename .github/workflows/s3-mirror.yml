@@ -57,6 +57,12 @@ jobs:
           cd solc-bin/
           ./sync-s3.sh "$S3_BUCKET" "$CLOUDFRONT_DISTRIBUTION_ID"
 
+      - name: Configure the R2 client
+        run: |
+          aws configure set default.region "$S3_REGION"
+          aws configure set aws_access_key_id '${{ secrets.CLOUDFLARE_ACCESS_KEY_ID }}'
+          aws configure set aws_secret_access_key '${{ secrets.CLOUDFLARE_SECRET_ACCESS_KEY }}'
+
       - name: Sync the R2 bucket
         run: |
           cd solc-bin/

@@ -76,6 +76,7 @@ jobs:
         with:
           repository: 'argotorg/solidity'
           path: 'solidity/'
+          ref: 'c064f12ce88221a791098680d42610fb43dbe05d'
           # bytecode_reports_for_modified_binaries.sh requires access to a working copy with full history
           fetch-depth: 0
           submodules: 'recursive'
@@ -128,6 +129,7 @@ jobs:
         with:
           repository: 'argotorg/solidity'
           path: 'solidity/'
+          ref: 'c064f12ce88221a791098680d42610fb43dbe05d'
           submodules: 'recursive'
 
       - name: Download all artifacts

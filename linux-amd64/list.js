@@ -1,5 +1,6 @@
 
 var soljsonSources = [
+  "solc-linux-amd64-v0.8.31-ci.2025.11.13+commit.c064f12c",
   "solc-linux-amd64-v0.8.30+commit.73712a01",
   "solc-linux-amd64-v0.8.29+commit.ab55807c",
   "solc-linux-amd64-v0.8.28+commit.7893614a",

@@ -34,6 +34,7 @@ var soljsonSources = [
   "soljson-v0.8.31-nightly.2025.5.13+commit.f5d54888.js",
   "soljson-v0.8.31-nightly.2025.5.12+commit.47f859b9.js",
   "soljson-v0.8.31-nightly.2025.5.7+commit.9f2ca6c9.js",
+  "soljson-v0.8.31-ci.2025.11.13+commit.c064f12c.js",
   "soljson-v0.8.30+commit.73712a01.js",
   "soljson-v0.8.30-nightly.2025.5.6+commit.d0bae617.js",
   "soljson-v0.8.30-nightly.2025.4.28+commit.b136829e.js",

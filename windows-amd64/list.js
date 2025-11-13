@@ -1,5 +1,6 @@
 
 var soljsonSources = [
+  "solc-windows-amd64-v0.8.31-ci.2025.11.13+commit.c064f12c.exe",
   "solc-windows-amd64-v0.8.30+commit.73712a01.exe",
   "solc-windows-amd64-v0.8.29+commit.ab55807c.exe",
   "solc-windows-amd64-v0.8.28+commit.7893614a.exe",

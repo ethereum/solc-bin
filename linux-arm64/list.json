@@ -1,0 +1,17 @@
+{
+  "builds": [
+    {
+      "path": "solc-linux-arm64-v0.8.31-ci.2025.11.13+commit.c064f12c",
+      "version": "0.8.31",
+      "prerelease": "ci.2025.11.13",
+      "build": "commit.c064f12c",
+      "longVersion": "0.8.31-ci.2025.11.13+commit.c064f12c",
+      "keccak256": "0x25f99a59f760d5ef1bb1b25d4e8ac74c102ff36963d5a3633d84fce423d00d01",
+      "sha256": "0xf150ed547d7acbc174380cb4424cd31004b61ac479c52645d4d903a8aeb13c54",
+      "urls": [
+        "dweb:/ipfs/QmSEZGx3cjdoZ6nsfZh3TR3WVDhf5sohKxu1qexyETjSsk"
+      ]
+    }
+  ],
+  "releases": {}
+}

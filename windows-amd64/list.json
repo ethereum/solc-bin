@@ -1022,6 +1022,18 @@
       "urls": [
         "dweb:/ipfs/QmPxesvy2H43dyCwYs5cntJHuv7uEeddcbXMP1f8XMsMH2"
       ]
+    },
+    {
+      "path": "solc-windows-amd64-v0.8.31-ci.2025.11.13+commit.c064f12c.exe",
+      "version": "0.8.31",
+      "prerelease": "ci.2025.11.13",
+      "build": "commit.c064f12c",
+      "longVersion": "0.8.31-ci.2025.11.13+commit.c064f12c",
+      "keccak256": "0x8031363f7a793003afda16986394fbd53de14dd5adee1609f03f9161f918f05c",
+      "sha256": "0x1ad0dcbe01a794763e405712e2dd8c23383eebb6bf91adcd659c709b4b50eed9",
+      "urls": [
+        "dweb:/ipfs/QmSmjYkqKaCTKC8zg1PeZaSmnUQHGHB2SWKULLLCSwy7oF"
+      ]
     }
   ],
   "releases": {

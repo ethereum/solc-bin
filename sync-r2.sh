@@ -86,13 +86,10 @@ while IFS= read -r path; do
     purge_paths+=("/${path}")
 done < <(find . \( -wholename '*/list.*' -o -wholename '*/*-latest' -o -wholename '*/*-latest.*' \) | cut --characters 2-)
 
-purge_payload='{"files":['
-separator=""
-for path in "${purge_paths[@]}"; do
-    purge_payload+="${separator}\"https://${cloudflare_cache_host}${path}\""
-    separator=","
-done
-purge_payload+=']}'
+purge_payload="$(jq --null-input \
+    --arg host "https://${cloudflare_cache_host}" \
+    '{"files": ($ARGS.positional | map($host + .))}' \
+    --args -- "${purge_paths[@]}")"
 
 curl --fail --show-error --silent \
     -X POST "https://api.cloudflare.com/client/v4/zones/${cloudflare_zone_id}/purge_cache" \

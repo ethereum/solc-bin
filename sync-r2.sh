@@ -98,5 +98,4 @@ curl --fail --show-error --silent \
     -X POST "https://api.cloudflare.com/client/v4/zones/${cloudflare_zone_id}/purge_cache" \
     -H "Authorization: Bearer ${cloudflare_api_token}" \
     -H "Content-Type: application/json" \
-    --data "$purge_payload" \
-    >/dev/null
+    --data "$purge_payload"

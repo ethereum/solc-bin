@@ -62,13 +62,7 @@ echo "===> Removing files that should not be uploaded to the bucket"
 find . -path './.*' -delete
 find . -path './_*' -delete
 
-echo "===> Adding compatibility symlinks for files containing plus signs in the name"
-# NOTE: This is a quick'n'dirty workaround for Amazon S3 decoding plus sign in paths
-# as a space even though this substitution is only supposed to happen in a query string.
-# See https://forums.aws.amazon.com/thread.jspa?threadID=55746
-find . \
-    -regex "^\(.*/\)*[^/]*\+[^/]*$" \
-    -exec bash -c 'ln --symbolic --no-target-directory "$(basename "{}")" "$(dirname "{}")/$(basename "{}" | tr "+" " ")"' \;
+# R2 serves keys containing '+' correctly, so we skip the S3-specific symlink workaround that still exists in sync-s3.sh.
 
 echo "===> Syncing binaries with the Cloudflare R2 bucket"
 aws --endpoint-url "$r2_endpoint" s3 sync . "$r2_bucket_uri" --delete --follow-symlinks --no-progress --exclude "*/list.*"

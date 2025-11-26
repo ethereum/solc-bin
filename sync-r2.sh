@@ -83,7 +83,8 @@ done < <(find . \( -wholename '*/list.*' -o -wholename '*/*-latest' -o -wholenam
 purge_payload="$(jq --null-input \
     --arg host "https://${cloudflare_cache_host}" \
     '{"files": ($ARGS.positional | map($host + .))}' \
-    --args -- "${purge_paths[@]}")"
+    --args -- "${purge_paths[@]}"
+)"
 
 curl --fail --show-error --silent \
     -X POST "https://api.cloudflare.com/client/v4/zones/${cloudflare_zone_id}/purge_cache" \

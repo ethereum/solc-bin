@@ -1,4 +1,4 @@
-name: Mirror repository content to an S3 bucket
+name: Mirror repository content to storage buckets
 
 on:
   push:
@@ -21,7 +21,7 @@ env:
   CLOUDFLARE_CACHE_HOST: binaries.soliditylang-test.org
 
 jobs:
-  push-to-s3:
+  mirror-content:
     runs-on: ubuntu-latest
     timeout-minutes: 30
 

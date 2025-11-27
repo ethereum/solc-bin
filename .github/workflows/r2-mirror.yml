@@ -1,0 +1,65 @@
+name: Mirror repository content to R2 storage bucket
+
+on:
+  push:
+    branches:
+      - gh-pages
+
+  schedule:
+    # Pushes to `gh-pages` done from other actions cannot trigger this action so we also want it to run
+    # on a schedule. Let's give the nightly job a 1h head-start and run every day at 1:00.
+    - cron: "0 1 * * *"
+
+env:
+  R2_BUCKET: solc-bin
+  R2_ACCOUNT_ID: 1fbd136205d2c780838f0d2c014bf69c
+  R2_ZONE: EEUR
+  CLOUDFLARE_ZONE_ID: d63261269eeac3abf4c1b2f52e71ae1b
+  CLOUDFLARE_CACHE_HOST: binaries.soliditylang-test.org
+
+jobs:
+  mirror-content:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Symlink solc-bin to /mnt/solc-bin
+        # It's now too big to fit on the main partition on Ubuntu, which is mostly filled with software.
+        run: |
+          sudo mkdir /mnt/solc-bin/
+          sudo chown "$USER" /mnt/solc-bin/
+          ln -s /mnt/solc-bin/ solc-bin
+
+      - name: Wait for other instances of this workflow to finish
+        # It's not safe to run two S3 sync operations concurrently with different files
+        uses: softprops/turnstyle@v1
+        with:
+          same-branch-only: no
+          poll-interval-seconds: 120 # in seconds
+
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          path: "solc-bin"
+
+      - name: Render README.md to HTML
+        run: |
+          pip install markdown
+          cd solc-bin/
+          echo "<html><body>$(python -m markdown README.md)</body></html>" > README.html
+
+      - name: Configure the R2 client
+        run: |
+          aws configure set aws_access_key_id '${{ secrets.CLOUDFLARE_ACCESS_KEY_ID }}'
+          aws configure set aws_secret_access_key '${{ secrets.CLOUDFLARE_SECRET_ACCESS_KEY }}'
+
+      - name: Sync the R2 bucket
+        run: |
+          cd solc-bin/
+          ./sync-r2.sh \
+            "$R2_ACCOUNT_ID" \
+            "$R2_ZONE" \
+            "$R2_BUCKET" \
+            "$CLOUDFLARE_ZONE_ID" \
+            "$CLOUDFLARE_CACHE_HOST" \
+            '${{ secrets.CLOUDFLARE_API_TOKEN }}'

@@ -19,9 +19,6 @@
 # When running multiple instances of this script concurrently on different
 # revisions it's theoretically possible to end up with any combination of
 # their files in the bucket so it should be avoided.
-# If `sync-s3.sh` was run beforehand the timestamp/cleanup/symlink steps
-# below will run twice; they are currently idempotent, so keep any additions
-# in this area safe to repeat.
 #
 # WARNING: The script destructively modifies the working copy. Always run it
 # on a fresh clone!

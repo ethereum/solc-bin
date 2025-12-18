@@ -75,13 +75,16 @@ purge_paths=(
 )
 while IFS= read -r path; do
     purge_paths+=("/${path}")
-done < <(find . \( -wholename '*/list.*' -o -wholename '*/*-latest' -o -wholename '*/*-latest.*' \) | cut --characters 2-)
+done < <(find . \( -wholename '*/list.*' -o -wholename '*/*-latest' -o -wholename '*/*-latest.*' \) | cut -c 2-)
 
 purge_payload="$(jq --null-input \
     --arg host "https://${cloudflare_cache_host}" \
     '{"files": ($ARGS.positional | map($host + .))}' \
     --args -- "${purge_paths[@]}"
 )"
+
+# Print the payload to check purged files
+echo $purge_payload
 
 curl --fail --show-error --silent \
     -X POST "https://api.cloudflare.com/client/v4/zones/${cloudflare_zone_id}/purge_cache" \

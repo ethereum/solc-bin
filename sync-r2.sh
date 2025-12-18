@@ -74,7 +74,7 @@ purge_paths=(
     "/soljson.js"
 )
 while IFS= read -r path; do
-    purge_paths+=("/${path}")
+    purge_paths+=("${path}")
 done < <(find . \( -wholename '*/list.*' -o -wholename '*/*-latest' -o -wholename '*/*-latest.*' \) | cut -c 2-)
 
 purge_payload="$(jq --null-input \

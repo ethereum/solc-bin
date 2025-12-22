@@ -84,7 +84,7 @@ purge_payload="$(jq --null-input \
 )"
 
 # Print the payload to check purged files
-echo $purge_payload
+echo "$purge_payload"
 
 curl --fail --show-error --silent \
     -X POST "https://api.cloudflare.com/client/v4/zones/${cloudflare_zone_id}/purge_cache" \

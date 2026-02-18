@@ -1067,9 +1067,21 @@
       "urls": [
         "dweb:/ipfs/QmPovRHDg2De9K83wDVszy9PexA7bCrzBSyLkk6bC18KZu"
       ]
+    },
+    {
+      "path": "solc-windows-amd64-v0.8.34+commit.80d5c536.exe",
+      "version": "0.8.34",
+      "build": "commit.80d5c536",
+      "longVersion": "0.8.34+commit.80d5c536",
+      "keccak256": "0x05a19129eaafe1aea9549eefaba5096cc52a9d154df8576a62ee6d3da5672da8",
+      "sha256": "0x98657c736ca36c8baf6cedef028d0e74e6af3efcf32e08f16788d061350a0981",
+      "urls": [
+        "dweb:/ipfs/QmciNeDvWg4xVDMPoGuQyDNdHe3ZDmncJbvBuoTU7zhTaV"
+      ]
     }
   ],
   "releases": {
+    "0.8.34": "solc-windows-amd64-v0.8.34+commit.80d5c536.exe",
     "0.8.33": "solc-windows-amd64-v0.8.33+commit.64118f21.exe",
     "0.8.32": "solc-windows-amd64-v0.8.32+commit.ebbd65e5.exe",
     "0.8.31": "solc-windows-amd64-v0.8.31+commit.fd3a2265.exe",
@@ -1167,5 +1179,5 @@
     "0.4.2": "solc-windows-amd64-v0.4.2+commit.af6afb04.zip",
     "0.4.1": "solc-windows-amd64-v0.4.1+commit.4fc6fc2c.zip"
   },
-  "latestRelease": "0.8.33"
+  "latestRelease": "0.8.34"
 }

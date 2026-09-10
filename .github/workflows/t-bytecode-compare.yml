@@ -52,8 +52,7 @@ jobs:
             /usr/local/lib/node_modules \
             /usr/local/share/chromium \
             /usr/local/share/powershell \
-            /usr/share/dotnet \
-            /usr/share/swift
+            /usr/share/dotnet
           df -h /
 
       - name: Symlink solc-bin to /mnt/solc-bin

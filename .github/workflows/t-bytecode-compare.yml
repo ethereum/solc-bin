@@ -35,7 +35,7 @@ jobs:
       - name: Free Disk Space Before Build
         if: "env.PLATFORM == 'macosx-amd64'"
         run: |
-          df -hI /dev/disk3s1s1
+          df -h /
           sudo rm -rf /Applications/Xcode_14.3.1.app
           sudo rm -rf /Applications/Xcode_15.0.1.app
           sudo rm -rf /Applications/Xcode_15.1.app
@@ -52,9 +52,8 @@ jobs:
             /usr/local/lib/node_modules \
             /usr/local/share/chromium \
             /usr/local/share/powershell \
-            /usr/share/dotnet \
-            /usr/share/swift
-          df -hI /dev/disk3s1s1
+            /usr/share/dotnet
+          df -h /
 
       - name: Symlink solc-bin to /mnt/solc-bin
         # It's now too big to fit on the main partition on Ubuntu. macOS runners are fine since

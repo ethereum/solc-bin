@@ -21,6 +21,9 @@ jobs:
   mirror-content:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    permissions:
+      contents: read
+      actions: read
 
     steps:
       - name: Symlink solc-bin to /mnt/solc-bin
@@ -36,6 +39,8 @@ jobs:
         with:
           same-branch-only: no
           poll-interval-seconds: 120 # in seconds
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: actions/checkout@v4
         with:
